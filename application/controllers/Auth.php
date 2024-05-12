@@ -61,22 +61,23 @@ class Auth extends CI_Controller {
     public function process_login()
     {
       $username = $this->input->post('username');
-      $password = $this->input->post('password_customer');
+      $password = $this->input->post('password');
 
       $customer = $this->customer_model->get_username($username, $password);
+      // var_dump($customer);
 
       if ($customer){
-        $customer_data = array (
+        $customer_data = array(
           'id_tamu' => $customer->id_tamu,
           'username' => $customer->username,
           'logged_in' => true
-        );
+        );    
 
         $this->session->set_userdata($customer_data);
         redirect('Auth/Register');
 
       } else {
-        redirect('Auth/Login');
+        print("haloo");
       }
     }
 }
