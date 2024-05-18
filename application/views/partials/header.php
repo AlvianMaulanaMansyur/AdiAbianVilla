@@ -10,50 +10,13 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.css" rel="stylesheet" />
     <link rel="stylesheet" type="text/css" href="<?php echo base_url('lightpick/css/lightpick.css') ?>">
     <script src="https://cdn.jsdelivr.net/npm/moment/min/moment.min.js"></script>
-
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 
     <title><?php echo $title ?></title>
 
     <script>
         var base_url = '<?php echo base_url(); ?>';
     </script>
-
-<style>
-        .daterangepicker {
-            z-index: 1050;
-            border: none;
-            border-radius: 0.375rem; /* Tailwind's rounded-md */
-            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05); /* Tailwind's shadow-lg */
-        }
-        .daterangepicker .calendar-table {
-            background-color: #ffffff; /* Tailwind's bg-white */
-            border-radius: 0.375rem; /* Tailwind's rounded-md */
-        }
-        .daterangepicker td, .daterangepicker th {
-            padding: 0.5rem; /* Tailwind's p-2 */
-        }
-        .daterangepicker .calendar-table .week, .daterangepicker .drp-buttons {
-            color: #3b82f6; /* Tailwind's text-blue-500 */
-        }
-        .daterangepicker .drp-calendar {
-            border: none; /* Remove border */
-        }
-        .daterangepicker .ranges li.active {
-            background-color: #3b82f6; /* Tailwind's bg-blue-500 */
-            color: #ffffff; /* Tailwind's text-white */
-        }
-        .daterangepicker .drp-buttons .btn-primary {
-            background-color: #3b82f6; /* Tailwind's bg-blue-500 */
-            color: #ffffff; /* Tailwind's text-white */
-        }
-        .daterangepicker .drp-buttons .btn-secondary {
-            background-color: #f3f4f6; /* Tailwind's bg-gray-200 */
-            color: #374151; /* Tailwind's text-gray-800 */
-        }
-        .daterangepicker td.disabled, .daterangepicker td.disabled:hover {
-            color: #9ca3af; /* Tailwind's text-gray-400 */
-            background-color: #f9fafb; /* Tailwind's bg-gray-50 */
-            text-decoration: none;
-        }
-    </style>
 </head>
