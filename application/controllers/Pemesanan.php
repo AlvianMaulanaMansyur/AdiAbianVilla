@@ -103,7 +103,7 @@ class Pemesanan extends CI_Controller {
         $this->load->view('partials/main', $data);
     }
 
-    public function editPemesanan($id_pemesanan) {
+     public function editPemesanan($id_pemesanan) {
         $pemesanan = $this->M_pemesanan->getPemesananById($id_pemesanan);
         $data = [
             'title' => 'Tamu',

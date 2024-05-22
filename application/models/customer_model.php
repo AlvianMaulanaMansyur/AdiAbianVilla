@@ -32,6 +32,37 @@ class customer_model extends CI_Model {
         return $query->result_array();
     }
 
+    public function check_email_exists($email)
+    {
+        $this->db->where('email', $email);
+        $query = $this->db->get('tamu');
+        return $query->num_rows() > 0 ;
+    }
+
+    public function create_password($email, $password)
+    {
+        $hash = password_hash($password, PASSWORD_DEFAULT);
+        $data = array (
+            'email' => $email,
+            'password' => $hash
+        );
+        return $this->db->insert('tamu', $data);
+    }
+
+    public function verify_pass($email, $password)
+    {
+        $this->db->where('email', $email);
+        $query = $this->db->get('tamu');
+        $user = $query->row();
+
+        if ($user && password_verify($password, $user->password))
+        {
+            return $user;
+        } else {
+            return false;
+        }
+    }
+
 }
 
 
