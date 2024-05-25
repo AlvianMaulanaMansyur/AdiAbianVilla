@@ -53,70 +53,88 @@ class Auth extends CI_Controller
   public function Login()
   {
 
-    
-    $data = [
-      'title' => 'Login',
-      'header' => 'partials/header',
-      'content' => 'partials/loginRegister/loginCustomer',
-      'script' => 'partials/script',
+    $this->form_validation->set_rules('email', 'Email', 'trim|required|valid_email');
 
-    ];
+    if ($this->form_validation->run() === FALSE) {
+      # code...
+      $data = [
+        'title' => 'Login',
+        'header' => 'partials/header',
+        'content' => 'partials/loginRegister/loginCustomer',
+        'script' => 'partials/script',
+      ];
+    } else {
+      $email = $this->input->post('email');
+      if ($this->customer_model->check_email_exists($email)) {
+        $data = [
+          'title' => 'Login',
+          'header' => 'partials/header',
+          'email' => $email,
+          'content' => 'partials/loginRegister/formPass',
+          'script' => 'partials/script',
+        ];
+      } else {
+        $data = [
+          'title' => 'Login',
+          'email' => $email,
+          'header' => 'partials/header',
+          'content' => 'partials/loginRegister/createPass',
+          'script' => 'partials/script',
+        ];
+      }
+    }
     $this->load->view('partials/main', $data);
   }
 
-  public function check_email()
+  public function verify_password()
   {
-    $email = $this->input->post('email');
-    $exist =  $this->customer_model->check_email_exists($email);
-    echo json_encode(['existed' => $exist]);
-  }
+    $this->form_validation->set_rules('email', 'Email', 'trim|required|valid_email');
+    $this->form_validation->set_rules('password', 'Password', 'trim|required');
 
-  public function create_password()
-  {
-    $email = $this->input->post('email');
-    $password = $this->input->post('password');
-    $result = $this->customer_model->create_password($email, $password);
-    if ($result) {
-      echo json_encode(['status' => 'success', 'message' => 'Account created successfully.']);
-  } else {
-      echo json_encode(['status' => 'error', 'message' => 'Failed to create account.']);
-  }
-  }
+    if ($this->form_validation->run() == FALSE)
+    {
+      redirect('auth/login');
+    } else {
+      $email = $this->input->post('email');
+      $password = $this->input->post('password');
 
-  
-  public function process_login()
-  {
-    $email = $this->input->post('email');
-    $password = $this->input->post('password');
-    $is_valid = $this->customer_model->verify_pass($email, $password);
-
-    if ($is_valid){
-      $customer_data = array(
-        'id_tamu' => $is_valid->id_tamu,
-        'logged_in' => true
-      );
-      
-      $this->session->set_userdata($customer_data);
-      print('halo');
-    } else{
-
+      if ($this->customer_model->verify_pass($email, $password))
+      {
+        redirect('auth/register');
+      } else {
+        $data = [
+          'title' => 'Login',
+          'email' => $email,
+          'header' => 'partials/header',
+          'content' => 'partials/loginRegister/formPass',
+          'script' => 'partials/script',
+          'error' => 'Incorect Password'
+        ];
+      } 
     }
-      // $customer = $this->customer_model->get_username($username, $password);
-      // // var_dump($customer);
-
-      // if ($customer) {
-      //   $customer_data = array(
-      //     'id_tamu' => $customer->id_tamu,
-      //     'username' => $customer->username,
-      //     'logged_in' => true
-      //   );
-
-      //   $this->session->set_userdata($customer_data);
-      //   redirect('Auth/Register');
-      // } else {
-      //   redirect('Auth/Login');
-      // }
+    $this->load->view('partials/main', $data);
   }
+
+  public function createPass(){
+    $this->form_validation->set_rules('email', 'Email', 'trim|required|valid_email');
+    $this->form_validation->set_rules('password', 'Password', 'trim|required');
+
+    if ($this->form_validation->run() == FALSE) {
+      # code...
+      redirect('auth/login');
+    } else {
+      # code...
+      $email = $this->input->post('email');
+      $password = $this->input->post('password');
+      
+      $data = [
+        'email' => $email,
+        'password' => password_hash($password, PASSWORD_DEFAULT)
+      ];
+      $this->db->insert('tamu', $data);
+      redirect('mainmenu');
+    }
+  } 
 }
 
 /* End of file Controllername.php */

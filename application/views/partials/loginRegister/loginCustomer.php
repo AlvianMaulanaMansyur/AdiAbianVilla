@@ -1,10 +1,16 @@
 <body>
-<form id="email-form">
-        <input type="email" name="email" id="email" placeholder="Email" required>
-        <button type="submit">Next</button>
+    <form action="<?= site_url('auth/login'); ?>" method="post">
+        <label class="input input-bordered flex items-center gap-2">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" class="w-4 h-4 opacity-70">
+                <path d="M2.5 3A1.5 1.5 0 0 0 1 4.5v.793c.026.009.051.02.076.032L7.674 8.51c.206.1.446.1.652 0l6.598-3.185A.755.755 0 0 1 15 5.293V4.5A1.5 1.5 0 0 0 13.5 3h-11Z" />
+                <path d="M15 6.954 8.978 9.86a2.25 2.25 0 0 1-1.956 0L1 6.954V11.5A1.5 1.5 0 0 0 2.5 13h11a1.5 1.5 0 0 0 1.5-1.5V6.954Z" />
+            </svg>
+            <input type="text" class="grow" placeholder="Email" />
+        </label>
     </form>
 
-    <form id="password-form" style="display:none;">
+
+    <!-- <form id="password-form" style="display:none;">
         <input type="password" name="password" id="password" placeholder="Password" required>
         <button type="submit">Login</button>
     </form>
@@ -12,56 +18,5 @@
     <form id="create-password-form" style="display:none;">
         <input type="password" name="new_password" id="new_password" placeholder="Create Password" required>
         <button type="submit">Create Password</button>
-    </form>
+    </form> -->
 </body>
-
-<script>
-    $(document).ready(function() {
-    $('#email-form').on('submit', function(e) {
-        e.preventDefault();
-        var email = $('#email').val();
-        console.log("Email submitted: " + email);
-
-        $.post("<?php echo site_url('auth/check_email'); ?>", { email: email }, function(data) {
-            console.log("Response received: " + data);
-            var response = JSON.parse(data);
-            if (response.exists) {
-                $('#password-form').show();
-                $('#create-password-form').hide();
-            } else {
-                $('#create-password-form').show();
-                $('#password-form').hide();
-            }
-        }).fail(function(jqXHR, textStatus, errorThrown) {
-            console.error("Request failed: " + textStatus + ", " + errorThrown);
-        });
-    });
-
-    $('#password-form').on('submit', function(e) {
-        e.preventDefault();
-        var email = $('#email').val();
-        var password = $('#password').val();
-
-        $.post("<?php echo site_url('auth/process_login'); ?>", { email: email, password: password }, function(data) {
-            var response = JSON.parse(data);
-            if (response.success) {
-                window.location.href = "<?php echo site_url('main'); ?>";
-            } else {
-                alert(response.message);
-            }
-        });
-    });
-
-    $('#create-password-form').on('submit', function(e) {
-        e.preventDefault();
-        var email = $('#email').val();
-        var newPassword = $('#new_password').val();
-
-        $.post("<?php echo site_url('auth/create_password'); ?>", { email: email, password: newPassword }, function(data) {
-            console.log("Create password response: " + data);
-            // Handle create password response
-        });
-    });
-});
-
-</script>
