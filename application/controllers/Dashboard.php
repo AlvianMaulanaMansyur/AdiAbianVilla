@@ -13,6 +13,19 @@ class Dashboard extends CI_Controller {
         $this->load->model('customer_model');
     }
     
+    public function main()
+    {
+        $data = [
+            'title' => 'Adi Abian Villa Dashboard',
+            'header' => 'dashboard/header',
+            'navbar' => 'dashboard/navbar',
+            'sidebar' => 'dashboard/sidebar',
+            'content' => 'dashboard/test',
+            'footer' => 'dashboard/footer',
+            'script' => 'dashboard/script'
+        ];
+        $this->load->view('dashboard/main', $data);
+    }
 
     public function userdata()
     {
