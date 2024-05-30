@@ -14,7 +14,6 @@ class Tamu extends CI_Controller {
     public function index()
     {
         $tamu = $this->M_tamu->getTamu();
-
         $data = [
             'title' => 'Tamu',
             'header' => 'partials/header',

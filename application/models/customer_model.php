@@ -11,17 +11,6 @@ class customer_model extends CI_Model {
        
     }
 
-    // public function get_data_tamu($id_tamu)
-    // {
-    //     // ngambil data customer di database
-    //     $this->db->where('id_tamu', $id_tamu);
-    //     $query = $this->db->get('tamu');
-
-    //     // disimpan dalam bentuk array dan dikembalikan 
-    //     $query = $query->result_array();
-    //     return $query [0];
-    // }
-
     public function get_data_tamu(){
         return $this->db->get('tamu')->result_array();
     }
@@ -32,6 +21,24 @@ class customer_model extends CI_Model {
         return $query->result_array();
     }
 
+    public function check_email_exists($email)
+    {
+        $this->db->where('email', $email);
+        $query = $this->db->get('tamu');
+        return $query->num_rows() > 0 ;
+    }
+
+    public function verify_pass($email, $password)
+    {
+        $this->db->where('email', $email);
+        $query = $this->db->get('tamu');
+        if ($query->num_rows() == 1) {
+            $customer = $query->row();
+            return password_verify($password, $customer->password);
+        } else {
+            return FALSE;
+        }
+    }
 }
 
 
