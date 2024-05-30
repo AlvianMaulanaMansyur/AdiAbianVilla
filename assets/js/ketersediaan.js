@@ -16,18 +16,23 @@ document.addEventListener('DOMContentLoaded', function () {
     function formatDate(date) {
         return getDaySuffix(date.date()) + " " + date.format('MMMM YYYY');
     }
-
+    var numberOfMonths = window.innerWidth < 640 ? 1 : 2;
     var picker = new Lightpick({
+        
         field: document.getElementById('datepicker'),
-        singleDate: false,
+        secondField: document.getElementById('datepicker2'),
+        parentEl: document.getElementById('datepicker-section'),
         inline: true,
-        numberOfMonths: 2,
+        numberOfMonths: numberOfMonths,
         minDate: new Date(),
         onSelect: function(start, end) {
-            var str = '';
-            str += start ? formatDate(start) : '';
-            str += end ? ' to ' + formatDate(end) : '...';
-            document.getElementById('datepicker').value = str;
+            var strs = '';
+            var stre = '';
+            strs = start ? formatDate(start) : '';
+            stre = end ? formatDate(end) : '...';
+            document.getElementById('datepicker').value = strs;
+            document.getElementById('datepicker2').value = stre;
+
 
             if (start && end) {
                 const dateRange = start.format('YYYY-MM-DD') + ' - ' + end.format('YYYY-MM-DD');
@@ -41,6 +46,8 @@ document.addEventListener('DOMContentLoaded', function () {
                     dataType: "json",
                     success: function(response) {
                         console.log(response.availability); // Tampilkan respons dari server pada konsol
+                        console.log(response.detail); // Tampilkan respons dari server pada konsol
+                        console.log(response.real); // Tampilkan respons dari server pada konsol
                         document.getElementById('availability').innerHTML = response.availability.length;
                     },
                     error: function(xhr, status, error) {
