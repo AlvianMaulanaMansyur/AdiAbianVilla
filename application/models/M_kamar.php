@@ -27,8 +27,9 @@ class M_kamar extends CI_Model
         $this->db->from('kamar');
         $this->db->join('kamar_has_pemesanan', 'kamar.id_kamar = kamar_has_pemesanan.id_kamar');
         $this->db->join('pemesanan', 'kamar_has_pemesanan.id_pemesanan = pemesanan.id_pemesanan');
-        $this->db->where('(pemesanan.tgl_checkIn >= ' . $this->db->escape($tanggal_check_in) . ' AND pemesanan.tgl_checkOut <= ' . $this->db->escape($tanggal_check_out) . ')');
-        $this->db->or_where('(pemesanan.tgl_checkIn > ' . $this->db->escape($tanggal_check_out) . ' AND pemesanan.tgl_checkOut IS NULL)');
+        $this->db->where('pemesanan.tgl_checkIn >= ',$tanggal_check_in);
+        $this->db->where('pemesanan.tgl_checkOut <= ',$tanggal_check_out);
+        
         $this->db->group_by('kamar.id_kamar');
         $query = $this->db->get();
 
