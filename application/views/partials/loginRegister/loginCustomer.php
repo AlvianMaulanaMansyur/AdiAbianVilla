@@ -1,67 +1,27 @@
 <body>
-<form id="email-form">
-        <input type="email" name="email" id="email" placeholder="Email" required>
-        <button type="submit">Next</button>
-    </form>
-
-    <form id="password-form" style="display:none;">
-        <input type="password" name="password" id="password" placeholder="Password" required>
-        <button type="submit">Login</button>
-    </form>
-
-    <form id="create-password-form" style="display:none;">
-        <input type="password" name="new_password" id="new_password" placeholder="Create Password" required>
-        <button type="submit">Create Password</button>
-    </form>
+    <div class="flex justify-center items-center min-h-screen bg-gray-100">
+        <img src="<?php echo base_url('assets/images/loginregistIMG/bgLogin.jpg') ?>" alt="background" class="z-0 absolute blur-sm w-screen h-screen">
+        <div class="container w-4/12 h-96 border-2 bg-white rounded-md p-12 z-10">
+            <div class=" w-100 ">
+                <div class=" mx-auto">
+                    <p class="flex justify-center align-items-center text-green-600 font-bold text-3xl">Adi Abian <span class="text-black"> Villa</span></p>
+                    <p class="font-bold text-md">Sign in or Create Account</p>
+                    <form action="<?= site_url('auth/login'); ?>" method="post" class="pt-3">
+                        <div class="form-group">
+                            <h5>Email or Username</h5>
+                            <input type="email" class="form-control form-control-lg" placeholder="Username or username" name="email">
+                        </div>
+                        <div class=" w-full  mt-3">
+                            <input class="px-32 d-grid btn btn-primary btn-md" type="submit" value="continue">
+                                <!-- <a class="btn btn-primary btn-md">Continue</a> -->
+                            </input>
+                        </div>
+                        <div class="my-2 d-flex justify-content-end align-items-center">
+                            <a href="#" class="auth-link text-black">Forgot password?</a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
 </body>
-
-<script>
-    $(document).ready(function() {
-    $('#email-form').on('submit', function(e) {
-        e.preventDefault();
-        var email = $('#email').val();
-        console.log("Email submitted: " + email);
-
-        $.post("<?php echo site_url('auth/check_email'); ?>", { email: email }, function(data) {
-            console.log("Response received: " + data);
-            var response = JSON.parse(data);
-            if (response.exists) {
-                $('#password-form').show();
-                $('#create-password-form').hide();
-            } else {
-                $('#create-password-form').show();
-                $('#password-form').hide();
-            }
-        }).fail(function(jqXHR, textStatus, errorThrown) {
-            console.error("Request failed: " + textStatus + ", " + errorThrown);
-        });
-    });
-
-    $('#password-form').on('submit', function(e) {
-        e.preventDefault();
-        var email = $('#email').val();
-        var password = $('#password').val();
-
-        $.post("<?php echo site_url('auth/process_login'); ?>", { email: email, password: password }, function(data) {
-            var response = JSON.parse(data);
-            if (response.success) {
-                window.location.href = "<?php echo site_url('main'); ?>";
-            } else {
-                alert(response.message);
-            }
-        });
-    });
-
-    $('#create-password-form').on('submit', function(e) {
-        e.preventDefault();
-        var email = $('#email').val();
-        var newPassword = $('#new_password').val();
-
-        $.post("<?php echo site_url('auth/create_password'); ?>", { email: email, password: newPassword }, function(data) {
-            console.log("Create password response: " + data);
-            // Handle create password response
-        });
-    });
-});
-
-</script>

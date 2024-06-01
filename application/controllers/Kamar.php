@@ -20,7 +20,16 @@ class Kamar extends CI_Controller {
         ];
         $this->load->view('partials/main', $data);
     }
-    
+    public function carousel()
+    {
+        $data = [
+            'title' => 'Calendar',
+            'header' => 'partials/header',
+            'content' => 'kamar/carousel',
+            'script' => 'partials/script'
+        ];
+        $this->load->view('kamar/carousel', $data);
+    }
     public function ketersediaanKamar() {
         // $kamar = $this->M_kamar->getKamarByTime();
 
@@ -36,12 +45,16 @@ class Kamar extends CI_Controller {
             $this->session->set_userdata('checkout', $checkout);
 
             $ketersediaan = $this->M_kamar->ketersediaan($checkin, $checkout);
-    
+            $detail_ketersediaan = $this->M_kamar->detailKetersediaan($checkin, $checkout);
+            $real_ketersediaan = $this->M_kamar->gabungKetersediaan($checkin, $checkout);
+            // var_dump($detail_ketersediaan);
             $response = array(
                 'status' => 'success',
                 'message' => 'Data ketersediaan kamar berhasil diambil',
                 'dateRange' => $dateRange,
                 'availability' => $ketersediaan,
+                'detail' => $detail_ketersediaan,
+                'real' => $real_ketersediaan,
             );
     
             echo json_encode($response);

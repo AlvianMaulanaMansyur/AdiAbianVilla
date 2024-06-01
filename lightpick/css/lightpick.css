@@ -95,7 +95,7 @@
 .lightpick__toolbar {
     display: flex;
     text-align: right;
-    justify-content: space-between;
+    justify-content: flex-end;
 }
 
 .lightpick__previous-action,
@@ -244,7 +244,7 @@
 
 .lightpick__tooltip {
     position: absolute;
-    margin-top: -44px;
+    margin-top: -55px;
     padding: 4px 8px;
     border-radius: 4px;
     background-color: #FFF;
