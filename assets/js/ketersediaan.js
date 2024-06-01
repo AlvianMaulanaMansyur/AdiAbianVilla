@@ -40,7 +40,7 @@ document.addEventListener('DOMContentLoaded', function () {
                     },
                     dataType: "json",
                     success: function(response) {
-                        console.log(response.availability); // Tampilkan respons dari server pada konsol
+                        console.log(response.real); // Tampilkan respons dari server pada konsol
                         document.getElementById('availability').innerHTML = response.availability.length;
                     },
                     error: function(xhr, status, error) {
