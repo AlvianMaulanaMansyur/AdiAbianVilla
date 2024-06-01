@@ -154,6 +154,7 @@
                     <h1 class="text-lg block text-white font-bold mb-2">Cek Ketersediaan</h1>
                     <div class="input-container">
                         <div>
+                           <img src="<?php echo base_url('assets/foto/check-in.png') ?>" class="text-white w-10" alt=""> 
                         <label class="block text-white text-sm font-bold mb-2">
                             Check-in
                         </label>
@@ -177,7 +178,7 @@
     <form action="<?php echo base_url('kamar/datakamar') ?>" method="post">
         <div id="data-kamar" class="flex justify-center content-center">
             <div class="flex">
-                <div>Ketersediaan kamar:</div>
+                <div class="text-white">Ketersediaan kamar:</div>
                 <h1 id="availability" class="mb-4"></h1>
             </div>
             <div class="flex">

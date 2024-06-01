@@ -48,7 +48,7 @@ document.addEventListener('DOMContentLoaded', function () {
                         console.log(response.availability); // Tampilkan respons dari server pada konsol
                         console.log(response.detail); // Tampilkan respons dari server pada konsol
                         console.log(response.real); // Tampilkan respons dari server pada konsol
-                        document.getElementById('availability').innerHTML = response.availability.length;
+                        document.getElementById('availability').innerHTML = response.real.length;
                     },
                     error: function(xhr, status, error) {
                         console.error(xhr.responseText); // Tampilkan pesan error jika permintaan gagal
