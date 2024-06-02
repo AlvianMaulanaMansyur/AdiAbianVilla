@@ -47,7 +47,8 @@ class Kamar extends CI_Controller {
             $ketersediaan = $this->M_kamar->ketersediaan($checkin, $checkout);
             $detail_ketersediaan = $this->M_kamar->detailKetersediaan($checkin, $checkout);
             $real_ketersediaan = $this->M_kamar->gabungKetersediaan($checkin, $checkout);
-            // $kamar = $this->M_kamar->getKamar();
+
+            $tampil = $this->M_kamar->tampilkamar();
             // var_dump($detail_ketersediaan);
             $response = array(
                 'status' => 'success',
@@ -56,7 +57,7 @@ class Kamar extends CI_Controller {
                 'availability' => $ketersediaan,
                 'detail' => $detail_ketersediaan,
                 'real' => $real_ketersediaan,
-                // 'kamar' => $kamar
+                'tampil' => $tampil
             );
     
             echo json_encode($response);
@@ -79,7 +80,9 @@ class Kamar extends CI_Controller {
 
     public function datepicker() {
         $this->load->view('kamar/lightpick',);
+
     }
+    
 
 }
 

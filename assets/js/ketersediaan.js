@@ -47,8 +47,27 @@ document.addEventListener('DOMContentLoaded', function () {
                         console.log(response.availability); // Tampilkan respons dari server pada konsol
                         console.log(response.detail); // Tampilkan respons dari server pada konsol
                         console.log(response.real); // Tampilkan respons dari server pada konsol
-                        console.log(response.kamar); // Tampilkan respons dari server pada konsol
-                        document.getElementById('availability').innerHTML = response.availability.length;
+                        console.log(response.tampil); // Tampilkan respons dari server pada konsol
+                        
+                        // Menggunakan nilai dari respons untuk memperbarui tabel
+                        var availabilityElement = $('#availability');
+                        var roomsTable = $('#rooms-table');
+                        roomsTable.empty(); // Kosongkan tabel sebelum mengisinya kembali
+
+                        response.availability.forEach(function(room) {
+                            var roomRow = '<tr>' +
+                                '<td class="border border-gray-500 px-4 py-2">' + room.id_kamar + '</td>' +
+                                '<td class="border border-gray-500 px-4 py-2">' + room.no_kamar + '</td>' +
+                                '<td class="border border-gray-500 px-4 py-2">' + room.tgl_checkIn + '</td>' +
+                                '<td class="border border-gray-500 px-4 py-2">' + room.tgl_checkOut + '</td>' +
+                                '</td>' +
+                                '</tr>';
+                            roomsTable.append(roomRow);
+                            console.log(room); 
+                        });
+                        
+
+                        availabilityElement.html(response.availability.length);
                     },
                     error: function(xhr, status, error) {
                         console.error(xhr.responseText); // Tampilkan pesan error jika permintaan gagal
