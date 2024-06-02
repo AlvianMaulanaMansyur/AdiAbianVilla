@@ -33,7 +33,6 @@ document.addEventListener('DOMContentLoaded', function () {
             document.getElementById('datepicker').value = strs;
             document.getElementById('datepicker2').value = stre;
 
-
             if (start && end) {
                 const dateRange = start.format('YYYY-MM-DD') + ' - ' + end.format('YYYY-MM-DD');
                 console.log('Selected date range: ' + dateRange);
@@ -48,7 +47,8 @@ document.addEventListener('DOMContentLoaded', function () {
                         console.log(response.availability); // Tampilkan respons dari server pada konsol
                         console.log(response.detail); // Tampilkan respons dari server pada konsol
                         console.log(response.real); // Tampilkan respons dari server pada konsol
-                        document.getElementById('availability').innerHTML = response.real.length;
+                        console.log(response.kamar); // Tampilkan respons dari server pada konsol
+                        document.getElementById('availability').innerHTML = response.availability.length;
                     },
                     error: function(xhr, status, error) {
                         console.error(xhr.responseText); // Tampilkan pesan error jika permintaan gagal
