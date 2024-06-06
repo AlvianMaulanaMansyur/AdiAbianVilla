@@ -12,6 +12,43 @@ class Auth extends CI_Controller
     $this->load->model('customer_model');
   }
 
+  public function Register()
+  {
+    $this->form_validation->set_rules('username', 'Username', 'required|min_length[8]|trim', array(
+      'required' => 'username cannot be empty!',
+      'min_length' => 'username must be at least 8 characters!',
+    ));
+    $this->form_validation->set_rules('password', 'Password', 'required', array(
+      'required' => 'password cannot be empty!',
+    ));
+    $this->form_validation->set_rules('email', 'Email', 'required|trim', array(
+      'required' => 'email cannot be empty!',
+    ));
+
+    if ($this->form_validation->run() == False) {
+      $data = [
+        'title' => 'Register',
+        'header' => 'partials/header',
+        'content' => 'partials/loginRegister/register',
+        'script' => 'partials/script',
+
+      ];
+      $this->load->view('partials/main', $data);
+    } else {
+      $username = $this->input->post('username');
+      $password = $this->input->post('password');
+      $email = $this->input->post('email');
+
+      $data = array(
+        'username' => $username,
+        'password' => $password,
+        'email' => $email,
+      );
+
+      $this->db->insert('tamu', $data);
+      redirect('Auth/login');
+    }
+  }
 
   public function Login()
   {
@@ -76,9 +113,9 @@ class Auth extends CI_Controller
           'script' => 'partials/script',
           'error' => 'Incorect Password'
         ];
-        $this->load->view('partials/main', $data);
-      }
+      } 
     }
+    $this->load->view('partials/main', $data);
   }
 
   public function createPass()
