@@ -1,6 +1,4 @@
 <body>
-
-
     <body>
     <div class="flex justify-center items-center min-h-screen bg-gray-100">
         <img src="<?php echo base_url('assets/images/loginregistIMG/bgLogin.jpg')?>" alt="background" class="z-0 absolute blur-sm w-screen h-screen">
@@ -15,7 +13,7 @@
                             <input type="password" class="form-control form-control-lg" placeholder="Enter your password" name="password" required>
                         </div>
                         <div class="mt-3 d-grid gap-2">
-                            <a class="btn btn-primary btn-md">Continue</a>
+                            <button type="submit" class="btn btn-primary btn-md">Continue</button>
                         </div>
                         <div class="my-2 d-flex justify-content-end align-items-center">
                             <a href="#" class="auth-link text-black">Forgot password?</a>
