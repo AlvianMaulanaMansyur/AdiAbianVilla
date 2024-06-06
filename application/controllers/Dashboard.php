@@ -13,13 +13,14 @@ class Dashboard extends CI_Controller
         //Do your magic here
         $this->load->model('customer_model');
         $this->load->model('M_dashboard');
+        
+        if (empty($this->session->userdata('username'))) {
+            redirect('Authadmin/login');
+        }
     }
 
     public function main()
-    {
-        if (!$this->session->userdata('logged_in')) {
-            redirect('auth/login');
-        } else {
+    {   
             $data = [
                 'title' => 'Adi Abian Villa Dashboard',
                 'header' => 'dashboard/header',
@@ -30,21 +31,8 @@ class Dashboard extends CI_Controller
                 'script' => 'dashboard/script'
             ];
             $this->load->view('dashboard/main', $data);
-        }
     }
 
-    public function userdata()
-    {
-        $customer = $this->customer_model->get_data_tamu();
-        $data = [
-            'title' => 'Guest Data',
-            'header' => 'partials/header',
-            'content' => 'partials/dashboard/allDataCustomer',
-            'customer' => $customer,
-        ];
-
-        $this->load->view('partials/main', $data);
-    }
 
 
     public function index()

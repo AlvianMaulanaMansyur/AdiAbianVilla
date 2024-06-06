@@ -12,44 +12,7 @@ class Auth extends CI_Controller
     $this->load->model('customer_model');
   }
 
-  public function Register()
-  {
-    $this->form_validation->set_rules('username', 'Username', 'required|min_length[8]|trim', array(
-      'required' => 'username cannot be empty!',
-      'min_length' => 'username must be at least 8 characters!',
-    ));
-    $this->form_validation->set_rules('password', 'Password', 'required', array(
-      'required' => 'password cannot be empty!',
-    ));
-    $this->form_validation->set_rules('email', 'Email', 'required|trim', array(
-      'required' => 'email cannot be empty!',
-    ));
-
-    if ($this->form_validation->run() == False) {
-      $data = [
-        'title' => 'Register',
-        'header' => 'partials/header',
-        'content' => 'partials/loginRegister/register',
-        'script' => 'partials/script',
-
-      ];
-      $this->load->view('partials/main', $data);
-    } else {
-      $username = $this->input->post('username');
-      $password = $this->input->post('password');
-      $email = $this->input->post('email');
-
-      $data = array(
-        'username' => $username,
-        'password' => $password,
-        'email' => $email,
-      );
-
-      $this->db->insert('tamu', $data);
-      redirect('Auth/login');
-    }
-  }
-
+  
   public function Login()
   {
     $this->form_validation->set_rules('identity', 'Username or Email', 'trim|required');
@@ -85,38 +48,45 @@ class Auth extends CI_Controller
     $this->load->view('partials/main', $data);
   }
 
-  public function verify_password()
-  {
+  public function verify_password() {
     $this->form_validation->set_rules('identity', 'Username or Email', 'trim|required');
     $this->form_validation->set_rules('password', 'Password', 'trim|required');
 
     if ($this->form_validation->run() == FALSE) {
-      redirect('auth/login');
-
-    } else {
-      $identity = $this->input->post('identity');
-      $password = $this->input->post('password');
-
-      if ($this->customer_model->verify_pass($identity, $password)) {
-        $user_data = array(
-          'identity' => $identity,
-          'logged_in' => TRUE
-        );
-        $this->session->set_userdata($user_data);
-        redirect('dashboard/main');
-      } else {
         $data = [
-          'title' => 'Login',
-          'identity' => $identity,
-          'header' => 'partials/header',
-          'content' => 'partials/loginRegister/formPass',
-          'script' => 'partials/script',
-          'error' => 'Incorect Password'
+            'title' => 'Login',
+            'header' => 'partials/header',
+            'content' => 'partials/loginRegister/formPass',
+            'script' => 'partials/script',
+            'error' => 'Incorrect Identity or Password'
         ];
-      } 
+        $this->load->view('partials/main', $data);
+    } else {
+        $identity = $this->input->post('identity');
+        $password = $this->input->post('password');
+
+        // Verify password
+        if ($this->customer_model->verify_pass($identity, $password)) {
+            $user_data = array(
+                'identity' => $identity,
+                'logged_in' => TRUE
+            );
+            $this->session->set_userdata($user_data);
+            redirect('dashboard/main');
+        } else {
+            $data = [
+                'title' => 'Login',
+                'header' => 'partials/header',
+                'identity' => $this->input->post('identity'),
+                'content' => 'partials/loginRegister/formPass',
+                'script' => 'partials/script',
+                'error' => 'Incorrect Identity or Password'
+            ];
+            $this->load->view('partials/main', $data);
+        }
     }
-    $this->load->view('partials/main', $data);
-  }
+}
+
 
   public function createPass()
   {
@@ -145,10 +115,16 @@ class Auth extends CI_Controller
       $this->db->insert('tamu', $data);
 
       // Redirect to main menu
+      $user_data = array(
+        'identity' => $identity,
+        'logged_in' => TRUE
+      );
+      $this->session->set_userdata($user_data);
+
       redirect('dashboard/main');
     }
   }
-  
+
   public function logout()
   {
     // Hapus data session dan arahkan ke halaman login

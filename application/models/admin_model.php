@@ -11,6 +11,11 @@
             //Do your magic here
         }
         
+        public function get_data($username, $password)
+        {
+            $query = $this->db->get_where('admin', array('username' => $username, 'password' => $password));
+            return $query->row();
+        }
     
     }
     

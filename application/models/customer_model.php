@@ -8,18 +8,12 @@ class customer_model extends CI_Model {
     public function __construct()
     {
         parent::__construct();
-       
     }
 
     public function get_data_tamu(){
         return $this->db->get('tamu')->result_array();
     }
 
-    public function get_username($username, $password)
-    {
-        $query= $this->db->get_where('tamu', array('username' => $username, 'password' => $password));
-        return $query->result_array();
-    }
 
     public function check_identity($identity)
     {

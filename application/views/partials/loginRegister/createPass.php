@@ -11,7 +11,7 @@
                             <input type="hidden" class="form-control form-control-lg" placeholder="Email or Username" name="identity" value="<?= $identity; ?>" required>
                         </div>
                         <div class="form-group">
-                            <h5>Password</h5>
+                            <h5>New Password</h5>
                             <input type="password" class="form-control form-control-lg" placeholder="Enter your new password" name="password">
                         </div>
                         <div class="mt-3 d-grid gap-2">
@@ -24,6 +24,4 @@
                 </div>
             </div>
         </div>
-  
-
 </body>
