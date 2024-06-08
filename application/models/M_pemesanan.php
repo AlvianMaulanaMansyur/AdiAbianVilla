@@ -1,8 +1,9 @@
-<?php 
+<?php
 
-defined('BASEPATH') OR exit('No direct script access allowed');
+defined('BASEPATH') or exit('No direct script access allowed');
 
-class M_pemesanan extends CI_Model {
+class M_pemesanan extends CI_Model
+{
     public function getPemesanan()
     {
         $this->db->select('pemesanan.*');
@@ -21,32 +22,66 @@ class M_pemesanan extends CI_Model {
         $pemesanan = $result->result();
         return $pemesanan;
     }
+    public function getSessionValues()
+    {
+        $data = array(
+            'adults' => $this->session->userdata('adults') ? $this->session->userdata('adults') : 2,
+            'kids' => $this->session->userdata('kids') ? $this->session->userdata('kids') : 0,
+            'rooms' => $this->session->userdata('rooms') ? $this->session->userdata('rooms') : 1,
+            'checkin' => $this->session->userdata('checkin') ? $this->session->userdata('checkin') : '',
+            'checkout' => $this->session->userdata('checkout') ? $this->session->userdata('checkout') : '',
+        );
 
-   
-
-    public function savePersonalInfo($data) {
-        $this->db->insert('tamu', $data);
-        return $this->db->insert_id();
+        return $data;
     }
-    public function savePemesanan($data) {
+    public function getCookieValues()
+    {
+        $data = [
+            'username' => get_cookie('username') ? get_cookie( 'username' ) : '',
+            'email' => get_cookie('email') ? get_cookie('email') : '',
+            'no_telp' => get_cookie('no_telp') ? get_cookie('no_telp') : '',
+            'negara' => get_cookie('negara') ? get_cookie('negara') : 'Pilih Negara',
+            'jenis_kelamin' => get_cookie('jenis_kelamin') ? get_cookie('jenis_kelamin') : '',
+        ];
+
+        return $data;
+    }
+
+
+    public function savePersonalInfo($data)
+    {
+        $this->db->where('email', $data['email']);
+        $this->db->or_where('username', $data['username']);
+        $query = $this->db->get('tamu');
+        $result = $query->result_array();
+
+        if ($query->num_rows() > 0) {
+            return $result[0]['id_tamu'];
+        } else {
+            $this->db->insert('tamu', $data);
+            return $this->db->insert_id();
+        }
+    }
+    public function savePemesanan($data)
+    {
         $this->db->insert('pemesanan', $data);
         return $this->db->insert_id();
     }
-    public function updatePemesanan($data, $id_pemesanan) {
+    public function updatePemesanan($data, $id_pemesanan)
+    {
         $this->db->where('id_pemesanan', $id_pemesanan);
         $this->db->update('pemesanan', $data);
     }
-
-    public function deletePemesanan($id_pemesanan) {
+    public function deletePemesanan($id_pemesanan)
+    {
         $this->db->where('id_pemesanan', $id_pemesanan);
         $this->db->delete('pemesanan');
     }
-    public function saveKamarPemesanan($data) {
+    public function saveKamarPemesanan($data)
+    {
         $this->db->insert('kamar_has_pemesanan', $data);
         return $this->db->insert_id();
     }
 }
 
 /* End of file M_pemesanan.php */
-
-?>

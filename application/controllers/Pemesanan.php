@@ -14,13 +14,19 @@ class Pemesanan extends CI_Controller {
     public function index()
     {
         $pemesanan = $this->M_pemesanan->getPemesanan();
-
+        $kamar = $this->M_pemesanan->getSessionValues();
+        $data_pribadi = $this->M_pemesanan->getCookieValues();
+        // var_dump($data_pribadi);die;
+        $harga_kamar = $this->M_kamar->getHargaKamar();
         $data = [
             'title' => 'Tamu',
             'header' => 'partials/header',
             'content' => 'pemesanan/pemesanan',
             'script' => 'partials/script',
             'pemesanan' => $pemesanan,
+            'kamar' => $kamar,
+            'tamu' => $data_pribadi,
+            'harga' => $harga_kamar[0]['harga_kamar'],
         ];
         $this->load->view('partials/main', $data);
     }
@@ -28,10 +34,10 @@ class Pemesanan extends CI_Controller {
         
         $checkin = $this->session->userdata('checkin');
         $checkout = $this->session->userdata('checkout');
-        $jumlah_kamar = $this->session->userdata('jumlah_kamar');
-        $dewasa = $this->session->userdata('dewasa');
-        $anak = $this->session->userdata('anak');
-        
+        $jumlah_kamar = $this->session->userdata('rooms') ? $this->session->userdata('rooms') : 1;
+        $dewasa = $this->session->userdata('adults') ? $this->session->userdata('adults') : 2;
+        $anak = $this->session->userdata('kids') ? $this->session->userdata('kids') : 0;
+
         $current_time = date_create()->format('Y-m-d H:i:s');       
         $nama = $this->input->post('username');
         $no_telp = $this->input->post('no_telp');
@@ -46,6 +52,12 @@ class Pemesanan extends CI_Controller {
             'negara' => $negara,
             'jenis_kelamin' => $jenis_kelamin,
         );
+        $expire = 86400; 
+
+        // Menyimpan setiap item data sebagai cookie
+        foreach ($dataTamu as $key => $value) {
+            set_cookie($key, $value, $expire);
+        }
         // var_dump($dataTamu);die;
         
         $id_tamu = $this->M_pemesanan->savePersonalInfo($dataTamu);
@@ -66,29 +78,35 @@ class Pemesanan extends CI_Controller {
 
         $id_pemesanan = $this->M_pemesanan->savePemesanan($dataPemesanan);
 
-        // Simpan id_kamar sesuai dengan jumlah_kamar
-        $kamar = $this->M_kamar->ketersediaan($checkin, $checkout); // Ganti dengan fungsi yang sesuai
-        $kamar_count = count($kamar);
-        $kamar_ids = array_column($kamar, 'id_kamar');
+    //     // Simpan id_kamar sesuai dengan jumlah_kamar
+    //     $kamar = $this->M_kamar->ketersediaan($checkin, $checkout); // Ganti dengan fungsi yang sesuai
+    //     $kamar_count = count($kamar);
+    //     $kamar_ids = array_column($kamar, 'id_kamar');
 
-    if ($kamar_count >= $jumlah_kamar) {
-        // Jika jumlah kamar tersedia mencukupi
-        for ($i = 0; $i < $jumlah_kamar; $i++) {
-            $dataKamarPemesanan = array(
-                'id_kamar' => $kamar_ids[$i],
-                'id_pemesanan' => $id_pemesanan,
-            );
-            $this->M_pemesanan->saveKamarPemesanan($dataKamarPemesanan);
-        }
-    } else {
-        // Handle kasus ketika kamar tidak tersedia sesuai dengan jumlah yang diminta
-        // Misalnya, tampilkan pesan kesalahan atau lakukan tindakan yang sesuai
-        // Di sini Anda dapat menambahkan logika untuk menangani kasus di mana jumlah kamar yang diminta lebih besar dari yang tersedia
+    // if ($kamar_count >= $jumlah_kamar) {
+    //     // Jika jumlah kamar tersedia mencukupi
+    //     for ($i = 0; $i < $jumlah_kamar; $i++) {
+    //         $dataKamarPemesanan = array(
+    //             'id_kamar' => $kamar_ids[$i],
+    //             'id_pemesanan' => $id_pemesanan,
+    //         );
+    //         $this->M_pemesanan->saveKamarPemesanan($dataKamarPemesanan);
+    //     }
+    // } else {
+    //     // Handle kasus ketika kamar tidak tersedia sesuai dengan jumlah yang diminta
+    //     // Misalnya, tampilkan pesan kesalahan atau lakukan tindakan yang sesuai
+    //     // Di sini Anda dapat menambahkan logika untuk menangani kasus di mana jumlah kamar yang diminta lebih besar dari yang tersedia
+    // }
+        redirect('pemesanan/payment');
     }
-        redirect('pemesanan/infosukses');
-    }
-    public function infoSukses() {
-        $this->load->view('pemesanan/test');
+    public function Payment() {
+        $data = [
+            'title' => 'Tamu',
+            'header' => 'partials/header',
+            'content' => 'pemesanan/pembayaran',
+            'script' => 'partials/script',
+        ];
+        $this->load->view('partials/main', $data);
     }
 
     public function daftarPemesanan() {

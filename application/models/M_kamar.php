@@ -4,15 +4,26 @@ defined('BASEPATH') or exit('No direct script access allowed');
 
 class M_kamar extends CI_Model
 {   
+    public function getHargaKamar() {
+        $this->db->select('harga_kamar');
+        $this->db->from('kamar');
+        $query = $this->db->get();
+        return $query->result_array();
+    }
     public function ketersediaan($checkin, $checkout)
     {
         $this->db->select('kamar.id_kamar, pemesanan.tgl_checkIn, pemesanan.tgl_checkOut');
         $this->db->from('kamar');
         $this->db->join('kamar_has_pemesanan', 'kamar.id_kamar = kamar_has_pemesanan.id_kamar', 'left');
         $this->db->join('pemesanan', 'kamar_has_pemesanan.id_pemesanan = pemesanan.id_pemesanan', 'left');
-        $this->db->where('pemesanan.tgl_checkOut <', $checkin);
+        $this->db->where('pemesanan.id_pemesanan IS NULL');
+        $this->db->or_where('pemesanan.tgl_checkOut <', $checkin);
         $this->db->or_where('pemesanan.tgl_checkIn >', $checkout);
-        $this->db->or_where('pemesanan.id_pemesanan IS NULL');
+        // $this->db->or_group_start();
+        // $this->db->where('pemesanan.tgl_checkIn BETWEEN "' . $checkin . '" AND "' . $checkout . '"');
+        // $this->db->or_where('pemesanan.tgl_checkOut BETWEEN "' . $checkin . '" AND "' . $checkout . '"');
+        // $this->db->group_end();
+
         $this->db->group_by('kamar.id_kamar');
     
         $query = $this->db->get();
@@ -25,12 +36,11 @@ class M_kamar extends CI_Model
         $this->db->from('kamar');
         $this->db->join('kamar_has_pemesanan', 'kamar.id_kamar = kamar_has_pemesanan.id_kamar');
         $this->db->join('pemesanan', 'kamar_has_pemesanan.id_pemesanan = pemesanan.id_pemesanan');
-        $this->db->where('pemesanan.id_pemesanan IS NULL');
-
+        // $this->db->where('pemesanan.id_pemesanan IS NULL');
         $this->db->or_where('pemesanan.tgl_checkIn BETWEEN "' . $tanggal_check_in . '" AND "' . $tanggal_check_out . '"');
         $this->db->or_where('pemesanan.tgl_checkOut BETWEEN "' . $tanggal_check_in . '" AND "' . $tanggal_check_out . '"');
 
-        // $this->db->group_by('kamar.id_kamar');
+        $this->db->group_by('kamar.id_kamar');
         $query = $this->db->get();
 
         if ($query->num_rows() > 0) {

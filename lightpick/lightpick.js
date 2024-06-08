@@ -68,6 +68,7 @@
         buttons: {
           prev: '&leftarrow;',
           next: '&rightarrow;',
+          // next: '<img src="'+base_url+'assets/foto/forward2.png'+'" alt="Next">',
           close: '&times;',
           reset: 'Reset',
           apply: 'Apply'
