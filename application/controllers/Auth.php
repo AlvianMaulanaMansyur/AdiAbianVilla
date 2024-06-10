@@ -72,7 +72,7 @@ class Auth extends CI_Controller
                 'logged_in' => TRUE
             );
             $this->session->set_userdata($user_data);
-            redirect('dashboard/main');
+            redirect('c_home');
         } else {
             $data = [
                 'title' => 'Login',
@@ -92,6 +92,7 @@ class Auth extends CI_Controller
   {
     $this->form_validation->set_rules('identity', 'Username or Email', 'required');
     $this->form_validation->set_rules('password', 'Password', 'required');
+    $this->form_validation->set_rules('password2', 'Password2', 'trim|matches[password]|required');
 
     if ($this->form_validation->run() == FALSE) {
       $data = [
@@ -121,7 +122,7 @@ class Auth extends CI_Controller
       );
       $this->session->set_userdata($user_data);
 
-      redirect('dashboard/main');
+      redirect('c_home');
     }
   }
 

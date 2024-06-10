@@ -82,6 +82,24 @@ class Dashboard extends CI_Controller
         
     }
 
+    public function guestdata()
+    {
+
+        $guest = $this->customer_model->get_data_tamu();
+        $data = [
+            'title' => 'Guest Data',
+            'header' => 'dashboard/header',
+            'navbar' => 'dashboard/navbar',
+            'sidebar' => 'dashboard/sidebar',
+            'content' => 'dashboard/guestdata',
+            'footer' => 'dashboard/footer',
+            'script' => 'dashboard/script',
+            'guest' => $guest,
+        ];
+
+        $this->load->view('dashboard/main', $data);
+    }
+
 }
 
 /* End of file Controllername.php */
