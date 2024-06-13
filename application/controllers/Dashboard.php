@@ -100,6 +100,11 @@ class Dashboard extends CI_Controller
         $this->load->view('dashboard/main', $data);
     }
 
+    public function edit()
+    {
+
+    }
+
 }
 
 /* End of file Controllername.php */
