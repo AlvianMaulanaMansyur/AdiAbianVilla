@@ -111,7 +111,8 @@ class Auth extends CI_Controller
       $data = [
         'email' => filter_var($identity, FILTER_VALIDATE_EMAIL) ? $identity : NULL,
         'username' => !filter_var($identity, FILTER_VALIDATE_EMAIL) ? $identity : NULL,
-        'password' => password_hash($password, PASSWORD_DEFAULT)
+        'password' => password_hash($password, PASSWORD_DEFAULT),
+        'foto_profil' => 'assets/images/profile/default.jpg'
       ];
       $this->db->insert('tamu', $data);
 
@@ -124,6 +125,64 @@ class Auth extends CI_Controller
 
       redirect('c_home');
     }
+  }
+
+  public function forgotPassword()
+  {
+    $this->form_validation->set_rules('email', 'Email', 'trim|required|valid_email');
+    
+    if ($this->form_validation->run() == FALSE){
+      $data = [
+        'title' => 'Password Recovery',
+        'header' => 'partials/header',
+        'content' => 'partials/forgotPassword/forgotPass',
+      ];
+      }else {
+        $email = $this->input->post('identity');
+        $user = $this->db->get_where('tamu', ['email' => $email])->row_array();
+        $link = base_url('Auth/changePassword');
+        $subject = 'Password Recovery';
+        $message =
+          "<html>
+            <p>click link down below to change your password!</p>
+            <a href='$link'>Click Me!</a>
+          </html>";
+        if ($user){
+          $this->session->set_userdata('reset', $email);
+          $this->send_email($email, $subject, $message);
+            if(isset($email)){
+              $this->session->set_flashdata('error_message','<div class="alert alert-success" role="alert" please check your email! </div>' );
+              redirect('Auth/forgotPassword');
+            } else {
+              redirect('Auth/Login');
+            }
+        } else {
+          $this->session->set_flashdata('error_message', '<div class="alert alert-danger" role="alert">
+                your email was not found </div>');
+          redirect('Auth/forgotPassword');     
+        }
+      } 
+    $this->load->view('partials/authTemplate', $data);
+  } 
+  
+  public function send_email($to, $subject, $message)
+  {
+    $this->email->set_newline("\r\n");
+    $this->email->from('villaadiabian@gmail.com', 'Adi Abian Villa');
+    $this->email->to($to);
+    $this->email->$subject($subject);
+    $this->email->$message($message);
+
+    if($this->email->send()){
+      return true;
+    } else {
+      echo $this->email->print_debugger();
+    }
+  }
+
+  public function changePassword()
+  {
+
   }
 
   public function logout()

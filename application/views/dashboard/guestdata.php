@@ -21,13 +21,13 @@
           <tr>
             <td><?= $no++; ?></td>
             <td>
-              <div class="flex items-center gap-3 mr-2">
+              <div class="flex items-center  gap-3 mr-2">
                 <div class="avatar">
                   <div class="mask mask-squircle w-12 h-12">
-                    <img src="<?= $key['foto_profil']; ?>" alt="Profile Picture" />
+                    <img src="<?= base_url($key['foto_profil']); ?>" alt="Profile Picture" />
                   </div>
                 </div>
-              </div>
+              </div>  
             </td>
             <td><?= $key['username']; ?></td>
             <td><?= $key['email']; ?></td>
@@ -35,7 +35,7 @@
             <td><?= $key['jenis_kelamin']; ?></td>
             <td><?= $key['negara']; ?></td>
             <td> 
-              <a href=""></a>
+              <a href=""><button class="btn btn-primary"><i class="fa-regular fa-pen-to-square"></i></button></a>
             </td>
           </tr>
         <?php endforeach; ?>

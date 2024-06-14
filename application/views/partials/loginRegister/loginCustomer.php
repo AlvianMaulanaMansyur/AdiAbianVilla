@@ -15,7 +15,7 @@
                             <button type="submit" class="btn btn-primary btn-md">Continue</button>
                         </div>
                         <div class="my-2 d-flex justify-content-end align-items-center">
-                            <a href="#" class="auth-link text-black">Forgot password?</a>
+                            <a href="<?= base_url('Auth/forgotPassword');?>" class="auth-link text-black">Forgot password?</a>
                         </div>
                         <?php if (isset($error)) { echo '<p class="text-red-500">'.$error.'</p>'; } ?>
                     </form>
