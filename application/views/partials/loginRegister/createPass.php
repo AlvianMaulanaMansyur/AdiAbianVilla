@@ -14,6 +14,11 @@
                             <h5>New Password</h5>
                             <input type="password" class="form-control form-control-lg" placeholder="Enter your new password" name="password">
                         </div>
+                        <div class="form-group">
+                            <h5>Confirm Password</h5>
+                            <input type="password" class="form-control form-control-lg" placeholder="Enter Your Confirm Password" name="password2">
+                        </div>
+                        <?php if (isset($error)) { echo '<p>'.$error.'</p>'; } ?>
                         <div class="mt-3 d-grid gap-2">
                             <button type="submit" class="btn btn-primary btn-md">Register</button>
                         </div>
