@@ -13,6 +13,7 @@ class Dashboard extends CI_Controller
         //Do your magic here
         $this->load->model('customer_model');
         $this->load->model('M_dashboard');
+        $this->load->model('M_pemesanan');
         
         if (empty($this->session->userdata('username'))) {
             redirect('Authadmin/login');
@@ -82,6 +83,21 @@ class Dashboard extends CI_Controller
         
     }
 
+    public function daftarPemesanan()
+    {
+        $pemesanan = $this->M_pemesanan->getPemesanan();
+        $data = [
+            'title' => 'Adi Abian Villa Dashboard',
+            'header' => 'dashboard/header',
+            'navbar' => 'dashboard/navbar',
+            'sidebar' => 'dashboard/sidebar',
+            'content' => 'dashboard/daftar_pemesanan',
+            'footer' => 'dashboard/footer',
+            'script' => 'dashboard/script',
+            'pemesanan' => $pemesanan
+        ];
+        $this->load->view('dashboard/main', $data);
+    }
 }
 
 /* End of file Controllername.php */

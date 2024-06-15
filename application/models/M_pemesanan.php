@@ -8,6 +8,7 @@ class M_pemesanan extends CI_Model
     {
         $this->db->select('pemesanan.*');
         $this->db->from('pemesanan');
+        $this->db->where('status', 1);
         $result = $this->db->get();
         $pemesanan = $result->result();
         return $pemesanan;
@@ -15,10 +16,17 @@ class M_pemesanan extends CI_Model
 
     public function getPemesananById($id_pemesanan)
     {
-        $this->db->select('pemesanan.*');
-        $this->db->from('pemesanan');
         $this->db->where('id_pemesanan', $id_pemesanan);
-        $result = $this->db->get();
+        $result = $this->db->get('pemesanan');
+        $pemesanan = $result->result();
+        return $pemesanan;
+    }
+
+    public function getPemesananByIdTamu($id_tamu)
+    {
+        $this->db->where('id_tamu', $id_tamu);
+        $this->db->where('status', 0);
+        $result = $this->db->get('pemesanan');
         $pemesanan = $result->result();
         return $pemesanan;
     }
@@ -64,13 +72,23 @@ class M_pemesanan extends CI_Model
     }
     public function savePemesanan($data)
     {
-        $this->db->insert('pemesanan', $data);
-        return $this->db->insert_id();
+        $this->db->where('pemesanan.id_tamu', $data['id_tamu']);
+        $this->db->where('pemesanan.status', 0);
+
+        $query = $this->db->get('pemesanan');
+        
+        if($query->num_rows()>0) {
+            return null;
+        } else {
+            $this->db->insert('pemesanan', $data);
+            return $this->db->insert_id();
+        }
+        
     }
-    public function updatePemesanan($data, $id_pemesanan)
+    public function updatePemesanan($id_pemesanan, $data)
     {
         $this->db->where('id_pemesanan', $id_pemesanan);
-        $this->db->update('pemesanan', $data);
+        return $this->db->update('pemesanan', $data);
     }
     public function deletePemesanan($id_pemesanan)
     {
@@ -79,8 +97,8 @@ class M_pemesanan extends CI_Model
     }
     public function saveKamarPemesanan($data)
     {
-        $this->db->insert('kamar_has_pemesanan', $data);
-        return $this->db->insert_id();
+        return $this->db->insert('kamar_has_pemesanan', $data);
+        // return $this->db->insert_id();
     }
 }
 

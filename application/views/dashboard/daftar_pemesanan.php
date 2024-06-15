@@ -1,5 +1,5 @@
 Daftar Pemesanan
-<button class="inline-flex items-center justify-center p-1 me-3 text-sm font-medium h-6 w-6 text-gray-500 bg-white border border-gray-300 rounded-full focus:outline-none hover:bg-gray-100 focus:ring-4 focus:ring-gray-200 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:bg-gray-700 dark:hover:border-gray-600 dark:focus:ring-gray-700" type="button">
+<!-- <button class="inline-flex items-center justify-center p-1 me-3 text-sm font-medium h-6 w-6 text-gray-500 bg-white border border-gray-300 rounded-full focus:outline-none hover:bg-gray-100 focus:ring-4 focus:ring-gray-200 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:bg-gray-700 dark:hover:border-gray-600 dark:focus:ring-gray-700" type="button">
     <span class="sr-only">Quantity button</span>
     <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 2">
         <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 1h16" />
@@ -13,7 +13,7 @@ Daftar Pemesanan
     <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 18">
         <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 1v16M1 9h16" />
     </svg>
-</button>
+</button> -->
 <div class="relative overflow-x-auto">
 
     <table class="w-full text-md text-left rtl:text-right text-gray-500 dark:text-gray-400">
@@ -24,7 +24,6 @@ Daftar Pemesanan
                 <th>Tanggal Checkin</th>
                 <th>Tanggal Checkout</th>
                 <th>Jumlah Kamar</th>
-                <th>Status</th>
                 <th>Dewasa</th>
                 <th>Anak</th>
                 <th>Tamu</th>
@@ -50,10 +49,6 @@ Daftar Pemesanan
                     </td>
                     <td>
                         <?php echo $p->jumlah_kamar; ?>
-
-                    </td>
-                    <td>
-                        <?php echo $p->status; ?>
 
                     </td>
                     <td>

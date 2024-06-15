@@ -1,3 +1,4 @@
+
 <body>
     <div class="flex justify-center items-center min-h-screen bg-gray-100">
         <img src="<?php echo base_url('assets/images/loginregistIMG/bgLogin.jpg') ?>" alt="background" class="z-0 absolute blur-sm w-screen h-screen">
@@ -17,6 +18,9 @@
                         <div class="my-2 d-flex justify-content-end align-items-center">
                             <a href="#" class="auth-link text-black">Forgot password?</a>
                         </div>
+                        <?php 
+   echo $this->session->userdata('identity');
+?>
                         <?php if (isset($error)) { echo '<p class="text-red-500">'.$error.'</p>'; } ?>
                     </form>
                 </div>
