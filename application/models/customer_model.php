@@ -14,6 +14,10 @@ class customer_model extends CI_Model {
         return $this->db->get('tamu')->result_array();
     }
 
+    public function update_guest($id_tamu, $data) {
+        $this->db->where('id_tamu', $id_tamu);
+        $this->db->update('tamu', $data);
+    }
 
     public function check_identity($identity)
     {

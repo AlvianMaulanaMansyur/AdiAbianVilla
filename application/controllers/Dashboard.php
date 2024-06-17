@@ -116,6 +116,23 @@ class Dashboard extends CI_Controller
         $this->load->view('dashboard/main', $data);
     }
 
+    public function edit() {
+        $id_tamu = $this->input->post('id_tamu');
+        $data = [
+            'username' => $this->input->post('username'),
+            'email' => $this->input->post('email'),
+            'no_telp' => $this->input->post('phone'),
+            'jenis_kelamin' => $this->input->post('gender'),
+            'negara' => $this->input->post('nationality')
+        ];
+        $this->customer_model->update_guest($id_tamu, $data);
+
+        // Set flash data untuk notifikasi
+        $this->session->set_flashdata('success', 'Data berhasil diperbarui!');
+        redirect('Dashboard/guestData');
+    }
+
 }
 
 /* End of file Controllername.php */
+ 
