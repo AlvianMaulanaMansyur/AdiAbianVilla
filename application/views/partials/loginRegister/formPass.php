@@ -10,14 +10,14 @@
                         <p class="font-bold text-md">Sign in or Create Account</p>
                         <form action="<?= site_url('auth/verify_password'); ?>" method="post" class="pt-3">
                             <div class="form-group">
-                                <input type="hidden" class="form-control form-control-lg" placeholder="Email or Username" name="identity" value="<?php echo $identity; ?>" required>
+                                <input type="hidden" class="form-control form-control-lg" placeholder="Email or Username" name="identity" value="<?php echo $identity; ?>" disabled>
                             </div>
                             <div class="form-group">
                                 <h5>Password</h5>
-                                <input type="password" class="form-control form-control-lg" placeholder="Enter your password" name="password" required>
+                                <input type="password" class="form-control form-control-lg" placeholder="Enter your password" name="password">
                             </div>
-                            <?php if (isset($error)) {
-                                echo '<p>' . $error . '</p>';
+                            <?php if ($this->session->flashdata('error_message')) {
+                                echo '<p style="color:red;">' . $this->session->flashdata('error_message') . '</p>';
                             } ?>
                             <div class="mt-3 d-grid gap-2">
                                 <button type="submit" class="btn btn-primary btn-md">Continue</button>

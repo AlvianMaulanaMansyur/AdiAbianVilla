@@ -90,8 +90,8 @@ class Auth extends CI_Controller
 
   public function createPass()
   {
-    $this->form_validation->set_rules('identity', 'Username or Email', 'required');
-    $this->form_validation->set_rules('password', 'Password', 'required');
+    $this->form_validation->set_rules('identity', 'Username or Email', 'trim|required');
+    $this->form_validation->set_rules('password', 'Password', 'trim|required');
     $this->form_validation->set_rules('password2', 'Password2', 'trim|matches[password]|required');
 
     if ($this->form_validation->run() == FALSE) {

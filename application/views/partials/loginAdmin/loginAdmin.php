@@ -7,18 +7,22 @@
                     <p class="flex justify-center align-items-center text-green-600 font-bold text-3xl">Adi Abian <span class="text-black"> Villa</span></p>
                     <p class="flex justify-center text-xs">ADMIN MODE</p>
                     <form action="<?php echo site_url('authadmin/process_login'); ?>" method="post" class="pt-3">
+                        <?php 
+                        if ($this->session->flashdata('error_message')) {
+                            echo '<p style="color:red;">' . $this->session->flashdata('error_message') . '</p>';
+                        }
+                        ?>
                         <div class="form-group">
                             <h5>Username</h5>
-                            <input type="text" class="form-control form-control-lg" placeholder="Email or Username" name="username" required>
+                            <input type="text" class="form-control form-control-lg" placeholder="Email or Username" name="username">
                         </div>
                         <div class="form-group mt-3">
                             <h5>Password</h5>
-                            <input type="password" class="form-control form-control-lg" placeholder="Enter Your Password!" name="password" required>
+                            <input type="password" class="form-control form-control-lg" placeholder="Enter Your Password!" name="password">
                         </div>
                         <div class="mt-3 d-grid gap-2">
                             <button type="submit" class="btn btn-primary btn-md">Login</button>
                         </div>
-                        <?php if (isset($error)) { echo '<p class="text-red-500">'.$error.'</p>'; } ?>
                     </form>
                 </div>
             </div>
