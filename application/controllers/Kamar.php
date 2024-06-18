@@ -62,6 +62,8 @@ class Kamar extends CI_Controller
             $detail_ketersediaan = $this->M_kamar->detailKetersediaan($checkin, $checkout);
             $real_ketersediaan = $this->M_kamar->gabungKetersediaan($checkin, $checkout);
 
+            $this->session->set_userdata('availability', $ketersediaan);
+            
             $tampil = $this->M_kamar->tampilkamar();
             // var_dump($detail_ketersediaan);
             $response = array(

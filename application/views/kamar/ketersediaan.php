@@ -122,24 +122,29 @@
         </button>
     </div>
 
+
     <!-- <?php var_dump($kamar) ?> -->
     <!-- <?php var_dump($harga) ?> -->
 
     <div class="w-4/5 mx-auto py-5">
         <div class="text-3xl font-bold text-center">Adi Abian Villa</div>
+
         <div class="text-xl font-semibold text-center text-gray-500 mt-2"><?php echo 'Rp' . number_format($harga, 0, ',', '.'); ?> / night</div>
         <div class="text-base pt-3 leading-relaxed text-center">
-            Selamat datang di Adi Abian Villa, tempat di mana kemewahan bertemu dengan alam tropis. Dengan pemandangan laut yang menakjubkan, villa ini menawarkan ruang terbuka yang luas, kolam renang infinity, dan taman tropis yang menenangkan. Dilengkapi dengan fasilitas modern dan desain yang elegan, setiap kamar tidurnya menawarkan tempat istirahat yang nyaman. Nikmati liburan tak terlupakan di Adi Abian Villa, tempat di mana kenyamanan dan keindahan alam menyatu dengan sempurna.
+            Welcome to Adi Abian Villa, where luxury meets tropical nature.This villa offers spacious open areas, an infinity pool, and serene tropical gardens. Equipped with modern amenities and elegant design, each bedroom provides a comfortable resting place. Enjoy an unforgettable vacation at Adi Abian Villa, where comfort and natural beauty blend perfectly.
+            <br><br>
+            Each room can accommodate up to 2 adults and 1 child. Children under 6 years old stay for free.
         </div>
     </div>
     <div class="text-2xl font-bold text-center mt-10 mb-4">Check Availability</div>
+
     <div class="flex items-center justify-center pb-5">
         <div class="flex items-center justify-center w-4/6 bg-white shadow rounded">
             <div class="text-center">
                 <h1 id="result" class="mb-4"></h1>
                 <div class="relative">
                     <div class="container">
-                        <div id="error-message" class="error text-red-600"></div>
+                        <div id="error-message"></div>
                         <div class="input-container">
                             <div>
                                 <div class="flex items-center">
@@ -175,66 +180,75 @@
                                         </div>
                                         <div class="w-20 h-9 left-[91px] top-[1px] absolute">
                                             <img class="w-10 h-9 left-[25.23px] top-0 absolute" src="<?php echo base_url('assets/foto/bed.png') ?>" />
-
                                             <div id="total-rooms" class="w-2 h-4 left-0 top-[10px] absolute text-black text-md font-bold text-white">1</div>
                                         </div>
                                         <div class="w-0.5 h-11 bg-white left-[178px] top-0.5 absolute"></div>
                                     </button>
                                 </div>
 
-                                <div id="modal" class="hidden absolute z-10 mt-3 w-80 h-80">
-                                    <div class="w-96 h-72 left-0 top-0 bg-white shadow-lg rounded relative">
-                                        <div class="relative">
+                                <div id="modal" class="hidden absolute z-10 mt-3 w-96">
+                                    <div id="modal-container" class="w-96 h-72 left-0 top-0 bg-white shadow-lg rounded relative overflow-hidden">
+                                        <div id="room-container" class="p-4" style="max-height: calc(100% - 96px);">
+                                            <!-- <div class="text-lg font-bold mb-4">Room 1</div> -->
                                             <!-- Adult Section -->
-                                            <div class="w-32 h-9 absolute left-[210px] top-[37px] bg-red-500 rounded flex justify-between items-center px-2" data-max="2">
-                                                <button class="btn-plus">
-                                                    <img class="w-7 h-7" src="<?php echo base_url('assets/foto/plus-math2.png') ?>" />
-                                                </button>
-                                                <div class="adult counter text-black text-md font-normal text-white"><?php echo $kamar['adults'] ?></div>
-                                                <button class="btn-minus">
-                                                    <img class="w-7 h-7" src="<?php echo base_url('assets/foto/minus-math2.png') ?>" />
-                                                </button>
+                                            <div class="text-md font-bold">Manage Room Details</div>
+                                            <div class="flex items-center mb-4">
+                                                <img class="w-10 h-10 mr-4" src="<?php echo base_url('assets/foto/person.png') ?>" />
+                                                <div class="text-black text-sm font-normal mr-auto">Adult</div>
+                                                <div>
+                                                    <select name="dewasa" id="select-adult" class="appearance-auto border-1 w-24 h-8 rounded">
+                                                        <option value="2" selected>2</option>
+                                                        <option value="0">0</option>
+                                                        <option value="1">1</option>
+                                                    </select>
+                                                </div>
                                             </div>
                                             <!-- Kid Section -->
-                                            <div class="w-32 h-9 absolute left-[210px] top-[97px] bg-red-500 rounded flex justify-between items-center px-2" data-max="1">
-                                                <button class="btn-plus">
-                                                    <img class="w-7 h-7" src="<?php echo base_url('assets/foto/plus-math2.png') ?>" />
-                                                </button>
-                                                <div class="kid counter text-black text-md font-normal text-white"><?php echo $kamar['kids'] ?></div>
-                                                <button class="btn-minus-kid">
-                                                    <img class="w-7 h-7" src="<?php echo base_url('assets/foto/minus-math2.png') ?>" />
-                                                </button>
+                                            <div class="flex items-center mb-4">
+                                                <img class="w-10 h-10 mr-4" src="<?php echo base_url('assets/foto/kid.png') ?>" />
+
+                                                <div class="flex flex-col items-start mr-auto">
+                                                    <div class="text-black text-sm font-normal">Kid</div>
+                                                    <div class="text-gray-500 text-sm font-normal">Ages 6 and below</div>
+                                                </div>
+
+                                                <div>
+                                                    <select name="anak" id="select-kid" class="appearance-auto border-1 w-24 h-8 rounded">
+                                                        <option value="0" selected>0</option>
+                                                        <option value="1">1</option>
+                                                        <option value="2">2</option>
+                                                    </select>
+                                                </div>
+
                                             </div>
-                                            <!-- Room Section -->
-                                            <div class="w-32 h-9 absolute left-[210px] top-[157px] bg-red-500 rounded flex justify-between items-center px-2" data-max="10">
-                                                <button class="btn-plus">
-                                                    <img class="w-7 h-7" src="<?php echo base_url('assets/foto/plus-math2.png') ?>" />
-                                                </button>
-                                                <div class="room counter text-black text-md font-normal text-white"><?php echo $kamar['rooms'] ?></div>
-                                                <button class="btn-minus">
-                                                    <img class="w-7 h-7" src="<?php echo base_url('assets/foto/minus-math2.png') ?>" />
-                                                </button>
-                                            </div>
-                                            <img class="w-10 h-10 absolute left-[41px] top-[89px]" src="<?php echo base_url('assets/foto/kid.png') ?>" />
-                                            <img class="w-10 h-10 absolute left-[41px] top-[150px]" src="<?php echo base_url('assets/foto/bed2.png') ?>" />
-                                            <img class="w-10 h-10 absolute left-[41px] top-[27px]" src="<?php echo base_url('assets/foto/person.png') ?>" />
-                                            <div class="absolute text-black text-sm font-normal left-[114px] top-[45px]">Adult</div>
-                                            <div class="absolute text-black text-sm font-normal left-[114px] top-[101px]">Kid</div>
-                                            <div class="absolute text-black text-sm font-normal left-[114px] top-[164px]">Room</div>
-                                            <button id="submit-button" class="absolute w-36 h-10 bg-blue-500 text-white mt-4 rounded top-[210px] right-[110px] bg-red-500">
+                                        </div>
+                                        <div id="buttons-container" class="p-4 flex justify-between">
+
+                                            <button id="add-room-button" class="w-36 h-10 bg-green-500 text-white mt-4 rounded"><span><i class="fa-solid fa-plus"></i></span>
+                                                Add Room
+                                            </button>
+                                            <button id="submit-button" class="w-36 h-10 bg-blue-500 text-white mt-4 rounded bg-red-500">
                                                 Submit
                                             </button>
                                         </div>
                                     </div>
                                 </div>
                             </div>
+
+
                             <div>
                                 <button id="check" class="mt-4 w-20 h-12 px-3.5 py-2.5 left-0 top-0 bg-red-500 text-white font-bold rounded border border-red-500 flex-col justify-center items-start inline-flex">Check</button>
                             </div>
                         </div>
                         <section id="datepicker-section" class="pb-5"></section>
+
                     </div>
                 </div>
+                <div class="bg-white shadow-md rounded-lg mb-4">
+                    <div id="availability1" class="bg-white"></div>
+                    <div id="availability-card-container" class="bg-white"></div>
+                </div>
+
             </div>
 
         </div>
@@ -251,7 +265,224 @@
             modal.classList.add('hidden');
         }
     }
-    
+
+    document.addEventListener('DOMContentLoaded', (event) => {
+        const addRoomButton = document.getElementById('add-room-button');
+        const roomContainer = document.getElementById('room-container');
+        const modalContainer = document.getElementById('modal-container');
+        const buttonsContainer = document.getElementById('buttons-container');
+        const submitButton = document.getElementById('submit-button');
+
+        function updateCounts() {
+            let adults = 0;
+            let kids = 0;
+            var rooms = 0;
+
+            // Muat data dari cookie jika tersedia
+            const cookies = document.cookie.split(';');
+            const roomsDataCookie = cookies.find(cookie => cookie.trim().startsWith('roomsData='));
+            console.log(roomsDataCookie.length)
+            if (roomsDataCookie) {
+                const roomsData = JSON.parse(roomsDataCookie.split('=')[1]);
+                roomsData.forEach(room => {
+                    adults += parseInt(room.adults);
+                    kids += parseInt(room.kids);
+                    rooms++;
+
+                    console.log('adfadfadfadfadfadfad')
+                });
+                console.log('dewasa = ', adults)
+                console.log('anak = ', kids)
+            } else {
+                // Iterasi setiap bagian ruangan untuk menjumlahkan dewasa dan anak-anak dari pilihan saat ini
+                const roomSections = document.getElementsByClassName('room-section');
+                Array.from(roomSections).forEach(roomSection => {
+                    const adultCount = parseInt(roomSection.querySelector('.select-adult').value);
+                    const kidCount = parseInt(roomSection.querySelector('.select-kid').value);
+                    adults += adultCount;
+                    kids += kidCount;
+                });
+            }
+
+            var persons = adults + kids
+
+            // Perbarui tampilan di modal Anda
+            $('#total-persons').text(persons);
+            $('#total-rooms').text(rooms);
+        }
+        updateCounts();
+
+        function saveRoomsData() {
+            const roomsData = [];
+            const roomSections = roomContainer.getElementsByClassName('room-section');
+            Array.from(roomSections).forEach((roomSection, index) => {
+                const adultSelect = roomSection.querySelector('.select-adult');
+                const kidSelect = roomSection.querySelector('.select-kid');
+                roomsData.push({
+                    room: index + 1,
+                    adults: adultSelect.value,
+                    kids: kidSelect.value
+                });
+            });
+            document.cookie = "roomsData=" + JSON.stringify(roomsData) + "; path=/";
+        }
+
+        // Function to load data from cookie
+        function loadRoomsData() {
+            const cookies = document.cookie.split(';');
+            const roomsDataCookie = cookies.find(cookie => cookie.trim().startsWith('roomsData='));
+            if (roomsDataCookie) {
+                const roomsData = JSON.parse(roomsDataCookie.split('=')[1]);
+                roomContainer.innerHTML = '';
+
+                // Tambahkan judul hanya sekali di awal
+                const roomTemplate = `
+            <div class="text-md font-bold mb-4">Manage Room Details</div>
+        `;
+                const titleSection = document.createElement('div');
+                titleSection.innerHTML = roomTemplate;
+                roomContainer.appendChild(titleSection.firstElementChild);
+
+                roomsData.forEach(room => {
+                    const roomTemplate = `
+                <div class="flex flex-col mb-4 room-section">
+                    <div class="border border-black h-px w-full mb-4"></div>
+
+                    <div class="flex items-center mb-4">
+                        <img class="w-10 h-10 mr-4" src="<?php echo base_url('assets/foto/person.png') ?>" />
+                        <div class="text-black text-sm font-normal mr-auto">Adult</div>
+                        <div>
+                            <select name="dewasa" class="select-adult appearance-auto border-1 w-24 h-8 rounded">
+                                <option value="2" ${room.adults == 2 ? 'selected' : ''}>2</option>
+                                <option value="1" ${room.adults == 1 ? 'selected' : ''}>1</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="flex items-center mb-4">
+                        <img class="w-10 h-10 mr-4" src="<?php echo base_url('assets/foto/kid.png') ?>" />
+                        <div class="flex flex-col items-start mr-auto">
+                            <div class="text-black text-sm font-normal">Kid</div>
+                            <div class="text-gray-500 text-sm font-normal">Ages 6 and below</div>
+                        </div>
+                        <div>
+                            <select name="anak" class="select-kid appearance-auto border-1 w-24 h-8 rounded">
+                                <option value="0" ${room.kids == 0 ? 'selected' : ''}>0</option>
+                                <option value="1" ${room.kids == 1 ? 'selected' : ''}>1</option>
+                                <option value="2" ${room.kids == 2 ? 'selected' : ''}>2</option>
+                            </select>
+                        </div>
+                    </div>
+                    <button class="remove-room-button bg-red-500 text-white px-4 py-2 rounded">Remove Room</button>
+                </div>
+            `;
+                    const newRoomSection = document.createElement('div');
+                    newRoomSection.innerHTML = roomTemplate;
+                    roomContainer.appendChild(newRoomSection.firstElementChild);
+                });
+
+                updateRoomContainerHeight();
+            }
+        }
+
+        function updateRoomContainerHeight() {
+            const roomSections = roomContainer.getElementsByClassName('room-section');
+            if (roomSections.length > 1) {
+                roomContainer.style.overflowY = 'scroll';
+                modalContainer.style.height = '400px'; // Tetapkan tinggi tetap dengan scroll
+            } else {
+                roomContainer.style.overflowY = 'hidden';
+                modalContainer.style.height = `${roomContainer.scrollHeight + buttonsContainer.scrollHeight}px`;
+            }
+        }
+
+        addRoomButton.addEventListener('click', () => {
+            const roomCount = roomContainer.getElementsByClassName('room-section').length;
+            if (roomCount >= 10) {
+                addRoomButton.disabled = true;
+                return;
+            }
+
+            const roomTemplate = `
+            <div class="flex flex-col mb-4 room-section">
+                <div class="border border-black h-px w-full mb-4"></div>
+                <div class="flex items-center mb-4">
+                    <img class="w-10 h-10 mr-4" src="<?php echo base_url('assets/foto/person.png') ?>" />
+                    <div class="text-black text-sm font-normal mr-auto">Adult</div>
+                    <div>
+                        <select name="dewasa" class="select-adult appearance-auto border-1 w-24 h-8 rounded">
+                            <option value="2" selected>2</option>
+                            <option value="1">1</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="flex items-center mb-4">
+                    <img class="w-10 h-10 mr-4" src="<?php echo base_url('assets/foto/kid.png') ?>" />
+                    <div class="flex flex-col items-start mr-auto">
+                        <div class="text-black text-sm font-normal">Kid</div>
+                        <div class="text-gray-500 text-sm font-normal">Ages 6 and below</div>
+                    </div>
+                    <div>
+                        <select name="anak" class="select-kid appearance-auto border-1 w-24 h-8 rounded">
+                            <option value="0" selected>0</option>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                        </select>
+                    </div>
+                </div>
+                <button class="remove-room-button bg-red-500 text-white px-4 py-2 rounded">Remove Room</button>
+            </div>
+        `;
+
+            const newRoomSection = document.createElement('div');
+            newRoomSection.innerHTML = roomTemplate;
+            roomContainer.appendChild(newRoomSection.firstElementChild);
+
+            updateRoomContainerHeight();
+            updateRemoveRoomButtons();
+        });
+
+        function updateRemoveRoomButtons() {
+            const removeButtons = document.querySelectorAll('.remove-room-button');
+            removeButtons.forEach(button => {
+                button.addEventListener('click', (event) => {
+                    const roomSections = roomContainer.getElementsByClassName('room-section');
+                    console.log('roomSections = ', roomSections.length)
+                    if (roomSections.length > 1) {
+                        event.target.closest('.room-section').remove();
+                        updateRoomContainerHeight();
+                        if (roomSections.length < 10) {
+                            addRoomButton.disabled = false;
+                        }
+                    } else {
+                        alert('At least one room must be present.');
+                    }
+                });
+            });
+        }
+
+        submitButton.addEventListener('click', () => {
+            saveRoomsData();
+            updateCounts();
+
+            console.log('Rooms data saved to cookie.');
+            closeModal(); // Panggil fungsi penutupan modal di sini
+
+        });
+
+        // Load data when modal is opened
+        document.querySelector("button[onclick*='toggleModal']").addEventListener('click', () => {
+            loadRoomsData();
+            updateRemoveRoomButtons();
+        });
+
+        function closeModal() {
+            // Reset form or close modal as needed
+            document.getElementById('modal').classList.add('hidden'); // Sesuaikan dengan cara Anda menutup modal
+        }
+    });
+
+
+
     $("#check").click(function(event) {
         // Mencegah form submit jika menggunakan form
         event.preventDefault();
@@ -273,12 +504,25 @@
         let checkInDate = new Date(checkIn);
         let checkOutDate = new Date(checkOut);
 
-        // console.log(checkInDate)
-
         // Validasi bahwa check-out tidak lebih awal dari check-in
         if (checkOutDate < checkInDate) {
             $("#error-message").text("Check-out date cannot be earlier than check-in date.");
             return;
+        }
+        let adults = 0;
+        let kids = 0;
+        var roomsi = 0;
+
+        // Muat data dari cookie jika tersedia
+        const cookies = document.cookie.split(';');
+        const roomsDataCookie = cookies.find(cookie => cookie.trim().startsWith('roomsData='));
+        console.log(roomsDataCookie.length)
+        if (roomsDataCookie) {
+            const roomsData = JSON.parse(roomsDataCookie.split('=')[1]);
+            roomsData.forEach(room => {
+                roomsi++;
+                console.log('adfadfadfadfadfadfad = ', roomsi)
+            });
         }
 
         const dateRange = checkIn + ' - ' + checkOut;
@@ -291,77 +535,100 @@
             },
             dataType: "json",
             success: function(response) {
-                console.log(response.availability); // Tampilkan respons dari server pada konsol
-                console.log(response.detail); // Tampilkan respons dari server pada konsol
-                console.log(response.real); // Tampilkan respons dari server pada konsol
-                console.log(response.tampil); // Tampilkan respons dari server pada konsol
-
-                console.log('ava: ' + response.availability.length);
                 var availability = response.availability.length;
-                // Menggunakan nilai dari respons untuk memperbarui tabel
-                $("#error-message").text("Dates are valid. Proceeding..." + response.availability.length);
-                if (availability >= 1) {
-                    Swal.fire({
-                        title: 'Room Available',
-                        text: "Click continue in to the next step",
-                        // icon: 'Succes',
-                        showCancelButton: true,
-                        confirmButtonColor: '#3085d6',
-                        cancelButtonColor: '#d33',
-                        cancelButtonText: 'Back',
-                        confirmButtonText: 'Continue',
 
-                    }).then((result) => {
-                        if (result.isConfirmed) {
-                            window.location.href = base_url + 'pemesanan';
-                        }
+                $("#availability-card-container").empty();
+                $("#availability1").empty();
+
+                if (availability >= roomsi) {
+                    $("#error-message").html(`<div class="text-green-500"><i class="fa-solid fa-circle-check"></i> There are ${availability} rooms available. You can continue booking by clicking the reserve button </div>`);
+
+                    // Swal.fire({
+                    //     title: 'Room Available',
+                    //     text: "Click continue in to the next step",
+                    //     // icon: 'Succes',
+                    //     showCancelButton: true,
+                    //     confirmButtonColor: '#3085d6',
+                    //     cancelButtonColor: '#d33',
+                    //     cancelButtonText: 'Back',
+                    //     confirmButtonText: 'Continue',
+
+                    // }).then((result) => {
+                    //     if (result.isConfirmed) {
+                    //         window.location.href = base_url + 'pemesanan';
+                    //     }
+                    // });
+
+
+                    response.availability.forEach(function(item) {
+                        //     const cardHTML = `
+                        //     <div class="">
+                        //         <div class="text-xl font-semibold mb-2">${item.id_kamar}</div>
+                        //     </div>
+                        // `;
+                        // $("#availability-card-container").append(cardHTML);
                     });
+                    const avak = `
+                            <div class="text-black">Available Rooms: ${availability}</div>
+                            <button class="w-20 h-8 bg-red-600 text-white" id="reserve">Reserve</button>
+                    `;
+                    $("#availability1").append(avak);
+                    $("#reserve").click(function(event) {
+                        console.log('halo');
+                        window.location.href = base_url + 'pemesanan';
+                    });
+                    console.log('adfadf', availability);
+
+                    $('html, body').animate({
+                        scrollTop: $("#availability-card-container").offset().top
+                    }, 10);
+
                 } else {
-                    Swal.fire({
-                        title: 'Room Not Available',
-                        text: "Please choose another date",
-                        // icon: 'Succes',
-                        showCancelButton: true,
-                        cancelButtonColor: '#d33',
-                        cancelButtonText: 'Back',
-                    });
+                    $("#error-message").html(`<div class="text-yellow-500"><i class="fas fa-exclamation-circle"></i> There are ${availability} rooms available. You need ${roomsi} rooms. Please choose another date or adjust the number of guests.</div>`);
+
+                    const avak = `
+                            <div class="text-black">Available Rooms: ${availability}</div>
+                    `;
+                    $("#availability1").append(avak);
+                    console.log('adfadf', availability);
+
+                    $('html, body').animate({
+                        scrollTop: $("#availability-card-container").offset().top
+                    }, 10);
                 }
-
-
             },
             error: function(xhr, status, error) {
                 console.error(xhr.responseText); // Tampilkan pesan error jika permintaan gagal
             },
         });
 
-
-
         // Lakukan tindakan lebih lanjut seperti submit form atau AJAX request
         // Misalnya: $("#yourFormId").submit();
     });
-    $(document).ready(function() {
-        $.ajax({
-            type: "GET",
-            url: "<?php echo base_url('kamar/getSessionValues'); ?>", // URL endpoint PHP untuk mendapatkan data session
-            success: function(response) {
-                // Parse respons JSON dari server
-                var sessionData = JSON.parse(response);
 
-                // Perbarui elemen HTML dengan nilai dari session
-                $('#total-persons').text(parseInt(sessionData.adults) + parseInt(sessionData.kids));
-                $('#total-rooms').text(parseInt(sessionData.rooms));
 
-                // Juga memperbarui counter di dalam modal
-                $('.adult').text(sessionData.adults);
-                $('.kid').text(sessionData.kids);
-                $('.room').text(sessionData.rooms);
-            },
-            error: function(xhr, status, error) {
-                console.error("Error:", error);
-            }
-        });
+    // $(document).ready(function() {
+    //     $.ajax({
+    //         type: "GET",
+    //         url: "<?php echo base_url('kamar/getSessionValues'); ?>", // URL endpoint PHP untuk mendapatkan data session
+    //         success: function(response) {
+    //             // Parse respons JSON dari server
+    //             var sessionData = JSON.parse(response);
 
-    });
+    //             // Perbarui elemen HTML dengan nilai dari session
+    //             $('#total-persons').text(parseInt(sessionData.adults) + parseInt(sessionData.kids));
+    //             $('#total-rooms').text(parseInt(sessionData.rooms));
+
+    //             // Juga memperbarui counter di dalam modal
+    //             $('.adult').text(sessionData.adults);
+    //             $('.kid').text(sessionData.kids);
+    //             $('.room').text(sessionData.rooms);
+    //         },
+    //         error: function(xhr, status, error) {
+    //             console.error("Error:", error);
+    //         }
+    //     });
+    // });
 
     // Event listener for the submit button
     document.getElementById('submit-button').addEventListener('click', function() {
@@ -396,6 +663,7 @@
             }
         });
     });
+
     document.querySelectorAll('.btn-plus').forEach(button => {
         button.addEventListener('click', function() {
             let counterElement = this.nextElementSibling;

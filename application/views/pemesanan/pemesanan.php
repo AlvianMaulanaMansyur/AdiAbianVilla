@@ -617,7 +617,7 @@
         <div class="w-40 h-5 left-[26px] top-[19px] absolute text-black text-xl font-bold leading-7">Booking Details</div>
         <div class="w-32 h-14 left-[26px] top-[65px] absolute">
           <div class="w-22 h-5 left-[33px] top-0 absolute text-black text-md font-bold leading-7">Check-in</div>
-          <div id="start_date" class="w-36 h-5 left-0 top-[33px] absolute text-black text-md font-normal leading-7"><?php echo $kamar['checkin'] ?></div>
+          <div id="start_date" class="w-40 h-5 left-0 top-[33px] absolute text-black text-md font-normal leading-7"><?php echo $kamar['checkin'] ?></div>
         </div>
         <div class="w-32 h-14 left-[230px] top-[65px] absolute">
           <div class="w-22 h-5 left-[20px] top-0 absolute text-black text-md font-bold leading-7">Check-out</div>
@@ -628,7 +628,7 @@
           <div id="night" class="w-20 h-5 left-0 top-[32px] absolute text-black text-md font-normal leading-7">1 Nights</div>
         </div>
         <div class="left-[250px] top-[166px] absolute">
-        <div class="w-28 h-7 left-[0px] top-[0px] absolute text-black text-md font-bold leading-7">Requirements</div>
+          <div class="w-28 h-7 left-[0px] top-[0px] absolute text-black text-md font-bold leading-7">Requirements</div>
           <div class="w-28 h-5 left-[0px] top-[32px] absolute text-black text-md font-normal leading-7">Rooms <?php echo $kamar['rooms'] ?></div>
           <div class="w-28 h-5 left-[0px] top-[60px] absolute text-black text-md font-normal leading-7">Adult <?php echo  $kamar['adults'] ?> Kids <?php echo $kamar['kids'] ?></div>
         </div>
@@ -640,7 +640,7 @@
   <div class="left-[800px] top-[526px] absolute w-3/12 h-2/5 bg-white shadow rounded">
     <div class="left-[0px] top-[0px] absolute">
       <div class="w-40 h-6 left-[26px] top-[18.05px] absolute text-black text-xl font-bold leading-7">Price Details</div>
-      <div class="w-32 h-14 left-[26px] top-[65.50px] absolute text-black text-md font-normal leading-7">Room price<br/><span class="text-sm text-gray-500"><?php echo $kamar['rooms'] ?> Rooms</span><span id="night2" class="text-sm text-gray-500"></span></div>
+      <div class="w-32 h-14 left-[26px] top-[65.50px] absolute text-black text-md font-normal leading-7">Room price<br /><span class="text-sm text-gray-500"><?php echo $kamar['rooms'] ?> Rooms</span><span id="night2" class="text-sm text-gray-500"></span></div>
       <?php $price = $harga * $kamar['rooms'] ?>
       <div id="calPrice" data="<?php echo $price ?>"></div>
       <div id="price" class="w-24 h-7 left-[270px] top-[74.27px] absolute text-black text-md font-normal leading-7"></div>
@@ -654,13 +654,14 @@
       <div id="total_price" class="w-24 h-7 left-[270px] top-[206.30px] absolute text-black text-md font-bold leading-7"></div>
 
       <button id="submit-details" class="absolute w-52 h-10 bg-blue-500 text-white mt-4 mb-5 rounded left-[100px] top-[230px] bg-red-500">
-      Continue To Payment
-    </button>
+        Continue To Payment
+      </button>
     </div>
   </div>
 
 </div>
 
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
 <script>
   document.addEventListener("DOMContentLoaded", function() {
@@ -760,7 +761,49 @@
       }
 
       if (isValid) {
-        $('#reservation-form').submit();
+        // $('#reservation-form').submit();
+        $.ajax({
+          type: "POST",
+          url: "<?php echo base_url('pemesanan/createpemesanan'); ?>",
+          data: {
+            username: username,
+            no_telp: noTelp,
+            email: email,
+            negara: negara,
+            jenis_kelamin: jenisKelamin.value,
+          },
+          dataType: "json",
+          success: function(response) {
+            // console.log(response.pemesanan.id_pemesanan)
+            console.log(response.pemesanan[0])
+            var order = response.pemesanan[0]
+            console.log(order.id_pemesanan)
+
+            if (response.status == 'Fail') {
+              Swal.fire({
+                title: response.status,
+                text: response.message,
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                cancelButtonText: 'Back',
+                confirmButtonText: 'Ok',
+
+              }).then((result) => {
+                if (result.isConfirmed) {
+                  window.location.href = base_url + 'pemesanan/payment/' + order.id_pemesanan;
+                }
+              });
+            } else {
+              window.location.href = base_url + 'pemesanan/payment/' + order.id_pemesanan;
+            }
+
+          },
+          error: function(xhr, status, error) {
+            console.error("Error:", error);
+          }
+        });
       }
     });
   });

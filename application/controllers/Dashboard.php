@@ -13,6 +13,7 @@ class Dashboard extends CI_Controller
         //Do your magic here
         $this->load->model('customer_model');
         $this->load->model('M_dashboard');
+        $this->load->model('M_pemesanan');
         
         if (empty($this->session->userdata('username'))) {
             redirect('Authadmin/login');
@@ -82,6 +83,21 @@ class Dashboard extends CI_Controller
         
     }
 
+    public function daftarPemesanan()
+    {
+        $pemesanan = $this->M_pemesanan->getPemesanan();
+        $data = [
+            'title' => 'Adi Abian Villa Dashboard',
+            'header' => 'dashboard/header',
+            'navbar' => 'dashboard/navbar',
+            'sidebar' => 'dashboard/sidebar',
+            'content' => 'dashboard/daftar_pemesanan',
+            'footer' => 'dashboard/footer',
+            'script' => 'dashboard/script',
+            'pemesanan' => $pemesanan
+        ];
+        $this->load->view('dashboard/main', $data);
+    }
     public function guestdata()
     {
 
@@ -100,6 +116,23 @@ class Dashboard extends CI_Controller
         $this->load->view('dashboard/main', $data);
     }
 
+    public function edit() {
+        $id_tamu = $this->input->post('id_tamu');
+        $data = [
+            'username' => $this->input->post('username'),
+            'email' => $this->input->post('email'),
+            'no_telp' => $this->input->post('phone'),
+            'jenis_kelamin' => $this->input->post('gender'),
+            'negara' => $this->input->post('nationality')
+        ];
+        $this->customer_model->update_guest($id_tamu, $data);
+
+        // Set flash data untuk notifikasi
+        $this->session->set_flashdata('success', 'Data berhasil diperbarui!');
+        redirect('Dashboard/guestData');
+    }
+
 }
 
 /* End of file Controllername.php */
+ 
