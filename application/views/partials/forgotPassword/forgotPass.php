@@ -14,8 +14,9 @@
                     <form action="<?php echo site_url('Auth/forgotPassword'); ?>" method="post" class="pt-3">
                         <div class="form-group">
                             <h5>Please Insert Your Valid Email</h5>
-                            <input type="text" class="form-control form-control-lg" placeholder="Insert Your Email Here" name="email" required>
+                            <input type="text" class="form-control form-control-lg" placeholder="Insert Your Email Here" name="email">
                         </div>
+                        <small class="text-danger"><?= form_error('email'); ?></small>
                         <div class="mt-3 d-grid gap-2">
                             <button type="submit" class="btn btn-primary btn-md">Continue</button>
                         </div>

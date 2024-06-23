@@ -15,7 +15,9 @@ class Auth extends CI_Controller
   
   public function Login()
   {
-    $this->form_validation->set_rules('identity', 'Username or Email', 'trim|required');
+    $this->form_validation->set_rules('identity', 'Username or Email', 'trim|required|min_length[8]', array(
+      'min_length' => 'must be at least 8 characters!'
+    ));
 
     if ($this->form_validation->run() == FALSE) {
       # code...
@@ -90,9 +92,18 @@ class Auth extends CI_Controller
 
   public function createPass()
   {
-    $this->form_validation->set_rules('identity', 'Username or Email', 'trim|required');
-    $this->form_validation->set_rules('password', 'Password', 'trim|required');
-    $this->form_validation->set_rules('password2', 'Password2', 'trim|matches[password]|required');
+    $this->form_validation->set_rules('identity', 'Username or Email', 'trim|required', array(
+      'required' => 'email cannot be empty!',
+    ));
+    $this->form_validation->set_rules('password', 'Password', 'trim|required|min_length[8], regex_match[/[0-9]/]', array(
+      'required' => 'password cannot be empty',
+      'min_length' => 'password must be at least 8 characters',
+      'regex_match' => 'password must be at least contain 1 number'
+    ));
+    $this->form_validation->set_rules('password2', 'Password2', 'trim|matches[password]|required', array(
+      'required' => 'password confirmation cannot be empty',
+      'matches' => 'Password does not match!'  
+    ));
 
     if ($this->form_validation->run() == FALSE) {
       $data = [
@@ -129,7 +140,9 @@ class Auth extends CI_Controller
 
   public function forgotPassword()
   {
-    $this->form_validation->set_rules('email', 'Email', 'trim|required|valid_email');
+    $this->form_validation->set_rules('email', 'Email', 'trim|required|valid_email', array(
+      'required' => 'email cannot be empty!',
+    ));
     
     if ($this->form_validation->run() == FALSE){
       $data = [
@@ -138,8 +151,9 @@ class Auth extends CI_Controller
         'content' => 'partials/forgotPassword/forgotPass',
       ];
       }else {
-        $email = $this->input->post('identity');
+        $email = $this->input->post('email');
         $user = $this->db->get_where('tamu', ['email' => $email])->row_array();
+
         $link = base_url('Auth/changePassword');
         $subject = 'Password Recovery';
         $message =
@@ -165,24 +179,58 @@ class Auth extends CI_Controller
     $this->load->view('partials/authTemplate', $data);
   } 
   
+  
+  public function changePassword()
+  {
+    $this->form_validation->set_rules('password', 'Password', 'trim|required|min_length[8]|matches[password1]', array(
+      'min_length' => 'password atleast contain 8 characters!',
+      'matches' => 'password is not the same'
+
+  ));
+  $this->form_validation->set_rules('password1', 'Password1', 'trim|required|min_length[8]|matches[password]', array(
+      'min_length' => 'password atleast contain 8 characters!',
+      'matches' => 'password is not the same'
+  ));
+  if ($this->form_validation->run() == FALSE) {
+  $data = [
+      'title' => 'Password Recovery',
+      'header' => 'partials/header',
+      'content' => 'partials/changePass',
+
+  ];
+  $this->load->view('partials/authTemplate', $data);
+  } else  {
+      $password = $this->input->post('password');
+      $email = $this->session->userdata('reset');
+
+      $data = password_hash($password, PASSWORD_DEFAULT);
+      $this->db->set('password', $data);
+      $this->db->where('email', $email);
+      $this->db->update('tamu');
+
+      $this->session->unset_userdata('reset');
+
+      $this->session->set_flashdata('error_message', '<div class="alert alert-success" role="alert">
+      password has been changed!</div>');
+
+      redirect('Auth/Login');
+  }
+  }
+
   public function send_email($to, $subject, $message)
   {
     $this->email->set_newline("\r\n");
-    $this->email->from('villaadiabian@gmail.com', 'Adi Abian Villa');
+    $this->email->from('balinirvanakomputer@gmail.com', 'Adi Abian Villa');
     $this->email->to($to);
-    $this->email->$subject($subject);
-    $this->email->$message($message);
+    $this->email->subject($subject);
+    $this->email->message($message);
 
     if($this->email->send()){
       return true;
     } else {
       echo $this->email->print_debugger();
+      die;
     }
-  }
-
-  public function changePassword()
-  {
-
   }
 
   public function logout()

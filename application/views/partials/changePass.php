@@ -5,19 +5,20 @@
             <div class=" w-100 ">
                 <div class=" mx-auto">
                     <p class="flex justify-center align-items-center text-green-600 font-bold text-3xl">Adi Abian <span class="text-black"> Villa</span></p>
-                    <p class="font-bold text-md">Sign in or Create Account</p>
-                    <form action="<?php echo site_url('auth/login'); ?>" method="post" class="pt-3">
-                        <div class="form-group">
-                            <h5>Email or Username</h5>
-                            <input type="text" class="form-control form-control-lg" placeholder="Email or Username" name="identity" required>
+                    <p class="font-bold text-md">Recovery Your Password </p>
+                    <form action="<?php echo site_url('Auth/changePassword'); ?>" method="post" class="pt-3">
+                        
+                        <div class="form-group pb-4">
+                            <h5>Insert Your New Password</h5>
+                            <input type="text" class="form-control form-control-lg" placeholder=" Your new password" name="password">
+                        </div>
+                        <div class="form-group pb-3">
+                            <h5>Confirm Your New Password</h5>
+                            <input type="text" class="form-control form-control-lg" placeholder=" Confirm Your new password" name="password1">
                         </div>
                         <div class="mt-3 d-grid gap-2">
                             <button type="submit" class="btn btn-primary btn-md">Continue</button>
                         </div>
-                        <div class="my-2 d-flex justify-content-end align-items-center">
-                            <a href="<?= base_url('Auth/forgotPassword'); ?>" class="auth-link text-black">Forgot password?</a>
-                        </div>
-
                     </form>
                 </div>
             </div>

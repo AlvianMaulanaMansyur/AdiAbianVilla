@@ -10,7 +10,7 @@
                         <p class="font-bold text-md">Sign in or Create Account</p>
                         <form action="<?= site_url('auth/verify_password'); ?>" method="post" class="pt-3">
                             <div class="form-group">
-                                <input type="hidden" class="form-control form-control-lg" placeholder="Email or Username" name="identity" value="<?php echo $identity; ?>" disabled>
+                                <input type="hidden" class="form-control form-control-lg" placeholder="Email or Username" name="identity" value="<?php echo $identity; ?>" >
                             </div>
                             <div class="form-group">
                                 <h5>Password</h5>
