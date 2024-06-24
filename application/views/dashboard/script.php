@@ -20,5 +20,10 @@
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
     <script src="<?php echo base_url('lightpick/lightpick.js') ?>"></script>
+    <!-- sweetalert2 -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    <!-- our own -->
     <script src="<?php echo base_url('assets/js/ketersediaan.js') ?>"></script>
+    <script src="<?php echo base_url('assets/js/guestData.js') ?>"></script>
     <!-- End custom js for this page-->

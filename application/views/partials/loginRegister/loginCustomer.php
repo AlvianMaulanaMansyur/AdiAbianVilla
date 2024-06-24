@@ -6,19 +6,18 @@
                 <div class=" mx-auto">
                     <p class="flex justify-center align-items-center text-green-600 font-bold text-3xl">Adi Abian <span class="text-black"> Villa</span></p>
                     <p class="font-bold text-md">Sign in or Create Account</p>
-                    <form action="<?= site_url('auth/login'); ?>" method="post" class="pt-3">
+                    <form action="<?php echo site_url('auth/login'); ?>" method="post" class="pt-3">
                         <div class="form-group">
                             <h5>Email or Username</h5>
-                            <input type="email" class="form-control form-control-lg" placeholder="Username or username" name="email">
+                            <input type="text" class="form-control form-control-lg" placeholder="Email or Username" name="identity" required>
                         </div>
-                        <div class=" w-full  mt-3">
-                            <input class="px-32 d-grid btn btn-primary btn-md" type="submit" value="continue">
-                                <!-- <a class="btn btn-primary btn-md">Continue</a> -->
-                            </input>
+                        <div class="mt-3 d-grid gap-2">
+                            <button type="submit" class="btn btn-primary btn-md">Continue</button>
                         </div>
                         <div class="my-2 d-flex justify-content-end align-items-center">
-                            <a href="#" class="auth-link text-black">Forgot password?</a>
+                            <a href="<?= base_url('Auth/forgotPassword'); ?>" class="auth-link text-black">Forgot password?</a>
                         </div>
+
                     </form>
                 </div>
             </div>

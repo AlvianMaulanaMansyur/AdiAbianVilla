@@ -12,6 +12,7 @@ class M_tamu extends CI_Model
         $tamu = $result->result_array();
         return $tamu;
     }
+
     public function getTamuById($id_tamu)
     {
         $this->db->where('id_tamu', $id_tamu);
@@ -23,6 +24,14 @@ class M_tamu extends CI_Model
     {
         $this->db->where('id_tamu', $id_tamu);
         return $this->db->update('tamu', $data);
+    }
+    public function getTamuByEmailUsername($identity)
+    {
+        $this->db->where('email', $identity['email']);
+        $this->db->or_where('username', $identity['username']);
+        $query = $this->db->get('tamu');
+        return $query->result_array();
+
     }
 }
 

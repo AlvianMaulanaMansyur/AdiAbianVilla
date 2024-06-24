@@ -48,6 +48,7 @@
         <div class='loaded'>&nbsp;</div>
     </div> -->
     <div class="culmn">
+<<<<<<< HEAD
         <header id="main_menu" class="header navbar-fixed-top">
             <div class="main_menu_bg">
                 <div class="container">
@@ -85,15 +86,49 @@
 
                                     </div>
 
+=======
+    <header id="main_menu" class="header navbar-fixed-top">
+        <div class="main_menu_bg">
+        <a class="navbar-brand top-[30px] ps-5 absolute" href="#home">
+            <img src="asset/images/adibian.png" >
+        </a>
+            <div class="container flex justify-center">
+                <div class="row">
+                    <div class="nave_menu">
+                        <nav class="navbar navbar-default">
+                            <div class="container-fluid">
+                                <!-- Brand and toggle get grouped for better mobile display -->
+                                <div class="navbar-header">
+                                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                                        data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                                        <span class="sr-only">Toggle navigation</span>
+                                        <span class="icon-bar"></span>
+                                        <span class="icon-bar"></span>
+                                        <span class="icon-bar"></span>
+                                    </button>
+>>>>>>> 1be6ffd0e5317f7978052b890125a547c542d149
                                 </div>
-                            </nav>
-                        </div>
+
+                                <!-- Collect the nav links, forms, and other content for toggling -->
+                                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                                    <ul class="nav nav-between flex justify-right">
+                                        <li ><a class="text-white" href="#home">HOME</a></li>
+                                        <li><a class="text-white" href="#book">BOOK NOW</a></li>
+                                        <li><a class="text-white" href="#facilities">FACILITIES</a></li>
+                                        <li><a class="text-white" href="#gallery">GALLERY</a></li>
+                                        <li><a class="text-white" href="#aboutus">ABOUT US</a></li>
+                                        <li><a class="text-white" href="#contact">CONTACT</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </nav>
                     </div>
-
                 </div>
-
             </div>
-        </header>
+        </div>
+    </header>
+</div>
+
         <!--End of header -->
 
 

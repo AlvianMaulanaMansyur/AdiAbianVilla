@@ -1,38 +1,38 @@
-document.addEventListener('DOMContentLoaded', function () {
-    function getDaySuffix(date) {
-        const j = date % 10, k = date % 100;
-        if (j == 1 && k != 11) {
-            return date + "st";
-        }
-        if (j == 2 && k != 12) {
-            return date + "nd";
-        }
-        if (j == 3 && k != 13) {
-            return date + "rd";
-        }
-        return date + "th";
-    }
+// import moment from 'moment';
 
-    function formatDate(date) {
-        return getDaySuffix(date.date()) + " " + date.format('MMMM YYYY');
-    }
+document.addEventListener('DOMContentLoaded', function () {
+    var prices = {
+        '2024-06-25': 'Rp. 500.000',
+        '2024-06-26': 'Rp. 600.000',
+        '2024-06-27': 'Rp. 550.000',
+        // Tambahkan data harga untuk tanggal lainnya sesuai kebutuhan
+      };
     var numberOfMonths = window.innerWidth < 640 ? 1 : 2;
+    var checkin = document.getElementById('data_checkin');
+    var checkinValue = checkin.getAttribute('data');
+    var checkout = document.getElementById('data_checkout');
+    var checkoutValue = checkout.getAttribute('data');
+    var format1 = moment(checkinValue).format('ddd D MMMM YYYY');
+    var format2 = moment(checkoutValue).format('ddd D MMMM YYYY');
+    console.log(format1)
+    console.log(checkinValue);
     var picker = new Lightpick({
-        
         field: document.getElementById('datepicker'),
         secondField: document.getElementById('datepicker2'),
         parentEl: document.getElementById('datepicker-section'),
         inline: true,
         numberOfMonths: numberOfMonths,
         minDate: new Date(),
+        prices: prices,
         onSelect: function(start, end) {
             var strs = '';
             var stre = '';
-            strs = start ? formatDate(start) : '';
-            stre = end ? formatDate(end) : '...';
+            // // strs = start ? formatDate(start) : '';
+            // // stre = end ? formatDate(end) : '...';
+            strs = start ? start.format('ddd D MMMM YYYY') : '';
+            stre = end ? end.format('ddd D MMMM YYYY') : '...';
             document.getElementById('datepicker').value = strs;
             document.getElementById('datepicker2').value = stre;
-
 
             if (start && end) {
                 const dateRange = start.format('YYYY-MM-DD') + ' - ' + end.format('YYYY-MM-DD');
@@ -75,8 +75,14 @@ document.addEventListener('DOMContentLoaded', function () {
                     },
                 });
             }
+
         }
     });
+
+    if (checkinValue && checkoutValue) {
+        document.getElementById('datepicker').value = format1;
+        document.getElementById('datepicker2').value = format2;
+    }
 
     // Menangani input secara manual untuk memastikan format benar saat memilih start date
     document.getElementById('datepicker').addEventListener('input', function () {
