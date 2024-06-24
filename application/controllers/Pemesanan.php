@@ -42,12 +42,19 @@ class Pemesanan extends CI_Controller
     }
     public function createPemesanan()
     {
-        $checkin = $this->session->cookie('checkin');
-        $checkout = $this->session->cookie('checkout');
-        $jumlah_kamar = $this->session->userdata('rooms') ? $this->session->userdata('rooms') : 1;
-        $dewasa = $this->session->userdata('adults') ? $this->session->userdata('adults') : 2;
-        $anak = $this->session->userdata('kids') ? $this->session->userdata('kids') : 0;
+        // $checkin = $this->session->cookie('checkin');
+        // $checkout = $this->session->cookie('checkout');
 
+        // $jumlah_kamar = $this->session->userdata('rooms') ? $this->session->userdata('rooms') : 1;
+        // $dewasa = $this->session->userdata('adults') ? $this->session->userdata('adults') : 2;
+        // $anak = $this->session->userdata('kids') ? $this->session->userdata('kids') : 0;
+        $dataCookie = $this->M_pemesanan->getSessionValues();
+        // return($dataCookie);
+        $checkin = $dataCookie['checkin'];
+        $checkout = $dataCookie['checkout'];
+        $dewasa = $dataCookie['adults'];
+        $anak = $dataCookie['kids'];
+        $jumlah_kamar = $dataCookie['rooms'];
         $current_time = date_create()->format('Y-m-d H:i:s');
         $nama = $this->input->post('username');
         $no_telp = $this->input->post('no_telp');
@@ -61,12 +68,12 @@ class Pemesanan extends CI_Controller
             'negara' => $negara,
             'jenis_kelamin' => $jenis_kelamin,
         );
-        $expire = 86400;
+        // $expire = 86400;
 
-        // Menyimpan setiap item data sebagai cookie
-        foreach ($dataTamu as $key => $value) {
-            set_cookie($key, $value, $expire);
-        }
+        // // Menyimpan setiap item data sebagai cookie
+        // foreach ($dataTamu as $key => $value) {
+        //     set_cookie($key, $value, $expire);
+        // }
         // var_dump($dataTamu);die;
 
         $id_tamu = $this->M_pemesanan->savePersonalInfo($dataTamu);
@@ -79,7 +86,7 @@ class Pemesanan extends CI_Controller
             'jumlah_kamar' => $jumlah_kamar,
             'dewasa' => $dewasa,
             'anak' => $anak,
-            'status' => 0,
+            // 'status' => 0,
             'id_tamu' => $id_tamu,
             'id_admin' => 1,
         );

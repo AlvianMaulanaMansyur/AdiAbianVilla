@@ -25,7 +25,7 @@ class M_pemesanan extends CI_Model
     public function getPemesananByIdTamu($id_tamu)
     {
         $this->db->where('id_tamu', $id_tamu);
-        $this->db->where('status', 0);
+        // $this->db->where('status', 0);
         $result = $this->db->get('pemesanan');
         $pemesanan = $result->result();
         return $pemesanan;
@@ -35,12 +35,8 @@ class M_pemesanan extends CI_Model
 
     public function getSessionValues()
     {
-
        // Membaca nilai cookie
-        
     $roomsDataJson = get_cookie('roomsData');
-
-
      // Inisialisasi variabel
      $adults = 0;
      $kids = 0;
@@ -110,7 +106,7 @@ class M_pemesanan extends CI_Model
     public function savePemesanan($data)
     {
         $this->db->where('pemesanan.id_tamu', $data['id_tamu']);
-        $this->db->where('pemesanan.status', 0);
+        // $this->db->where('pemesanan.status', 0);
 
         $query = $this->db->get('pemesanan');
         

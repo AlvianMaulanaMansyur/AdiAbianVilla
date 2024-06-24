@@ -724,7 +724,7 @@
       let noTelp = $('#no_telp').val();
       let email = $('#email').val();
       let negara = $('#negara').val();
-      var jenisKelamin =  $('#negara').val();
+      var jenisKelamin = $('#jenis_kelamin').val();
 
       // Validate full name
       if (!username) {
