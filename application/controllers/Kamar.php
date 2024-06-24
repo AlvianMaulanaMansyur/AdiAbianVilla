@@ -19,10 +19,17 @@ class Kamar extends CI_Controller
     public function index()
     {
         $harga_kamar = $this->M_kamar->getHargaKamar();
+        $checkin = $this->input->cookie('checkin', TRUE);
+        $checkout = $this->input->cookie('checkout', TRUE);
+
         $datacheck = array(
-            'checkin' => $this->session->userdata('checkin') ? $this->session->userdata('checkin') : '',
-            'checkout' => $this->session->userdata('checkout') ? $this->session->userdata('checkout') : '',
+            'checkin' => $checkin ? $checkin : '',
+            'checkout' => $checkout ? $checkout : ''
         );
+        // $datacheck = array(
+        //     'checkin' => $this->session->userdata('checkin') ? $this->session->userdata('checkin') : '',
+        //     'checkout' => $this->session->userdata('checkout') ? $this->session->userdata('checkout') : '',
+        // );
         $data = [
             'title' => 'Calendar',
             'header' => 'partials/header',
@@ -55,15 +62,34 @@ class Kamar extends CI_Controller
             $checkin = date('Y-m-d', strtotime($dates[0]));
             $checkout = date('Y-m-d', strtotime($dates[1]));
 
-            $this->session->set_userdata('checkin', $checkin);
-            $this->session->set_userdata('checkout', $checkout);
+            // Atur durasi cookie (misalnya, 1 hari)
+            $cookie_duration = 86400; // 86400 detik = 1 hari
+
+            // Tetapkan cookie untuk 'checkin' dan 'checkout'
+            $cookie_checkin = array(
+                'name'   => 'checkin',
+                'value'  => $checkin,
+                'expire' => $cookie_duration,
+                'path'   => '/'
+            );
+            $cookie_checkout = array(
+                'name'   => 'checkout',
+                'value'  => $checkout,
+                'expire' => $cookie_duration,
+                'path'   => '/'
+            );
+
+            $this->input->set_cookie($cookie_checkin);
+            $this->input->set_cookie($cookie_checkout);
+            // $this->session->set_userdata('checkin', $checkin);
+            // $this->session->set_userdata('checkout', $checkout);
 
             $ketersediaan = $this->M_kamar->ketersediaan($checkin, $checkout);
             $detail_ketersediaan = $this->M_kamar->detailKetersediaan($checkin, $checkout);
             $real_ketersediaan = $this->M_kamar->gabungKetersediaan($checkin, $checkout);
 
             $this->session->set_userdata('availability', $ketersediaan);
-            
+
             $tampil = $this->M_kamar->tampilkamar();
             // var_dump($detail_ketersediaan);
             $response = array(

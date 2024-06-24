@@ -10,13 +10,22 @@ class Pemesanan extends CI_Controller
         parent::__construct();
         $this->load->model('M_pemesanan');
         $this->load->model('M_kamar');
+        $this->load->model('M_tamu');
     }
 
     public function index()
     {
+        $data_tamu = [
+            'username' => 'suastika',
+            'email' => 'putrasuastika78@gmail.com',
+        ];
+
+        $tamu = $this->M_tamu->getTamuByEmailUsername($data_tamu);
+        // var_dump($tamu);die;
         $pemesanan = $this->M_pemesanan->getPemesanan();
         $kamar = $this->M_pemesanan->getSessionValues();
-        $data_pribadi = $this->M_pemesanan->getCookieValues();
+        // var_dump($kamar);die;
+        // $data_pribadi = $this->M_pemesanan->getCookieValues();
         // var_dump($data_pribadi);die;
         $harga_kamar = $this->M_kamar->getHargaKamar();
         $data = [
@@ -26,15 +35,15 @@ class Pemesanan extends CI_Controller
             'script' => 'partials/script',
             'pemesanan' => $pemesanan,
             'kamar' => $kamar,
-            'tamu' => $data_pribadi,
-            'harga' => $harga_kamar[0]['harga_kamar'],
+            'tamu' => $tamu[0],
+            'harga' => $harga_kamar[0]['harga'],
         ];
         $this->load->view('partials/main', $data);
     }
     public function createPemesanan()
     {
-        $checkin = $this->session->userdata('checkin');
-        $checkout = $this->session->userdata('checkout');
+        $checkin = $this->session->cookie('checkin');
+        $checkout = $this->session->cookie('checkout');
         $jumlah_kamar = $this->session->userdata('rooms') ? $this->session->userdata('rooms') : 1;
         $dewasa = $this->session->userdata('adults') ? $this->session->userdata('adults') : 2;
         $anak = $this->session->userdata('kids') ? $this->session->userdata('kids') : 0;

@@ -316,27 +316,29 @@
       <form id="reservation-form" action="<?php echo base_url('pemesanan/createpemesanan') ?>" method="post">
         <!-- <div class="bg-white w-1/2 h-1/2 left-[290px] top-[130px] absolute bg-white shadow rounded"> -->
         <!-- </div> -->
-
-        <div class="w-72 h-20 left-[0px] top-[47px] absolute">
-          <label for="username">Full Name</label>
-          <input id="username" name="username" class="h-12 px-3.5 py-2.5 left-0 top-[28px] absolute bg-white rounded border border-black flex-col justify-start items-start inline-flex" placeholder="ex: John Wick" value="<?php echo $tamu['username'] ?>">
-          <span class="error text-red-600" id="username-error"></span>
-        </div>
-        <div class="w-72 h-20 left-[394px] top-[47px] absolute">
-          <label for="no_telp">Telephone Number</label>
-          <input id="no_telp" name="no_telp" class="h-12 px-3.5 py-2.5 left-0 top-[28px] absolute bg-white rounded border border-black flex-col justify-start items-start inline-flex" placeholder="ex: 085XXXXXXX" value="<?php echo $tamu['no_telp'] ?>">
-          <span class="error text-red-600" id="no_telp-error"></span>
-        </div>
-        <div class="w-72 h-20 left-[0px] top-[135px] absolute">
-          <label for="email">Email</label>
-          <input id="email" name="email" type="email" class="h-12 px-3.5 py-2.5 left-0 top-[28px] absolute bg-white rounded border border-black flex-col justify-start items-start inline-flex" placeholder="ex: example@gmail.com" value="<?php echo $tamu['email'] ?>">
-          <span class="error text-red-600" id="email-error"></span>
-        </div>
-        <div class="w-72 h-20 left-[394px] top-[135px] absolute">
-          <label for="negara">Nasionality</label>
-          <!-- <input id="negara" name="negara" class="h-12 px-3.5 py-2.5 left-0 top-[28px] absolute bg-white rounded border border-black flex-col justify-start items-start inline-flex" placeholder="ex: Dominican Republic" value="<?php echo $tamu['negara'] ?>"> -->
-          <span class="error text-red-600" id="negara-error"></span>
-          <select id="negara" name="negara" class="w-60 h-12 px-3.5 py-2.5 left-0 top-[28px] absolute bg-white rounded border border-black flex-col justify-start items-start inline-flex">
+        <fieldset disabled>
+          <div class="w-72 h-20 left-[0px] top-[47px] absolute">
+            <label for="username">Full Name</label>
+            <input id="username" name="username" class="h-12 px-3.5 py-2.5 left-0 top-[28px] absolute bg-white rounded border border-black flex-col justify-start items-start inline-flex" placeholder="ex: John Wick" value="<?php echo $tamu['nama'] ?>">
+            <span class="error text-red-600" id="username-error"></span>
+          </div>
+          <div class="w-72 h-20 left-[394px] top-[47px] absolute">
+            <label for="no_telp">Telephone Number</label>
+            <input id="no_telp" name="no_telp" class="h-12 px-3.5 py-2.5 left-0 top-[28px] absolute bg-white rounded border border-black flex-col justify-start items-start inline-flex" placeholder="ex: 085XXXXXXX" value="<?php echo $tamu['no_telp'] ?>">
+            <span class="error text-red-600" id="no_telp-error"></span>
+          </div>
+          <div class="w-72 h-20 left-[0px] top-[135px] absolute">
+            <label for="email">Email</label>
+            <input id="email" name="email" type="email" class="h-12 px-3.5 py-2.5 left-0 top-[28px] absolute bg-white rounded border border-black flex-col justify-start items-start inline-flex" placeholder="ex: example@gmail.com" value="<?php echo $tamu['email'] ?>">
+            <span class="error text-red-600" id="email-error"></span>
+          </div>
+          <div class="w-72 h-20 left-[394px] top-[135px] absolute">
+            <label for="negara">Nasionality</label>
+            <input id="negara" name="negara" class="h-12 px-3.5 py-2.5 left-0 top-[28px] absolute bg-white rounded border border-black flex-col justify-start items-start inline-flex" placeholder="ex: Dominican Republic" value="<?php echo $tamu['negara'] ?>">
+            <span class="error text-red-600" id="negara-error"></span>
+            <!-- list negara -->
+            <span>
+              <!-- <select id="negara" name="negara" class="w-60 h-12 px-3.5 py-2.5 left-0 top-[28px] absolute bg-white rounded border border-black flex-col justify-start items-start inline-flex">
             <option value="<?php echo $tamu['negara'] ?>"><?php echo $tamu['negara'] ?></option>
             <option value="Afghanistan">Afghanistan</option>
             <option value="Åland Islands">Åland Islands</option>
@@ -582,82 +584,78 @@
             <option value="Yemen">Yemen</option>
             <option value="Zambia">Zambia</option>
             <option value="Zimbabwe">Zimbabwe</option>
-          </select>
-        </div>
-        <div class="w-72 h-20 left-[0px] top-[225px] absolute">
-          <label for="jenis_kelamin">Gender</label>
-          <div class="flex items-center mb-2 pt-2">
-            <input id="man" name="jenis_kelamin" type="radio" value="Man" name="default-radio" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
-            <label for="man" class="ms-2 text-gray-900 dark:text-gray-300 me-5">Man</label>
-
-            <input id="woman" name="jenis_kelamin" type="radio" value="Woman" name="default-radio" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
-            <label for="woman" class="ms-2 text-gray-900 dark:text-gray-300">Woman</label>
+          </select> -->
+            </span>
           </div>
-          <!-- <select name="jenis_kelamin" id="jenis_kelamin" class="w-60 h-12 px-3.5 py-2.5 left-0 top-[28px] absolute bg-white rounded border border-black flex-col justify-start items-start inline-flex">
+          <div class="w-72 h-20 left-[0px] top-[225px] absolute">
+            <label for="jenis_kelamin">Gender</label>
+            <input id="jenis_kelamin" name="jenis_kelamin" class="h-12 px-3.5 py-2.5 left-0 top-[28px] absolute bg-white rounded border border-black flex-col justify-start items-start inline-flex" placeholder="ex: Dominican Republic" value="<?php echo $tamu['jenis_kelamin'] ?>">
+        </fieldset>
+        <!-- <select name="jenis_kelamin" id="jenis_kelamin" class="w-60 h-12 px-3.5 py-2.5 left-0 top-[28px] absolute bg-white rounded border border-black flex-col justify-start items-start inline-flex">
               <option value="">Choose Gender</option>
               <option value="man">Man</option>
               <option value="womanan">Woman</option>
             </select> -->
-          <!-- <input id="jenis_kelamin" name="jenis_kelamin" class="h-12 px-3.5 py-2.5 left-0 top-[28px] absolute bg-white rounded border border-black flex-col justify-start items-start inline-flex" placeholder="ex: Man" value="<?php echo $tamu['jenis_kelamin'] ?>"> -->
-          <span class="error text-red-600" id="jenis_kelamin-error"></span>
-        </div>
-        <input type="hidden" id="adults" name="dewasa" value="<?php echo $kamar['adults']; ?>">
-        <input type="hidden" id="kids" name="anak" value="<?php echo $kamar['kids']; ?>">
-        <input type="hidden" id="rooms" name="jumlah_kamar" value="<?php echo $kamar['rooms']; ?>">
-        <input type="hidden" id="checkin" name="tgl_checkIn" value="<?php echo $kamar['checkin']; ?>">
-        <input type="hidden" id="checkout" name="tgl_checkOut" value="<?php echo $kamar['checkout']; ?>">
+        <!-- <input id="jenis_kelamin" name="jenis_kelamin" class="h-12 px-3.5 py-2.5 left-0 top-[28px] absolute bg-white rounded border border-black flex-col justify-start items-start inline-flex" placeholder="ex: Man" value="<?php echo $tamu['jenis_kelamin'] ?>"> -->
+        <span class="error text-red-600" id="jenis_kelamin-error"></span>
     </div>
-    </form>
+    <input type="hidden" id="adults" name="dewasa" value="<?php echo $kamar['adults']; ?>">
+    <input type="hidden" id="kids" name="anak" value="<?php echo $kamar['kids']; ?>">
+    <input type="hidden" id="rooms" name="jumlah_kamar" value="<?php echo $kamar['rooms']; ?>">
+    <input type="hidden" id="checkin" name="tgl_checkIn" value="<?php echo $kamar['checkin']; ?>">
+    <input type="hidden" id="checkout" name="tgl_checkOut" value="<?php echo $kamar['checkout']; ?>">
   </div>
+  </form>
+</div>
 
-  <div class="left-[381px] top-[526px] absolute w-3/12 h-2/5 bg-white shadow rounded">
+<div class="left-[381px] top-[526px] absolute w-3/12 h-2/5 bg-white shadow rounded">
 
-    <div class="left-[0px] top-[0px] absolute w-1/2 h-1/2">
-      <div class="w-96 h-64 left-[0px] top-[0px] absolute">
-        <div class="w-40 h-5 left-[26px] top-[19px] absolute text-black text-xl font-bold leading-7">Booking Details</div>
-        <div class="w-32 h-14 left-[26px] top-[65px] absolute">
-          <div class="w-22 h-5 left-[33px] top-0 absolute text-black text-md font-bold leading-7">Check-in</div>
-          <div id="start_date" class="w-40 h-5 left-0 top-[33px] absolute text-black text-md font-normal leading-7"><?php echo $kamar['checkin'] ?></div>
-        </div>
-        <div class="w-32 h-14 left-[230px] top-[65px] absolute">
-          <div class="w-22 h-5 left-[20px] top-0 absolute text-black text-md font-bold leading-7">Check-out</div>
-          <div id="end_date" class="w-36 h-5 left-0 top-[33px] absolute text-black text-md font-normal leading-7"><?php echo $kamar['checkout'] ?></div>
-        </div>
-        <div class="w-28 h-14 left-[55px] top-[166px] absolute">
-          <div class="w-28 h-7 left-0 top-0 absolute text-black text-md font-bold leading-7">Total nights</div>
-          <div id="night" class="w-20 h-5 left-0 top-[32px] absolute text-black text-md font-normal leading-7">1 Nights</div>
-        </div>
-        <div class="left-[250px] top-[166px] absolute">
-          <div class="w-28 h-7 left-[0px] top-[0px] absolute text-black text-md font-bold leading-7">Requirements</div>
-          <div class="w-28 h-5 left-[0px] top-[32px] absolute text-black text-md font-normal leading-7">Rooms <?php echo $kamar['rooms'] ?></div>
-          <div class="w-28 h-5 left-[0px] top-[60px] absolute text-black text-md font-normal leading-7">Adult <?php echo  $kamar['adults'] ?> Kids <?php echo $kamar['kids'] ?></div>
-        </div>
-        <div class="w-16 h-px left-[200px] top-[65px] absolute origin-top-left rotate-90 border border-black"></div>
+  <div class="left-[0px] top-[0px] absolute w-1/2 h-1/2">
+    <div class="w-96 h-64 left-[0px] top-[0px] absolute">
+      <div class="w-40 h-5 left-[26px] top-[19px] absolute text-black text-xl font-bold leading-7">Booking Details</div>
+      <div class="w-32 h-14 left-[26px] top-[65px] absolute">
+        <div class="w-22 h-5 left-[33px] top-0 absolute text-black text-md font-bold leading-7">Check-in</div>
+        <div id="start_date" class="w-40 h-5 left-0 top-[33px] absolute text-black text-md font-normal leading-7"><?php echo $kamar['checkin'] ?></div>
       </div>
+      <div class="w-32 h-14 left-[230px] top-[65px] absolute">
+        <div class="w-22 h-5 left-[20px] top-0 absolute text-black text-md font-bold leading-7">Check-out</div>
+        <div id="end_date" class="w-36 h-5 left-0 top-[33px] absolute text-black text-md font-normal leading-7"><?php echo $kamar['checkout'] ?></div>
+      </div>
+      <div class="w-28 h-14 left-[55px] top-[166px] absolute">
+        <div class="w-28 h-7 left-0 top-0 absolute text-black text-md font-bold leading-7">Total nights</div>
+        <div id="night" class="w-20 h-5 left-0 top-[32px] absolute text-black text-md font-normal leading-7">1 Nights</div>
+      </div>
+      <div class="left-[250px] top-[166px] absolute">
+        <div class="w-28 h-7 left-[0px] top-[0px] absolute text-black text-md font-bold leading-7">Requirements</div>
+        <div class="w-28 h-5 left-[0px] top-[32px] absolute text-black text-md font-normal leading-7">Rooms <?php echo $kamar['rooms'] ?></div>
+        <div class="w-28 h-5 left-[0px] top-[60px] absolute text-black text-md font-normal leading-7">Adult <?php echo  $kamar['adults'] ?> Kids <?php echo $kamar['kids'] ?></div>
+      </div>
+      <div class="w-16 h-px left-[200px] top-[65px] absolute origin-top-left rotate-90 border border-black"></div>
     </div>
   </div>
+</div>
 
-  <div class="left-[800px] top-[526px] absolute w-3/12 h-2/5 bg-white shadow rounded">
-    <div class="left-[0px] top-[0px] absolute">
-      <div class="w-40 h-6 left-[26px] top-[18.05px] absolute text-black text-xl font-bold leading-7">Price Details</div>
-      <div class="w-32 h-14 left-[26px] top-[65.50px] absolute text-black text-md font-normal leading-7">Room price<br /><span class="text-sm text-gray-500"><?php echo $kamar['rooms'] ?> Rooms</span><span id="night2" class="text-sm text-gray-500"></span></div>
-      <?php $price = $harga * $kamar['rooms'] ?>
-      <div id="calPrice" data="<?php echo $price ?>"></div>
-      <div id="price" class="w-24 h-7 left-[270px] top-[74.27px] absolute text-black text-md font-normal leading-7"></div>
+<div class="left-[800px] top-[526px] absolute w-3/12 h-2/5 bg-white shadow rounded">
+  <div class="left-[0px] top-[0px] absolute">
+    <div class="w-40 h-6 left-[26px] top-[18.05px] absolute text-black text-xl font-bold leading-7">Price Details</div>
+    <div class="w-32 h-14 left-[26px] top-[65.50px] absolute text-black text-md font-normal leading-7">Room price<br /><span class="text-sm text-gray-500"><?php echo $kamar['rooms'] ?> Rooms</span><span id="night2" class="text-sm text-gray-500"></span></div>
+    <?php $price = $harga * $kamar['rooms'] ?>
+    <div id="calPrice" data="<?php echo $price ?>"></div>
+    <div id="price" class="w-24 h-7 left-[270px] top-[74.27px] absolute text-black text-md font-normal leading-7"></div>
 
-      <div class="w-32 h-7 left-[26px] top-[140.28px] absolute text-black text-md font-normal leading-7">Taxes and fees</div>
-      <div id="priceTax" class="w-24 h-7 left-[270px] top-[140.28px] absolute text-black text-md font-normal leading-7"></div>
+    <div class="w-32 h-7 left-[26px] top-[140.28px] absolute text-black text-md font-normal leading-7">Taxes and fees</div>
+    <div id="priceTax" class="w-24 h-7 left-[270px] top-[140.28px] absolute text-black text-md font-normal leading-7"></div>
 
-      <div class="w-80 h-px left-[33px] top-[194.95px] absolute border border-black"></div>
+    <div class="w-80 h-px left-[33px] top-[194.95px] absolute border border-black"></div>
 
-      <div class="w-40 h-6 left-[26px] top-[206.30px] absolute text-black text-base font-bold leading-7">Total price</div>
-      <div id="total_price" class="w-24 h-7 left-[270px] top-[206.30px] absolute text-black text-md font-bold leading-7"></div>
+    <div class="w-40 h-6 left-[26px] top-[206.30px] absolute text-black text-base font-bold leading-7">Total price</div>
+    <div id="total_price" class="w-24 h-7 left-[270px] top-[206.30px] absolute text-black text-md font-bold leading-7"></div>
 
-      <button id="submit-details" class="absolute w-52 h-10 bg-blue-500 text-white mt-4 mb-5 rounded left-[100px] top-[230px] bg-red-500">
-        Continue To Payment
-      </button>
-    </div>
+    <button id="submit-details" class="absolute w-52 h-10 bg-blue-500 text-white mt-4 mb-5 rounded left-[100px] top-[230px] bg-red-500">
+      Continue To Payment
+    </button>
   </div>
+</div>
 
 </div>
 
@@ -726,7 +724,7 @@
       let noTelp = $('#no_telp').val();
       let email = $('#email').val();
       let negara = $('#negara').val();
-      var jenisKelamin = document.querySelector('input[name="jenis_kelamin"]:checked');
+      var jenisKelamin =  $('#negara').val();
 
       // Validate full name
       if (!username) {
@@ -759,6 +757,7 @@
         isValid = false;
         $('#jenis_kelamin-error').text('Gender is required.');
       }
+      console.log(isValid);
 
       if (isValid) {
         // $('#reservation-form').submit();
@@ -775,9 +774,9 @@
           dataType: "json",
           success: function(response) {
             // console.log(response.pemesanan.id_pemesanan)
-            console.log(response.pemesanan[0])
+            //console.log(response.pemesanan[0])
             var order = response.pemesanan[0]
-            console.log(order.id_pemesanan)
+            //console.log(order.id_pemesanan)
 
             if (response.status == 'Fail') {
               Swal.fire({

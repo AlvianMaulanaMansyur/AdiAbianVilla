@@ -1,4 +1,6 @@
 <div class="ketersedian bg-gray-100">
+    <!-- Main modal -->
+
 
     <nav class="bg-gray-800">
         <div class="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
@@ -75,6 +77,8 @@
         </div>
 
     </nav>
+
+
 
 
     <!-- Start Carousel -->
@@ -155,7 +159,7 @@
                                 </div>
 
                                 <div id="data_checkin" data="<?php echo $kamar['checkin'] ?>"></div>
-                                <input id="datepicker" class="appearance-none w-48 py-2 px-3 text-gray-900 bg-white" type="text" placeholder="Select check-in" value="<?php echo $kamar['checkin'] ?>" disabled>
+                                <input id="datepicker" class="appearance-none w-48 py-2 px-3 text-gray-900 bg-white border-none" type="text" placeholder="Select check-in" value="<?php echo $kamar['checkin'] ?>" disabled>
                             </div>
                             <div>
                                 <div class="flex items-center">
@@ -166,7 +170,7 @@
                                 </div>
 
                                 <div id="data_checkout" data="<?php echo $kamar['checkout'] ?>"></div>
-                                <input id="datepicker2" class="appearance-none w-48 py-2 px-3 text-gray-900 bg-white" type="text" placeholder="Select check-out" value="<?php echo $kamar['checkout'] ?>" disabled>
+                                <input id="datepicker2" class="appearance-none w-48 py-2 px-3 text-gray-900 bg-white border-none" type="text" placeholder="Select check-out" value="<?php echo $kamar['checkout'] ?>" disabled>
                             </div>
                             <div class="pt-4">
                                 <div>
@@ -186,40 +190,40 @@
                                     </button>
                                 </div>
 
+
+
                                 <div id="modal" class="hidden absolute z-10 mt-3 w-96">
                                     <div id="modal-container" class="w-96 h-72 left-0 top-0 bg-white shadow-lg rounded relative overflow-hidden">
                                         <div id="room-container" class="p-4" style="max-height: calc(100% - 96px);">
                                             <!-- <div class="text-lg font-bold mb-4">Room 1</div> -->
                                             <!-- Adult Section -->
                                             <div class="text-md font-bold">Manage Room Details</div>
-                                            <div class="flex items-center mb-4">
-                                                <img class="w-10 h-10 mr-4" src="<?php echo base_url('assets/foto/person.png') ?>" />
-                                                <div class="text-black text-sm font-normal mr-auto">Adult</div>
-                                                <div>
-                                                    <select name="dewasa" id="select-adult" class="appearance-auto border-1 w-24 h-8 rounded">
-                                                        <option value="2" selected>2</option>
-                                                        <option value="0">0</option>
-                                                        <option value="1">1</option>
-                                                    </select>
+                                            <div class="flex flex-col mb-4 room-section">
+                                                <div class="border border-black h-px w-full mb-4"></div>
+                                                <div class="flex items-center mb-4">
+                                                    <img class="w-10 h-10 mr-4" src="<?php echo base_url('assets/foto/person.png') ?>" />
+                                                    <div class="text-black text-sm font-normal mr-auto">Adult</div>
+                                                    <div>
+                                                        <select name="dewasa" class="select-adult appearance-auto border-1 w-24 h-8 rounded">
+                                                            <option value="1">1</option>
+                                                            <option value="2" selected>2</option>
+                                                        </select>
+                                                    </div>
                                                 </div>
-                                            </div>
-                                            <!-- Kid Section -->
-                                            <div class="flex items-center mb-4">
-                                                <img class="w-10 h-10 mr-4" src="<?php echo base_url('assets/foto/kid.png') ?>" />
-
-                                                <div class="flex flex-col items-start mr-auto">
-                                                    <div class="text-black text-sm font-normal">Kid</div>
-                                                    <div class="text-gray-500 text-sm font-normal">Ages 6 and below</div>
+                                                <div class="flex items-center mb-4">
+                                                    <img class="w-10 h-10 mr-4" src="<?php echo base_url('assets/foto/kid.png') ?>" />
+                                                    <div class="flex flex-col items-start mr-auto">
+                                                        <div class="text-black text-sm font-normal">Kid</div>
+                                                        <div class="text-gray-500 text-sm font-normal">Ages 6 and below</div>
+                                                    </div>
+                                                    <div>
+                                                        <select name="anak" class="select-kid appearance-auto border-1 w-24 h-8 rounded">
+                                                            <option value="0" selected>0</option>
+                                                            <option value="1">1</option>
+                                                            <option value="2">2</option>
+                                                        </select>
+                                                    </div>
                                                 </div>
-
-                                                <div>
-                                                    <select name="anak" id="select-kid" class="appearance-auto border-1 w-24 h-8 rounded">
-                                                        <option value="0" selected>0</option>
-                                                        <option value="1">1</option>
-                                                        <option value="2">2</option>
-                                                    </select>
-                                                </div>
-
                                             </div>
                                         </div>
                                         <div id="buttons-container" class="p-4 flex justify-between">
@@ -227,7 +231,7 @@
                                             <button id="add-room-button" class="w-36 h-10 bg-green-500 text-white mt-4 rounded"><span><i class="fa-solid fa-plus"></i></span>
                                                 Add Room
                                             </button>
-                                            <button id="submit-button" class="w-36 h-10 bg-blue-500 text-white mt-4 rounded bg-red-500">
+                                            <button id="submit-button" class="w-36 h-10 bg-red-500 text-white mt-4 rounded bg-red-500">
                                                 Submit
                                             </button>
                                         </div>
@@ -238,25 +242,109 @@
 
                             <div>
                                 <button id="check" class="mt-4 w-20 h-12 px-3.5 py-2.5 left-0 top-0 bg-red-500 text-white font-bold rounded border border-red-500 flex-col justify-center items-start inline-flex">Check</button>
+                                <!-- <button id="hapus-cookie">
+                                    hapus cookie
+                                </button> -->
+                                <!-- <button id="open-modal" class="bg-blue-500 text-white px-4 py-2 rounded">Open Modal</button> -->
                             </div>
                         </div>
                         <section id="datepicker-section" class="pb-5"></section>
 
                     </div>
                 </div>
-                <div class="bg-white shadow-md rounded-lg mb-4">
-                    <div id="availability1" class="bg-white"></div>
-                    <div id="availability-card-container" class="bg-white"></div>
-                </div>
+
 
             </div>
 
+
+        </div>
+
+    </div>
+    <div id="availability1"></div>
+    <!-- <div class="flex flex-col items-center">
+        <div class="border h-px w-4/6 mt-3"></div>
+        <div class="text-2xl font-bold text-center mb-4 mt-5">Select Rooms</div>
+
+        <div class="bg-white shadow-md rounded-lg mb-4 w-4/6 p-5">
+            <div id="availability-card-container" class="bg-white"></div>
+            <div class="flex justify-between">
+            <div>
+                <div class="text-black">Available Rooms : 1</div>
+                <div>Room type</div>
+            </div>
+
+            <div>
+                <div>Room Selected 1</div>
+                <div>(1 Night)</div>
+                <div>2 Adults and 1 kid</div>
+            </div>
+            <div>
+                <div>Price : Rp.500.000</div>
+            </div>
+            <div>
+                <button>Booking</button>
+            </div>
+            </div>
+        </div>
+    </div> -->
+
+</div>
+<!-- Modal Overlay and Content -->
+<div id="modal-success" class="hidden fixed inset-0 z-10" aria-labelledby="modal-title" role="dialog" aria-modal="true">
+    <!-- Background backdrop, show/hide based on modal state. -->
+    <div id="modal-backdrop" class="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity"></div>
+
+    <div class="fixed inset-0 z-10 w-screen overflow-y-auto">
+        <div class="flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0">
+            <!-- Modal panel, show/hide based on modal state. -->
+            <div class="relative transform overflow-hidden rounded-lg bg-white text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-lg">
+                <div class="bg-white px-4 pb-4 pt-5 sm:p-6 sm:pb-4">
+                    <div class="sm:flex sm:items-start">
+                        <div class="mx-auto flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-full bg-red-100 sm:mx-0 sm:h-10 sm:w-10">
+                            <svg class="h-6 w-6 text-red-600" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v3.75m-9.303 3.376c-.866 1.5.217 3.374 1.948 3.374h14.71c1.73 0 2.813-1.874 1.948-3.374L13.949 3.378c-.866-1.5-3.032-1.5-3.898 0L2.697 16.126zM12 15.75h.007v.008H12v-.008z" />
+                            </svg>
+                        </div>
+                        <div class="mt-3 text-center sm:ml-4 sm:mt-0 sm:text-left">
+                            <h3 class="text-base font-semibold leading-6 text-gray-900" id="modal-title">Deactivate account</h3>
+                            <div class="mt-2">
+                                <p class="text-sm text-gray-500">Are you sure you want to deactivate your account? All of your data will be permanently removed. This action cannot be undone.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-gray-50 px-4 py-3 sm:flex sm:flex-row-reverse sm:px-6">
+                    <button type="button" id="deactivate-button" class="inline-flex w-full justify-center rounded-md bg-red-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-red-500 sm:ml-3 sm:w-auto">Deactivate</button>
+                    <button type="button" id="cancel-button" class="mt-3 inline-flex w-full justify-center rounded-md bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50 sm:mt-0 sm:w-auto">Cancel</button>
+                </div>
+            </div>
         </div>
     </div>
-
 </div>
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <script>
+    // const modal = document.getElementById('modal-success');
+    // const openModalButton = document.getElementById('open-modal');
+    // const cancelButton = document.getElementById('cancel-button');
+    // const modalBackdrop = document.getElementById('modal-backdrop');
+
+    // // Function to open the modal
+    // function openModal() {
+    //     modal.classList.remove('hidden');
+    //     modal.classList.add('flex');
+    // }
+
+    // // Function to close the modal
+    // function closeModal() {
+    //     modal.classList.remove('flex');
+    //     modal.classList.add('hidden');
+    // }
+
+    // // Event listeners
+    // openModalButton.addEventListener('click', openModal);
+    // cancelButton.addEventListener('click', closeModal);
+    // modalBackdrop.addEventListener('click', closeModal);
+
     function toggleModal(modalId) {
         const modal = document.getElementById(modalId);
         if (modal.classList.contains('hidden')) {
@@ -280,6 +368,7 @@
 
             // Muat data dari cookie jika tersedia
             const cookies = document.cookie.split(';');
+            console.log(cookies)
             const roomsDataCookie = cookies.find(cookie => cookie.trim().startsWith('roomsData='));
             // console.log(roomsDataCookie.length)
             if (roomsDataCookie) {
@@ -301,10 +390,14 @@
                     const kidCount = parseInt(roomSection.querySelector('.select-kid').value);
                     adults += adultCount;
                     kids += kidCount;
+                    rooms++;
                 });
             }
 
             var persons = adults + kids
+            console.log('persons', persons)
+            console.log('rooms', rooms)
+
 
             // Perbarui tampilan di modal Anda
             $('#total-persons').text(persons);
@@ -324,7 +417,15 @@
                     kids: kidSelect.value
                 });
             });
-            document.cookie = "roomsData=" + JSON.stringify(roomsData) + "; path=/";
+
+            // Mengatur tanggal kedaluwarsa (misalnya, 1 hari dari sekarang)
+            const date = new Date();
+            date.setTime(date.getTime() + (24 * 60 * 60 * 1000)); // 1 hari
+            const expires = "; expires=" + date.toUTCString();
+
+            // Mengatur cookie dengan tanggal kedaluwarsa
+            document.cookie = "roomsData=" + JSON.stringify(roomsData) + expires + "; path=/";
+            // document.cookie = "roomsData=" + JSON.stringify(roomsData) + "; path=/";
         }
 
         // Function to load data from cookie
@@ -353,8 +454,8 @@
                         <div class="text-black text-sm font-normal mr-auto">Adult</div>
                         <div>
                             <select name="dewasa" class="select-adult appearance-auto border-1 w-24 h-8 rounded">
-                                <option value="2" ${room.adults == 2 ? 'selected' : ''}>2</option>
                                 <option value="1" ${room.adults == 1 ? 'selected' : ''}>1</option>
+                                <option value="2" ${room.adults == 2 ? 'selected' : ''}>2</option>
                             </select>
                         </div>
                     </div>
@@ -397,6 +498,7 @@
 
         addRoomButton.addEventListener('click', () => {
             const roomCount = roomContainer.getElementsByClassName('room-section').length;
+            console.log('halo')
             if (roomCount >= 10) {
                 addRoomButton.disabled = true;
                 return;
@@ -410,8 +512,8 @@
                     <div class="text-black text-sm font-normal mr-auto">Adult</div>
                     <div>
                         <select name="dewasa" class="select-adult appearance-auto border-1 w-24 h-8 rounded">
-                            <option value="2" selected>2</option>
                             <option value="1">1</option>
+                            <option value="2" selected>2</option>
                         </select>
                     </div>
                 </div>
@@ -516,10 +618,12 @@
         // Muat data dari cookie jika tersedia
         const cookies = document.cookie.split(';');
         const roomsDataCookie = cookies.find(cookie => cookie.trim().startsWith('roomsData='));
-        console.log(roomsDataCookie.length)
+        // console.log(roomsDataCookie.length)
         if (roomsDataCookie) {
             const roomsData = JSON.parse(roomsDataCookie.split('=')[1]);
             roomsData.forEach(room => {
+                adults += parseInt(room.adults);
+                kids += parseInt(room.kids);
                 roomsi++;
                 console.log('adfadfadfadfadfadfad = ', roomsi)
             });
@@ -535,13 +639,18 @@
             },
             dataType: "json",
             success: function(response) {
-                var availability = response.availability.length;
-
+                var availability = response.availability
+                var kamar = availability.length;
+                var harga = availability[0].harga
+                var jenis_kamar = availability[0].jenis_kamar
+                // console.log(kamar)
                 $("#availability-card-container").empty();
                 $("#availability1").empty();
 
-                if (availability >= roomsi) {
-                    $("#error-message").html(`<div class="text-green-500"><i class="fa-solid fa-circle-check"></i> There are ${availability} rooms available. You can continue booking by clicking the reserve button </div>`);
+                if (kamar >= roomsi) {
+                    $("#error-message").html(`<div class="text-green-500"><i class="fa-solid fa-circle-check"></i> There are ${kamar} rooms available. You can continue booking by clicking the reserve button </div>`);
+
+                    // openModal();
 
                     // Swal.fire({
                     //     title: 'Room Available',
@@ -569,28 +678,53 @@
                         // $("#availability-card-container").append(cardHTML);
                     });
                     const avak = `
-                            <div class="text-black">Available Rooms: ${availability}</div>
-                            <button class="w-20 h-8 bg-red-600 text-white" id="reserve">Reserve</button>
+                    <div class="flex flex-col items-center">
+        <div class="border h-px w-4/6 mt-3"></div>
+        <div class="text-2xl font-bold text-center mb-4 mt-5">Select Rooms</div>
+
+        <div class="bg-white shadow-md rounded-lg mb-4 w-4/6 p-5">
+            <div id="availability-card-container" class="bg-white"></div>
+            <div class="flex justify-between">
+            <div>
+                <div class="text-black font-bold">Available Rooms : ${kamar}</div>
+                <div>Room type : ${jenis_kamar}</div>
+            </div>
+
+            <div>
+                <div>Room Selected ${roomsi}</div>
+                <div>(1 Night)</div>
+                <div>${adults} Adults and ${kids} kid</div>
+            </div>
+            <div>
+                <div>Price : ${harga}</div>
+            </div>
+            <div>
+                <button class="px-2 h-12 bg-red-500 text-white font-bold rounded border border-red-500 flex-col justify-center items-start inline-flex" id="reserve">Booking</button>
+            </div>
+            </div>
+        </div>
+    </div>
+                          
                     `;
                     $("#availability1").append(avak);
                     $("#reserve").click(function(event) {
                         console.log('halo');
                         window.location.href = base_url + 'pemesanan';
                     });
-                    console.log('adfadf', availability);
+                    // console.log('adfadf', availability);
 
                     $('html, body').animate({
                         scrollTop: $("#availability-card-container").offset().top
-                    }, 10);
+                    }, 1000);
 
                 } else {
-                    $("#error-message").html(`<div class="text-yellow-500"><i class="fas fa-exclamation-circle"></i> There are ${availability} rooms available. You need ${roomsi} rooms. Please choose another date or adjust the number of guests.</div>`);
+                    $("#error-message").html(`<div class="text-yellow-500"><i class="fas fa-exclamation-circle"></i> There are ${kamar} rooms available. You need ${roomsi} rooms. Please choose another date or adjust the number of rooms.</div>`);
 
                     const avak = `
-                            <div class="text-black">Available Rooms: ${availability}</div>
+                            <div class="text-black">Available Rooms: ${kamar}</div>
                     `;
                     $("#availability1").append(avak);
-                    console.log('adfadf', availability);
+                    console.log('adfadf', kamar);
 
                     $('html, body').animate({
                         scrollTop: $("#availability-card-container").offset().top
@@ -631,38 +765,38 @@
     // });
 
     // Event listener for the submit button
-    document.getElementById('submit-button').addEventListener('click', function() {
-        let adults = parseInt(document.querySelector('.adult').innerText);
-        let kids = parseInt(document.querySelector('.kid').innerText);
-        let rooms = parseInt(document.querySelector('.room').innerText);
+    // document.getElementById('submit-button').addEventListener('click', function() {
+    //     let adults = parseInt(document.querySelector('.adult').innerText);
+    //     let kids = parseInt(document.querySelector('.kid').innerText);
+    //     let rooms = parseInt(document.querySelector('.room').innerText);
 
-        // Send data to server using AJAX
-        $.ajax({
-            type: "POST",
-            url: "<?php echo base_url('kamar/sessionRooms'); ?>",
-            data: {
-                adults: adults,
-                kids: kids,
-                rooms: rooms
-            },
-            success: function(response) {
-                // Handle success response if needed
-                console.log("Data sent successfully!");
-                var responseData = JSON.parse(response);
+    //     // Send data to server using AJAX
+    //     $.ajax({
+    //         type: "POST",
+    //         url: "<?php echo base_url('kamar/sessionRooms'); ?>",
+    //         data: {
+    //             adults: adults,
+    //             kids: kids,
+    //             rooms: rooms
+    //         },
+    //         success: function(response) {
+    //             // Handle success response if needed
+    //             console.log("Data sent successfully!");
+    //             var responseData = JSON.parse(response);
 
-                // Update the button displaying the counts
-                document.getElementById('total-persons').innerText = parseInt(responseData.adults) + parseInt(responseData.kids); // Total persons
-                document.getElementById('total-rooms').innerText = parseInt(responseData.rooms); // Rooms
+    //             // Update the button displaying the counts
+    //             document.getElementById('total-persons').innerText = parseInt(responseData.adults) + parseInt(responseData.kids); // Total persons
+    //             document.getElementById('total-rooms').innerText = parseInt(responseData.rooms); // Rooms
 
-                // Close the modal
-                toggleModal('modal');
-            },
-            error: function(xhr, status, error) {
-                // Handle error response if needed
-                console.error("Error:", error);
-            }
-        });
-    });
+    //             // Close the modal
+    //             toggleModal('modal');
+    //         },
+    //         error: function(xhr, status, error) {
+    //             // Handle error response if needed
+    //             console.error("Error:", error);
+    //         }
+    //     });
+    // });
 
     document.querySelectorAll('.btn-plus').forEach(button => {
         button.addEventListener('click', function() {
