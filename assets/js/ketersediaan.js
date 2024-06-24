@@ -1,5 +1,12 @@
 // import moment from 'moment';
+
 document.addEventListener('DOMContentLoaded', function () {
+    var prices = {
+        '2024-06-25': 'Rp. 500.000',
+        '2024-06-26': 'Rp. 600.000',
+        '2024-06-27': 'Rp. 550.000',
+        // Tambahkan data harga untuk tanggal lainnya sesuai kebutuhan
+      };
     var numberOfMonths = window.innerWidth < 640 ? 1 : 2;
     var checkin = document.getElementById('data_checkin');
     var checkinValue = checkin.getAttribute('data');
@@ -16,6 +23,7 @@ document.addEventListener('DOMContentLoaded', function () {
         inline: true,
         numberOfMonths: numberOfMonths,
         minDate: new Date(),
+        prices: prices,
         onSelect: function(start, end) {
             var strs = '';
             var stre = '';

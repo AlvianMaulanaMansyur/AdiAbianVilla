@@ -23,6 +23,7 @@ Daftar Pemesanan
                 <th>Tanggal Pemesanan</th>
                 <th>Tanggal Checkin</th>
                 <th>Tanggal Checkout</th>
+                <th>status</th>
                 <th>Jumlah Kamar</th>
                 <th>Dewasa</th>
                 <th>Anak</th>
@@ -48,6 +49,10 @@ Daftar Pemesanan
 
                     </td>
                     <td>
+                        <?php echo $p->status; ?>
+
+                    </td>
+                    <td>
                         <?php echo $p->jumlah_kamar; ?>
 
                     </td>
@@ -62,8 +67,7 @@ Daftar Pemesanan
                     <td>
                         <?php echo $p->id_tamu; ?>
                     </td>
-                    <td><a href="<?php echo base_url('pemesanan/editpemesanan/'.$p->id_pemesanan) ?>">Edit</a>
-                       <a href="<?php echo base_url('pemesanan/deletepemesanan/'.$p->id_pemesanan) ?>">Hapus</a></td>
+                    <td><a href="<?php echo base_url('pemesanan/editpemesanan/'.$p->id_pemesanan) ?>">Edit</a></td>
 
                 </tr>
 
