@@ -22,11 +22,14 @@ class M_pemesanan extends CI_Model
         return $pemesanan;
     }
 
-    public function getPemesananByIdTamu($id_tamu)
+    public function getPemesananByIdTamu($identity)
     {
-        $this->db->where('id_tamu', $id_tamu);
-        $this->db->where('status', 0);
-        $result = $this->db->get('pemesanan');
+        $this->db->select('pemesanan.id_pemesanan');
+        $this->db->from('pemesanan');
+        $this->db->join('tamu', 'pemesanan.id_tamu = tamu.id_tamu', 'left');
+        $this->db->where('email', $identity);
+        // $this->db->where('status', 0);
+        $result = $this->db->get();
         $pemesanan = $result->result();
         return $pemesanan;
     }

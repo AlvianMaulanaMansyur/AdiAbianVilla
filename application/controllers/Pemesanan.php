@@ -16,8 +16,8 @@ class Pemesanan extends CI_Controller
     public function index()
     {
         $data_tamu = [
-            'username' => 'suastika',
-            'email' => 'putrasuastika78@gmail.com',
+            'username' => 'alvian',
+            'email' => 'playinghd10@gmail.com',
         ];
 
         $tamu = $this->M_tamu->getTamuByEmailUsername($data_tamu);

@@ -1,6 +1,4 @@
-<?php 
-
-?><?php
+<?php
 
 defined('BASEPATH') or exit('No direct script access allowed');
 
@@ -22,13 +20,14 @@ class Payment extends CI_Controller
         $duitkuConfig = new \Duitku\Config("431a431d29417fbe41e2b813fc4c6478", "DS19433");
         $duitkuConfig->setSandboxMode(true);
 
+        $identity = $this->session->userdata('identity');
         $hargaKamar = $this->M_kamar->getHargaKamar();
         $jumlahkamar= $this->M_pemesanan->getSessionValues();
-
-      
-
+        $id_pemesanan = $this->M_pemesanan->getPemesananByIdTamu($identity);
+        // var_dump($id_pemesanan);
+        
         var_dump($jumlahkamar);
-        $paymentAmount      = $hargaKamar[0]['harga'] * $jumlahkamar['rooms']; // Amount
+        $paymentAmount      = $hargaKamar[0]['harga'] * $jumlahkamar['rooms'] + (($hargaKamar[0]['harga'] + $jumlahkamar['rooms']) * 0.11); // Amount
         echo "Total Payment Amount: " . $paymentAmount;
         $email              = "customer@gmail.com"; // your customer email
         $phoneNumber        = "081234567890"; // your customer phone number (optional)
@@ -84,7 +83,7 @@ class Payment extends CI_Controller
 
         $params = array(
             'paymentAmount'     => $paymentAmount,
-            'merchantOrderId'   => $merchantOrderId,
+                'merchantOrderId'   => $merchantOrderId,
             'productDetails'    => $productDetails,
             'additionalParam'   => $additionalParam,
             'merchantUserInfo'  => $merchantUserInfo,
@@ -101,7 +100,7 @@ class Payment extends CI_Controller
         try {
 
             $insertDB = array(
-                'id_pemesanan' => 1, 
+                'id_pemesanan' => $id_pemesanan[0]->id_pemesanan, 
                 'id_transaksi' => $merchantOrderId,
                 'id_tamu' => 1,
                 'total_harga' => $paymentAmount,
