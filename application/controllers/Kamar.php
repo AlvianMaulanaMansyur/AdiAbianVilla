@@ -29,7 +29,7 @@ class Kamar extends CI_Controller
             'content' => 'kamar/ketersediaan',
             'script' => 'partials/script',
             'kamar' => $datacheck,
-            'harga' => $harga_kamar[0]['harga_kamar'],
+            'harga' => $harga_kamar[0]['harga'],
         ];
         $this->load->view('partials/main', $data);
     }

@@ -281,7 +281,7 @@
             // Muat data dari cookie jika tersedia
             const cookies = document.cookie.split(';');
             const roomsDataCookie = cookies.find(cookie => cookie.trim().startsWith('roomsData='));
-            console.log(roomsDataCookie.length)
+            // console.log(roomsDataCookie.length)
             if (roomsDataCookie) {
                 const roomsData = JSON.parse(roomsDataCookie.split('=')[1]);
                 roomsData.forEach(room => {

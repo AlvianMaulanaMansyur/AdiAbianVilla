@@ -8,7 +8,7 @@ class M_pemesanan extends CI_Model
     {
         $this->db->select('pemesanan.*');
         $this->db->from('pemesanan');
-        $this->db->where('status', 1);
+        // $this->db->where('status', 1);
         $result = $this->db->get();
         $pemesanan = $result->result();
         return $pemesanan;
@@ -30,14 +30,17 @@ class M_pemesanan extends CI_Model
         $pemesanan = $result->result();
         return $pemesanan;
     }
+
+    
+
     public function getSessionValues()
     {
         $data = array(
-            'adults' => $this->session->userdata('adults') ? $this->session->userdata('adults') : 2,
-            'kids' => $this->session->userdata('kids') ? $this->session->userdata('kids') : 0,
-            'rooms' => $this->session->userdata('rooms') ? $this->session->userdata('rooms') : 1,
-            'checkin' => $this->session->userdata('checkin') ? $this->session->userdata('checkin') : '',
-            'checkout' => $this->session->userdata('checkout') ? $this->session->userdata('checkout') : '',
+            'adults' => get_cookie('adults') ? get_cookie('adults') : 2,
+            'kids' => get_cookie('kids') ? get_cookie('kids') : 0,
+            'rooms' => get_cookie('rooms') ? get_cookie('rooms') : 2,
+            'checkin' => get_cookie('checkin') ? get_cookie('checkin') : '',
+            'checkout' => get_cookie('checkout') ? get_cookie('checkout') : '',
         );
 
         return $data;

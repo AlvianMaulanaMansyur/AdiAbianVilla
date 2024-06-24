@@ -5,8 +5,8 @@ defined('BASEPATH') or exit('No direct script access allowed');
 class M_kamar extends CI_Model
 {   
     public function getHargaKamar() {
-        $this->db->select('harga_kamar');
-        $this->db->from('kamar');
+        $this->db->select('harga');
+        $this->db->from('detail_kamar');
         $query = $this->db->get();
         return $query->result_array();
     }

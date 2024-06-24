@@ -95,7 +95,7 @@ class Auth extends CI_Controller
     $this->form_validation->set_rules('identity', 'Username or Email', 'trim|required', array(
       'required' => 'email cannot be empty!',
     ));
-    $this->form_validation->set_rules('password', 'Password', 'trim|required|min_length[8], regex_match[/[0-9]/]', array(
+    $this->form_validation->set_rules('password', 'Password', 'trim|required|min_length[8]|regex_match[/[0-9]/]', array(
       'required' => 'password cannot be empty',
       'min_length' => 'password must be at least 8 characters',
       'regex_match' => 'password must be at least contain 1 number'
