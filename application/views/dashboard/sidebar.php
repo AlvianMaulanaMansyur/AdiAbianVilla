@@ -80,9 +80,9 @@
             </div>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="docs/documentation.html">
+            <a class="nav-link" href="<?= base_url('dashboard/guestdata')?>">
                 <i class="menu-icon mdi mdi-file-document"></i>
-                <span class="menu-title">Documentation</span>
+                <span class="menu-title">Guest Data</span>
             </a>
         </li>
     </ul>

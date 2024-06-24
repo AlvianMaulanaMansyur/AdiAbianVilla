@@ -11,6 +11,13 @@ class M_tamu extends CI_Model {
         $tamu = $result->result_array();
         return $tamu;
     }
+    public function getTamuByEmailUsername($identity)
+    {
+        $this->db->where('email', $identity['email']);
+        $this->db->or_where('username', $identity['username']);
+        $query = $this->db->get('tamu');
+        return $query->result_array();
+    }
 }
 
 /* End of file ModelName.php */
