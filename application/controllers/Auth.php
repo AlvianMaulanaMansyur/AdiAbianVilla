@@ -12,12 +12,12 @@ class Auth extends CI_Controller
     $this->load->model('customer_model');
   }
 
+
   public function Login()
   {
+    $this->form_validation->set_rules('identity', 'Username or Email', 'trim|required');
 
-    $this->form_validation->set_rules('email', 'Email', 'trim|required|valid_email');
-
-    if ($this->form_validation->run() === FALSE) {
+    if ($this->form_validation->run() == FALSE) {
       # code...
       $data = [
         'title' => 'Login',
@@ -26,19 +26,19 @@ class Auth extends CI_Controller
         'script' => 'partials/script',
       ];
     } else {
-      $email = $this->input->post('email');
-      if ($this->customer_model->check_email_exists($email)) {
+      $identity = $this->input->post('identity');
+      if ($this->customer_model->check_identity($identity)) {
         $data = [
           'title' => 'Login',
           'header' => 'partials/header',
-          'email' => $email,
+          'identity' => $identity,
           'content' => 'partials/loginRegister/formPass',
           'script' => 'partials/script',
         ];
       } else {
         $data = [
           'title' => 'Login',
-          'email' => $email,
+          'identity' => $identity,
           'header' => 'partials/header',
           'content' => 'partials/loginRegister/createPass',
           'script' => 'partials/script',
@@ -50,53 +50,92 @@ class Auth extends CI_Controller
 
   public function verify_password()
   {
-    $this->form_validation->set_rules('email', 'Email', 'trim|required|valid_email');
-    $this->form_validation->set_rules('password', 'Password', 'trim|required');
-
-    if ($this->form_validation->run() == FALSE)
-    {
-      redirect('auth/login');
-    } else {
-      $email = $this->input->post('email');
-      $password = $this->input->post('password');
-
-      if ($this->customer_model->verify_pass($email, $password))
-      {
-        redirect('auth/register');
-      } else {
-        $data = [
-          'title' => 'Login',
-          'email' => $email,
-          'header' => 'partials/header',
-          'content' => 'partials/loginRegister/formPass',
-          'script' => 'partials/script',
-          'error' => 'Incorect Password'
-        ];
-      } 
-    }
-    $this->load->view('dashboard/main', $data);
-  }
-
-  public function createPass(){
-    $this->form_validation->set_rules('email', 'Email', 'trim|required|valid_email');
+    $this->form_validation->set_rules('identity', 'Username or Email', 'trim|required');
     $this->form_validation->set_rules('password', 'Password', 'trim|required');
 
     if ($this->form_validation->run() == FALSE) {
-      # code...
-      redirect('auth/login');
-    } else {
-      # code...
-      $email = $this->input->post('email');
-      $password = $this->input->post('password');
-      
       $data = [
-        'email' => $email,
+        'title' => 'Login',
+        'header' => 'partials/header',
+        'content' => 'partials/loginRegister/formPass',
+        'script' => 'partials/script',
+        'error' => 'Incorrect Identity or Password'
+      ];
+      $this->load->view('partials/main', $data);
+    } else {
+      $identity = $this->input->post('identity');
+      $password = $this->input->post('password');
+
+      // Verify password
+      if ($this->customer_model->verify_pass($identity, $password)) {
+        $user_data = array(
+          'identity' => $identity,
+          'logged_in' => TRUE
+        );
+        $this->session->set_userdata($user_data);
+        redirect('dashboard/main');
+      } else {
+        $data = [
+          'title' => 'Login',
+          'header' => 'partials/header',
+          'identity' => $this->input->post('identity'),
+          'content' => 'partials/loginRegister/formPass',
+          'script' => 'partials/script',
+          'error' => 'Incorrect Identity or Password'
+        ];
+        $this->load->view('partials/main', $data);
+      }
+    }
+  }
+
+
+  public function createPass()
+  {
+    $this->form_validation->set_rules('identity', 'Username or Email', 'required');
+    $this->form_validation->set_rules('password', 'Password', 'required');
+
+    if ($this->form_validation->run() == FALSE) {
+      $data = [
+        'title' => 'Register',
+        'identity' => $this->input->post('identity'),
+        'header' => 'partials/header',
+        'content' => 'partials/loginRegister/createPass',
+        'script' => 'partials/script'
+      ];
+      $this->load->view('partials/main', $data);
+    } else {
+      $identity = $this->input->post('identity');
+      $password = $this->input->post('password');
+
+      // Insert new user into database
+      $data = [
+        'email' => filter_var($identity, FILTER_VALIDATE_EMAIL) ? $identity : NULL,
+        'username' => !filter_var($identity, FILTER_VALIDATE_EMAIL) ? $identity : NULL,
         'password' => password_hash($password, PASSWORD_DEFAULT)
       ];
       $this->db->insert('tamu', $data);
-      redirect('mainmenu');
+
+      // Redirect to main menu
+      $user_data = array(
+        'identity' => $identity,
+        'logged_in' => TRUE
+      );
+      $this->session->set_userdata($user_data);
+
+      redirect('dashboard/main');
     }
-  } 
+  }
+
+  public function logout()
+  {
+    // Hapus data session dan arahkan ke halaman login
+    $this->session->unset_userdata('identity');
+    $this->session->unset_userdata('logged_in');
+    $this->session->sess_destroy();
+    redirect('auth/login');
+  }
 }
+
+
 
 /* End of file Controllername.php */

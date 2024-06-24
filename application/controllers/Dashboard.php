@@ -13,6 +13,8 @@ class Dashboard extends CI_Controller
         //Do your magic here
         $this->load->model('customer_model');
         $this->load->model('M_dashboard');
+        $this->load->helper('url', 'form');
+        $this->load->library('form_validation');
     }
 
     public function main()
@@ -84,9 +86,85 @@ class Dashboard extends CI_Controller
         ];
         $this->load->view('dashboard/main', $data);
     }
-    public function detailketersediaan()
+    public function tambahkamar()
     {
-        
+        $kamar = $this->M_dashboard->get_kamar();
+        $data = [
+            'title' => 'Adi Abian Villa Dashboard',
+            'header' => 'dashboard/header',
+            'navbar' => 'dashboard/navbar',
+            'sidebar' => 'dashboard/sidebar',
+            'content' => 'dashboard/tambahkamar',
+            'footer' => 'dashboard/footer',
+            'script' => 'dashboard/script',
+            'kamar' => $kamar
+        ];
+        $this->load->view('dashboard/main', $data);
+    }
+
+    public function addKamar()
+    {
+        $this->form_validation->set_rules('no_kamar', 'No Kamar', 'required');
+        $this->form_validation->set_rules('harga_kamar', 'Harga Kamar', 'required');
+        $this->form_validation->set_rules('tipe_kamar', 'Tipe Kamar', 'required');
+
+        if ($this->form_validation->run() == FALSE) {
+            $response = ['status' => false, 'message' => validation_errors()];
+            echo json_encode($response);
+        } else {
+            $data = [
+                'no_kamar' => $this->input->post('no_kamar'),
+                'harga_kamar' => $this->input->post('harga_kamar'),
+                'tipe_kamar' => $this->input->post('tipe_kamar'),
+                'id_admin' => 1
+            ];
+            $insert = $this->M_dashboard->insertKamar($data);
+            if ($insert) {
+                $response = ['status' => true, 'message' => 'Kamar berhasil ditambahkan'];
+            } else {
+                $response = ['status' => false, 'message' => 'Gagal menambahkan kamar'];
+            }
+            echo json_encode($response);
+        }
+    }
+
+    public function editKamar()
+    {
+        $this->form_validation->set_rules('id_kamar', 'ID Kamar', 'required');
+        $this->form_validation->set_rules('no_kamar', 'No Kamar', 'required');
+        $this->form_validation->set_rules('harga_kamar', 'Harga Kamar', 'required');
+        $this->form_validation->set_rules('tipe_kamar', 'Tipe Kamar', 'required');
+
+        if ($this->form_validation->run() == FALSE) {
+            $response = ['status' => false, 'message' => validation_errors()];
+            echo json_encode($response);
+        } else {
+            $id_kamar = $this->input->post('id_kamar');
+            $data = [
+                'no_kamar' => $this->input->post('no_kamar'),
+                'harga_kamar' => $this->input->post('harga_kamar'),
+                'tipe_kamar' => $this->input->post('tipe_kamar')
+            ];
+            $update = $this->M_dashboard->updateKamar($id_kamar, $data);
+            if ($update) {
+                $response = ['status' => true, 'message' => 'Kamar berhasil diubah'];
+            } else {
+                $response = ['status' => false, 'message' => 'Gagal mengubah kamar'];
+            }
+            echo json_encode($response);
+        }
+    }
+
+    public function deleteKamar()
+    {
+        $id_kamar = $this->input->post('id_kamar');
+        $delete = $this->M_dashboard->deleteKamar($id_kamar);
+        if ($delete) {
+            $response = ['status' => true, 'message' => 'Kamar berhasil dihapus'];
+        } else {
+            $response = ['status' => false, 'message' => 'Gagal menghapus kamar'];
+        }
+        echo json_encode($response);
     }
 }
 
