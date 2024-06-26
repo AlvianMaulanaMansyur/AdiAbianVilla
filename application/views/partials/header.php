@@ -17,6 +17,8 @@
 
     <title><?php echo $title ?></title>
 
+<link rel="icon" href="<?= base_url('asset/images/adibian.png'); ?>">
+
     <script>
         var base_url = '<?php echo base_url(); ?>';
     </script>

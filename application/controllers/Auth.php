@@ -15,9 +15,7 @@ class Auth extends CI_Controller
   
   public function Login()
   {
-    $this->form_validation->set_rules('identity', 'Username or Email', 'trim|required|min_length[8]', array(
-      'min_length' => 'must be at least 8 characters!'
-    ));
+    $this->form_validation->set_rules('identity', 'Username or Email', 'trim|required');
 
     if ($this->form_validation->run() == FALSE) {
       # code...
@@ -52,15 +50,19 @@ class Auth extends CI_Controller
 
   public function verify_password() {
     $this->form_validation->set_rules('identity', 'Username or Email', 'trim|required');
-    $this->form_validation->set_rules('password', 'Password', 'trim|required');
-
+    $this->form_validation->set_rules('password', 'Password', 'trim|required|min_length[8]', array(
+      'required' => 'Password cannot empty!',
+      'min_length' => 'Password at least 8 characters!',
+    ));
+ 
     if ($this->form_validation->run() == FALSE) {
         $data = [
             'title' => 'Login',
             'header' => 'partials/header',
             'content' => 'partials/loginRegister/formPass',
+            'identity' => $this->input->post('identity'),
             'script' => 'partials/script',
-            'error' => 'Incorrect Identity or Password'
+            'error_message' => 'Incorrect Identity or Password'
         ];
         $this->load->view('partials/main', $data);
     } else {
@@ -82,7 +84,7 @@ class Auth extends CI_Controller
                 'identity' => $this->input->post('identity'),
                 'content' => 'partials/loginRegister/formPass',
                 'script' => 'partials/script',
-                'error' => 'Incorrect Identity or Password'
+                'error_message' => 'Incorrect Identity or Password'
             ];
             $this->load->view('partials/main', $data);
         }
