@@ -9,6 +9,9 @@ class Kamar extends CI_Controller
     {
         parent::__construct();
         $this->load->model('M_kamar');
+        if ($this->session->userdata('identity') == null) {
+            redirect('auth/login');
+        }
     }
 
     public function ketersediaan2()
@@ -32,7 +35,7 @@ class Kamar extends CI_Controller
         // );
         $data = [
             'title' => 'Calendar',
-            'header' => 'partials/header',
+            'header' => 'partials/header_kamar',
             'content' => 'kamar/ketersediaan',
             'script' => 'partials/script',
             'kamar' => $datacheck,
@@ -44,7 +47,7 @@ class Kamar extends CI_Controller
     {
         $data = [
             'title' => 'Calendar',
-            'header' => 'partials/header',
+            'header' => 'partials/header_kamar',
             'content' => 'kamar/carousel',
             'script' => 'partials/script'
         ];

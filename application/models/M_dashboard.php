@@ -35,6 +35,22 @@ class M_dashboard extends CI_Model
             return false;
         }
     }
+    public function insertKamar($data)
+    {
+        return $this->db->insert('kamar', $data);
+    }
+
+    public function updateKamar($id_kamar, $data)
+    {
+        $this->db->where('id_kamar', $id_kamar);
+        return $this->db->update('kamar', $data);
+    }
+
+    public function deleteKamar($id_kamar)
+    {
+        $this->db->where('id_kamar', $id_kamar);
+        return $this->db->delete('kamar');
+    }
 }
    
 
