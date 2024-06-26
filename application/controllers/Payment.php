@@ -1,6 +1,4 @@
-<?php 
-
-?><?php
+<?php
 
 defined('BASEPATH') or exit('No direct script access allowed');
 
@@ -22,22 +20,29 @@ class Payment extends CI_Controller
         $duitkuConfig = new \Duitku\Config("431a431d29417fbe41e2b813fc4c6478", "DS19433");
         $duitkuConfig->setSandboxMode(true);
 
+        $identity = $this->session->userdata('identity');
+        $id_tamu = $this->M_tamu->getIdTamuByEmailUsername($identity);
+
         $hargaKamar = $this->M_kamar->getHargaKamar();
-        $jumlahkamar= $this->M_pemesanan->getSessionValues();
-
-      
-
+        $jumlahkamar = $this->M_pemesanan->getSessionValues();
+        $id_pemesanan = $this->M_pemesanan->getPemesananByIdTamu($id_tamu[0]['id_tamu']);
+        var_dump($id_pemesanan);
+        $pemesanan = $this->M_pemesanan->getPemesananById($id_pemesanan[0]->id_pemesanan);
+        var_dump('pemesanan : ',$pemesanan);
+        var_dump($id_pemesanan);
+        var_dump($identity);
+        
         var_dump($jumlahkamar);
-        $paymentAmount      = $hargaKamar[0]['harga'] * $jumlahkamar['rooms']; // Amount
+        $paymentAmount      = $pemesanan[0]->jumlah_pembayaran;
         echo "Total Payment Amount: " . $paymentAmount;
         $email              = "customer@gmail.com"; // your customer email
         $phoneNumber        = "081234567890"; // your customer phone number (optional)
         $productDetails     = "Test Payment";
-        $merchantOrderId    = time(); // from merchant, unique   
+        $merchantOrderId    = $id_pemesanan[0]->id_pemesanan; // from merchant, unique   
         $additionalParam    = ''; // optional
         $merchantUserInfo   = ''; // optional
         $customerVaName     = 'John Doe'; // display name on bank confirmation display
-        $callbackUrl        = 'https://f968-182-1-104-95.ngrok-free.app/adiabianvilla/payment/callback'; // url for callback
+        $callbackUrl        = 'https://minnow-smashing-formally.ngrok-free.app/adiabianvilla/payment/callback'; // url for callback
         $returnUrl          = 'http://localhost/adiabianvilla/payment/return'; // url for redirect
         $expiryPeriod       = 60; // set the expired time in minutes
 
@@ -99,15 +104,6 @@ class Payment extends CI_Controller
         );
 
         try {
-
-            $insertDB = array(
-                'id_pemesanan' => 1, 
-                'id_transaksi' => $merchantOrderId,
-                'id_tamu' => 1,
-                'total_harga' => $paymentAmount,
-                'status' => 1
-            );
-            $this->db->insert('transaksi', $insertDB);
             // createInvoice Request
             $responseDuitkuApi = \Duitku\Pop::createInvoice($params, $duitkuConfig);
             $data = json_decode($responseDuitkuApi);
@@ -119,7 +115,7 @@ class Payment extends CI_Controller
 
     public function callback()
     {
-        $apiKey = '4c16e637f39d19fe529cd9d95df789cc';
+        $apiKey = '431a431d29417fbe41e2b813fc4c6478';
         $merchantCode = isset($_POST['merchantCode']) ? $_POST['merchantCode'] : null;
         $amount = isset($_POST['amount']) ? $_POST['amount'] : null;
         $merchantOrderId = isset($_POST['merchantOrderId']) ? $_POST['merchantOrderId'] : null;
@@ -137,15 +133,17 @@ class Payment extends CI_Controller
 
         //log callback untuk debug 
         // file_put_contents('callback.txt', "* Callback *\r\n", FILE_APPEND | LOCK_EX);
+        var_dump($signature);
+        var_dump($merchantOrderId);
 
         if (!empty($merchantCode) && !empty($amount) && !empty($merchantOrderId) && !empty($signature)) {
             $params = $merchantCode . $amount . $merchantOrderId . $apiKey;
             $calcSignature = md5($params);
 
             if ($signature == $calcSignature) {
-                $updateStatus = array ('status' => $resultCode);
-                $this->db->where('id', $merchantOrderId);
-                $this->db->update('transaksi', $updateStatus);
+                $updateStatus = array ('status' => 1);
+                $this->db->where('id_pemesanan', $merchantOrderId);
+                $this->db->update('pemesanan', $updateStatus);
 
                 $data = $this->input->post();
                 file_put_contents('callback.txt', print_r($data, true), FILE_APPEND | LOCK_EX);

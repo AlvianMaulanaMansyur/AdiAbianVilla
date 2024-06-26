@@ -7,7 +7,7 @@ document.addEventListener('DOMContentLoaded', function () {
         '2024-06-27': 'Rp. 550.000',
         // Tambahkan data harga untuk tanggal lainnya sesuai kebutuhan
       };
-    var numberOfMonths = window.innerWidth < 640 ? 1 : 2;
+    var numberOfMonths = window.innerWidth <= 768 ? 1 : 2;
     var checkin = document.getElementById('data_checkin');
     var checkinValue = checkin.getAttribute('data');
     var checkout = document.getElementById('data_checkout');

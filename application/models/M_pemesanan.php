@@ -22,11 +22,13 @@ class M_pemesanan extends CI_Model
         return $pemesanan;
     }
 
-    public function getPemesananByIdTamu($id_tamu)
+    public function getPemesananByIdTamu($id)
     {
-        $this->db->where('id_tamu', $id_tamu);
-        // $this->db->where('status', 0);
-        $result = $this->db->get('pemesanan');
+        $this->db->select('pemesanan.id_pemesanan');
+        $this->db->from('pemesanan');
+        $this->db->where('id_tamu', $id);
+        $this->db->where('status', 0);
+        $result = $this->db->get();
         $pemesanan = $result->result();
         return $pemesanan;
     }
@@ -105,9 +107,8 @@ class M_pemesanan extends CI_Model
     }
     public function savePemesanan($data)
     {
-        $this->db->where('pemesanan.id_tamu', $data['id_tamu']);
-        // $this->db->where('pemesanan.status', 0);
-
+        $this->db->where('id_tamu', $data['id_tamu']);
+        $this->db->where('status', 0);
         $query = $this->db->get('pemesanan');
         
         if($query->num_rows()>0) {
