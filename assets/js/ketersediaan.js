@@ -57,7 +57,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
                         response.availability.forEach(function(room) {
                             var roomRow = '<tr>' +
-                                '<td class="border border-gray-500 px-4 py-2">' + room.id_kamar + '</td>' +
+                                // '<td class="border border-gray-500 px-4 py-2">' + room.id_kamar + '</td>' +
                                 '<td class="border border-gray-500 px-4 py-2">' + room.no_kamar + '</td>' +
                                 '<td class="border border-gray-500 px-4 py-2">' + room.tgl_checkIn + '</td>' +
                                 '<td class="border border-gray-500 px-4 py-2">' + room.tgl_checkOut + '</td>' +

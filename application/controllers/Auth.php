@@ -12,12 +12,12 @@ class Auth extends CI_Controller
     $this->load->model('customer_model');
   }
 
-  
+
+
   public function Login()
   {
-    $this->form_validation->set_rules('identity', 'Username or Email', 'trim|required|min_length[8]', array(
-      'min_length' => 'must be at least 8 characters!'
-    ));
+    $this->form_validation->set_rules('identity', 'Username or Email', 'trim|required');
+
 
     if ($this->form_validation->run() == FALSE) {
       # code...
@@ -51,6 +51,7 @@ class Auth extends CI_Controller
   }
 
   public function verify_password() {
+
     $this->form_validation->set_rules('identity', 'Username or Email', 'trim|required');
     $this->form_validation->set_rules('password', 'Password', 'trim|required');
 
@@ -246,3 +247,4 @@ class Auth extends CI_Controller
 
 
 /* End of file Controllername.php */
+
