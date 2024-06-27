@@ -65,7 +65,7 @@ class Payment extends CI_Controller
         // Customer Detail
         $firstName          = "John";
         $lastName           = "Doe";
-        $username = " ";
+        $username ="";
 
         // Address
         $alamat             = "Jl. Kembangan Raya";
