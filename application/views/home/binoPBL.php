@@ -130,7 +130,53 @@
         </section>
         <!--End of home section -->
 
-
+ <!-- Gallery -->
+<div class="container">
+    <div id="carouselExampleFade" class="carousel slide carousel-fade">
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <img src="<?php echo base_url('img/a1.png'); ?>" class="d-block w-100" alt="...">
+            </div>
+            <div class="carousel-item">
+                <img src="<?php echo base_url('img/a2.png'); ?>" class="d-block w-100" alt="...">
+            </div>
+            <div class="carousel-item">
+                <img src="<?php echo base_url('img/a3.png'); ?>" class="d-block w-100" alt="...">
+            </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+        </button>
+    </div>
+</div>
+<!-- <div class="container">
+<div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <img src="<?php echo base_url('img/a1.png'); ?>" class="d-block w-100" alt="...">
+    </div>
+    <div class="carousel-item">
+      <img src="<?php echo base_url('img/a2.png'); ?>" class="d-block w-100" alt="...">
+    </div>
+    <div class="carousel-item">
+      <img src="<?php echo base_url('img/a3.png'); ?>" class="d-block w-100" alt="...">
+    </div>
+  </div>
+  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
+</div>
+</div> -->
         <!-- History section -->
         <section id="history" class="history sections">
             <div class="container">
@@ -167,320 +213,6 @@
             <!--End of container -->
         </section>
         <!--End of history -->
-
-
-        <!-- service Section -->
-        <section id="service" class="service">
-            <div class="container-fluid">
-                <div class="row">
-                    <div class="main_service">
-                        <div class="col-md-6 col-sm-12 no-padding">
-
-                            <div class="single_service single_service_text text-right">
-                                <div class="head_title">
-                                    <h2>FACILITIES</h2>
-                                </div>
-
-                                <div class="row">
-                                    <div class="col-md-12 col-sm-10 col-xs-10 margin-bottom-60">
-                                        <div class="row">
-
-                                            <div class="col-sm-10 col-sm-offset-1 col-xs-9 col-xs-offset-1">
-                                                <article class="single_service_right_text">
-                                                    <h4>OUTDOOR SWIMMING POOL</h4>
-                                                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting
-                                                        industry.
-                                                        Lorem Ip sum has been the industry's standard dummy text ever.
-                                                    </p>
-                                                </article>
-                                            </div>
-                                            <div class="col-sm-1 col-xs-1">
-                                                <figure class="single_service_icon">
-                                                    <i class="fa fa-heart"></i>
-                                                </figure><!-- End of figure -->
-                                            </div>
-                                        </div>
-                                    </div><!-- End of col-sm-12 -->
-
-                                    <div class="col-md-12 col-sm-10 col-xs-10 margin-bottom-60">
-                                        <div class="row">
-
-                                            <div class="col-sm-10 col-sm-offset-1 col-xs-9 col-xs-offset-1">
-                                                <article class="single_service_right_text">
-                                                    <h4>BAR</h4>
-                                                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting
-                                                        industry.
-                                                        Lorem Ip sum has been the industry's standard dummy text ever.
-                                                    </p>
-                                                </article>
-                                            </div>
-                                            <div class="col-sm-1 col-xs-1">
-                                                <figure class="single_service_icon">
-                                                    <i class="fa fa-heart"></i>
-                                                </figure><!-- End of figure -->
-                                            </div>
-                                        </div>
-                                    </div><!-- End of col-sm-12 -->
-
-                                    <div class="col-md-12 col-sm-10 col-xs-10 margin-bottom-60">
-                                        <div class="row">
-
-                                            <div
-                                                class="col-sm-10 col-sm-offset-1 col-xs-9 col-xs-offset-1 margin-bottom-20">
-                                                <article class="single_service_right_text">
-                                                    <h4>WIFI</h4>
-                                                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting
-                                                        industry.
-                                                        Lorem Ip sum has been the industry's standard dummy text ever.
-                                                    </p>
-                                                </article>
-                                            </div>
-                                            <div class="col-sm-1 col-xs-1">
-                                                <figure class="single_service_icon">
-                                                    <i class="fa fa-heart"></i>
-                                                </figure><!-- End of figure -->
-                                            </div>
-                                        </div>
-                                    </div><!-- End of col-sm-12 -->
-
-                                </div>
-                            </div>
-                        </div><!-- End of col-sm-6 -->
-
-                        <div class="col-md-6 col-sm-12 no-padding">
-                            <figure class="single_service single_service_img">
-                                <div class="overlay-img"></div>
-                                <img src="<?php echo base_url('asset/images/ab4.jpg')?>" alt="" />
-                            </figure><!-- End of figure -->
-                        </div><!-- End of col-sm-6 -->
-
-                    </div>
-                </div><!-- End of row -->
-            </div><!-- End of Container-fluid -->
-        </section><!-- End of service Section -->
-
-
-                        <div style="clear:both;"></div>
-                        <div id="portfoliowork">
-                            <div class="single_portfolio tile scale-anm web grid-item-width2 video">
-                                <img src="assets/images/pf1.jpg" alt="" />
-                                <a href="assets/images/pf1.jpg" class="portfolio-img">
-                                    <div class="grid_item_overlay">
-                                        <div class="separator4"></div>
-                                        <h3>T-SHIRT DESIGN</h3>
-                                        <p>art / t-shirt</p>
-                                    </div>
-                                </a>
-                            </div>
-                            <div class="single_portfolio tile scale-anm bcards photo">
-                                <img src="assets/images/pf2.jpg" alt="" />
-                                <a href="assets/images/pf2.jpg" class="portfolio-img">
-                                    <div class="grid_item_overlay">
-                                        <div class="separator4"></div>
-                                        <h3>T-SHIRT DESIGN</h3>
-                                        <p>art / t-shirt</p>
-                                    </div>
-                                </a>
-                            </div>
-                            <div class="single_portfolio tile scale-anm web video">
-                                <img src="assets/images/pf3.jpg" alt="" />
-                                <a href="assets/images/pf3.jpg" class="portfolio-img">
-                                    <div class="grid_item_overlay">
-                                        <div class="separator4"></div>
-                                        <h3>T-SHIRT DESIGN</h3>
-                                        <p>art / t-shirt</p>
-                                    </div>
-                                </a>
-                            </div>
-                            <div class="single_portfolio tile scale-anm web photo">
-                                <img src="assets/images/pf4.jpg" alt="" />
-                                <a href="assets/images/pf4.jpg" class="portfolio-img">
-                                    <div class="grid_item_overlay">
-                                        <div class="separator4"></div>
-                                        <h3>T-SHIRT DESIGN</h3>
-                                        <p>art / t-shirt</p>
-                                    </div>
-                                </a>
-                            </div>
-                            <div class="single_portfolio tile scale-anm bcards design">
-                                <img src="assets/images/pf5.jpg" alt="" />
-                                <a href="assets/images/pf5.jpg" class="portfolio-img">
-                                    <div class="grid_item_overlay">
-                                        <div class="separator4"></div>
-                                        <h3>T-SHIRT DESIGN</h3>
-                                        <p>art / t-shirt</p>
-                                    </div>
-                                </a>
-                            </div>
-
-                            <div class="single_portfolio tile scale-anm flyers video design">
-                                <img src="assets/images/pf6.jpg" alt="" />
-                                <a href="assets/images/pf6.jpg" class="portfolio-img">
-                                    <div class="grid_item_overlay">
-                                        <div class="separator4"></div>
-                                        <h3>T-SHIRT DESIGN</h3>
-                                        <p>art / t-shirt</p>
-                                    </div>
-                                </a>
-                            </div>
-                            <div class="single_portfolio tile scale-anm photo flyers">
-                                <img src="assets/images/pf7.jpg" alt="" />
-                                <a href="assets/images/pf7.jpg" class="portfolio-img">
-                                    <div class="grid_item_overlay">
-                                        <div class="separator4"></div>
-                                        <h3>T-SHIRT DESIGN</h3>
-                                        <p>art / t-shirt</p>
-                                    </div>
-                                </a>
-                            </div>
-
-                            <div class="single_portfolio tile scale-anm bcards video">
-                                <img src="assets/images/pf8.jpg" alt="" />
-                                <a href="assets/images/pf8.jpg" class="portfolio-img">
-                                    <div class="grid_item_overlay">
-                                        <div class="separator4"></div>
-                                        <h3>T-SHIRT DESIGN</h3>
-                                        <p>art / t-shirt</p>
-                                    </div>
-                                </a>
-                            </div>
-
-                        </div>
-
-                        <div style="clear:both;"></div>
-                    </div>
-                </div>
-            </div><!-- End off container -->
-        </section> <!-- End off Work Section -->
-
-        <!-- Blog Section -->
-        <section id="blog" class="blog">
-            <div class="container-fluid">
-                <div class="row">
-                    <div class="main_blog sections">
-                        <div class="head_title text-center">
-                            <h2>GALLERY</h2>
-                            <div class="subtitle">
-                                Look the best villa in uluwatu in middle class
-                            </div>
-                            <div class="separator"></div>
-                        </div><!-- End off Head_title -->
-
-                        <div class="main_blog_content">
-                            <div class="col-sm-6">
-                                <div class="single_blog_area textwhite">
-                                    <div class="row">
-                                        <div class="col-sm-6 no-padding">
-                                            <div class="single_blog_img">
-                                            <img src="<?php echo base_url('asset/images/ab2.jpg')?>" alt="" />
-                                            </div>
-                                        </div>
-                                        <div class="col-sm-6 no-padding">
-                                            <div class="single_blog_text s_b_left">
-                                                <p>bath/bathroom</p>
-                                                <h3>BATHROOM</h3>
-                                                <div class="separator2"></div>
-                                                <p>Lorem Ipsum is simply dummy text of the printing and typesetting
-                                                    industry. Lorem Ipsum has been the indu Stry's
-                                                    standard dummy text ever since the 1500s, an unknown printer took a
-                                                    galley of type
-                                                    a scrambled it to make a type specimen book.</p>
-
-                                                <a href="" class="read_more">Read More >></a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="col-sm-6">
-                                <div class="single_blog_area textwhite">
-                                    <div class="row">
-                                        <div class="col-sm-6 no-padding">
-                                            <div class="single_blog_img">
-                                            <img src="<?php echo base_url('asset/images/ab6.jpg')?>" alt="" />
-                                            </div>
-                                        </div>
-                                        <div class="col-sm-6 no-padding">
-                                            <div class="single_blog_text s_b_left">
-                                                <p>lobby/front office</p>
-                                                <h3>LOBBY</h3>
-                                                <div class="separator2"></div>
-                                                <p>Lorem Ipsum is simply dummy text of the printing and typesetting
-                                                    industry. Lorem Ipsum has been the indu Stry's
-                                                    standard dummy text ever since the 1500s, an unknown printer took a
-                                                    galley of type
-                                                    a scrambled it to make a type specimen book.</p>
-
-                                                <a href="" class="read_more">Read More >></a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-sm-6">
-                                <div class="single_blog_area textwhite">
-                                    <div class="row">
-
-                                        <div class="col-sm-6 col-sm-push-6 no-padding">
-                                            <div class="single_blog_img">
-                                            <img src="<?php echo base_url('asset/images/ab9.jpg')?>" alt="" />
-                                            </div>
-                                        </div>
-
-                                        <div class="col-sm-6 col-sm-pull-6 no-padding">
-                                            <div class="single_blog_text s_b_right">
-                                                <p>swim/swimming pool</p>
-                                                <h3>SWIMMING POOL</h3>
-                                                <div class="separator2"></div>
-                                                <p>Lorem Ipsum is simply dummy text of the printing and typesetting
-                                                    industry. Lorem Ipsum has been the indu Stry's
-                                                    standard dummy text ever since the 1500s, an unknown printer took a
-                                                    galley of type
-                                                    a scrambled it to make a type specimen book.</p>
-
-                                                <a href="" class="read_more">Read More >></a>
-                                            </div>
-                                        </div>
-
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="col-sm-6">
-                                <div class="single_blog_area textwhite">
-                                    <div class="row">
-                                        <div class="col-sm-6 col-sm-push-6 no-padding">
-                                            <div class="single_blog_img">
-                                            <img src="<?php echo base_url('asset/images/ab3.jpg')?>" alt="" />
-                                            </div>
-                                        </div>
-                                        <div class="col-sm-6 col-sm-pull-6 no-padding">
-                                            <div class="single_blog_text s_b_right">
-                                                <p>bed/bedroom</p>
-                                                <h3>BEDROOM</h3>
-                                                <div class="separator2"></div>
-                                                <p>Lorem Ipsum is simply dummy text of the printing and typesetting
-                                                    industry. Lorem Ipsum has been the indu Stry's
-                                                    standard dummy text ever since the 1500s, an unknown printer took a
-                                                    galley of type
-                                                    a scrambled it to make a type specimen book.</p>
-
-                                                <a href="" class="read_more">Read More >></a>
-                                            </div>
-                                        </div>
-
-                                    </div>
-                                </div>
-                            </div>
-
-                        </div>
-
-                    </div>
-                </div>
-            </div><!-- End off container -->
-        </section><!-- End off Blog Section -->
-
 
         <section id="contact" class="contact">
             <div class="container">
