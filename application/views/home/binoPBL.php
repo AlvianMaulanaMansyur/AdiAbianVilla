@@ -48,10 +48,13 @@
         <div class='loaded'>&nbsp;</div>
     </div> -->
     <div class="culmn">
-<<<<<<< HEAD
+
         <header id="main_menu" class="header navbar-fixed-top">
             <div class="main_menu_bg">
-                <div class="container">
+                <!-- <a class="navbar-brand top-[30px] ps-5 absolute" href="<?php echo base_url() ?>">
+            <img src="asset/images/adibian.png" >
+        </a> -->
+                <div class="container flex justify-center">
                     <div class="row">
                         <div class="nave_menu">
                             <nav class="navbar navbar-default">
@@ -64,328 +67,287 @@
                                             <span class="icon-bar"></span>
                                             <span class="icon-bar"></span>
                                         </button>
-                                        <a class="navbar-brand" href="<?php echo base_url('tamu') ?>">
-                                            <img src="assets/images/logo.png" />
-                                        </a>
                                     </div>
 
                                     <!-- Collect the nav links, forms, and other content for toggling -->
-
                                     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-
-                                        <ul class="nav navbar-nav navbar-right">
-                                            <li><a href="#home">HOME</a></li>
-                                            <li><a href="#book">BOOK NOW</a></li>
-                                            <li><a href="#facilities">FACILITIES</a></li>
-                                            <li><a href="#gallery">GALLERY</a></li>
-                                            <li><a href="#aboutus">ABOUT US</a></li>
-                                            <li><a href="#contact">CONTACT</a></li>
-                                            <li><a href="<?php echo base_url('tamu') ?>">Profile</a></li>
+                                        <ul class="nav nav-between flex justify-right">
+                                            <li><a class="icon-login" href="<?php echo base_url('tamu'); ?>"><img src="asset/images/adibian.png" alt="Login Icon"></a></li>
+                                            <li><a class="text-white" href="#home">HOME</a></li>
+                                            <li><a class="text-white" href="#book">BOOK NOW</a></li>
+                                            <li><a class="text-white" href="#facilities">FACILITIES</a></li>
+                                            <li><a class="text-white" href="#gallery">GALLERY</a></li>
+                                            <li><a class="text-white" href="#aboutus">ABOUT US</a></li>
+                                            <li><a class="text-white" href="#contact">CONTACT</a></li>
                                         </ul>
-
-
-                                    </div>
-
-=======
-    <header id="main_menu" class="header navbar-fixed-top">
-        <div class="main_menu_bg">
-        <a class="navbar-brand top-[30px] ps-5 absolute" href="#home">
-            <img src="asset/images/adibian.png" >
-        </a>
-            <div class="container flex justify-center">
-                <div class="row">
-                    <div class="nave_menu">
-                        <nav class="navbar navbar-default">
-                            <div class="container-fluid">
-                                <!-- Brand and toggle get grouped for better mobile display -->
-                                <div class="navbar-header">
-                                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
-                                        data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-                                        <span class="sr-only">Toggle navigation</span>
-                                        <span class="icon-bar"></span>
-                                        <span class="icon-bar"></span>
-                                        <span class="icon-bar"></span>
-                                    </button>
->>>>>>> 1be6ffd0e5317f7978052b890125a547c542d149
-                                </div>
-
-                                <!-- Collect the nav links, forms, and other content for toggling -->
-                                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                                    <ul class="nav nav-between flex justify-right">
-                                        <li ><a class="text-white" href="#home">HOME</a></li>
-                                        <li><a class="text-white" href="#book">BOOK NOW</a></li>
-                                        <li><a class="text-white" href="#facilities">FACILITIES</a></li>
-                                        <li><a class="text-white" href="#gallery">GALLERY</a></li>
-                                        <li><a class="text-white" href="#aboutus">ABOUT US</a></li>
-                                        <li><a class="text-white" href="#contact">CONTACT</a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </nav>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </header>
-</div>
-
-        <!--End of header -->
-
-
-
-
-        <!--home Section -->
-        <section id="home" class="home">
-            <div class="overlay">
-                <div class="home_skew_border">
-                    <div class="container">
-                        <div class="row">
-                            <div class="col-sm-12 ">
-                                <div class="main_home_slider text-center">
-                                    <div class="single_home_slider">
-                                        <div class="main_home wow fadeInUp" data-wow-duration="700ms">
-                                            <h3>Enjoy Your Holiday With Us</h3>
-                                            <h1>ADI ABIAN VILLA</h1>
-                                            <div class="separator"></div>
-                                            <p>The guest house is equipped with a satellite flat-screen TV. The unit at the property features a walk-in shower and a dressing room. The guest house offers bed linen, towels and housekeeping service.
-                                                Guests can relax in the on-site bar or lounge.
-                                                Sightseeing tours are available nearby. A car rental service is available at the guest house, while cycling can be enjoyed nearby.</p>
-                                            <div class="home_btn">
-                                                <a href="https://bootstrapthemes.co" class="btn btn-lg m_t_10">BOOK NOW</a>
-                                            </div>
-
-                                        </div>
                                     </div>
 
                                 </div>
-                            </div>
+                            </nav>
                         </div>
-                    </div>
-                    <div class="scrooldown">
-                        <a href="#feature"><i class="fa fa-arrow-down"></i></a>
                     </div>
                 </div>
             </div>
-        </section>
-        <!--End of home section -->
+        </header>
+    </div>
+
+    <!--End of header -->
 
 
-        <!-- History section -->
-        <section id="history" class="history sections">
-            <div class="container">
 
-                <div class="row">
-                    <div class="main_history">
-                        <div class="col-sm-6">
-                            <div class="single_history_img">
-                                <img src="<?php echo base_url('asset/images/ab14.jpg') ?>" alt="" />
-                            </div>
-                        </div>
 
-                        <div class="col-sm-6">
-                            <div class="single_history_content">
-                                <div class="head_title">
-                                    <h2>ABOUT US</h2>
+    <!--home Section -->
+    <section id="home" class="home">
+        <div class="overlay">
+            <div class="home_skew_border">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-sm-12 ">
+                            <div class="main_home_slider text-center">
+                                <div class="single_home_slider">
+                                    <div class="main_home wow fadeInUp" data-wow-duration="700ms">
+                                        <h3>Enjoy Your Holiday With Us</h3>
+                                        <h1>ADI ABIAN VILLA</h1>
+                                        <div class="separator"></div>
+                                        <p>The guest house is equipped with a satellite flat-screen TV. The unit at the property features a walk-in shower and a dressing room. The guest house offers bed linen, towels and housekeeping service.
+                                            Guests can relax in the on-site bar or lounge.
+                                            Sightseeing tours are available nearby. A car rental service is available at the guest house, while cycling can be enjoyed nearby.</p>
+                                        <div class="home_btn">
+                                            <a href="https://bootstrapthemes.co" class="btn btn-lg m_t_10">BOOK NOW</a>
+                                        </div>
+
+                                    </div>
                                 </div>
-                                <p>It is a long established fact that a reader will be distracted by the readable
-                                    content of a page
-                                    when looking at its layout. The point of using Lorem Ipsum is that it has a
-                                    more-or-less normal
-                                    distribution of letters, as opposed to using 'Content here, content here', making it
-                                    look like readable English. Many desktop publishing packages and web page editors
-                                    now use
-                                    Lorem Ipsum as their default model text, and a search for 'lorem ipsum' </p>
 
-                                <a href="" class="btn btn-lg">BOOK NOW</a>
                             </div>
                         </div>
                     </div>
                 </div>
-                <!--End of row -->
+                <div class="scrooldown">
+                    <a href="#feature"><i class="fa fa-arrow-down"></i></a>
+                </div>
             </div>
-            <!--End of container -->
-        </section>
-        <!--End of history -->
+        </div>
+    </section>
+    <!--End of home section -->
 
 
-        <!-- service Section -->
-        <section id="service" class="service">
-            <div class="container-fluid">
-                <div class="row">
-                    <div class="main_service">
-                        <div class="col-md-6 col-sm-12 no-padding">
+    <!-- History section -->
+    <section id="history" class="history sections">
+        <div class="container">
 
-                            <div class="single_service single_service_text text-right">
-                                <div class="head_title">
-                                    <h2>FACILITIES</h2>
-                                </div>
+            <div class="row">
+                <div class="main_history">
+                    <div class="col-sm-6">
+                        <div class="single_history_img">
+                            <img src="<?php echo base_url('asset/images/ab14.jpg') ?>" alt="" />
+                        </div>
+                    </div>
 
-                                <div class="row">
-                                    <div class="col-md-12 col-sm-10 col-xs-10 margin-bottom-60">
-                                        <div class="row">
-
-                                            <div class="col-sm-10 col-sm-offset-1 col-xs-9 col-xs-offset-1">
-                                                <article class="single_service_right_text">
-                                                    <h4>OUTDOOR SWIMMING POOL</h4>
-                                                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting
-                                                        industry.
-                                                        Lorem Ip sum has been the industry's standard dummy text ever.
-                                                    </p>
-                                                </article>
-                                            </div>
-                                            <div class="col-sm-1 col-xs-1">
-                                                <figure class="single_service_icon">
-                                                    <i class="fa fa-heart"></i>
-                                                </figure><!-- End of figure -->
-                                            </div>
-                                        </div>
-                                    </div><!-- End of col-sm-12 -->
-
-                                    <div class="col-md-12 col-sm-10 col-xs-10 margin-bottom-60">
-                                        <div class="row">
-
-                                            <div class="col-sm-10 col-sm-offset-1 col-xs-9 col-xs-offset-1">
-                                                <article class="single_service_right_text">
-                                                    <h4>BAR</h4>
-                                                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting
-                                                        industry.
-                                                        Lorem Ip sum has been the industry's standard dummy text ever.
-                                                    </p>
-                                                </article>
-                                            </div>
-                                            <div class="col-sm-1 col-xs-1">
-                                                <figure class="single_service_icon">
-                                                    <i class="fa fa-heart"></i>
-                                                </figure><!-- End of figure -->
-                                            </div>
-                                        </div>
-                                    </div><!-- End of col-sm-12 -->
-
-                                    <div class="col-md-12 col-sm-10 col-xs-10 margin-bottom-60">
-                                        <div class="row">
-
-                                            <div class="col-sm-10 col-sm-offset-1 col-xs-9 col-xs-offset-1 margin-bottom-20">
-                                                <article class="single_service_right_text">
-                                                    <h4>WIFI</h4>
-                                                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting
-                                                        industry.
-                                                        Lorem Ip sum has been the industry's standard dummy text ever.
-                                                    </p>
-                                                </article>
-                                            </div>
-                                            <div class="col-sm-1 col-xs-1">
-                                                <figure class="single_service_icon">
-                                                    <i class="fa fa-heart"></i>
-                                                </figure><!-- End of figure -->
-                                            </div>
-                                        </div>
-                                    </div><!-- End of col-sm-12 -->
-
-                                </div>
+                    <div class="col-sm-6">
+                        <div class="single_history_content">
+                            <div class="head_title">
+                                <h2>ABOUT US</h2>
                             </div>
-                        </div><!-- End of col-sm-6 -->
+                            <p>It is a long established fact that a reader will be distracted by the readable
+                                content of a page
+                                when looking at its layout. The point of using Lorem Ipsum is that it has a
+                                more-or-less normal
+                                distribution of letters, as opposed to using 'Content here, content here', making it
+                                look like readable English. Many desktop publishing packages and web page editors
+                                now use
+                                Lorem Ipsum as their default model text, and a search for 'lorem ipsum' </p>
 
-                        <div class="col-md-6 col-sm-12 no-padding">
-                            <figure class="single_service single_service_img">
-                                <div class="overlay-img"></div>
-                                <img src="<?php echo base_url('asset/images/ab4.jpg') ?>" alt="" />
-                            </figure><!-- End of figure -->
-                        </div><!-- End of col-sm-6 -->
+                            <a href="" class="btn btn-lg">BOOK NOW</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--End of row -->
+        </div>
+        <!--End of container -->
+    </section>
+    <!--End of history -->
 
-                    </div>
-                </div><!-- End of row -->
-            </div><!-- End of Container-fluid -->
-        </section><!-- End of service Section -->
+
+    <!-- service Section -->
+    <section id="service" class="service">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="main_service">
+                    <div class="col-md-6 col-sm-12 no-padding">
+
+                        <div class="single_service single_service_text text-right">
+                            <div class="head_title">
+                                <h2>FACILITIES</h2>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-12 col-sm-10 col-xs-10 margin-bottom-60">
+                                    <div class="row">
+
+                                        <div class="col-sm-10 col-sm-offset-1 col-xs-9 col-xs-offset-1">
+                                            <article class="single_service_right_text">
+                                                <h4>OUTDOOR SWIMMING POOL</h4>
+                                                <p>Lorem Ipsum is simply dummy text of the printing and typesetting
+                                                    industry.
+                                                    Lorem Ip sum has been the industry's standard dummy text ever.
+                                                </p>
+                                            </article>
+                                        </div>
+                                        <div class="col-sm-1 col-xs-1">
+                                            <figure class="single_service_icon">
+                                                <i class="fa fa-heart"></i>
+                                            </figure><!-- End of figure -->
+                                        </div>
+                                    </div>
+                                </div><!-- End of col-sm-12 -->
+
+                                <div class="col-md-12 col-sm-10 col-xs-10 margin-bottom-60">
+                                    <div class="row">
+
+                                        <div class="col-sm-10 col-sm-offset-1 col-xs-9 col-xs-offset-1">
+                                            <article class="single_service_right_text">
+                                                <h4>BAR</h4>
+                                                <p>Lorem Ipsum is simply dummy text of the printing and typesetting
+                                                    industry.
+                                                    Lorem Ip sum has been the industry's standard dummy text ever.
+                                                </p>
+                                            </article>
+                                        </div>
+                                        <div class="col-sm-1 col-xs-1">
+                                            <figure class="single_service_icon">
+                                                <i class="fa fa-heart"></i>
+                                            </figure><!-- End of figure -->
+                                        </div>
+                                    </div>
+                                </div><!-- End of col-sm-12 -->
+
+                                <div class="col-md-12 col-sm-10 col-xs-10 margin-bottom-60">
+                                    <div class="row">
+
+                                        <div class="col-sm-10 col-sm-offset-1 col-xs-9 col-xs-offset-1 margin-bottom-20">
+                                            <article class="single_service_right_text">
+                                                <h4>WIFI</h4>
+                                                <p>Lorem Ipsum is simply dummy text of the printing and typesetting
+                                                    industry.
+                                                    Lorem Ip sum has been the industry's standard dummy text ever.
+                                                </p>
+                                            </article>
+                                        </div>
+                                        <div class="col-sm-1 col-xs-1">
+                                            <figure class="single_service_icon">
+                                                <i class="fa fa-heart"></i>
+                                            </figure><!-- End of figure -->
+                                        </div>
+                                    </div>
+                                </div><!-- End of col-sm-12 -->
+
+                            </div>
+                        </div>
+                    </div><!-- End of col-sm-6 -->
+
+                    <div class="col-md-6 col-sm-12 no-padding">
+                        <figure class="single_service single_service_img">
+                            <div class="overlay-img"></div>
+                            <img src="<?php echo base_url('asset/images/ab4.jpg') ?>" alt="" />
+                        </figure><!-- End of figure -->
+                    </div><!-- End of col-sm-6 -->
+
+                </div>
+            </div><!-- End of row -->
+        </div><!-- End of Container-fluid -->
+    </section><!-- End of service Section -->
 
 
-        <div style="clear:both;"></div>
-        <div id="portfoliowork">
-            <div class="single_portfolio tile scale-anm web grid-item-width2 video">
-                <img src="assets/images/pf1.jpg" alt="" />
-                <a href="assets/images/pf1.jpg" class="portfolio-img">
-                    <div class="grid_item_overlay">
-                        <div class="separator4"></div>
-                        <h3>T-SHIRT DESIGN</h3>
-                        <p>art / t-shirt</p>
-                    </div>
-                </a>
-            </div>
-            <div class="single_portfolio tile scale-anm bcards photo">
-                <img src="assets/images/pf2.jpg" alt="" />
-                <a href="assets/images/pf2.jpg" class="portfolio-img">
-                    <div class="grid_item_overlay">
-                        <div class="separator4"></div>
-                        <h3>T-SHIRT DESIGN</h3>
-                        <p>art / t-shirt</p>
-                    </div>
-                </a>
-            </div>
-            <div class="single_portfolio tile scale-anm web video">
-                <img src="assets/images/pf3.jpg" alt="" />
-                <a href="assets/images/pf3.jpg" class="portfolio-img">
-                    <div class="grid_item_overlay">
-                        <div class="separator4"></div>
-                        <h3>T-SHIRT DESIGN</h3>
-                        <p>art / t-shirt</p>
-                    </div>
-                </a>
-            </div>
-            <div class="single_portfolio tile scale-anm web photo">
-                <img src="assets/images/pf4.jpg" alt="" />
-                <a href="assets/images/pf4.jpg" class="portfolio-img">
-                    <div class="grid_item_overlay">
-                        <div class="separator4"></div>
-                        <h3>T-SHIRT DESIGN</h3>
-                        <p>art / t-shirt</p>
-                    </div>
-                </a>
-            </div>
-            <div class="single_portfolio tile scale-anm bcards design">
-                <img src="assets/images/pf5.jpg" alt="" />
-                <a href="assets/images/pf5.jpg" class="portfolio-img">
-                    <div class="grid_item_overlay">
-                        <div class="separator4"></div>
-                        <h3>T-SHIRT DESIGN</h3>
-                        <p>art / t-shirt</p>
-                    </div>
-                </a>
-            </div>
-
-            <div class="single_portfolio tile scale-anm flyers video design">
-                <img src="assets/images/pf6.jpg" alt="" />
-                <a href="assets/images/pf6.jpg" class="portfolio-img">
-                    <div class="grid_item_overlay">
-                        <div class="separator4"></div>
-                        <h3>T-SHIRT DESIGN</h3>
-                        <p>art / t-shirt</p>
-                    </div>
-                </a>
-            </div>
-            <div class="single_portfolio tile scale-anm photo flyers">
-                <img src="assets/images/pf7.jpg" alt="" />
-                <a href="assets/images/pf7.jpg" class="portfolio-img">
-                    <div class="grid_item_overlay">
-                        <div class="separator4"></div>
-                        <h3>T-SHIRT DESIGN</h3>
-                        <p>art / t-shirt</p>
-                    </div>
-                </a>
-            </div>
-
-            <div class="single_portfolio tile scale-anm bcards video">
-                <img src="assets/images/pf8.jpg" alt="" />
-                <a href="assets/images/pf8.jpg" class="portfolio-img">
-                    <div class="grid_item_overlay">
-                        <div class="separator4"></div>
-                        <h3>T-SHIRT DESIGN</h3>
-                        <p>art / t-shirt</p>
-                    </div>
-                </a>
-            </div>
-
+    <div style="clear:both;"></div>
+    <div id="portfoliowork">
+        <div class="single_portfolio tile scale-anm web grid-item-width2 video">
+            <img src="assets/images/pf1.jpg" alt="" />
+            <a href="assets/images/pf1.jpg" class="portfolio-img">
+                <div class="grid_item_overlay">
+                    <div class="separator4"></div>
+                    <h3>T-SHIRT DESIGN</h3>
+                    <p>art / t-shirt</p>
+                </div>
+            </a>
+        </div>
+        <div class="single_portfolio tile scale-anm bcards photo">
+            <img src="assets/images/pf2.jpg" alt="" />
+            <a href="assets/images/pf2.jpg" class="portfolio-img">
+                <div class="grid_item_overlay">
+                    <div class="separator4"></div>
+                    <h3>T-SHIRT DESIGN</h3>
+                    <p>art / t-shirt</p>
+                </div>
+            </a>
+        </div>
+        <div class="single_portfolio tile scale-anm web video">
+            <img src="assets/images/pf3.jpg" alt="" />
+            <a href="assets/images/pf3.jpg" class="portfolio-img">
+                <div class="grid_item_overlay">
+                    <div class="separator4"></div>
+                    <h3>T-SHIRT DESIGN</h3>
+                    <p>art / t-shirt</p>
+                </div>
+            </a>
+        </div>
+        <div class="single_portfolio tile scale-anm web photo">
+            <img src="assets/images/pf4.jpg" alt="" />
+            <a href="assets/images/pf4.jpg" class="portfolio-img">
+                <div class="grid_item_overlay">
+                    <div class="separator4"></div>
+                    <h3>T-SHIRT DESIGN</h3>
+                    <p>art / t-shirt</p>
+                </div>
+            </a>
+        </div>
+        <div class="single_portfolio tile scale-anm bcards design">
+            <img src="assets/images/pf5.jpg" alt="" />
+            <a href="assets/images/pf5.jpg" class="portfolio-img">
+                <div class="grid_item_overlay">
+                    <div class="separator4"></div>
+                    <h3>T-SHIRT DESIGN</h3>
+                    <p>art / t-shirt</p>
+                </div>
+            </a>
         </div>
 
-        <div style="clear:both;"></div>
+        <div class="single_portfolio tile scale-anm flyers video design">
+            <img src="assets/images/pf6.jpg" alt="" />
+            <a href="assets/images/pf6.jpg" class="portfolio-img">
+                <div class="grid_item_overlay">
+                    <div class="separator4"></div>
+                    <h3>T-SHIRT DESIGN</h3>
+                    <p>art / t-shirt</p>
+                </div>
+            </a>
+        </div>
+        <div class="single_portfolio tile scale-anm photo flyers">
+            <img src="assets/images/pf7.jpg" alt="" />
+            <a href="assets/images/pf7.jpg" class="portfolio-img">
+                <div class="grid_item_overlay">
+                    <div class="separator4"></div>
+                    <h3>T-SHIRT DESIGN</h3>
+                    <p>art / t-shirt</p>
+                </div>
+            </a>
+        </div>
+
+        <div class="single_portfolio tile scale-anm bcards video">
+            <img src="assets/images/pf8.jpg" alt="" />
+            <a href="assets/images/pf8.jpg" class="portfolio-img">
+                <div class="grid_item_overlay">
+                    <div class="separator4"></div>
+                    <h3>T-SHIRT DESIGN</h3>
+                    <p>art / t-shirt</p>
+                </div>
+            </a>
+        </div>
+
+    </div>
+
+    <div style="clear:both;"></div>
     </div>
     </div>
     </div><!-- End off container -->

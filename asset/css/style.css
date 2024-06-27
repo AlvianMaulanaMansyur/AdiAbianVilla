@@ -20,6 +20,12 @@ body {
     width:100%;
     font-family: 'ralewayregular';
 }
+
+.icon-login img {
+    width: 45px;  /* Atur lebar sesuai kebutuhan */
+    height: auto; /* Pertahankan aspek rasio */
+}
+
 .preloader {
     position: fixed;
     top: 0;

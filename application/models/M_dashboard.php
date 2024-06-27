@@ -13,7 +13,10 @@ class M_dashboard extends CI_Model
 
     public function get_kamar()
     {
-        $query = $this->db->get('kamar');
+        $this->db->select('detail_kamar.harga,detail_kamar.jenis_kamar,detail_kamar.deskripsi,kamar.no_kamar,kamar.id_kamar');
+        $this->db->from('kamar');
+        $this->db->join('detail_kamar', 'kamar.id_detail_kamar = detail_kamar.id_detail_kamar', 'left');
+        $query = $this->db->get();
         return $query->result_array();
     }
 
@@ -35,9 +38,40 @@ class M_dashboard extends CI_Model
             return false;
         }
     }
+    public function get_tipe_kamar()
+    {
+        $query = $this->db->get('detail_kamar');
+        return $query->result_array();
+    }
+    public function editTipeKamar($id_detail_kamar, $data)
+    {
+        $this->db->where('id_detail_kamar', $id_detail_kamar);
+        $this->db->update('detail_kamar', $data);
+        return $this->db->affected_rows() > 0;
+    }
+
+    public function deleteTipeKamar($id_detail_kamar)
+    {
+        $this->db->where('id_detail_kamar', $id_detail_kamar);
+        return $this->db->delete('detail_kamar');
+    }
+
+
+    public function getIddetailkamar($tipe_kamar)
+    {
+        $this->db->select('id_detail_kamar');
+        $this->db->where('jenis_kamar', $tipe_kamar);
+        $this->db->from('detail_kamar');
+        $query = $this->db->get();
+        return $query->result_array();
+    }
     public function insertKamar($data)
     {
         return $this->db->insert('kamar', $data);
+    }
+    public function inserttipe($data)
+    {
+        return $this->db->insert('detail_kamar', $data);
     }
 
     public function updateKamar($id_kamar, $data)
