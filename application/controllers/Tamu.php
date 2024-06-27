@@ -11,12 +11,10 @@ class Tamu extends CI_Controller
         $this->load->model('M_tamu');
         $this->load->helper('url', 'form');
         $this->load->library('form_validation');
-        //Do your magic here
     }
 
     public function index()
     {
-
         $email = $this->session->userdata('identity');
         var_dump($email);
 
@@ -30,11 +28,6 @@ class Tamu extends CI_Controller
 
         ];
         $this->load->view('partials/main', $data);
-    }
-
-    public function hai()
-    {
-        $this->load->view('main');
     }
     public function editProfile($id_tamu)
     {

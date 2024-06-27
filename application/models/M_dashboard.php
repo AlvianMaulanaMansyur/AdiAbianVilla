@@ -19,21 +19,9 @@ class M_dashboard extends CI_Model
 
     public function get_status_ketersediaan()
     {
-        $this->db->select('id_kamar,no_kamar,status_ketersediaan');
+        $this->db->select('id_kamar,no_kamar');
         $query = $this->db->get('kamar');
         return $query->result_array();
-    }
-
-    public function ubah_status_kamar($id_kamar, $status)
-    {
-        $data = array('status_ketersediaan' => $status);
-        $this->db->where('id_kamar', $id_kamar);
-        $this->db->update('kamar', $data);
-        if ($this->db->affected_rows() > 0) {
-            return true;
-        } else {
-            return false;
-        }
     }
     public function insertKamar($data)
     {
