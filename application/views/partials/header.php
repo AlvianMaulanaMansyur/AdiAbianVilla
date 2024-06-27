@@ -15,6 +15,8 @@
     <!-- <link rel="stylesheet" href="./src/output.css'"> -->
 <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script> -->
 
+    <link rel="icon" href="<?php echo base_url('asset/images/adibian.png')?>">
+
     <title><?php echo $title ?></title>
 
     <script>

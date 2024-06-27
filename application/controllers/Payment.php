@@ -24,7 +24,7 @@ class Payment extends CI_Controller
         $hargaKamar = $this->M_kamar->getHargaKamar();
         $jumlahkamar= $this->M_pemesanan->getSessionValues();
         $id_pemesanan = $this->M_pemesanan->getPemesananByIdTamu($identity);
-        // var_dump($id_pemesanan);
+        // var_dump($id_pemesanan);         
         
         var_dump($jumlahkamar);
         $paymentAmount      = $hargaKamar[0]['harga'] * $jumlahkamar['rooms'] + (($hargaKamar[0]['harga'] + $jumlahkamar['rooms']) * 0.11); // Amount
@@ -43,7 +43,7 @@ class Payment extends CI_Controller
         // Customer Detail
         $firstName          = "John";
         $lastName           = "Doe";
-        $username =" ";
+        $username ="";
 
         // Address
         $alamat             = "Jl. Kembangan Raya";
@@ -83,7 +83,7 @@ class Payment extends CI_Controller
 
         $params = array(
             'paymentAmount'     => $paymentAmount,
-                'merchantOrderId'   => $merchantOrderId,
+            'merchantOrderId'   => $merchantOrderId,
             'productDetails'    => $productDetails,
             'additionalParam'   => $additionalParam,
             'merchantUserInfo'  => $merchantUserInfo,
@@ -98,7 +98,6 @@ class Payment extends CI_Controller
         );
 
         try {
-
             $insertDB = array(
                 'id_pemesanan' => $id_pemesanan[0]->id_pemesanan, 
                 'id_transaksi' => $merchantOrderId,

@@ -9,8 +9,9 @@
                     <form action="<?php echo site_url('auth/login'); ?>" method="post" class="pt-3">
                         <div class="form-group">
                             <h5>Email or Username</h5>
-                            <input type="text" class="form-control form-control-lg" placeholder="Email or Username" name="identity" required>
+                            <input type="text" class="form-control form-control-lg" placeholder="Email or Username" name="identity">
                         </div>
+                        <small class="text-danger"><?= form_error('identity')?></small>
                         <div class="mt-3 d-grid gap-2">
                             <button type="submit" class="btn btn-primary btn-md">Continue</button>
                         </div>

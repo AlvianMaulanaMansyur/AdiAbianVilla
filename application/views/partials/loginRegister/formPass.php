@@ -8,6 +8,9 @@
                     <div class=" mx-auto">
                         <p class="flex justify-center align-items-center text-green-600 font-bold text-3xl">Adi Abian <span class="text-black"> Villa</span></p>
                         <p class="font-bold text-md">Sign in or Create Account</p>
+                            <?php if ($this->session->flashdata('error_message')) {
+                                echo '<p style="color:red;">' . $this->session->flashdata('error_message') . '</p>';
+                            } ?>
                         <form action="<?= site_url('auth/verify_password'); ?>" method="post" class="pt-3">
                             <div class="form-group">
                                 <input type="hidden" class="form-control form-control-lg" placeholder="Email or Username" name="identity" value="<?php echo $identity; ?>" >
@@ -16,14 +19,12 @@
                                 <h5>Password</h5>
                                 <input type="password" class="form-control form-control-lg" placeholder="Enter your password" name="password">
                             </div>
-                            <?php if ($this->session->flashdata('error_message')) {
-                                echo '<p style="color:red;">' . $this->session->flashdata('error_message') . '</p>';
-                            } ?>
+                            <small class="text-danger"><?= form_error('password')?></small>
                             <div class="mt-3 d-grid gap-2">
                                 <button type="submit" class="btn btn-primary btn-md">Continue</button>
                             </div>
                             <div class="my-2 d-flex justify-content-end align-items-center">
-                                <a href="#" class="auth-link text-black">Forgot password?</a>
+                                <a href="<?= base_url('auth/forgotPassword')?>" class="auth-link text-black">Forgot password?</a>
                             </div>
                         </form>
                     </div>
