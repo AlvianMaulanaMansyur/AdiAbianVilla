@@ -31,7 +31,6 @@ class M_tamu extends CI_Model
         $this->db->or_where('username', $identity);
         $query = $this->db->get('tamu');
         return $query->result_array();
-
     }
     public function getIdTamuByEmailUsername($identity)
     {

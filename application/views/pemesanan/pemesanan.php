@@ -241,9 +241,16 @@
                 }
               });
             } else {
+              function deleteCookie(name) {
+                document.cookie = name + '=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;';
+              }
+              deleteCookie('roomsData');
+              deleteCookie('availability');
+              deleteCookie('kamar');
+              deleteCookie('harga');
+              deleteCookie('jenis_kamar');
               window.location.href = base_url + 'payment/proses';
             }
-
           },
           error: function(xhr, status, error) {
             console.error("Error:", error);
