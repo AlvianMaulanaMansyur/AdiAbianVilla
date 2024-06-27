@@ -1,0 +1,29 @@
+* Bad Parameter *
+
+* Bad Parameter *
+
+* Bad Parameter *
+
+* Bad Parameter *
+
+* Bad Parameter *
+
+* Bad Parameter *
+
+Array
+(
+    [merchantCode] => DS19433
+    [amount] => 1110000
+    [merchantOrderId] => 9
+    [productDetail] => Test Payment
+    [additionalParam] => 
+    [resultCode] => 00
+    [signature] => 7b0a27ffc8137837aeeb8465b0740a48
+    [paymentCode] => BC
+    [merchantUserId] => 
+    [reference] => DS1943324KSLRI25FLVQ2N8B
+    [spUserHash] => 
+    [settlementDate] => 2024-06-28
+    [publisherOrderId] => BC24QGUNJPODJO3TDS4
+    [sourceAccount] => 
+)

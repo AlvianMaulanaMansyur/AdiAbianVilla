@@ -8,18 +8,30 @@
                     <div class=" mx-auto">
                         <p class="flex justify-center align-items-center text-green-600 font-bold text-3xl">Adi Abian <span class="text-black"> Villa</span></p>
                         <p class="font-bold text-md">Sign in or Create Account</p>
+<<<<<<< HEAD
                             <?php if ($this->session->flashdata('error_message')) {
                                 echo '<p style="color:red;">' . $this->session->flashdata('error_message') . '</p>';
                             } ?>
+=======
+                        <?php if ($this->session->flashdata('error_message')) {
+                                echo '<p style="color:red;">' . $this->session->flashdata('error_message') . '</p>';
+                            } 
+                        ?>
+>>>>>>> 4218e23ff082326ed3e91c1117eba3b56f6a62d3
                         <form action="<?= site_url('auth/verify_password'); ?>" method="post" class="pt-3">
                             <div class="form-group">
-                                <input type="hidden" class="form-control form-control-lg" placeholder="Email or Username" name="identity" value="<?php echo $identity; ?>" >
+                                <input type="hidden" class="form-control form-control-lg" placeholder="Email or Username" name="identity" value="<?php echo $identity; ?>" required >
                             </div>
                             <div class="form-group">
                                 <h5>Password</h5>
-                                <input type="password" class="form-control form-control-lg" placeholder="Enter your password" name="password">
+                                <input type="password" class="form-control form-control-lg" placeholder="Enter your password" name="password" required>
                             </div>
+<<<<<<< HEAD
                             <small class="text-danger"><?= form_error('password')?></small>
+=======
+                            <small class="text-danger"><?= form_error('password'); ?></small>
+                            
+>>>>>>> 4218e23ff082326ed3e91c1117eba3b56f6a62d3
                             <div class="mt-3 d-grid gap-2">
                                 <button type="submit" class="btn btn-primary btn-md">Continue</button>
                             </div>
