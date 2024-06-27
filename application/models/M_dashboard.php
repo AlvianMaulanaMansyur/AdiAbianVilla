@@ -22,7 +22,7 @@ class M_dashboard extends CI_Model
 
     public function get_status_ketersediaan()
     {
-        $this->db->select('id_kamar,no_kamar,status_ketersediaan');
+        $this->db->select('id_kamar,no_kamar');
         $query = $this->db->get('kamar');
         return $query->result_array();
     }
@@ -65,6 +65,7 @@ class M_dashboard extends CI_Model
         $query = $this->db->get();
         return $query->result_array();
     }
+
     public function insertKamar($data)
     {
         return $this->db->insert('kamar', $data);

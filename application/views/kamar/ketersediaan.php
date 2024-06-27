@@ -130,12 +130,12 @@
     <!-- <?php var_dump($kamar) ?> -->
     <!-- <?php var_dump($harga) ?> -->
 
-    <div class="w-4/5 mx-auto py-5">
+    <div class="container mx-auto py-5 px-4">
         <div class="text-3xl font-bold text-center">Adi Abian Villa</div>
 
         <div class="text-xl font-semibold text-center text-gray-500 mt-2"><?php echo 'Rp' . number_format($harga, 0, ',', '.'); ?> / night</div>
         <div class="text-base pt-3 leading-relaxed text-center">
-            Welcome to Adi Abian Villa, where luxury meets tropical nature.This villa offers spacious open areas, an infinity pool, and serene tropical gardens. Equipped with modern amenities and elegant design, each bedroom provides a comfortable resting place. Enjoy an unforgettable vacation at Adi Abian Villa, where comfort and natural beauty blend perfectly.
+            Welcome to Adi Abian Villa, where luxury meets tropical nature. This villa offers spacious open areas, an infinity pool, and serene tropical gardens. Equipped with modern amenities and elegant design, each bedroom provides a comfortable resting place. Enjoy an unforgettable vacation at Adi Abian Villa, where comfort and natural beauty blend perfectly.
             <br><br>
             Each room can accommodate up to 2 adults and 1 child. Children under 6 years old stay for free.
         </div>
@@ -143,7 +143,7 @@
     <div class="text-2xl font-bold text-center mt-10 mb-4">Check Availability</div>
 
     <div class="flex items-center justify-center pb-5">
-        <div class="flex items-center justify-center w-4/6 bg-white shadow rounded">
+        <div class="flex items-center justify-center lg:w-5/6 md:w-full sm:w-full bg-white shadow rounded">
             <div class="text-center">
                 <h1 id="result" class="mb-4"></h1>
                 <div class="relative">
@@ -159,7 +159,9 @@
                                 </div>
 
                                 <div id="data_checkin" data="<?php echo $kamar['checkin'] ?>"></div>
-                                <input id="datepicker" class="appearance-none w-48 py-2 px-3 text-gray-900 bg-white border-none" type="text" placeholder="Select check-in" value="<?php echo $kamar['checkin'] ?>" disabled>
+                                <div class="flex justify-center">
+                                    <input id="datepicker" class="appearance-none w-48 py-2 px-3 text-gray-900 bg-white border-none" type="text" placeholder="Select check-in" value="<?php echo $kamar['checkin'] ?>" disabled>
+                                </div>
                             </div>
                             <div>
                                 <div class="flex items-center">
@@ -172,7 +174,7 @@
                                 <div id="data_checkout" data="<?php echo $kamar['checkout'] ?>"></div>
                                 <input id="datepicker2" class="appearance-none w-48 py-2 px-3 text-gray-900 bg-white border-none" type="text" placeholder="Select check-out" value="<?php echo $kamar['checkout'] ?>" disabled>
                             </div>
-                            <div class="pt-4">
+                            <div class="pt-4 flex gap-1">
                                 <div>
                                     <button class="w-72 h-12 relative" onclick="toggleModal('modal')">
                                         <div class="w-72 h-12 px-3.5 py-2.5 left-0 top-0 absolute bg-red-500 rounded border border-red-500 flex-col justify-center items-start inline-flex">
@@ -193,7 +195,7 @@
 
 
                                 <div id="modal" class="hidden absolute z-10 mt-3 w-96">
-                                    <div id="modal-container" class="w-96 h-72 left-0 top-0 bg-white shadow-lg rounded relative overflow-hidden">
+                                    <div id="modal-container" class="w-96 h-72 left-0 top-12 bg-white shadow-lg rounded relative overflow-hidden">
                                         <div id="room-container" class="p-4" style="max-height: calc(100% - 96px);">
                                             <!-- <div class="text-lg font-bold mb-4">Room 1</div> -->
                                             <!-- Adult Section -->
@@ -237,56 +239,26 @@
                                         </div>
                                     </div>
                                 </div>
-                            </div>
+                                <div>
+                                    <button id="check" class="w-20 h-12 px-3.5 py-2.5 bg-red-500 text-white font-bold rounded border border-red-500 flex-col justify-center items-start inline-flex relative">Check</button>
 
-
-                            <div>
-                                <button id="check" class="mt-4 w-20 h-12 px-3.5 py-2.5 left-0 top-0 bg-red-500 text-white font-bold rounded border border-red-500 flex-col justify-center items-start inline-flex">Check</button>
-                                <!-- <button id="hapus-cookie">
-                                    hapus cookie
-                                </button> -->
-                                <!-- <button id="open-modal" class="bg-blue-500 text-white px-4 py-2 rounded">Open Modal</button> -->
-                            </div>
+                                </div>
                         </div>
-                        <section id="datepicker-section" class="pb-5"></section>
-
                     </div>
                 </div>
-
-
+                <div class="flex justify-center">
+                    <section id="datepicker-section" class="pb-5"></section>
+                </div>
             </div>
 
 
         </div>
+
 
     </div>
-    <div id="availability1"></div>
-    <!-- <div class="flex flex-col items-center">
-        <div class="border h-px w-4/6 mt-3"></div>
-        <div class="text-2xl font-bold text-center mb-4 mt-5">Select Rooms</div>
 
-        <div class="bg-white shadow-md rounded-lg mb-4 w-4/6 p-5">
-            <div id="availability-card-container" class="bg-white"></div>
-            <div class="flex justify-between">
-            <div>
-                <div class="text-black">Available Rooms : 1</div>
-                <div>Room type</div>
-            </div>
-
-            <div>
-                <div>Room Selected 1</div>
-                <div>(1 Night)</div>
-                <div>2 Adults and 1 kid</div>
-            </div>
-            <div>
-                <div>Price : Rp.500.000</div>
-            </div>
-            <div>
-                <button>Booking</button>
-            </div>
-            </div>
-        </div>
-    </div> -->
+</div>
+<div id="availability1"></div>
 
 </div>
 <!-- Modal Overlay and Content -->
@@ -321,6 +293,7 @@
         </div>
     </div>
 </div>
+
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <script>
     // const modal = document.getElementById('modal-success');
@@ -360,6 +333,8 @@
         const modalContainer = document.getElementById('modal-container');
         const buttonsContainer = document.getElementById('buttons-container');
         const submitButton = document.getElementById('submit-button');
+
+
 
         function updateCounts() {
             let adults = 0;
@@ -505,7 +480,7 @@
             }
 
             const roomTemplate = `
-            <div class="flex flex-col mb-4 room-section">
+            <div class="flex flex-col room-section">
                 <div class="border border-black h-px w-full mb-4"></div>
                 <div class="flex items-center mb-4">
                     <img class="w-10 h-10 mr-4" src="<?php echo base_url('assets/foto/person.png') ?>" />
@@ -565,7 +540,8 @@
         submitButton.addEventListener('click', () => {
             saveRoomsData();
             updateCounts();
-
+            $("#availability-card-container").empty();
+            $("#availability1").empty();
             console.log('Rooms data saved to cookie.');
             closeModal(); // Panggil fungsi penutupan modal di sini
 
@@ -582,6 +558,136 @@
             document.getElementById('modal').classList.add('hidden'); // Sesuaikan dengan cara Anda menutup modal
         }
     });
+    // Fungsi untuk menyimpan nilai ke dalam cookie
+    function setCookie(name, value, days) {
+        var expires = "";
+        if (days) {
+            var date = new Date();
+            date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
+            expires = "; expires=" + date.toUTCString();
+        }
+        document.cookie = name + "=" + (value || "") + expires + "; path=/";
+    }
+
+    // Fungsi untuk mendapatkan nilai dari cookie
+    function getCookie(name) {
+        var nameEQ = name + "=";
+        var ca = document.cookie.split(';');
+        for (var i = 0; i < ca.length; i++) {
+            var c = ca[i];
+            while (c.charAt(0) == ' ') c = c.substring(1, c.length);
+            if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length, c.length);
+        }
+        return null;
+    }
+
+    // Fungsi untuk menghapus cookie
+    function eraseCookie(name) {
+        document.cookie = name + '=; Max-Age=-99999999; path=/';
+    }
+
+    function formatRupiah(value) {
+        return new Intl.NumberFormat('id-ID', {
+            style: 'currency',
+            currency: 'IDR',
+            minimumFractionDigits: 0,
+            maximumFractionDigits: 0
+        }).format(value);
+    }
+
+
+    window.onload = function() {
+        let adults = 0;
+        let kids = 0;
+        var roomsi = 0;
+
+        // Muat data dari cookie jika tersedia
+        const cookies = document.cookie.split(';');
+        const roomsDataCookie = cookies.find(cookie => cookie.trim().startsWith('roomsData='));
+        // console.log(roomsDataCookie.length)
+        if (roomsDataCookie) {
+            const roomsData = JSON.parse(roomsDataCookie.split('=')[1]);
+            roomsData.forEach(room => {
+                adults += parseInt(room.adults);
+                kids += parseInt(room.kids);
+                roomsi++;
+                console.log('adfadfadfadfadfadfad = ', roomsi)
+            });
+        }
+        // var availabilityCookie = getCookie('availability');
+        var availabilityCookie = getCookie('availability');
+        var kamarCookie = getCookie('kamar');
+        var hargaCookie = getCookie('harga');
+        var jenisKamarCookie = getCookie('jenis_kamar');
+        console.log(availabilityCookie)
+        if (availabilityCookie) {
+            var availability = JSON.parse(availabilityCookie);
+            var kamar = JSON.parse(kamarCookie);
+            var harga = JSON.parse(hargaCookie);
+            var jenis_kamar = JSON.parse(jenisKamarCookie);
+
+            // Lanjutkan dengan logika Anda menggunakan nilai dari cookie
+            var checkinCookie = getCookie('checkin');
+            var checkoutCookie = getCookie('checkout');
+            // var check_in = checkinCookie;
+            // var check_out = JSON.parse(checkoutCookie);
+            let checkin = moment(checkinCookie);
+            let checkout = moment(checkoutCookie);
+            let nights = checkout.diff(checkin, 'days');
+            let price = parseInt(kamar) * parseInt(harga) * parseInt(nights)
+            console.log('malam', nights)
+
+            $("#availability-card-container").empty();
+            $("#availability1").empty();
+
+            if (kamar >= roomsi) {
+                $("#error-message").html(`<div class="text-green-500"><i class="fa-solid fa-circle-check"></i> There are ${kamar} rooms available. You can continue booking by clicking the reserve button </div>`);
+
+                availability.forEach(function(item) {
+                    // Append room information
+                });
+
+                const avak = `
+                <div class="flex flex-col items-center pb-10">
+        <div class="border h-px lg:w-5/6 md:w-full sm:w-full mt-3"></div>
+        <div class="text-2xl font-bold text-center lg:w-5/6 md:w-full sm:w-full mt-5">Select Rooms</div>
+
+        <div class="bg-white shadow-md rounded-lg mb-4 lg:w-5/6 md:w-full sm:w-full p-5">
+            <div id="availability-card-container" class="bg-white mb-4"></div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                <div>
+                    <div class="text-black font-bold text-lg mb-2">Available Rooms: ${kamar}</div>
+                    <div class="font-bold">Room Type: <span class="font-normal">${jenis_kamar}</span></div>
+                </div>
+
+                <div>
+                    <div class="mb-2">Room Selected: <span class="font-bold">${roomsi}</span></div>
+                    <div class="mb-2">Nights: <span class="font-bold">${nights}</span></div>
+                    <div class="mb-2">${adults} Adults and ${kids} Kids</div>
+                </div>
+                
+                <div>
+                    <div class="text-lg font-bold mb-2">Price: <span class="font-normal">${formatRupiah(price)}</span></div>
+                </div>
+            </div>
+            <div class="flex justify-end mt-4">
+                <button class="px-6 py-3 bg-red-500 text-white font-bold rounded-lg border border-red-500 hover:bg-red-600 transition duration-300" id="reserve">Booking</button>
+            </div>
+        </div>
+    </div>
+            `;
+                $("#availability1").append(avak);
+                $("#reserve").click(function(event) {
+                    console.log('halo');
+                    window.location.href = base_url + 'pemesanan';
+                });
+
+                $('html, body').animate({
+                    scrollTop: $("#availability-card-container").offset().top
+                }, 1000);
+            }
+        }
+    };
 
 
 
@@ -627,7 +733,17 @@
                 roomsi++;
                 console.log('adfadfadfadfadfadfad = ', roomsi)
             });
-        }
+        } else {
+                // Iterasi setiap bagian ruangan untuk menjumlahkan dewasa dan anak-anak dari pilihan saat ini
+                const roomSections = document.getElementsByClassName('room-section');
+                Array.from(roomSections).forEach(roomSection => {
+                    const adultCount = parseInt(roomSection.querySelector('.select-adult').value);
+                    const kidCount = parseInt(roomSection.querySelector('.select-kid').value);
+                    adults += adultCount;
+                    kids += kidCount;
+                    roomsi++;
+                });
+            }
 
         const dateRange = checkIn + ' - ' + checkOut;
 
@@ -639,10 +755,52 @@
             },
             dataType: "json",
             success: function(response) {
+
+            const roomContainer = document.getElementById('room-container');
+            const roomsData = [];
+            const roomSections = roomContainer.getElementsByClassName('room-section');
+            Array.from(roomSections).forEach((roomSection, index) => {
+                const adultSelect = roomSection.querySelector('.select-adult');
+                const kidSelect = roomSection.querySelector('.select-kid');
+                roomsData.push({
+                    room: index + 1,
+                    adults: adultSelect.value,
+                    kids: kidSelect.value
+                });
+            });
+
+            // Mengatur tanggal kedaluwarsa (misalnya, 1 hari dari sekarang)
+            const date = new Date();
+            date.setTime(date.getTime() + (24 * 60 * 60 * 1000)); // 1 hari
+            const expires = "; expires=" + date.toUTCString();
+
+            // Mengatur cookie dengan tanggal kedaluwarsa
+            document.cookie = "roomsData=" + JSON.stringify(roomsData) + expires + "; path=/";
+
+            // document.cookie = "roomsData=" + JSON.stringify(roomsData) + "; path=/";
                 var availability = response.availability
                 var kamar = availability.length;
                 var harga = availability[0].harga
                 var jenis_kamar = availability[0].jenis_kamar
+
+                setCookie('availability', JSON.stringify(availability), 1);
+                setCookie('availability1', JSON.stringify(availability), 1);
+                setCookie('kamar', JSON.stringify(kamar), 1);
+                setCookie('jumlah_kamar', JSON.stringify(roomsi), 1);
+                setCookie('harga', JSON.stringify(harga), 1);
+                setCookie('jenis_kamar', JSON.stringify(jenis_kamar), 1);
+
+                var checkinCookie = getCookie('checkin');
+                var checkoutCookie = getCookie('checkout');
+                // var check_in = checkinCookie;
+                // var check_out = JSON.parse(checkoutCookie);
+                let checkin = moment(checkinCookie);
+                let checkout = moment(checkoutCookie);
+                let nights = checkout.diff(checkin, 'days');
+                let price = parseInt(kamar) * parseInt(harga) * parseInt(nights)
+                console.log('malam', nights)
+
+
                 // console.log(kamar)
                 $("#availability-card-container").empty();
                 $("#availability1").empty();
@@ -650,57 +808,31 @@
                 if (kamar >= roomsi) {
                     $("#error-message").html(`<div class="text-green-500"><i class="fa-solid fa-circle-check"></i> There are ${kamar} rooms available. You can continue booking by clicking the reserve button </div>`);
 
-                    // openModal();
-
-                    // Swal.fire({
-                    //     title: 'Room Available',
-                    //     text: "Click continue in to the next step",
-                    //     // icon: 'Succes',
-                    //     showCancelButton: true,
-                    //     confirmButtonColor: '#3085d6',
-                    //     cancelButtonColor: '#d33',
-                    //     cancelButtonText: 'Back',
-                    //     confirmButtonText: 'Continue',
-
-                    // }).then((result) => {
-                    //     if (result.isConfirmed) {
-                    //         window.location.href = base_url + 'pemesanan';
-                    //     }
-                    // });
-
-
-                    response.availability.forEach(function(item) {
-                        //     const cardHTML = `
-                        //     <div class="">
-                        //         <div class="text-xl font-semibold mb-2">${item.id_kamar}</div>
-                        //     </div>
-                        // `;
-                        // $("#availability-card-container").append(cardHTML);
-                    });
                     const avak = `
-                    <div class="flex flex-col items-center">
-        <div class="border h-px w-4/6 mt-3"></div>
+                    <div class="flex flex-col items-center pb-10">
+        <div class="border h-px lg:w-5/6 md:w-full sm:w-full mt-3"></div>
         <div class="text-2xl font-bold text-center mb-4 mt-5">Select Rooms</div>
 
-        <div class="bg-white shadow-md rounded-lg mb-4 w-4/6 p-5">
-            <div id="availability-card-container" class="bg-white"></div>
-            <div class="flex justify-between">
-            <div>
-                <div class="text-black font-bold">Available Rooms : ${kamar}</div>
-                <div>Room type : ${jenis_kamar}</div>
-            </div>
+        <div class="bg-white shadow-md rounded-lg mb-4 lg:w-5/6 md:w-full sm:w-full p-5">
+            <div id="availability-card-container" class="bg-white mb-4"></div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                <div>
+                    <div class="text-black font-bold text-lg mb-2">Available Rooms: ${kamar}</div>
+                    <div class="font-bold">Room Type: <span class="font-normal">${jenis_kamar}</span></div>
+                </div>
 
-            <div>
-                <div>Room Selected ${roomsi}</div>
-                <div>(1 Night)</div>
-                <div>${adults} Adults and ${kids} kid</div>
+                <div>
+                    <div class="mb-2">Room Selected: <span class="font-bold">${roomsi}</span></div>
+                    <div class="mb-2">Nights: <span class="font-bold">${nights}</span></div>
+                    <div class="mb-2">${adults} Adults and ${kids} Kids</div>
+                </div>
+                
+                <div>
+                    <div class="text-lg font-bold mb-2">Price: <span class="font-normal">${formatRupiah(price)}</span></div>
+                </div>
             </div>
-            <div>
-                <div>Price : ${harga}</div>
-            </div>
-            <div>
-                <button class="px-2 h-12 bg-red-500 text-white font-bold rounded border border-red-500 flex-col justify-center items-start inline-flex" id="reserve">Booking</button>
-            </div>
+            <div class="flex justify-end mt-4">
+                <button class="px-6 py-3 bg-red-500 text-white font-bold rounded-lg border border-red-500 hover:bg-red-600 transition duration-300" id="reserve">Booking</button>
             </div>
         </div>
     </div>
