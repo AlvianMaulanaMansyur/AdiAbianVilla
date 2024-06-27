@@ -23,16 +23,16 @@ class Payment extends CI_Controller
         $identity = $this->session->userdata('identity');
         $id_tamu = $this->M_tamu->getIdTamuByEmailUsername($identity);
 
-        $hargaKamar = $this->M_kamar->getHargaKamar();
-        $jumlahkamar = $this->M_pemesanan->getSessionValues();
+        // $hargaKamar = $this->M_kamar->getHargaKamar();
+        // $jumlahkamar = $this->M_pemesanan->getSessionValues();
         $id_pemesanan = $this->M_pemesanan->getPemesananByIdTamu($id_tamu[0]['id_tamu']);
         var_dump($id_pemesanan);
         $pemesanan = $this->M_pemesanan->getPemesananById($id_pemesanan[0]->id_pemesanan);
-        var_dump('pemesanan : ',$pemesanan);
-        var_dump($id_pemesanan);
-        var_dump($identity);
+        // var_dump('pemesanan : ',$pemesanan);
+        // var_dump($id_pemesanan);
+        // var_dump($identity);
         
-        var_dump($jumlahkamar);
+        // var_dump($jumlahkamar);
         $paymentAmount      = $pemesanan[0]->jumlah_pembayaran;
         echo "Total Payment Amount: " . $paymentAmount;
         $email              = "customer@gmail.com"; // your customer email
