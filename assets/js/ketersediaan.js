@@ -7,7 +7,7 @@ document.addEventListener('DOMContentLoaded', function () {
         '2024-06-27': 'Rp. 550.000',
         // Tambahkan data harga untuk tanggal lainnya sesuai kebutuhan
       };
-    var numberOfMonths = window.innerWidth < 640 ? 1 : 2;
+    var numberOfMonths = window.innerWidth <= 768 ? 1 : 2;
     var checkin = document.getElementById('data_checkin');
     var checkinValue = checkin.getAttribute('data');
     var checkout = document.getElementById('data_checkout');
@@ -57,7 +57,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
                         response.availability.forEach(function(room) {
                             var roomRow = '<tr>' +
-                                '<td class="border border-gray-500 px-4 py-2">' + room.id_kamar + '</td>' +
+                                // '<td class="border border-gray-500 px-4 py-2">' + room.id_kamar + '</td>' +
                                 '<td class="border border-gray-500 px-4 py-2">' + room.no_kamar + '</td>' +
                                 '<td class="border border-gray-500 px-4 py-2">' + room.tgl_checkIn + '</td>' +
                                 '<td class="border border-gray-500 px-4 py-2">' + room.tgl_checkOut + '</td>' +

@@ -11,16 +11,15 @@ class Pemesanan extends CI_Controller
         $this->load->model('M_pemesanan');
         $this->load->model('M_kamar');
         $this->load->model('M_tamu');
+        if ($this->session->userdata('identity') == null) {
+            redirect('auth/login');
+        }
     }
 
     public function index()
     {
-        $data_tamu = [
-            'username' => 'suastika',
-            'email' => 'putrasuastika78@gmail.com',
-        ];
-
-        $tamu = $this->M_tamu->getTamuByEmailUsername($data_tamu);
+        $email = $this->session->userdata('identity');
+        $tamu = $this->M_tamu->getTamuByEmailUsername($email);
         // var_dump($tamu);die;
         $pemesanan = $this->M_pemesanan->getPemesanan();
         $kamar = $this->M_pemesanan->getSessionValues();
@@ -42,36 +41,17 @@ class Pemesanan extends CI_Controller
     }
     public function createPemesanan()
     {
-        $checkin = $this->session->cookie('checkin');
-        $checkout = $this->session->cookie('checkout');
-        $jumlah_kamar = $this->session->userdata('rooms') ? $this->session->userdata('rooms') : 1;
-        $dewasa = $this->session->userdata('adults') ? $this->session->userdata('adults') : 2;
-        $anak = $this->session->userdata('kids') ? $this->session->userdata('kids') : 0;
-
+        $dataCookie = $this->M_pemesanan->getSessionValues();
+        $checkin = $dataCookie['checkin'];
+        $checkout = $dataCookie['checkout'];
+        $dewasa = $dataCookie['adults'];
+        $anak = $dataCookie['kids'];
+        $jumlah_kamar = $dataCookie['rooms'];
         $current_time = date_create()->format('Y-m-d H:i:s');
-        $nama = $this->input->post('username');
-        $no_telp = $this->input->post('no_telp');
-        $email = $this->input->post('email');
-        $negara = $this->input->post('negara');
-        $jenis_kelamin = $this->input->post('jenis_kelamin');
-        $dataTamu = array(
-            'username' => $nama,
-            'no_telp' => $no_telp,
-            'email' => $email,
-            'negara' => $negara,
-            'jenis_kelamin' => $jenis_kelamin,
-        );
-        $expire = 86400;
-
-        // Menyimpan setiap item data sebagai cookie
-        foreach ($dataTamu as $key => $value) {
-            set_cookie($key, $value, $expire);
-        }
-        // var_dump($dataTamu);die;
-
-        $id_tamu = $this->M_pemesanan->savePersonalInfo($dataTamu);
-        // var_dump($id_tamu);die;
-
+        $email = $this->session->userdata('identity');
+        $tamu = $this->M_tamu->getIdTamuByEmailUsername($email);
+        $jumlah_pembayaran = $this->input->post('jumlah_pembayaran');
+        // var_dump($tamu[0]['id_tamu']);
         $dataPemesanan = array(
             'tgl_pemesanan' => $current_time,
             'tgl_checkIn' => $checkin,
@@ -80,14 +60,16 @@ class Pemesanan extends CI_Controller
             'dewasa' => $dewasa,
             'anak' => $anak,
             'status' => 0,
-            'id_tamu' => $id_tamu,
+            'jumlah_pembayaran' => $jumlah_pembayaran,
+            'id_tamu' => $tamu[0]['id_tamu'],
             'id_admin' => 1,
         );
         // var_dump($dataPemesanan);die;
 
         $cek_pemesanan = $this->M_pemesanan->savePemesanan($dataPemesanan);
+        // var_dump($dataPemesanan);
         if ($cek_pemesanan == null) {
-            $pemesanan =  $this->M_pemesanan->getPemesananByIdTamu($id_tamu);
+            $pemesanan =  $this->M_pemesanan->getPemesananByIdTamu($tamu[0]['id_tamu']);
             $response = array(
                 'status' => 'Fail',
                 'message' => 'Please complete the previous order first',

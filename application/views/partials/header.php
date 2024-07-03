@@ -15,7 +15,11 @@
     <!-- <link rel="stylesheet" href="./src/output.css'"> -->
 <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script> -->
 
+    <link rel="icon" href="<?php echo base_url('asset/images/adibian.png')?>">
+
     <title><?php echo $title ?></title>
+
+<link rel="icon" href="<?= base_url('asset/images/adibian.png'); ?>">
 
     <script>
         var base_url = '<?php echo base_url(); ?>';
@@ -39,9 +43,15 @@
 }
 
 .input-container {
-    display: flex;
-    gap: 10px; /* Adjust the gap between inputs */
-}
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px; /* Adjust the gap between inputs */
+        }
+        @media (min-width: 640px) {
+            .input-container {
+                gap: 20px; /* Adjust the gap between inputs for larger screens */
+            }
+        }
 
 .datepicker-input {
     margin-bottom: 0;

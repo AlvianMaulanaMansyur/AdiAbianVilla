@@ -49,7 +49,7 @@
         <div class='loaded'>&nbsp;</div>
     </div> -->
     <div class="culmn">
-    <header id="main_menu" class="header navbar-fixed-top">
+    <header id="main_menu" class="header">
         <div class="main_menu_bg">
         <a class="navbar-brand top-[30px] ps-5 absolute" href="#home">
             <img src="asset/images/adibian.png" >
@@ -96,7 +96,7 @@
 
 
         <!--home Section -->
-        <section id="home" class="home">
+        <section id="home" class="home mb-7">
             <div class="overlay">
                 <div class="home_skew_border">
                     <div class="container">
@@ -131,6 +131,10 @@
         <!--End of home section -->
 
  <!-- Gallery -->
+ <div class="head_title text-center">
+    <!-- <div class="separator"> -->
+        <h2> Gallery </h2>
+    </div>
 <div class="container">
     <div id="carouselExampleFade" class="carousel slide carousel-fade">
         <div class="carousel-inner">
@@ -143,6 +147,21 @@
             <div class="carousel-item">
                 <img src="<?php echo base_url('img/a3.png'); ?>" class="d-block w-100" alt="...">
             </div>
+            <div class="carousel-item">
+                <img src="<?php echo base_url('img/a4.png'); ?>" class="d-block w-100" alt="...">
+            </div>
+            <div class="carousel-item">
+                <img src="<?php echo base_url('img/a5.png'); ?>" class="d-block w-100" alt="...">
+            </div>
+            <div class="carousel-item">
+                <img src="<?php echo base_url('img/a6.png'); ?>" class="d-block w-100" alt="...">
+            </div>
+            <div class="carousel-item">
+                <img src="<?php echo base_url('img/a7.png'); ?>" class="d-block w-100" alt="...">
+            </div>
+            <div class="carousel-item">
+                <img src="<?php echo base_url('img/a8.png'); ?>" class="d-block w-100" alt="...">
+            </div>
         </div>
         <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="prev">
             <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -154,29 +173,9 @@
         </button>
     </div>
 </div>
-<!-- <div class="container">
-<div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
-  <div class="carousel-inner">
-    <div class="carousel-item active">
-      <img src="<?php echo base_url('img/a1.png'); ?>" class="d-block w-100" alt="...">
-    </div>
-    <div class="carousel-item">
-      <img src="<?php echo base_url('img/a2.png'); ?>" class="d-block w-100" alt="...">
-    </div>
-    <div class="carousel-item">
-      <img src="<?php echo base_url('img/a3.png'); ?>" class="d-block w-100" alt="...">
-    </div>
-  </div>
-  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
-    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-    <span class="visually-hidden">Previous</span>
-  </button>
-  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
-    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-    <span class="visually-hidden">Next</span>
-  </button>
-</div>
-</div> -->
+
+
+
         <!-- History section -->
         <section id="history" class="history sections">
             <div class="container">
@@ -214,15 +213,33 @@
         </section>
         <!--End of history -->
 
-        <section id="contact" class="contact">
+<!--Fasilitas-->
+<div class="head_title text-center">
+    <!-- <div class="separator"> -->
+        <h2> FACILITIES </h2>
+    </div>
+<div id="background"></div>
+
+<div id="cards" class="">
+  <div class="card w-32 h-32 flex items-center justify-center align-center ">
+    <div class="card-content ">
+    <i class="fa-solid fa-wifi text-4xl"></i>
+      <p class="text-lg">Wifi</p>
+    </div>
+  </div>
+  
+<!--End Fasilitas-->
+
+        <!-- <section id="contact" class="contact">
             <div class="container">
                 <div class="row">
                     <div class="col-sm-12">
                         <div class="contact_contant sections">
                             <div class="head_title text-center">
                                 <div class="separator"></div>
-                            </div><!-- End off Head_title -->
-                            <div class="row">
+                            </div> -->
+                            <!-- End off Head_title -->
+                            <!-- <div class="row">
                                 <div class="col-sm-6">
                                     <div class="main_contact_info">
                                         <div class="row">
@@ -255,9 +272,9 @@
                                             </div>
                                         </div>
                                     </div>
-                                </div>
+                                </div> -->
 
-                                <div class="col-sm-6">
+                                <!-- <div class="col-sm-6">
                                     <div class="single_contant_left padding-top-90 padding-bottom-90">
                                         <form action="#" id="formid">
                                             <div
@@ -300,7 +317,7 @@
                                             </div>
                                         </form>
                                     </div>
-                                </div>
+                                </div> -->
 
                             </div>
                         </div>

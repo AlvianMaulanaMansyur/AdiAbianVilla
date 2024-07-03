@@ -1,0 +1,324 @@
+@font-face {
+  font-family: 'gdl-custom-set';
+  src:  url('fonts/gdl-custom-set.eot?bow9tn');
+  src:  url('fonts/gdl-custom-set.eot?bow9tn#iefix') format('embedded-opentype'),
+    url('fonts/gdl-custom-set.ttf?bow9tn') format('truetype'),
+    url('fonts/gdl-custom-set.woff?bow9tn') format('woff'),
+    url('fonts/gdl-custom-set.svg?bow9tn#gdl-custom-set') format('svg');
+  font-weight: normal;
+  font-style: normal;
+  font-display: block;
+}
+
+[class^="gdlr-icon-"], [class*=" gdlr-icon-"] {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'gdl-custom-set' !important;
+  speak: never;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.gdlr-icon-oblique-arrow:before {
+  content: "\e800";
+}
+.gdlr-icon-muscle:before {
+  content: "\e801";
+}
+.gdlr-icon-passport:before {
+  content: "\e901";
+}
+.gdlr-icon-receptionist:before {
+  content: "\e902";
+}
+.gdlr-icon-breakfast:before {
+  content: "\e903";
+}
+.gdlr-icon-electric-kettle:before {
+  content: "\e904";
+}
+.gdlr-icon-sofa:before {
+  content: "\e905";
+}
+.gdlr-icon-lamp:before {
+  content: "\e906";
+}
+.gdlr-icon-swimming-pool:before {
+  content: "\e907";
+}
+.gdlr-icon-door-handle:before {
+  content: "\e908";
+}
+.gdlr-icon-double-bed:before {
+  content: "\e909";
+}
+.gdlr-icon-heater:before {
+  content: "\e90a";
+}
+.gdlr-icon-bathtub:before {
+  content: "\e90b";
+}
+.gdlr-icon-bell:before {
+  content: "\e90c";
+}
+.gdlr-icon-room-service:before {
+  content: "\e90d";
+}
+.gdlr-icon-elevator:before {
+  content: "\e90e";
+}
+.gdlr-icon-door-hanger:before {
+  content: "\e90f";
+}
+.gdlr-icon-exit:before {
+  content: "\e910";
+}
+.gdlr-icon-taxi:before {
+  content: "\e911";
+}
+.gdlr-icon-door:before {
+  content: "\e912";
+}
+.gdlr-icon-spoon:before {
+  content: "\e913";
+}
+.gdlr-icon-menu:before {
+  content: "\e914";
+}
+.gdlr-icon-safe-box:before {
+  content: "\e915";
+}
+.gdlr-icon-no-smoking:before {
+  content: "\e916";
+}
+.gdlr-icon-shower-head:before {
+  content: "\e917";
+}
+.gdlr-icon-iron:before {
+  content: "\e918";
+}
+.gdlr-icon-bellboy:before {
+  content: "\e919";
+}
+.gdlr-icon-towel:before {
+  content: "\e91a";
+}
+.gdlr-icon-luggage:before {
+  content: "\e91b";
+}
+.gdlr-icon-slippers:before {
+  content: "\e91c";
+}
+.gdlr-icon-double-bed1:before {
+  content: "\e91d";
+}
+.gdlr-icon-room-key:before {
+  content: "\e91e";
+}
+.gdlr-icon-chef:before {
+  content: "\e91f";
+}
+.gdlr-icon-television:before {
+  content: "\e920";
+}
+.gdlr-icon-receptionist1:before {
+  content: "\e921";
+}
+.gdlr-icon-wifi-connection:before {
+  content: "\e922";
+}
+.gdlr-icon-maid:before {
+  content: "\e923";
+}
+.gdlr-icon-hotel:before {
+  content: "\e924";
+}
+.gdlr-icon-hair-dryer:before {
+  content: "\e925";
+}
+.gdlr-icon-washing-machine:before {
+  content: "\e926";
+}
+.gdlr-icon-hotel-cart:before {
+  content: "\e927";
+}
+.gdlr-icon-hotel1:before {
+  content: "\e928";
+}
+.gdlr-icon-fire-extinguisher:before {
+  content: "\e929";
+}
+.gdlr-icon-no-pets:before {
+  content: "\e92a";
+}
+.gdlr-icon-telephone:before {
+  content: "\e92b";
+}
+.gdlr-icon-mini:before {
+  content: "\e92c";
+}
+.gdlr-icon-security-camera:before {
+  content: "\e92d";
+}
+.gdlr-icon-baby-crib:before {
+  content: "\e92e";
+}
+.gdlr-icon-air-conditioner:before {
+  content: "\e92f";
+}
+.gdlr-icon-food-tray:before {
+  content: "\e930";
+}
+.gdlr-icon-bathrobe:before {
+  content: "\e931";
+}
+.gdlr-icon-air-conditioner1:before {
+  content: "\e932";
+}
+.gdlr-icon-airplane:before {
+  content: "\e933";
+}
+.gdlr-icon-bathtub1:before {
+  content: "\e934";
+}
+.gdlr-icon-car:before {
+  content: "\e935";
+}
+.gdlr-icon-city-1:before {
+  content: "\e936";
+}
+.gdlr-icon-city:before {
+  content: "\e937";
+}
+.gdlr-icon-cityscape:before {
+  content: "\e938";
+}
+.gdlr-icon-clock:before {
+  content: "\e939";
+}
+.gdlr-icon-concierge:before {
+  content: "\e93a";
+}
+.gdlr-icon-dish:before {
+  content: "\e93b";
+}
+.gdlr-icon-double-bed2:before {
+  content: "\e93c";
+}
+.gdlr-icon-egg-and-bacon:before {
+  content: "\e93d";
+}
+.gdlr-icon-food-service-copy:before {
+  content: "\e93e";
+}
+.gdlr-icon-food-service:before {
+  content: "\e93f";
+}
+.gdlr-icon-garden:before {
+  content: "\e940";
+}
+.gdlr-icon-group:before {
+  content: "\e941";
+}
+.gdlr-icon-hair-dryer1:before {
+  content: "\e942";
+}
+.gdlr-icon-hotel-cart1:before {
+  content: "\e943";
+}
+.gdlr-icon-iron1:before {
+  content: "\e944";
+}
+.gdlr-icon-massage:before {
+  content: "\e945";
+}
+.gdlr-icon-nature:before {
+  content: "\e946";
+}
+.gdlr-icon-no-smoking1:before {
+  content: "\e947";
+}
+.gdlr-icon-oil-heater-1:before {
+  content: "\e948";
+}
+.gdlr-icon-oil-heater:before {
+  content: "\e949";
+}
+.gdlr-icon-paper-plane-1:before {
+  content: "\e94a";
+}
+.gdlr-icon-paper-plane:before {
+  content: "\e94b";
+}
+.gdlr-icon-plane-1:before {
+  content: "\e94c";
+}
+.gdlr-icon-plane-copy:before {
+  content: "\e94d";
+}
+.gdlr-icon-plane:before {
+  content: "\e94e";
+}
+.gdlr-icon-play-button:before {
+  content: "\e94f";
+}
+.gdlr-icon-resize:before {
+  content: "\e950";
+}
+.gdlr-icon-safe-box1:before {
+  content: "\e951";
+}
+.gdlr-icon-shower:before {
+  content: "\e952";
+}
+.gdlr-icon-small-plane:before {
+  content: "\e953";
+}
+.gdlr-icon-swimming-pool1:before {
+  content: "\e954";
+}
+.gdlr-icon-toilet:before {
+  content: "\e955";
+}
+.gdlr-icon-umbrella:before {
+  content: "\e956";
+}
+.gdlr-icon-vacations:before {
+  content: "\e957";
+}
+.gdlr-icon-washing-machine1:before {
+  content: "\e958";
+}
+.gdlr-icon-watch-tv:before {
+  content: "\e959";
+}
+.gdlr-icon-weights:before {
+  content: "\e95a";
+}
+.gdlr-icon-wheelchair-1:before {
+  content: "\e95b";
+}
+.gdlr-icon-wheelchair-2:before {
+  content: "\e95c";
+}
+.gdlr-icon-wheelchair-3:before {
+  content: "\e95d";
+}
+.gdlr-icon-wheelchair:before {
+  content: "\e95e";
+}
+.gdlr-icon-wifi-signal:before {
+  content: "\e95f";
+}
+.gdlr-icon-workspace:before {
+  content: "\e960";
+}
+.gdlr-icon-parking:before {
+  content: "\e900";
+}
