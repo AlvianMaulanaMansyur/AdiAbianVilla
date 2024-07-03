@@ -13,61 +13,30 @@ class Dashboard extends CI_Controller
         //Do your magic here
         $this->load->model('customer_model');
         $this->load->model('M_dashboard');
-
         $this->load->model('M_pemesanan');
-        
+
         if (empty($this->session->userdata('username'))) {
             redirect('Authadmin/login');
         }
-
     }
-
     public function main()
-    {   
-            $data = [
-                'title' => 'Adi Abian Villa Dashboard',
-                'header' => 'dashboard/header',
-                'navbar' => 'dashboard/navbar',
-                'sidebar' => 'dashboard/sidebar',
-                'content' => 'dashboard/test',
-                'footer' => 'dashboard/footer',
-                'script' => 'dashboard/script'
-            ];
-            $this->load->view('dashboard/main', $data);
-    }
-
-
-
-    public function index()
     {
-        $kamar = $this->M_dashboard->get_status_ketersediaan();
         $data = [
-            'title' => 'Calendar',
-            'header' => 'partials/header',
-            'content' => 'dashboard/main',
-            'script' => 'partials/script',
-            'kamar' => $kamar,
+            'title' => 'Adi Abian Villa Dashboard',
+            'header' => 'dashboard/header',
+            'navbar' => 'dashboard/navbar',
+            'sidebar' => 'dashboard/sidebar',
+            'content' => 'dashboard/test',
+            'footer' => 'dashboard/footer',
+            'script' => 'dashboard/script'
         ];
-        $this->load->view('partials/main', $data);
-    }
-    public function ubah_status($id_kamar)
-    {
-        $this->M_dashboard->ubah_status_kamar($id_kamar, 0);
-        redirect('dashboard/statusketersediaan');
-    }
-    public function ada_status($id_kamar)
-    {
-        $this->M_dashboard->ubah_status_kamar($id_kamar, 1);
-        redirect('dashboard/statusketersediaan');
-    }
-    public function test()
-    {
-        $this->load->view('dashboard/main');
+        $this->load->view('dashboard/main', $data);
     }
 
     public function statusketersediaan()
     {
         $kamar = $this->M_dashboard->get_kamar();
+        $tipekamar = $this->M_dashboard->get_tipe_kamar();
         $data = [
             'title' => 'Adi Abian Villa Dashboard',
             'header' => 'dashboard/header',
@@ -76,40 +45,30 @@ class Dashboard extends CI_Controller
             'content' => 'dashboard/statuskamar',
             'footer' => 'dashboard/footer',
             'script' => 'dashboard/script',
-            'kamar' => $kamar
-        ];
-        $this->load->view('dashboard/main', $data);
-    }
-    public function tambahkamar()
-    {
-        $kamar = $this->M_dashboard->get_kamar();
-        $data = [
-            'title' => 'Adi Abian Villa Dashboard',
-            'header' => 'dashboard/header',
-            'navbar' => 'dashboard/navbar',
-            'sidebar' => 'dashboard/sidebar',
-            'content' => 'dashboard/tambahkamar',
-            'footer' => 'dashboard/footer',
-            'script' => 'dashboard/script',
-            'kamar' => $kamar
+            'kamar' => $kamar,
+            'tipekamar' => $tipekamar
         ];
         $this->load->view('dashboard/main', $data);
     }
 
+
+
     public function addKamar()
     {
         $this->form_validation->set_rules('no_kamar', 'No Kamar', 'required');
-        $this->form_validation->set_rules('harga_kamar', 'Harga Kamar', 'required');
-        $this->form_validation->set_rules('tipe_kamar', 'Tipe Kamar', 'required');
+        $this->form_validation->set_rules('jenis_kamar', 'Tipe Kamar', 'required');
 
         if ($this->form_validation->run() == FALSE) {
             $response = ['status' => false, 'message' => validation_errors()];
             echo json_encode($response);
         } else {
+            $no_kamar = $this->input->post('no_kamar');
+            $jenis_kamar = $this->input->post('jenis_kamar');
+            $id_detail_kamar = $this->M_dashboard->getIddetailkamar($jenis_kamar);
+            // var_dump($id_detail_kamar);
             $data = [
-                'no_kamar' => $this->input->post('no_kamar'),
-                'harga_kamar' => $this->input->post('harga_kamar'),
-                'tipe_kamar' => $this->input->post('tipe_kamar'),
+                'no_kamar' => $no_kamar,
+                'id_detail_kamar' => $id_detail_kamar[0]['id_detail_kamar'],
                 'id_admin' => 1
             ];
             $insert = $this->M_dashboard->insertKamar($data);
@@ -122,22 +81,76 @@ class Dashboard extends CI_Controller
         }
     }
 
+    public function addtipekamar()
+    {
+        $this->form_validation->set_rules('harga', 'Harga Kamar', 'required');
+        $this->form_validation->set_rules('jenis_kamar', 'Tipe Kamar', 'required');
+        $this->form_validation->set_rules('deskripsi', 'Deskripsi', 'required');
+
+        if ($this->form_validation->run() == FALSE) {
+            $response = ['status' => false, 'message' => validation_errors()];
+            echo json_encode($response);
+        } else {
+            $data = [
+                'harga' => $this->input->post('harga'),
+                'jenis_kamar' => $this->input->post('jenis_kamar'),
+                'deskripsi' => $this->input->post('deskripsi'),
+            ];
+            $insert = $this->M_dashboard->inserttipe($data);
+            if ($insert) {
+                $response = ['status' => true, 'message' => 'Kamar berhasil ditambahkan'];
+            } else {
+                $response = ['status' => false, 'message' => 'Gagal menambahkan kamar'];
+            }
+            echo json_encode($response);
+        }
+    }
+    public function editTipeKamar()
+    {
+        $id_detail_kamar = $this->input->post('id_detail_kamar');
+        $data = [
+            'jenis_kamar' => $this->input->post('jenis_kamar'),
+            'harga' => $this->input->post('harga'),
+            'deskripsi' => $this->input->post('deskripsi')
+        ];
+        $update = $this->M_dashboard->editTipeKamar($id_detail_kamar, $data);
+        echo json_encode(['status' => $update]);
+    }
+
+
+    public function deleteTipeKamar()
+    {
+        $id_detail_kamar = $this->input->post('id_detail_kamar');
+        $delete = $this->M_dashboard->deleteTipeKamar($id_detail_kamar);
+        if ($delete) {
+            $response = ['status' => true, 'message' => 'Kamar berhasil dihapus'];
+        } else {
+            $response = ['status' => false, 'message' => 'Gagal menghapus kamar'];
+        }
+        echo json_encode($response);
+    }
+
+
+
     public function editKamar()
     {
         $this->form_validation->set_rules('id_kamar', 'ID Kamar', 'required');
         $this->form_validation->set_rules('no_kamar', 'No Kamar', 'required');
-        $this->form_validation->set_rules('harga_kamar', 'Harga Kamar', 'required');
-        $this->form_validation->set_rules('tipe_kamar', 'Tipe Kamar', 'required');
+        $this->form_validation->set_rules('jenis_kamar', 'Tipe Kamar', 'required');
 
         if ($this->form_validation->run() == FALSE) {
             $response = ['status' => false, 'message' => validation_errors()];
             echo json_encode($response);
         } else {
             $id_kamar = $this->input->post('id_kamar');
+            $no_kamar = $this->input->post('no_kamar');
+            $jenis_kamar = $this->input->post('jenis_kamar');
+            $id_detail_kamar = $this->M_dashboard->getIddetailkamar($jenis_kamar);
+            // var_dump($id_detail_kamar);
             $data = [
-                'no_kamar' => $this->input->post('no_kamar'),
-                'harga_kamar' => $this->input->post('harga_kamar'),
-                'tipe_kamar' => $this->input->post('tipe_kamar')
+                'no_kamar' => $no_kamar,
+                'id_detail_kamar' => $id_detail_kamar[0]['id_detail_kamar'],
+                'id_admin' => 1
             ];
             $update = $this->M_dashboard->updateKamar($id_kamar, $data);
             if ($update) {
@@ -176,6 +189,7 @@ class Dashboard extends CI_Controller
         ];
         $this->load->view('dashboard/main', $data);
     }
+
     public function guestdata()
     {
 
@@ -194,7 +208,8 @@ class Dashboard extends CI_Controller
         $this->load->view('dashboard/main', $data);
     }
 
-    public function edit() {
+    public function edit()
+    {
         $id_tamu = $this->input->post('id_tamu');
         $data = [
             'username' => $this->input->post('username'),
@@ -209,8 +224,6 @@ class Dashboard extends CI_Controller
         $this->session->set_flashdata('success', 'Data berhasil diperbarui!');
         redirect('Dashboard/guestData');
     }
-
 }
 
 /* End of file Controllername.php */
- 

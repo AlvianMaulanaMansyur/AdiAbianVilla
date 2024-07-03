@@ -103,6 +103,7 @@
 </div>
 
 
+
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
 <script>
@@ -241,9 +242,16 @@
                 }
               });
             } else {
+              function deleteCookie(name) {
+                document.cookie = name + '=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;';
+              }
+              deleteCookie('roomsData');
+              deleteCookie('availability');
+              deleteCookie('kamar');
+              deleteCookie('harga');
+              deleteCookie('jenis_kamar');
               window.location.href = base_url + 'payment/proses';
             }
-
           },
           error: function(xhr, status, error) {
             console.error("Error:", error);

@@ -733,7 +733,17 @@
                 roomsi++;
                 console.log('adfadfadfadfadfadfad = ', roomsi)
             });
-        }
+        } else {
+                // Iterasi setiap bagian ruangan untuk menjumlahkan dewasa dan anak-anak dari pilihan saat ini
+                const roomSections = document.getElementsByClassName('room-section');
+                Array.from(roomSections).forEach(roomSection => {
+                    const adultCount = parseInt(roomSection.querySelector('.select-adult').value);
+                    const kidCount = parseInt(roomSection.querySelector('.select-kid').value);
+                    adults += adultCount;
+                    kids += kidCount;
+                    roomsi++;
+                });
+            }
 
         const dateRange = checkIn + ' - ' + checkOut;
 
@@ -745,13 +755,38 @@
             },
             dataType: "json",
             success: function(response) {
+
+            const roomContainer = document.getElementById('room-container');
+            const roomsData = [];
+            const roomSections = roomContainer.getElementsByClassName('room-section');
+            Array.from(roomSections).forEach((roomSection, index) => {
+                const adultSelect = roomSection.querySelector('.select-adult');
+                const kidSelect = roomSection.querySelector('.select-kid');
+                roomsData.push({
+                    room: index + 1,
+                    adults: adultSelect.value,
+                    kids: kidSelect.value
+                });
+            });
+
+            // Mengatur tanggal kedaluwarsa (misalnya, 1 hari dari sekarang)
+            const date = new Date();
+            date.setTime(date.getTime() + (24 * 60 * 60 * 1000)); // 1 hari
+            const expires = "; expires=" + date.toUTCString();
+
+            // Mengatur cookie dengan tanggal kedaluwarsa
+            document.cookie = "roomsData=" + JSON.stringify(roomsData) + expires + "; path=/";
+
+            // document.cookie = "roomsData=" + JSON.stringify(roomsData) + "; path=/";
                 var availability = response.availability
                 var kamar = availability.length;
                 var harga = availability[0].harga
                 var jenis_kamar = availability[0].jenis_kamar
 
                 setCookie('availability', JSON.stringify(availability), 1);
+                setCookie('availability1', JSON.stringify(availability), 1);
                 setCookie('kamar', JSON.stringify(kamar), 1);
+                setCookie('jumlah_kamar', JSON.stringify(roomsi), 1);
                 setCookie('harga', JSON.stringify(harga), 1);
                 setCookie('jenis_kamar', JSON.stringify(jenis_kamar), 1);
 

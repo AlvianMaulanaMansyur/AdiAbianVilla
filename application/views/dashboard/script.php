@@ -24,6 +24,6 @@
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
     <!-- our own -->
-    <script src="<?php echo base_url('assets/js/ketersediaan.js') ?>"></script>
+    <script src="<?php echo base_url('assets/js/statuskamar.js') ?>"></script>
     <script src="<?php echo base_url('assets/js/guestData.js') ?>"></script>
     <!-- End custom js for this page-->

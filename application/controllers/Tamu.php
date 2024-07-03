@@ -11,16 +11,14 @@ class Tamu extends CI_Controller
         $this->load->model('M_tamu');
         $this->load->helper('url', 'form');
         $this->load->library('form_validation');
-        //Do your magic here
     }
 
     public function index()
     {
-
         $email = $this->session->userdata('identity');
-        var_dump($email);
+        // var_dump($email);
 
-        $tamu = $this->M_tamu->getTamu();
+        $tamu = $this->M_tamu->getTamuByEmailUsername($email);
         $data = [
             'title' => 'Tamu',
             'header' => 'partials/header',
@@ -30,11 +28,6 @@ class Tamu extends CI_Controller
 
         ];
         $this->load->view('partials/main', $data);
-    }
-
-    public function hai()
-    {
-        $this->load->view('main');
     }
     public function editProfile($id_tamu)
     {
@@ -71,8 +64,14 @@ class Tamu extends CI_Controller
         $this->form_validation->set_rules('jenis_kelamin', 'Jenis Kelamin', 'required');
 
         if ($this->form_validation->run() == FALSE) {
-            $data['tamu'] = $this->M_tamu->getTamuById($id_tamu);
-            $this->load->view('tamu/edit_profile', $data);
+            $data = [
+                'tamu' => $this->M_tamu->getTamuById($id_tamu),
+                'header' => 'partials/header',
+                'script' => 'partials/script',
+                'content' => 'tamu/edit_profile',
+                'title' => ' Edit tamu'
+            ];
+            $this->load->view('partials/main', $data);
         } else {
             $data = [
                 'username' => $this->input->post('username'),
