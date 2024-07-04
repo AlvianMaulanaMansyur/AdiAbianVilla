@@ -21,7 +21,7 @@ class M_tamu extends CI_Model
     }
 
     public function updateTamu($id_tamu, $data)
-    {
+    { 
         $this->db->where('id_tamu', $id_tamu);
         return $this->db->update('tamu', $data);
     }
@@ -41,6 +41,8 @@ class M_tamu extends CI_Model
         $query = $this->db->get();
         return $query->result_array();
     }
+
+    
 }
 
 /* End of file ModelName.php */

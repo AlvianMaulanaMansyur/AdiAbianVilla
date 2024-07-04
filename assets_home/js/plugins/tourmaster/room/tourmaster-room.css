@@ -1,0 +1,620 @@
+.tourmaster-body .tourmaster-custom-datepicker-calendar .ui-datepicker table tr td a:hover{ background: transparent; }
+.tourmaster-body .tourmaster-custom-datepicker-calendar .ui-datepicker table tr td.tourmaster-start a,
+.tourmaster-body .tourmaster-custom-datepicker-calendar .ui-datepicker table tr td.tourmaster-start span,
+.tourmaster-body .tourmaster-custom-datepicker-calendar .ui-datepicker table tr td.tourmaster-end a,
+.tourmaster-body .tourmaster-custom-datepicker-calendar .ui-datepicker table tr td.tourmaster-end span{ color: #fff; }
+
+.tourmaster-room-payment-step .tourmaster-bullet{ background: #fff; }
+.tourmaster-room-payment-step .tourmaster-step:first-child .tourmaster-head:before{ background: #ffffff; }
+.tourmaster-room-payment-step div.tourmaster-step:nth-of-type(1){ width: 22%; }
+.tourmaster-room-payment-step div.tourmaster-step:nth-of-type(2){ width: 30%; }
+.tourmaster-room-payment-step div.tourmaster-step:nth-of-type(3){ width: 28%; }
+.tourmaster-room-payment-step div.tourmaster-step:nth-of-type(4){ width: 14%; }
+
+.tourmaster-room-button{ font-size: 13px; font-weight: 600; text-transform: uppercase; cursor: pointer;
+    text-align: center; padding: 18px 15px; letter-spacing: 1px; }
+
+.tourmaster-body .tourmaster-room-button{ background-position: center; background-repeat: no-repeat; }
+.tourmaster-body .tourmaster-room-button.tourmaster-now-loading{ color: transparent !important;
+    background-image: url('../images/preload-button.gif'); background-position: center; background-repeat: no-repeat; }
+
+/* custom datepicker */
+.tourmaster-custom-datepicker-wrap{ position: absolute; padding: 40px; top: 100%; margin: 16px 0px 0px; 
+    box-shadow: 0px 0px 20px rgba(0,0,0,0.15); z-index: 99; display: none;
+    border-radius: 15px; -webkit-border-radius: 15px; -moz-border-radius: 15px; }
+.tourmaster-custom-datepicker-title{ font-size: 17px; text-align: center; padding: 14px 20px; font-weight: 500; margin: 0px 20px 30px;
+    border-radius: 10px; -webkit-border-radius: 10px; -moz-border-radius: 10px; }
+.tourmaster-custom-datepicker-close{ position: absolute; right: 18px; top: 18px; font-size: 25px; cursor: pointer; }
+
+.tourmaster-body .tourmaster-custom-datepicker-calendar .ui-datepicker .ui-datepicker-month, 
+.tourmaster-body .tourmaster-custom-datepicker-calendar .ui-datepicker .ui-datepicker-year{ background: transparent; }
+.tourmaster-custom-datepicker-calendar .ui-datepicker{ width: auto !important; border: 0; padding: 0; background: transparent; }
+.tourmaster-custom-datepicker-calendar .ui-datepicker-group-first{ width: 50%; padding: 0px 5px; }
+.tourmaster-custom-datepicker-calendar .ui-datepicker-group-first .ui-datepicker-title{ font-size: 14px; text-transform: uppercase; text-align: right; padding-right: 0px; }
+.tourmaster-custom-datepicker-calendar .ui-datepicker-group-last{ width: 50%; padding: 0px 5px; }
+.tourmaster-custom-datepicker-calendar .ui-datepicker-group-last .ui-datepicker-title{ font-size: 14px; text-transform: uppercase; padding-left: 0px; text-align: left; }
+.tourmaster-custom-datepicker-calendar .ui-datepicker .ui-datepicker-title select{ background: transparent; font-size: 14px; width: auto; height: 23.8px; font-weight: 700; text-transform: uppercase; }
+.tourmaster-custom-datepicker-calendar .ui-datepicker-group-first .ui-datepicker-title{ line-height: 1; }
+.tourmaster-custom-datepicker-calendar .ui-datepicker-header{ margin-bottom: 12px; }
+.tourmaster-custom-datepicker-calendar .ui-datepicker-prev, 
+.tourmaster-custom-datepicker-calendar .ui-datepicker-next{ background: transparent; padding: 0px; width: auto; height: auto; font-size: 30px; line-height: 1; margin: -6px 18px 0px; }
+.tourmaster-custom-datepicker-calendar .ui-datepicker table{ margin-bottom: 0px; }
+.tourmaster-custom-datepicker-calendar .ui-datepicker table tr th{ font-weight: 600; padding-bottom: 12px; }
+.tourmaster-custom-datepicker-calendar .ui-datepicker table tr td{ padding: 0px; position: relative; }
+.tourmaster-custom-datepicker-calendar .ui-datepicker table tr td a,
+.tourmaster-custom-datepicker-calendar .ui-datepicker table tr td span{ position: relative; font-weight: 600; width: 43px; height: 43px; padding: 0px; line-height: 43px; text-align: center; }
+
+.tourmaster-custom-datepicker-calendar .ui-datepicker table tr td{ height: 48px; }
+.tourmaster-custom-datepicker-calendar .ui-datepicker table tr td.tourmaster-start:before{ content: " "; position: absolute; top: 0; bottom: 5px; left: 50%; right: 0; }
+.tourmaster-custom-datepicker-calendar .ui-datepicker table tr td.tourmaster-interval:before{ content: " "; position: absolute; top: 0; bottom: 5px; left: 0; right: 0; }
+.tourmaster-custom-datepicker-calendar .ui-datepicker table tr td.tourmaster-end:before{ content: " "; position: absolute; top: 0; bottom: 5px; left: 0; right: 50%; }
+
+.tourmaster-body .tourmaster-custom-datepicker-calendar .ui-datepicker table tr td a{ background: transparent; }
+
+.tourmaster-room-date-selection{ position: relative; }
+.tourmaster-room-date-selection .tourmaster-head{ font-size: 16px; font-weight: 500; margin-bottom: 4px; }
+.tourmaster-room-date-selection .tourmaster-tail{ font-size: 13px; font-weight: 500; letter-spacing: 1.5px; text-transform: uppercase; position: relative; }
+.tourmaster-room-date-selection .tourmaster-tail:after{ content: "\f0dd"; font-family: 'FontAwesome'; position: absolute; right: 10px; top: 50%; margin-top: -13px; }
+.tourmaster-room-date-selection .tourmaster-custom-start-date{ cursor: pointer; padding: 15px 25px;
+    border-radius: 6px; -webkit-border-radius: 6px; -moz-border-radius: 6px; 
+    transition: opacity 300ms; -webkit-transition: opacity 300ms; -moz-transition: opacity 300ms; }
+.tourmaster-room-date-selection .tourmaster-custom-end-date{ cursor: pointer; padding: 15px 25px;
+    border-radius: 6px; -webkit-border-radius: 6px; -moz-border-radius: 6px; 
+    transition: opacity 300ms; -webkit-transition: opacity 300ms; -moz-transition: opacity 300ms; }
+
+.tourmaster-room-date-selection.tourmaster-active[data-step="1"] .tourmaster-custom-end-date{ opacity: 0.5; }
+.tourmaster-room-date-selection.tourmaster-active[data-step="2"] .tourmaster-custom-start-date{ opacity: 0.5; }
+
+.tourmaster-room-date-selection.tourmaster-horizontal{ display: flex; gap: 10px; }
+.tourmaster-room-date-selection.tourmaster-horizontal .ui-datepicker{ display: flex !important;  }
+.tourmaster-room-date-selection.tourmaster-horizontal .tourmaster-custom-start-date{ width: 50%; }
+.tourmaster-room-date-selection.tourmaster-horizontal .tourmaster-custom-end-date{ width: 50%; }
+
+.tourmaster-room-date-selection.tourmaster-vertical .tourmaster-custom-datepicker-title{ display: none; }
+.tourmaster-room-date-selection.tourmaster-vertical .tourmaster-custom-datepicker-wrap{ left: 0px; padding-top: 60px; }
+.tourmaster-room-date-selection.tourmaster-vertical .ui-datepicker-title{ text-align: center; }
+.tourmaster-room-date-selection.tourmaster-vertical .tourmaster-custom-start-date{ margin-bottom: 20px; }
+.tourmaster-room-date-selection.tourmaster-vertical .tourmaster-custom-end-date{ margin-bottom: 20px; }
+
+@media only screen and (max-width: 767px){
+    .tourmaster-room-date-selection.tourmaster-horizontal{ display: block; }
+    .tourmaster-room-date-selection.tourmaster-horizontal .ui-datepicker{ display: block !important;  }
+    .tourmaster-room-date-selection.tourmaster-horizontal .tourmaster-custom-start-date{ width: 50%; }
+    .tourmaster-room-date-selection.tourmaster-horizontal .tourmaster-custom-end-date{ width: 50%; }
+    .tourmaster-room-date-selection.tourmaster-horizontal .tourmaster-custom-datepicker-title{ display: none; }
+    .tourmaster-room-date-selection.tourmaster-horizontal .tourmaster-custom-datepicker-wrap{ left: 0px; right: 0px; padding-top: 60px; }
+    .tourmaster-room-date-selection.tourmaster-horizontal .ui-datepicker-title{ text-align: center; }
+    .tourmaster-room-date-selection.tourmaster-horizontal .tourmaster-custom-start-date{ width: auto; margin-bottom: 16px; }
+    .tourmaster-room-date-selection.tourmaster-horizontal .tourmaster-custom-end-date{ width: auto; margin-bottom: 16px; }
+}
+
+/* custom amount selection */
+.tourmaster-room-amount-selection{ position: relative; }
+.tourmaster-custom-amount-display{ position: relative; cursor: pointer; padding: 15px 25px; 
+    border-radius: 6px; -webkit-border-radius: 6px; -moz-border-radius: 6px; }
+.tourmaster-custom-amount-display .tourmaster-head{ font-size: 16px; font-weight: 500; margin-bottom: 4px; }
+.tourmaster-custom-amount-display .tourmaster-tail{ font-size: 13px; font-weight: 500; letter-spacing: 1.5px; text-transform: uppercase; position: relative; }
+.tourmaster-custom-amount-display .tourmaster-tail:after{ content: "\f0dd"; font-family: 'FontAwesome'; position: absolute; right: 10px; top: 50%; margin-top: -13px; }
+.tourmaster-custom-amount-selection-wrap{ position: absolute; width: 300px; padding: 32px 32px 12px; top: 100%; margin: 16px 0px 0px; 
+    box-shadow: 0px 0px 20px rgba(0,0,0,0.15); z-index: 99; display: none; 
+    border-radius: 15px; -webkit-border-radius: 15px; -moz-border-radius: 15px; }
+.tourmaster-room-amount-selection .tourmaster-custom-amount-selection-wrap{ width: 280px; top: 90%; 
+    box-shadow: 0px 15px 20px rgb(0 0 0 / 15%); }
+.tourmaster-custom-amount-display .tourmaster-tail .tourmaster-space{ margin-left: 20px; }
+.tourmaster-custom-amount-display .tourmaster-tail .tourmaster-space:first-child{ display: none; }
+
+.tourmaster-custom-amount-selection-item{ border-top-width: 1px; border-top-style: solid; padding-top: 20px; padding-bottom: 20px; }
+.tourmaster-custom-amount-selection-item:first-child{ padding-top: 0px; border-top: 0px; }
+.tourmaster-custom-amount-selection-item .tourmaster-head{ font-size: 14px; font-weight: 600; float: left; text-transform: uppercase; letter-spacing: 1px; }
+.tourmaster-custom-amount-selection-item .tourmaster-tail{ float: right; }
+.tourmaster-custom-amount-selection-item .tourmaster-minus{ cursor: pointer; }
+.tourmaster-custom-amount-selection-item .tourmaster-plus{ cursor: pointer; }
+.tourmaster-custom-amount-selection-item .tourmaster-amount{ margin: 0px 13px; }
+
+/* single */
+.tourmaster-room-booking-bar-wrap{ margin-bottom: 60px; }
+.tourmaster-room-booking-wrap .tourmaster-room-amount-selection{ margin-bottom: 16px; }
+.tourmaster-room-booking-bar-title{ font-size: 18px; font-weight: 500; }
+.tourmaster-room-booking-bar-title span{ margin-bottom: 35px; border-bottom-width: 2px; border-bottom-style: solid; 
+    display: inline-block; margin-right: 30px; border-color: transparent; cursor: pointer;
+    transition: color 300ms; -webkit-transition: color 300ms; -moz-transition: color 300ms; }
+.tourmaster-room-booking-bar-title span:last-child{ margin-right: 0px; }
+.tourmaster-room-booking-bar-content > div{ display: none; }
+.tourmaster-room-booking-bar-content > div:first-child{ display: block; }
+.tourmaster-room-booking-guest-selection.tourmaster-one .tourmaster-head > span{ display: none; }
+
+.tourmaster-room-booking-bar-summary{ font-size: 16px; padding: 40px 30px 30px; box-shadow: 0px 0px 40px rgba(0, 0, 0, 0.1); margin-bottom: 60px;
+    border-radius: 20px; -webkit-border-radius: 20px; -moz-border-radius: 20px; }
+.tourmaster-room-booking-bar-summary .tourmaster-room-title{ font-size: 18px; margin-bottom: 12px; }
+.tourmaster-room-booking-bar-summary .tourmaster-room-booking-duration{ font-size: 16px; }
+.tourmaster-room-booking-bar-summary .tourmaster-room-price{ margin-top: 18px; font-size: 16px; }
+.tourmaster-room-booking-bar-summary .tourmaster-room-price .tourmaster-head{ font-weight: 500; }
+.tourmaster-room-booking-bar-summary div.tourmaster-room-price:nth-of-type(2){ margin-top: 30px; }
+.tourmaster-room-booking-bar-summary .tourmaster-divider{ margin-top: 20px; border-bottom-width: 1px; border-bottom-style: solid; margin-bottom: 20px; }
+.tourmaster-room-booking-bar-summary .tourmaster-price{ font-size: 16px; margin-bottom: 12px; }
+.tourmaster-room-booking-bar-summary .tourmaster-price .tourmaster-head{ float: left; font-weight: 500; }
+.tourmaster-room-booking-bar-summary .tourmaster-price .tourmaster-tail{ float: right; }
+.tourmaster-room-booking-bar-summary .tourmaster-price .tourmaster-tail.tourmaster-em{ font-weight: 600; }
+.tourmaster-room-booking-bar-summary .tourmaster-grand-total{ margin-bottom: 35px; }
+.tourmaster-room-booking-bar-summary .tourmaster-or{ font-size: 13px; font-weight: 600; letter-spacing: 2px; margin: 18px 0; text-align: center; }
+.tourmaster-room-booking-bar-summary .tourmaster-go-back{ font-size: 17px; letter-spacing: 1px; text-align: center; margin-top: 24px; cursor: pointer; }
+.tourmaster-room-booking-bar-summary .tourmaster-go-back i{ margin-right: 8px; }
+
+.tourmaster-room-booking-bar-summary .tourmaster-add-to-cart.tourmaster-active{ font-size: 13px; font-weight: 400; text-transform: none; letter-spacing: 0; }
+
+/* form field */
+.tourmaster-body .tourmaster-form-field.tourmaster-room input[type="text"], 
+.tourmaster-body .tourmaster-form-field.tourmaster-room input[type="email"], 
+.tourmaster-body .tourmaster-form-field.tourmaster-room input[type="password"], 
+.tourmaster-body .tourmaster-form-field.tourmaster-room textarea, 
+.tourmaster-body .tourmaster-form-field.tourmaster-room select{ border-radius: 3px; -moz-border-radius: 3px; -webkit-border-radius: 3px; }
+.tourmaster-form-field.tourmaster-room .tourmaster-enquiry-field{ margin-bottom: 20px; }
+.tourmaster-form-field.tourmaster-room .tourmaster-enquiry-field .tourmaster-head { font-size: 16px; margin-bottom: 10px; }
+
+body input[type="submit"].tourmaster-room-button{ background-color: transparent; border-width: 2px; border-style: solid;
+    font-size: 14px; font-weight: 600; letter-spacing: 1.5px; padding: 20px 33px;
+    border-radius: 5px; -moz-border-radius: 5px; -webkit-border-radius: 5px; }
+body input[type="submit"].tourmaster-room-button.tourmaster-full{ width: 100%; }
+
+.tourmaster-payment-step.tourmaster-step3{ display: none; }
+.tourmaster-payment-step.tourmaster-step4{ display: none; }
+
+/* room step */
+.tourmaster-room-payment-error{ padding: 15px 20px; margin-top: 60px; margin-bottom: 60px; }
+.tourmaster-room-payment-step{ position: relative; border-bottom: 1px; border-bottom-style: solid; padding-bottom: 30px; margin-top: 55px; margin-bottom: 90px; }
+.tourmaster-room-payment-step:before{ content: " "; height: 11px; right: 0px; bottom: -5px; width: 25%; position: absolute;
+    background: linear-gradient(270deg, rgba(255,255,255,1) 0%, rgba(255,255,255,0) 100%); }
+.tourmaster-room-payment-step .tourmaster-head{ font-size: 16px; font-weight: 500; display: inline-block; position: relative; }
+.tourmaster-room-payment-step .tourmaster-bullet{ width: 15px; height: 15px; border-width: 3px; border-style: solid; border-radius: 50%; position: absolute; bottom: -40px; left: 50%; margin-left: -8px; }
+.tourmaster-room-payment-step .tourmaster-step:first-child .tourmaster-head:before{ content: " ";  position: absolute; left: 0px; width: 50%; height: 11px; bottom: -35px; }
+
+/* price summary */
+.tourmaster-room-price-summary-wrap{ margin-bottom: 90px; }
+.tourmaster-room-price-summary-wrap .tourmaster-room-price-summary-title{ font-size: 26px; margin-bottom: 50px; font-weight: 500; }
+.tourmaster-room-price-summary-block{ font-size: 16px; padding: 40px; box-shadow: 0px 20px 45px rgb(0 0 0 / 10%); margin-bottom: 60px;
+    border-radius: 20px; -webkit-border-radius: 20px; -moz-border-radius: 20px; }
+.tourmaster-room-price-summary-room-title{ font-size: 23px; font-weight: 500; }
+.tourmaster-room-price-summary-room-duration{ font-size: 16px; }
+
+.tourmaster-room-price-summary-item{ margin-top: 45px; padding-bottom: 25px; border-bottom-width: 1px; border-bottom-style: solid; }
+.tourmaster-room-price-summary-item:last-child{ border-bottom-width: 0px; padding-bottom: 0px; }
+.tourmaster-room-price-summary-item .tourmaster-title{ font-size: 18px; font-weight: 500; }
+.tourmaster-room-price-summary-item .tourmaster-title .tourmaster-price{ float: right; }
+.tourmaster-room-price-summary-item .tourmaster-price-breakdown-title{ font-size: 16px; font-weight: 400; cursor: pointer; }
+.tourmaster-room-price-summary-item .tourmaster-service{ margin-bottom: 10px; }
+.tourmaster-room-price-summary-item .tourmaster-service .tourmaster-head{ margin-right: 15px; }
+.tourmaster-room-price-summary-item  input.tourmaster-service-amount{ margin-right: 15px; border-width: 1px; width: 50px; padding: 3px 8px; text-align: center; }
+.tourmaster-room-price-summary-item .tourmaster-service-total{ font-size: 18px; font-weight: 500; margin-top: 27px; }
+.tourmaster-room-price-summary-item .tourmaster-service-total .tourmaster-head{ float: left; margin-bottom: 20px; }
+.tourmaster-room-price-summary-item .tourmaster-service-total .tourmaster-tail{ float: right; } 
+.tourmaster-room-price-summary-item .tourmaster-room-remove-room{ margin-left: 25px; cursor: pointer; }
+
+.tourmaster-room-price-sidebar{ font-size: 16px; margin-bottom: 60px; }
+.tourmaster-room-price-sidebar .tourmaster-price { margin-bottom: 18px; }
+.tourmaster-room-price-sidebar .tourmaster-price.tourmaster-bold{ font-weight: 600; }
+.tourmaster-room-price-sidebar .tourmaster-price .tourmaster-head{ float: left; }
+.tourmaster-room-price-sidebar .tourmaster-price .tourmaster-tail{ float: right; }
+.tourmaster-room-price-sidebar .tourmaster-divider{ border-bottom-width: 1px; border-bottom-style: solid; margin-bottom: 28px; padding-top: 10px; }
+.tourmaster-room-price-sidebar .tourmaster-room-button{ margin-top: 30px; }
+.tourmaster-room-price-sidebar .tourmaster-room-coupon-code{ border-width: 1px; height: 40px; padding: 5px 12px; margin-top: -3px; width: 165px;
+    border-radius: 3px; -webkit-border-radius: 3px; -moz-border-radius: 3px; }
+.tourmaster-room-price-sidebar .tourmaster-room-button{ 
+    transition: opacity 300ms; -webkit-transition: opacity 300ms; -moz-transition: opacity 300ms; }
+.tourmaster-room-price-sidebar .tourmaster-room-button.tourmaster-now-loading{ opacity: 0.5 }
+
+.tourmaster-room-price-sidebar .tourmaster-room-pay-type{ margin-bottom: 18px; }
+.tourmaster-room-price-sidebar .tourmaster-room-pay-type-item{ display: inline-block; margin-right: 25px; cursor: pointer; 
+    transition: color 300ms; -moz-transition: color 300ms; -webkit-transition: color 300ms; }
+.tourmaster-room-price-sidebar .tourmaster-room-pay-type-item i{ vertical-align: middle; margin-right: 7px; }
+.tourmaster-room-price-sidebar .tourmaster-deposit-amount{ display: none; }
+
+.tourmaster-coupon-input-wrap{ position: relative; }
+.tourmaster-coupon-input-wrap .tourmaster-message{ position: relative; font-size: 12px; right: 0px; margin-top: 8px; text-align: right; }
+
+.tourmaster-room-price-sidebar .tourmaster-error-message{ font-size: 15px; padding: 10px 15px; display: none; margin-bottom: 10px; }
+.tourmaster-room-price-sidebar .tourmaster-room-button.tourmaster-pay-now{ margin-top: 0px; }
+.tourmaster-room-price-sidebar .tourmaster-room-button.tourmaster-pay-later{ margin-top: 0px; }
+
+.tourmaster-room-booking-submit-error{ padding: 7px 18px; border-radius: 3px; margin-bottom: 16px; }
+.tourmaster-price-breakdown .tourmaster-price-breakdown-room-price .tourmaster-sub-text{ margin-top: 5px; clear: left; }
+
+.tourmaster-label-checkbox{ border-width: 1px; border-style: solid; display: inline-block; line-height: 1; width: 15px; padding: 1px 0px; 
+    font-size: 10px; text-align: center; margin-right: 15px; vertical-align: middle;
+    border-radius: 3px; -webkit-border-radius: 3px; -moz-border-radius: 3px;  }
+.tourmaster-label-checkbox input[type="checkbox"]{ display: none; }
+.tourmaster-label-checkbox span{ visibility: hidden; } 
+.tourmaster-label-checkbox span:before{ content: "\f00c"; font-family: 'FontAwesome';  }
+.tourmaster-label-checkbox input[type="checkbox"]:checked + span{ visibility: visible; }
+
+.tourmaster-room-single-price-breakdown{ position: relative; display: none; font-size: 16px; padding: 30px; background: #fff;
+    border-radius: 20px; -webkit-border-radius: 20px -moz-border-radius: 20px }
+.tourmaster-room-single-price-breakdown .tourmaster-lightbox-close{ right: 20px; top: 20px; }
+.tourmaster-room-single-price-breakdown .tourmaster-title{ font-size: 25px; font-weight: 600; margin-bottom: 30px }
+.tourmaster-room-single-price-breakdown .tourmaster-room-title{ font-size: 20px; margin-bottom: 10px; font-weight: 600; }
+.tourmaster-room-single-price-breakdown .tourmaster-amount-title{ font-size: 18px; font-weight: 600; }
+.tourmaster-room-single-price-breakdown .tourmaster-divider{ border-bottom-width: 1px; border-bottom-style: solid; margin: 30px 0px}
+.tourmaster-room-single-price-breakdown ul{ list-style: none; margin-left: 0px; }
+.tourmaster-room-single-price-breakdown ul li{ margin-bottom: 12px; }
+.tourmaster-room-single-price-breakdown ul li .tourmaster-head{ float: left; }
+.tourmaster-room-single-price-breakdown ul li .tourmaster-tail{ float: right; }
+.tourmaster-room-single-price-breakdown .tourmaster-room-total-price{ font-size: 18px; font-weight: 600; }
+.tourmaster-room-single-price-breakdown .tourmaster-head{ float: left; }
+.tourmaster-room-single-price-breakdown .tourmaster-tail{ float: right; }
+.tourmaster-lightbox-wrapper .tourmaster-room-single-price-breakdown{ display: block; max-width: 800px; margin: 0px auto; }
+
+/* cart */
+.tourmaster-room-cart-item-wrap{ opacity: 0; pointer-events: none;
+    transition: opacity 300ms; -webkit-transition: opacity 300ms; -moz-transition: opacity 300ms; }
+
+.tourmaster-room-navigation-checkout-wrap{ float: left; position: relative; margin-left: 25px; margin-top: -6px; }
+.tourmaster-room-navigation-checkout-wrap.tourmaster-active:hover .tourmaster-room-cart-item-wrap{ opacity: 1; pointer-events: auto; }
+.tourmaster-room-navigation-checkout-wrap.tourmaster-active .tourmaster-room-navigation-checkout-button .tourmaster-count{ display: block; }
+
+.tourmaster-room-navigation-checkout-button{ position: relative; font-size: 13px; font-weight: 600; 
+    text-transform: uppercase; letter-spacing: 2px; border-width: 2px; border-style: solid; padding: 11px 20px; }
+.tourmaster-room-navigation-checkout-button .tourmaster-count{ display: none; position: absolute; top: -13px; right: -13px; 
+    background: #dedede; border-radius: 50%; width: 26px; line-height: 26px; text-align: center; }
+.tourmaster-room-cart-item-wrap{ position: absolute; right: 0px; padding-top: 20px; }
+.tourmaster-room-cart-items{ width: 250px; padding: 25px 25px 32px; text-align: center; 
+    box-shadow: 0 10px 20px rgb(0 0 0 / 9%); -webkit-box-shadow: 0 10px 20px rgb(0 0 0 / 9%); -moz-box-shadow: 0 10px 20px rgb(0 0 0 / 9%);
+    background-image: url('checkout-button-bg.png'); background-position: bottom 10px left; background-repeat: no-repeat; }
+.tourmaster-room-cart-items ul{ list-style: none; margin-left: 0px; text-align: left; }
+.tourmaster-room-cart-items li{ font-size: 16px; font-weight: 500; margin-bottom: 12px; }
+.tourmaster-room-cart-items li .tourmaster-amount{ margin-left: 10px; }
+.tourmaster-room-cart-items li i.tourmaster-remove{ float: right; margin-top: 6px; }
+.tourmaster-room-cart-items .tourmaster-checkout-button{ letter-spacing: 2px; font-size: 13px; font-weight: 600; text-transform: uppercase; 
+    display: inline-block; border-bottom-width: 2px; border-bottom-style: solid; }
+.tourmaster-room-cart-items .tourmaster-remove{ cursor: pointer; }
+
+/* contact detail */
+.tourmaster-room-payment-contact-form{ margin-bottom: 60px; }
+.tourmaster-room-payment-contact-form .tourmaster-head{ font-size: 18px; font-weight: 400; float: left; width: 180px; margin-top: 8px; }
+.tourmaster-room-payment-contact-form .tourmaster-tail{ overflow: hidden; }
+.tourmaster-room-payment-contact-form .tourmaster-contact-field,
+.tourmaster-room-payment-contact-form .tourmaster-billing-field{ margin-bottom: 15px; }
+.tourmaster-room-payment-contact-form .tourmaster-contact-field.tourmaster-type-plain-text .tourmaster-tail{ padding-top: 9px; }
+.tourmaster-room-payment-contact-form .tourmaster-room-payment-additional-note-wrap.tourmater-type-plain-text .tourmaster-tail{ padding-top: 12px; }
+.tourmaster-body .tourmaster-room-payment-contact-form h3{ font-size: 26px; font-weight: 500; margin-bottom: 35px; }
+
+.tourmaster-room-payment-contact-form .tourmaster-form-field.tourmaster-with-border input[type="text"], 
+.tourmaster-room-payment-contact-form .tourmaster-form-field.tourmaster-with-border input[type="email"], 
+.tourmaster-room-payment-contact-form .tourmaster-form-field.tourmaster-with-border input[type="password"], 
+.tourmaster-room-payment-contact-form .tourmaster-form-field.tourmaster-with-border textarea, 
+.tourmaster-room-payment-contact-form .tourmaster-form-field.tourmaster-with-border select{ border-width: 1px; border-radius: 3px; }
+
+.tourmaster-room-payment-contact-form .tourmaster-payment-billing-separate-wrap{ margin-top: 35px; margin-bottom: 40px; }
+.tourmaster-room-payment-contact-form .tourmaster-payment-billing-separate{ margin: -2px 12px 0px 0px; }
+.tourmaster-room-payment-contact-form .tourmaster-room-payment-billing-wrap{ display: none; }
+.tourmaster-room-payment-contact-form .tourmaster-divider{ border-bottom-width: 1px; border-bottom-style: solid; margin-top: 50px; margin-bottom: 50px; }
+
+.tourmaster-guest-info-field{ margin-right: -6px; margin-bottom: 15px; }
+.tourmaster-room-payment-guest-info-inner{ margin-bottom: 30px; }
+.tourmaster-room-payment-guest-info-inner .tourmaster-tail > div{ padding-left: 6px; padding-right: 6px; padding-bottom: 12px; }
+.tourmaster-room-payment-guest-info-inner .tourmaster-guest-info-input-wrap{ float: left; width: 50%; }
+.tourmaster-guest-info-field.tourmaster-display .tourmaster-tail{ padding-top: 9px; }
+.tourmaster-body .tourmaster-room-payment-contact-form .tourmaster-payment-contact-title{ font-size: 23px; }
+.tourmaster-body .tourmaster-room-payment-contact-form h4{ font-size: 20px; font-weight: 500; }
+
+/* booking complete */
+.tourmaster-room-booking-complete{ max-width: 840px; padding: 50px 20px; text-align: center; font-size: 18px; margin: 80px auto 80px;
+    border-radius: 20px; -webkit-border-radius: 20px; -moz-border-radius: 20px;
+    box-shadow: 0px 0px 40px rgba(0,0,0,0.1); -webkit-box-shadow: 0px 0px 40px rgba(0,0,0,0.1); -moz-box-shadow: 0px 0px 40px rgba(0,0,0,0.1); }
+.tourmaster-room-booking-complete .tourmaster-title{ font-size: 28px; margin-bottom: 15px; font-weight: 600; }
+.tourmaster-room-booking-complete .tourmaster-caption{ font-size: 22px; }
+.tourmaster-room-booking-complete .tourmaster-content{ margin-top: 25px; }
+.tourmaster-room-booking-complete .tourmaster-room-button{ display: inline-block; margin-top: 40px; min-width: 260px; }
+
+/* payment method wrap */
+.tourmaster-room-payment-method-wrap .tourmaster-or{ font-size: 16px; text-align: center; margin: 10px 0px; }
+.tourmaster-room-payment-method-wrap .tourmaster-payment-method-title{ font-size: 20px; margin-bottom: 30px; font-weight: 600; }
+.tourmaster-room-payment-method-wrap .tourmater-room-accepted-payment-method{ line-height: 1; margin-bottom: 25px; }
+.tourmaster-room-payment-method-wrap .tourmaster-payment-terms{ margin-bottom: 25px; }
+.tourmaster-room-payment-method-wrap .tourmaster-payment-terms input{ margin-right: 10px; margin-top: -1px; }
+.tourmaster-room-payment-method-wrap .tourmaster-combobox-wrap{ margin-bottom: 50px; }
+.tourmaster-room-payment-method-wrap .tourmaster-combobox-wrap select{ height: 62px;
+    box-shadow: 0px 15px 55px rgb(0 0 0 / 10%); -webkit-box-shadow: 0px 15px 55px rgb(0 0 0 / 10%);
+    border-radius: 5px; -webkit-border-radius: 5px; -moz-border-radius: 5px; }
+
+.tourmaster-lightbox-wrapper .tourmaster-room-payment-lb{ display: block; max-width: 500px; margin: 0px auto; padding: 30px; background: #fff;
+    border-radius: 20px; -webkit-border-radius: 20px -moz-border-radius: 20px }
+.tourmaster-lightbox-wrapper .tourmaster-room-payment-lb .goodlayers-payment-form{ margin: 20px auto; max-width: 400px; }
+.tourmaster-room-payment-lb .goodlayers-payment-form input[type="text"],
+.tourmaster-room-payment-lb .goodlayers-payment-form #card-element{ border-width: 1px; font-size: 13px; }
+.tourmaster-room-payment-lb .goodlayers-payment-form button{ cursor: pointer; width: 100%; border: 0px; font-size: 13px; font-weight: 600; }
+.tourmaster-room-payment-lb .goodlayers-payment-form h4{ font-size: 22px; font-weight: 600; }
+
+#tourmaster-room-payment-display-page .tourmaster-room-payment-method-wrap .tourmaster-or, 
+#tourmaster-room-payment-display-page .tourmaster-room-payment-method-wrap .tourmaster-pay-later{ display: none; }
+
+#goodlayers-authorize-payment-form .goodlayers-payment-button.submit{ font-size: 13px; font-weight: 600; width: 100%; }
+
+/* single room title */
+.tourmaster-room-single-header-title-wrap{ background: #000; padding-top: 100px; padding-bottom: 100px; 
+    background-size: cover; background-position: center; position: relative; }
+.tourmaster-room-single-header-background-overlay{ background: #000; opacity: 0; position: absolute; top: 0px; right: 0px; bottom: 0px; left: 0px; }
+.tourmaster-room-single-header-title-wrap .tourmaster-container{ position: relative; }
+body .tourmaster-room-single-header-title-wrap h1{ color: #fff; margin-bottom: 0px; font-weight: 400; text-align: center; }
+
+@media only screen and (max-width: 999px){
+    .tourmaster-room-single-header-title-wrap{ padding-top: 120px; padding-bottom: 120px; }
+}
+@media only screen and (max-width: 767px){
+    .tourmaster-room-single-header-title-wrap{ padding-top: 80px;   padding-bottom: 80px; }
+}
+
+/* room title item */
+.tourmaster-room-title-item{ position: relative; padding-bottom: 30px; }
+.tourmaster-room-title-item .tourmaster-room-title-item-title{ font-size: 34px; font-weight: 500; margin-bottom: 0px; }
+.tourmaster-room-title-item .tourmaster-room-title-item-caption{ font-size: 20px; margin-top: 7px; }
+.tourmaster-room-title-item .tourmaster-room-title-price{ position: absolute; right: 0px; top: 0px; font-size: 22px; }
+.tourmaster-room-title-item .tourmaster-room-title-price .tourmaster-tail{ font-size: 17px; margin-top: -4px; }
+.tourmaster-room-title-item .tourmaster-room-title-price .tourmaster-label{ margin-right: 9px; font-weight: 500; }
+.tourmaster-room-title-item .tourmaster-room-title-price .tourmaster-price{ font-weight: 500; }
+.tourmaster-room-title-item .tourmaster-room-title-price .tourmaster-price-discount{ margin-right: 10px; text-decoration: line-through; font-size: 18px; }
+
+@media only screen and (max-width: 999px){
+    .tourmaster-room-title-item .tourmaster-room-title-price{ position: static; margin-top: 10px; }
+}
+
+/* room item */
+.tourmaster-room-item .tourmaster-ribbon{ color: #fff; }
+.tourmaster-room-item{ padding-bottom: 30px; }
+.tourmaster-room-item .tourmaster-info-wrap{ font-size: 17px; font-weight: 500; margin-bottom: 30px; }
+.tourmaster-room-item .tourmaster-info-wrap i{ font-size: 28px; margin-right: 14px; vertical-align: bottom; }
+.tourmaster-room-item .tourmaster-info-wrap .tourmaster-info{ display: inline; margin-right: 25px; }
+.tourmaster-room-item .tourmaster-info-wrap .tourmaster-info:last-child{ margin-right: 0px; }
+.tourmaster-room-item .tourmaster-info-wrap .tourmaster-info-guest-amount i{ font-size: 32px; }
+.tourmaster-info-wrap span.tourmaster-tail { font-size: 17px; font-weight: 500; }
+.tourmaster-room-item .tourmaster-ribbon{ line-height: 1; position: absolute; top: 12px; right: 12px; border-radius: 5px; padding: 8px 26px; font-size: 15px; text-transform: uppercase; }
+.tourmaster-room-item .tourmaster-read-more.tourmaster-type-text{ font-size: 13px; text-transform: uppercase; font-weight: 600; letter-spacing: 2px; }
+.tourmaster-room-item a.tourmaster-read-more.tourmaster-type-text{ display: inline-block; overflow: hidden; }
+.tourmaster-room-item a.tourmaster-read-more.tourmaster-type-text:after{ content: " "; width: 100%; border-bottom-width: 2px; border-bottom-style: solid; display: block; margin-top: 3px; opacity: 0.2; 
+    transform: translateX(-100%); -webkit-transform: translateX(-100%); -moz-transform: translateX(-100%);
+    transition: transform 300ms; -webkit-transition: transform 300ms; -moz-transition: transform 300ms; }
+.tourmaster-room-item a.tourmaster-read-more.tourmaster-type-text:hover:after{ transform: translateX(0%); -webkit-transform: translateX(0%); -moz-transform: translateX(0%); }
+.tourmaster-room-item .tourmaster-read-more.tourmaster-type-button{ display: inline-block; font-size: 15px; text-transform: uppercase; font-weight: 500; padding: 6px 22px;
+    border-radius: 5px; -webkit-border-radius: 5px; -moz-border-radius: 5px; }
+.tourmaster-room-item .tourmaster-read-more.tourmaster-type-border-button{ display: inline-block; border-width: 1px; border-style: solid; padding: 8px 22px;
+    border-radius: 5px; -webkit-border-radius: 5px; -moz-border-radius: 5px; }
+.tourmaster-room-item .tourmaster-read-more i{ margin-left: 10px; }
+.tourmaster-room-item .tourmaster-room-title{ font-size: 30px; font-weight: 500; }
+.tourmaster-room-item .tourmaster-price-wrap.tourmaster-with-bg{ font-size: 20px; line-height: 1; padding: 21px 20px; font-weight: 600; }
+.tourmaster-room-item .tourmaster-price-wrap.tourmaster-with-bg .tourmaster-head{ margin-right: 5px; }
+.tourmaster-room-item .tourmaster-price-wrap.tourmaster-with-bg .tourmaster-price-discount{ font-size: 14px; text-decoration: line-through; font-weight: 400; margin-right: 5px; }
+.tourmaster-room-item .tourmaster-price-wrap.tourmaster-with-bg.tourmaster-with-text-color .tourmaster-price-discount{ color: inherit; }
+.tourmaster-room-item .tourmaster-price-wrap.tourmaster-no-bg{ font-size: 20px; font-weight: 500; }
+.tourmaster-room-item .tourmaster-price-wrap.tourmaster-no-bg .tourmaster-price-discount{ font-size: 14px; text-decoration: line-through; font-weight: 400; margin-right: 5px; }
+.tourmaster-room-item .tourmaster-price-wrap.tourmaster-no-bg .tourmaster-head{ margin-right: 5px;}
+.tourmaster-room-item .tourmaster-price-wrap.tourmaster-no-bg .tourmaster-tail{ font-size: 13px; font-weight: 500; text-transform: uppercase; margin-left: 5px; }
+.tourmaster-room-item .tourmaster-grid-frame .tourmaster-room-content-wrap{ padding: 35px 40px 50px; }
+.tourmaster-room-item .tourmaster-grid-frame .tourmaster-room-grid-inner{ overflow: hidden; border-style: solid; border-width: 0px; }
+.tourmaster-room-item .tourmaster-grid-frame .tourmaster-room-thumbnail{ margin-bottom: 0px; }
+.tourmaster-room-item .tourmaster-location{ font-size: 16px; }
+.tourmaster-room-item .tourmaster-location i{ margin-right: 8px; font-weight: 600; }
+.tourmaster-room-item .tourmaster-location{ margin-bottom: 20px; }
+.tourmaster-room-item .tourmaster-room-content{ margin-bottom: 20px; }
+
+.tourmaster-room-rating{ margin-bottom: 18px; margin-top: -10px; }
+.tourmaster-room-rating i{ margin-right: 4px; }
+.tourmaster-room-rating i:last-child{ margin-right: 0px; }
+.tourmaster-room-rating .tourmaster-room-rating-text{ font-size: 13px; margin-left: 5px; }
+
+.tourmaster-room-grid{ margin-bottom: 40px; }
+.tourmaster-room-grid .tourmaster-room-thumbnail{ margin-bottom: 30px; }
+.tourmaster-room-grid .tourmaster-room-grid-inner{ border-style: solid; border-width: 0px }
+.tourmaster-room-grid .tourmaster-price-wrap{ position: absolute; bottom: 10px; left: 25px; }
+.tourmaster-room-grid .tourmaster-tail{ font-size: 15px; font-weight: 400; }
+
+.tourmaster-room-grid2{ margin-bottom: 40px; }
+.tourmaster-room-grid2 .tourmaster-room-thumbnail{ margin-bottom: 30px; }
+.tourmaster-room-grid2 .tourmaster-room-grid-inner{ border-style: solid; border-width: 0px }
+.tourmaster-room-grid2 .tourmaster-price-wrap{ float: left; }
+.tourmaster-room-grid2 .tourmaster-read-more{ float: right; }
+.tourmaster-room-grid2 a.tourmaster-read-more.tourmaster-type-text{ margin-top: 7px; }
+.tourmaster-room-item .tourmaster-room-grid2 .tourmaster-price-wrap.tourmaster-no-bg { font-size: 23px; }
+
+.tourmaster-room-grid3{ margin-bottom: 40px; }
+.tourmaster-room-grid3 .tourmaster-room-content-wrap{ text-align: center; }
+.tourmaster-room-grid3 .tourmaster-room-title{ padding-top: 50px; }
+.tourmaster-room-grid3 .tourmaster-room-grid-inner{ border-style: solid; border-width: 0px }
+.tourmaster-room-grid3 .tourmaster-price-wrap{ position: absolute; top: 0px; left: 50%;
+    transform: translate(-50%, -50%); -webkit-transform: translate(-50%, -50%); -moz-transform: translate(-50%, -50%); }
+.tourmaster-room-grid3 .tourmaster-price-wrap{ border-radius: 0; -webkit-border-radius: 0; -moz-border-radius: 0; }
+.tourmaster-room-grid3 .tourmaster-room-content-wrap{ position: relative; }
+.tourmaster-room-grid3.tourmaster-grid-frame .tourmaster-room-title{ padding-top: 0px; }
+.tourmaster-room-grid3.tourmaster-grid-frame .tourmaster-room-content-wrap{ padding-top: 35px; }
+.tourmaster-room-item .tourmaster-room-grid3 .tourmaster-price-wrap.tourmaster-with-bg{ padding: 23px 26px;
+    border-radius: 0px; -webkit-border-radius: 0px; -moz-border-radius: 0px;
+    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.1); -webkit-box-shadow: 0px 10px 20px rgb(0 0 0 / 10%); }
+.tourmaster-room-grid3 span.tourmaster-tail{ font-size: 15px; font-weight: 400; }
+
+.tourmaster-room-grid4{ margin-bottom: 40px; }
+.tourmaster-room-grid4 .tourmaster-room-thumbnail{ margin-bottom: 30px; }
+.tourmaster-room-grid4 .tourmaster-price-wrap{ position: absolute; bottom: 25px; left: 50%;
+    transform: translateX(-50%); -webkit-transform: translateX(-50%); -moz-transform: translateX(-50%); }
+.tourmaster-room-grid4 .tourmaster-price-wrap{ font-size: 15px; font-weight: 500; }
+.tourmaster-room-grid4 .tourmaster-room-content-wrap{ text-align: center; }
+.tourmaster-room-grid4 .tourmaster-room-rating-text{ display: none; }
+.tourmaster-room-grid4 .tourmaster-info-wrap i{ vertical-align: text-bottom; font-weight: 600; }
+.tourmaster-room-grid4 .tourmaster-info-wrap i:before{ content: "\e080"; font-family: 'simple-line-icons'; font-size: 16px; }
+.tourmaster-room-item .tourmaster-room-grid4 .tourmaster-price-wrap.tourmaster-with-bg { font-size: 17px; padding: 15px 28px; font-weight: 500;
+    border-radius: 5px; -webkit-border-radius: 5px; -moz-border-radius: 5px; }
+
+.tourmaster-room-grid5{ margin-bottom: 40px; }
+.tourmaster-room-grid5 .tourmaster-room-thumbnail{ margin-bottom: 40px; }
+.tourmaster-room-grid5 .tourmaster-room-content-wrap{ text-align: center; }
+.tourmaster-room-grid5 .tourmaster-room-rating-text{ display: none; }
+.tourmaster-room-grid5 .tourmaster-price-wrap{ position: absolute; top: 12px; right: 18px; }
+.tourmaster-room-grid5 .tourmaster-ribbon{ right: 18px; top: 12px; }
+.tourmaster-room-grid5 .tourmaster-room-thumbnail.tourmaster-with-price .tourmaster-ribbon{ top: 65px; }
+.tourmaster-room-grid5 .tourmaster-thumbnail-category{ position: absolute; bottom: 0px; left: 50%; line-height: 1; font-weight: 500; font-size: 16px; padding: 17px 31px; min-width: 140px; text-align: center; 
+    transform: translate(-50%, 50%); -webkit-transform: translate(-50%, 50%); -moz-transform: translate(-50%, 50%); 
+    border-radius: 5px; -webkit-border-radius: 5px; -moz-border-radius: 5px; 
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);}
+.tourmaster-room-item .tourmaster-room-grid5 .tourmaster-price-wrap.tourmaster-with-bg span.tourmaster-price{ font-size: 20px; }
+.tourmaster-room-item .tourmaster-room-grid5 .tourmaster-price-wrap.tourmaster-with-bg{ padding: 12px; font-size: 15px; }
+.tourmaster-room-item .tourmaster-room-grid5 .tourmaster-read-more.tourmaster-type-button{ font-size: 15px; text-transform: none; padding: 8px 23px; }
+
+.tourmaster-room-modern{ position: relative; margin-bottom: 60px; }
+.tourmaster-room-modern.tourmaster-with-thumbnail .tourmaster-room-content-wrap{ background: #fff; width: 410px; max-width: 100%; 
+    position: absolute; bottom: -40px; left: 50%; padding: 30px; text-align: center; 
+    transform: translateX(-50%); -webkit-transform: translateX(-50%); -moz-transform: translateX(-50%); }
+
+.tourmaster-room-side-thumbnail{ margin-bottom: 60px; }
+.tourmaster-room-side-thumbnail .tourmaster-room-side-thumbnail-inner{ display: flex; align-items: center; }
+.tourmaster-room-side-thumbnail .tourmaster-room-thumbnail{ width: 40% }
+.tourmaster-room-side-thumbnail .tourmaster-room-content-wrap{ width: 60%; padding: 0px 0px 0px 40px; }
+.tourmaster-room-side-thumbnail .tourmaster-bottom{ display: flex; align-items: center; justify-content: space-between; }
+.tourmaster-room-side-thumbnail .tourmaster-read-more{ margin-top: 2px; }
+.tourmaster-room-side-thumbnail .tourmaster-price-wrap.tourmaster-no-bg{ font-weight: 500; }
+.tourmaster-room-side-thumbnail .tourmaster-price-wrap.tourmaster-no-bg .tourmaster-price-discount{ font-weight: 600; }
+.tourmaster-room-side-thumbnail .tourmaster-price-wrap.tourmaster-no-bg .tourmaster-tail{ text-transform: none; font-size: 17px; font-weight: 400; }
+.tourmaster-room-item .tourmaster-room-side-thumbnail .tourmaster-price-wrap.tourmaster-no-bg{ font-size: 25px; }
+.tourmaster-room-item .tourmaster-room-side-thumbnail .tourmaster-info-wrap .tourmaster-info{ margin-right: 30px; }
+.tourmaster-room-item .tourmaster-room-side-thumbnail .tourmaster-room-content { margin-bottom: 30px; }
+
+/* single review */
+.single-room .tourmaster-single-review-head{ padding: 18px 0px; border-top-width: 1px; border-bottom-width: 1px; }
+.single-room .tourmaster-single-review-head .tourmaster-room-rating{ font-size: 18px; float: left; margin-bottom: 0px; margin-top: 0px; }
+.single-room .tourmaster-single-review-head .tourmaster-room-rating-text{ margin-left: 0px; float: left; margin-right: 25px; font-size: 20px; font-weight: 500; }
+.single-room .tourmaster-single-review-head .tourmaster-room-rating i{ margin-right: 6px; vertical-align: middle; }
+.single-room .tourmaster-single-review-head-info{ display: flex; align-items: center; justify-content: space-between; }
+.single-room .tourmaster-single-review-content{ padding-left: 0px; }
+.single-room .tourmaster-single-review-content .tourmaster-single-review-content-item{ border-bottom-width: 1px; border-bottom-style: solid; margin-bottom: 40px; }
+.single-room .tourmaster-single-review-content .tourmaster-single-review-user-name{ font-size: 20px; font-weight: 600; }
+.single-room .tourmaster-single-review-content .tourmaster-single-review-detail{  border-bottom: 0px; padding-bottom: 40px; font-size: 17px; }
+.single-room .tourmaster-single-review-content .tourmaster-single-review-detail-rating{ font-size: 17px; margin-bottom: 4px; }
+.single-room .tourmaster-single-review-content .tourmaster-single-review-detail-rating i{  margin-right: 6px; }
+.single-room .tourmaster-single-review-content .tourmaster-single-review-detail-date{ font-style: normal; font-size: 16px; }
+.single-room .tourmaster-single-review-head .tourmaster-single-review-sort-by{ margin-right: 0; }
+.single-room .tourmaster-single-review-sort-by .tourmaster-sort-by-field:last-child{ margin-right: 0px; }
+.single-room .tourmaster-room-title-item .tourmaster-room-title-price{ font-size: 25px; }
+
+/* room search */
+.tourmaster-room-search-item{ padding-bottom: 30px; }
+.tourmaster-room-search-form{ width: 100%; display: flex; gap: 10px; flex-wrap: wrap; }
+.tourmaster-room-search-form .tourmaster-room-search-submit{ padding: 5px 35px; border: none; }
+.tourmaster-room-search-form .tourmaster-room-search-submit.tourmaster-style-border{ background: transparent !important; border-width: 2px; border-style: solid; }
+.tourmaster-room-search-form .tourmaster-custom-amount-display,
+.tourmaster-room-search-form .tourmaster-room-date-selection .tourmaster-custom-start-date,
+.tourmaster-room-search-form .tourmaster-room-date-selection .tourmaster-custom-end-date{ border-radius: 0px; -webkit-border-radius: 0px; -moz-border-radius: 0px; }
+.tourmaster-room-search-form.tourmaster-align-vertical{ flex-direction: column; gap: 0; }
+.tourmaster-room-search-form.tourmaster-align-vertical .tourmaster-room-search-size5,
+.tourmaster-room-search-form.tourmaster-align-vertical .tourmaster-room-size2{ margin-bottom: 20px; }
+.tourmaster-room-search-form.tourmaster-align-horizontal .tourmaster-room-search-size10{ flex-grow: 10; }
+.tourmaster-room-search-form.tourmaster-align-horizontal .tourmaster-room-search-size5{ flex-grow: 5; }
+.tourmaster-room-search-form.tourmaster-align-horizontal .tourmaster-room-size2{ flex-grow: 2; }
+
+.tourmaster-room-search-form.tourmaster-radius-round .tourmaster-custom-amount-display,
+.tourmaster-room-search-form.tourmaster-radius-round .tourmaster-room-date-selection .tourmaster-custom-end-date,
+.tourmaster-room-search-form.tourmaster-radius-round .tourmaster-room-date-selection .tourmaster-custom-start-date{ border-radius: 5px; -webkit-border-radius: 5px; -moz-border-radius: 5px; }
+.tourmaster-room-search-form.tourmaster-radius-round .tourmaster-room-search-submit{ border-radius: 5px; -webkit-border-radius: 5px; -moz-border-radius: 5px; }
+.tourmaster-room-search-form.tourmaster-radius-round .tourmaster-custom-start-date .tourmaster-tail, 
+.tourmaster-room-search-form.tourmaster-radius-round .tourmaster-custom-end-date .tourmaster-tail,
+.tourmaster-room-search-form.tourmaster-radius-round .tourmaster-custom-amount-display .tourmaster-tail{ border-radius: 5px; -webkit-border-radius: 5px; -moz-border-radius: 5px; }
+
+.tourmaster-room-search-form.tourmaster-style-box .tourmaster-room-search-submit{ height: 100%; min-height: 50px; width: 100%; }
+
+.tourmaster-room-search-form.tourmaster-style-text-top .tourmaster-room-search-submit-wrap{ align-self: flex-end; }
+.tourmaster-room-search-form.tourmaster-style-text-top .tourmaster-custom-start-date, 
+.tourmaster-room-search-form.tourmaster-style-text-top .tourmaster-custom-end-date, 
+.tourmaster-room-search-form.tourmaster-style-text-top .tourmaster-custom-amount-display{ padding: 0; background: transparent; }
+.tourmaster-room-search-form.tourmaster-style-text-top .tourmaster-custom-start-date .tourmaster-head, 
+.tourmaster-room-search-form.tourmaster-style-text-top .tourmaster-custom-end-date .tourmaster-head,
+.tourmaster-room-search-form.tourmaster-style-text-top .tourmaster-custom-amount-display .tourmaster-head{ margin-left: 18px; white-space: nowrap; }
+.tourmaster-room-search-form.tourmaster-style-text-top .tourmaster-custom-start-date .tourmaster-tail, 
+.tourmaster-room-search-form.tourmaster-style-text-top .tourmaster-custom-end-date .tourmaster-tail,
+.tourmaster-room-search-form.tourmaster-style-text-top .tourmaster-custom-amount-display .tourmaster-tail{ padding: 12px 18px; border-width: 1px; border-style: solid; white-space: nowrap; }
+.tourmaster-room-search-form.tourmaster-style-text-top .tourmaster-room-search-submit{ height: 48px; }
+
+.tourmaster-room-search-form.tourmaster-style-placeholder .tourmaster-custom-start-date, 
+.tourmaster-room-search-form.tourmaster-style-placeholder .tourmaster-custom-end-date,
+.tourmaster-room-search-form.tourmaster-style-placeholder .tourmaster-custom-amount-display{ border-width: 1px; border-style: solid; padding-top: 11px; padding-bottom: 11px; }
+.tourmaster-room-search-form.tourmaster-style-placeholder .tourmaster-room-date-selection .tourmaster-tail{ display: none; line-height: 22px; }
+.tourmaster-room-search-form.tourmaster-style-placeholder .tourmaster-room-date-selection .tourmaster-head{ margin-bottom: 0px; line-height: 22px; }
+.tourmaster-room-search-form.tourmaster-style-placeholder .tourmaster-room-date-selection.tourmaster-selected .tourmaster-head{ display: none; }
+.tourmaster-room-search-form.tourmaster-style-placeholder .tourmaster-room-date-selection.tourmaster-selected .tourmaster-tail{ display: block; }
+.tourmaster-room-search-form.tourmaster-style-placeholder .tourmaster-custom-amount-display .tourmaster-head{ display: none; }
+.tourmaster-room-search-form.tourmaster-style-placeholder .tourmaster-room-search-submit{ font-size: 15px; font-weight: 500; text-transform: none; height: 100%; min-height: 50px; width: 100%; }
+
+.tourmaster-room-search-form.tourmaster-style-placeholder.tourmaster-align-vertical .tourmaster-custom-amount-display, 
+.tourmaster-room-search-form.tourmaster-style-placeholder.tourmaster-align-vertical .tourmaster-room-date-selection .tourmaster-custom-end-date, 
+.tourmaster-room-search-form.tourmaster-style-placeholder.tourmaster-align-vertical .tourmaster-room-date-selection .tourmaster-custom-start-date{ padding: 20px 25px; }
+.tourmaster-room-search-form.tourmaster-style-placeholder.tourmaster-align-vertical .tourmaster-room-search-submit { min-height: 64px; }
+
+body .tourmaster-room-search-item-wrap > h3{ font-size: 26px; font-weight: 500; }
+
+.tourmaster-room-search-tax-wrap{ margin-top: 20px; margin-bottom: 20px; }
+.tourmaster-room-search-tax-item{ margin-bottom: 30px; }
+.tourmaster-room-search-tax-item .tourmaster-label{ font-size: 18px; font-weight: 600; margin-bottom: 0px; padding-bottom: 18px; }
+.tourmaster-room-search-tax-item .tourmaster-close-filter{ width: 14px; height: 14px; margin-top: 5px; cursor: pointer; position: relative; float: right; }
+.tourmaster-room-search-tax-item .tourmaster-close-filter:before, 
+.tourmaster-room-search-tax-item .tourmaster-close-filter:after{ content: ""; width: 100%; border-bottom-width: 2px; border-bottom-style: solid; position: absolute; right: 0px; top: 5px; }
+.tourmaster-room-search-tax-item .tourmaster-close-filter.tourmaster-active:after{ transform: rotate(90deg); -webkit-transform: rotate(90deg); -moz-transform: rotate(90deg); }
+.tourmaster-room-search-tax-item .tourmaster-filter-term{ font-size: 17px; padding-bottom: 5px; position: relative; }
+.tourmaster-room-search-tax-item .tourmaster-filter-term input[type="checkbox"]{ cursor: pointer; border-width: 1px; border-style: solid; border-radius: 0; 
+    -webkit-appearance: none; width: 15px; height: 15px; margin: 0px 12px 2px 0px; }
+.tourmaster-room-search-tax-item .tourmaster-filter-term .tourmaster-checkbox-input{ font-size: 11px; position: absolute; left: 2px; top: 6px; display: none; pointer-events: none; }
+.tourmaster-room-search-tax-item .tourmaster-filter-term input[type="checkbox"]:checked + .tourmaster-checkbox-input{ display: block; }
+
+
+@media only screen and (max-width: 1050px){
+    .tourmaster-room-search-size10{ width: 100%; }
+}
+@media only screen and (max-width: 900px){
+    .tourmaster-payment-step{ margin-top: 55px; }
+    .tourmaster-room-payment-step{ display: none; }
+    .tourmaster-room-price-sidebar .tourmaster-room-coupon-code{ width: 80px; }
+}
+@media only screen and (max-width: 767px){
+    .tourmaster-room-search-form{ flex-direction: column; gap: 0; }
+    .tourmaster-room-search-size5,
+    .tourmaster-room-size2{ margin-bottom: 16px; } 
+
+    .single-room .tourmaster-room-single-header-title-wrap{ padding: 120px 20px; }
+    .single-room .tourmaster-single-review-head-info{ flex-direction: column; }
+    
+    .tourmaster-room-price-sidebar .tourmaster-room-coupon-code{ width: 130px; }
+
+    .tourmaster-room-price-summary-item .tourmaster-price-breakdown-title{ display: block; margin-top: 3px; }
+    .tourmaster-room-price-summary-item .tourmaster-title .tourmaster-price{ float: none; margin-top: 15px; display: block; }
+    .tourmaster-room-price-summary-item .tourmaster-service .tourmaster-label-checkbox{ float: left; margin-top: 6px; }
+    .tourmaster-room-price-summary-item .tourmaster-service .tourmaster-service-label{ overflow: hidden; display: block; }
+
+    .tourmaster-room-payment-contact-form .tourmaster-head{ float: none; width: auto; margin-bottom: 8px; }
+    .tourmaster-room-payment-contact-form .tourmaster-guest-info-field .tourmaster-tail{ margin-left: -7px; margin-right: -7px; }
+}
+
+/* dashboard */
+table.tourmaster-my-booking-table.tourmaster-room-table th:nth-child(1){ width: 10%; }
+table.tourmaster-my-booking-table.tourmaster-room-table th:nth-child(2){ width: 60%; }
+table.tourmaster-my-booking-table.tourmaster-room-table th:nth-child(3){ width: 15%; }
+table.tourmaster-my-booking-table.tourmaster-room-table th:nth-child(4){ width: 15%; }
+
+table.tourmaster-user-review-table.tourmaster-room-table th:nth-child(1){ width: 10%; }
+table.tourmaster-user-review-table.tourmaster-room-table th:nth-child(2){ width: 60%; }
+table.tourmaster-user-review-table.tourmaster-room-table th:nth-child(3){ width: 15%; }
+table.tourmaster-user-review-table.tourmaster-room-table th:nth-child(4){ width: 15%; }
+
+/* custom */
+.tourmaster-body .tourmaster-room-payment-contact-wrap .tourmaster-payment-contact-title { font-size: 26px; }
+.tourmaster-room-payment-contact-form .tourmaster-contact-field, 
+.tourmaster-room-payment-contact-form .tourmaster-billing-field { max-width: 575px; }
+.tourmaster-room-payment-contact-form .tourmaster-guest-info-field .tourmaster-head { width: 100px; }
+.tourmaster-body h3.tourmaster-payment-additional-note-title { margin-bottom: 20px; }
+.tourmaster-room-payment-contact-wrap h3.tourmaster-payment-contact-title{  margin-bottom: 40px; }
+.tourmaster-additional-note-field.clearfix { max-width: 575px; }
+.tourmaster-room-price-summary-wrap.tourmaster-room-service-form.tourmaster-item-mglr{ padding-right: 20px; }
+
+/* review */
+.single-room .tourmaster-single-review-content .tourmaster-single-review-avatar{ width: 90px; height: 90px; margin: 0px 45px 0px 0px; }
+.single-room .tourmaster-single-review-content .tourmaster-single-review-user{ width: 300px; padding-right: 20px; display: flex; align-items: center; }
+.single-room .tourmaster-single-review-content .tourmaster-single-review-user-name{ margin-bottom: 0px; }
+.single-room .tourmaster-single-review-content .tourmaster-single-review-user:after{ display: none; }
+
+/* responsive */
+@media only screen and (max-width: 999px){
+    .tourmaster-room-side-thumbnail .tourmaster-room-side-thumbnail-inner{ flex-direction: column; gap: 30px; }
+    .tourmaster-room-side-thumbnail .tourmaster-room-thumbnail{ width: 100%; }
+    .tourmaster-room-side-thumbnail .tourmaster-room-content-wrap{ width: 100%; padding: 0px; }
+}

@@ -87,6 +87,11 @@ class Kamar extends CI_Controller
             show_error('Forbidden', 403);
         }
     }
+
+    public function logout()
+    {
+        session_destroy();
+    }
 }
 
 /* End of file Kamar.php */

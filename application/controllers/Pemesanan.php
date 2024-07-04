@@ -44,6 +44,7 @@ class Pemesanan extends CI_Controller
             'harga' => $harga_kamar[0]['harga'],
         ];
         $this->load->view('partials/main', $data);
+        // var_dump($tamu);
     }
     public function createPemesanan()
     {
@@ -102,6 +103,8 @@ class Pemesanan extends CI_Controller
         ];
         $this->load->view('partials/main', $data);
     }
+
+  
 }
 
 /* End of file Pemesanan.php */
