@@ -14,6 +14,8 @@ class Dashboard extends CI_Controller
         $this->load->model('customer_model');
         $this->load->model('M_dashboard');
         $this->load->model('M_pemesanan');
+        $this->load->library('PDF');
+        
         
         if (empty($this->session->userdata('username'))) {
             redirect('Authadmin/login');
@@ -163,6 +165,77 @@ class Dashboard extends CI_Controller
         // Set flash data untuk notifikasi
         $this->session->set_flashdata('success', 'Data berhasil diperbarui!');
         redirect('Dashboard/guestData');
+    }
+
+    public function monthlyReport()
+    {
+        $selectedMonth = $this->input->get('month');
+        if ($selectedMonth) {
+            $selectedYear = $this->input->get('year');
+
+            $monthYear = "$selectedYear-$selectedMonth";
+
+            // Simpan nilai bulan ke dalam session
+            $this->session->set_userdata('selected_month', $monthYear);
+            $formattedMonthYear = date("F Y", strtotime($this->session->userdata('selected_month')));
+        } else {
+            $monthYear = "";
+            $this->session->set_userdata('selected_month', $monthYear);
+            $monthYear = $this->session->userdata('selected_month');
+            $formattedMonthYear = "";
+        }
+
+        $monthly_orders = $this->M_dashboard->getMonthlyOrders($this->session->userdata('selected_month'));
+
+        $data = [
+            'title' => 'Guest Data',
+            'header' => 'dashboard/header',
+            'navbar' => 'dashboard/navbar',
+            'sidebar' => 'dashboard/sidebar',
+            // 'content' => 'dashboard/guestdata',
+            'footer' => 'dashboard/footer',
+            'script' => 'dashboard/script',
+            // 'guest' => $guest,
+            'monthly_orders' => $monthly_orders,
+            // 'active_tab' => 'monthlyReport',
+            'selected_month' => $formattedMonthYear,
+        ];
+
+        if ($selectedMonth == '') {
+            $data['content'] = 'dashboard/monthly_report';
+        } else {
+            $data['content'] = 'dashboard/monthly_report_table';
+        }
+        $this->load->view('dashboard/main', $data);
+    }
+
+    public function saveAsPDF()
+    {
+        $data['title'] = 'Laporan Bulanan';
+        $monthYear = $this->session->userdata('selected_month');
+
+        if ($monthYear == null) {
+            $formattedMonthYear = "";
+        } else {
+            $formattedMonthYear = date("F Y", strtotime($monthYear));
+        }
+
+        $data['title'] = 'Laporan Bulanan ' . $formattedMonthYear;
+        $monthly_orders = $this->M_dashboard->getMonthlyOrders($monthYear);
+
+        $data = [
+            'monthly_orders' => $monthly_orders,
+            'selected_month' => $formattedMonthYear, // Menggunakan format yang baru
+        ];
+
+        $data['formatCurrency'] = array($this->pdf, 'formatCurrency');
+
+        $filename = 'LaporanBulanan';
+        $paper = 'A4';
+        $orientation = 'portrait';
+        $view = $this->load->view('dashboard/monthly_report_pdf', $data, true);
+
+        $this->pdf->generate($view, $filename, $paper, $orientation);
     }
 
 }

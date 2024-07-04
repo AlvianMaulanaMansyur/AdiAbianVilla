@@ -1,5 +1,5 @@
 <body>
-  <div class="m-10 ">
+  <div class="m-10">
     <table class="table">
       <!-- head -->
       <thead>

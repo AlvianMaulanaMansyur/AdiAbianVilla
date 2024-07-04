@@ -1,5 +1,6 @@
 {
   "dependencies": {
+    "@easepick/bundle": "^1.2.1",
     "autoprefixer": "^10.4.19",
     "flowbite-datepicker": "^1.2.6",
     "lightpick": "^1.6.2",
