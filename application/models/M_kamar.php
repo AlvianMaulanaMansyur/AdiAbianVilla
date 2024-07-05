@@ -38,8 +38,9 @@ class M_kamar extends CI_Model
 
     public function getKamar()
     {
-        $this->db->select('id_kamar');
+        $this->db->select('kamar.id_kamar, detail_kamar.jenis_kamar');
         $this->db->from('kamar');
+        $this->db->join('detail_kamar', 'kamar.id_detail_kamar = detail_kamar.id_detail_kamar', 'left');
         $query = $this->db->get();
         return $query->result();
     }
@@ -67,6 +68,7 @@ class M_kamar extends CI_Model
         $this->db->from('kamar');
         $this->db->join('kamar_has_pemesanan', 'kamar.id_kamar = kamar_has_pemesanan.id_kamar');
         $this->db->join('pemesanan', 'kamar_has_pemesanan.id_pemesanan = pemesanan.id_pemesanan');
+        $this->db->join('detail_kamar', 'kamar.id_detail_kamar = detail_kamar.id_detail_kamar', 'left');
         
         $this->db->where('pemesanan.id_pemesanan IS NOT NULL');
         $this->db->group_start();
@@ -106,9 +108,7 @@ class M_kamar extends CI_Model
             'available_kamar' => $available_kamar,
             'count' => $available_kamar_count
         ];
-    }
-    
-    
+    }   
 
     // public function gabungKetersediaan($checkin, $checkout)
     // {

@@ -9,7 +9,10 @@ class Kamar extends CI_Controller
     {
         parent::__construct();
         $this->load->model('M_kamar');
-        if ($this->session->userdata('identity') == null) {
+
+        if($this->session->userdata('logged_in') == TRUE) {
+            
+        } elseif ($this->session->userdata('identity') == null) {
             redirect('auth/login');
         }
     }

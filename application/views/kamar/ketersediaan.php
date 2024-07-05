@@ -600,17 +600,14 @@
             let price = parseInt(roomsi) * parseInt(harga) * parseInt(nights)
             console.log('malam', nights)
             console.log('price', kamar)
+            console.log('roomsi', roomsi)
 
             $("#availability-card-container").empty();
             $("#availability1").empty();
 
             if (kamar >= roomsi) {
                 // $("#error-message").html(`<div class="text-green-500"><i class="fa-solid fa-circle-check"></i> There are ${kamar} rooms available. You can continue booking by clicking the reserve button </div>`);
-
-                availability.forEach(function(item) {
-                    // Append room information
-                });
-
+console.log('aahahhghghghghg')
                 const avak = `
                 <div class="flex flex-col items-center pb-10">
         <div class="border h-px lg:w-5/6 md:w-full sm:w-full mt-3"></div>
@@ -741,9 +738,11 @@
 
             // document.cookie = "roomsData=" + JSON.stringify(roomsData) + "; path=/";
                 var availability = response.availability
-                var kamar = availability.length;
+                var kamar = availability.count;
                 var harga = 500000
                 var jenis_kamar = 'Standard'
+                console.log('jumlah kamar',availability.count);
+                // console.log('kamar yang tersedia',availability.available_kamar[0]['id_kamar']);
 
                 setCookie('availability', JSON.stringify(availability), 1);
                 setCookie('availability1', JSON.stringify(availability), 1);
@@ -822,10 +821,7 @@
                         scrollTop: $("#availability-card-container").offset().top
                     }, 10);
                 }
-            },
-            error: function(xhr, status, error) {
-                console.error(xhr.responseText); // Tampilkan pesan error jika permintaan gagal
-            },
+            }
         });
 
         // Lakukan tindakan lebih lanjut seperti submit form atau AJAX request
