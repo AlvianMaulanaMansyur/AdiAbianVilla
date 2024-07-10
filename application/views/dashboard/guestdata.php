@@ -21,8 +21,8 @@
             <tr>
               <td><?= $no++; ?></td>
               <td>
-                  <div class="flex justify-center w-10  h-10">
-                    <img src="<?= base_url($key['foto_profil']); ?>" alt="Profile Picture" />
+                  <div class="flex justify-center w-34  h-10 ">
+                    <img src="<?= base_url('assets/foto/'.$key['foto_profil']); ?>" alt="Profile Picture" />
                   </div>
               </td>
               <td class="hidden"><?= $key['id_tamu']?></td>
