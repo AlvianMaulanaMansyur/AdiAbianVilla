@@ -84,62 +84,25 @@
     <!-- Start Carousel -->
 
     <!-- End Carousel -->
-    <div id="default-carousel" class="relative w-full overflow-hidden" data-carousel="slide">
-        <div class="relative h-56 overflow-hidden rounded-lg md:h-96 flex" style="width: 100%;">
-            <!-- Item 1 -->
-            <div class="carousel-item duration-700 ease-in-out flex-shrink-0" style="width: 33.3333%;">
-                <img src="<?php echo base_url('assets/foto/villa.jpg') ?>" class="object-cover block w-full h-full" alt="Villa 1">
-            </div>
-            <!-- Item 2 -->
-            <div class="carousel-item duration-700 ease-in-out flex-shrink-0" style="width: 33.3333%;">
-                <img src="<?php echo base_url('assets/foto/villa.jpg') ?>" class="object-cover block w-full h-full" alt="Villa 2">
-            </div>
-            <!-- Item 3 -->
-            <div class="carousel-item duration-700 ease-in-out flex-shrink-0" style="width: 33.3333%;">
-                <img src="<?php echo base_url('assets/foto/villa.jpg') ?>" class="object-cover block w-full h-full" alt="Villa 3">
-            </div>
-            <!-- Item 4 -->
-            <div class="carousel-item duration-700 ease-in-out flex-shrink-0" style="width: 33.3333%;">
-                <img src="<?php echo base_url('assets/foto/villa.jpg') ?>" class="object-cover block w-full h-full" alt="Villa 4">
-            </div>
-            <!-- Item 5 -->
-            <div class="carousel-item duration-700 ease-in-out flex-shrink-0" style="width: 33.3333%;">
-                <img src="<?php echo base_url('assets/foto/villa.jpg') ?>" class="object-cover block w-full h-full" alt="Villa 5">
-            </div>
-        </div>
-        <!-- Slider controls -->
-        <button type="button" class="absolute top-0 start-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none" data-carousel-prev>
-            <span class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-white/30 dark:bg-gray-800/30 group-hover:bg-white/50 dark:group-hover:bg-gray-800/60 group-focus:ring-4 group-focus:ring-white dark:group-focus:ring-gray-800/70 group-focus:outline-none">
-                <svg class="w-4 h-4 text-white dark:text-gray-800 rtl:rotate-180" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
-                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 1 1 5l4 4" />
-                </svg>
-                <span class="sr-only">Previous</span>
-            </span>
-        </button>
-        <button type="button" class="absolute top-0 end-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none" data-carousel-next>
-            <span class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-white/30 dark:bg-gray-800/30 group-hover:bg-white/50 dark:group-hover:bg-gray-800/60 group-focus:ring-4 group-focus:ring-white dark:group-focus:ring-gray-800/70 group-focus:outline-none">
-                <svg class="w-4 h-4 text-white dark:text-gray-800 rtl:rotate-180" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
-                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 9 4-4-4-4" />
-                </svg>
-                <span class="sr-only">Next</span>
-            </span>
-        </button>
-    </div>
-
-
+   
     <!-- <?php var_dump($kamar) ?> -->
     <!-- <?php var_dump($harga) ?> -->
 
-    <div class="container mx-auto py-5 px-4">
-        <div class="text-3xl font-bold text-center">Adi Abian Villa</div>
+    <div class="py-5 px-4 text-center w-full">
+    <div class="text-3xl font-bold text-center">Adi Abian Villa</div>
 
-        <div class="text-xl font-semibold text-center text-gray-500 mt-2"><?php echo 'Rp' . number_format($harga, 0, ',', '.'); ?> / night</div>
-        <div class="text-base pt-3 leading-relaxed text-center">
+    <div class="text-xl font-semibold text-center text-gray-500 mt-2">
+        <?php echo 'Rp' . number_format($harga, 0, ',', '.'); ?> / night
+    </div>
+    <div class="text-base pt-3 text-center flex justify-center">
+        <div class="w-full">
             Welcome to Adi Abian Villa, where luxury meets tropical nature. This villa offers spacious open areas, an infinity pool, and serene tropical gardens. Equipped with modern amenities and elegant design, each bedroom provides a comfortable resting place. Enjoy an unforgettable vacation at Adi Abian Villa, where comfort and natural beauty blend perfectly.
             <br><br>
             Each room can accommodate up to 2 adults and 1 child. Children under 6 years old stay for free.
         </div>
     </div>
+</div>
+
     <div class="text-2xl font-bold text-center mt-10 mb-4">Check Availability</div>
 
     <div class="flex items-center justify-center pb-5">
@@ -160,7 +123,7 @@
 
                                 <div id="data_checkin" data="<?php echo $kamar['checkin'] ?>"></div>
                                 <div class="flex justify-center">
-                                    <input id="datepicker" class="appearance-none w-48 py-2 px-3 text-gray-900 bg-white border-none" type="text" placeholder="Select check-in" value="<?php echo $kamar['checkin'] ?>" disabled>
+                                    <input id="datepicker" class="appearance-none w-48 py-2 px-3 text-gray-900 bg-white border-none" type="text" placeholder="Select check-in" disabled>
                                 </div>
                             </div>
                             <div>
@@ -172,7 +135,7 @@
                                 </div>
 
                                 <div id="data_checkout" data="<?php echo $kamar['checkout'] ?>"></div>
-                                <input id="datepicker2" class="appearance-none w-48 py-2 px-3 text-gray-900 bg-white border-none" type="text" placeholder="Select check-out" value="<?php echo $kamar['checkout'] ?>" disabled>
+                                <input id="datepicker2" class="appearance-none w-48 py-2 px-3 text-gray-900 bg-white border-none" type="text" placeholder="Select check-out"  disabled>
                             </div>
                             <div class="pt-4 flex gap-1">
                                 <div>
@@ -634,19 +597,17 @@
             let checkin = moment(checkinCookie);
             let checkout = moment(checkoutCookie);
             let nights = checkout.diff(checkin, 'days');
-            let price = parseInt(kamar) * parseInt(harga) * parseInt(nights)
+            let price = parseInt(roomsi) * parseInt(harga) * parseInt(nights)
             console.log('malam', nights)
+            console.log('price', kamar)
+            console.log('roomsi', roomsi)
 
             $("#availability-card-container").empty();
             $("#availability1").empty();
 
             if (kamar >= roomsi) {
-                $("#error-message").html(`<div class="text-green-500"><i class="fa-solid fa-circle-check"></i> There are ${kamar} rooms available. You can continue booking by clicking the reserve button </div>`);
-
-                availability.forEach(function(item) {
-                    // Append room information
-                });
-
+                // $("#error-message").html(`<div class="text-green-500"><i class="fa-solid fa-circle-check"></i> There are ${kamar} rooms available. You can continue booking by clicking the reserve button </div>`);
+console.log('aahahhghghghghg')
                 const avak = `
                 <div class="flex flex-col items-center pb-10">
         <div class="border h-px lg:w-5/6 md:w-full sm:w-full mt-3"></div>
@@ -688,8 +649,6 @@
             }
         }
     };
-
-
 
     $("#check").click(function(event) {
         // Mencegah form submit jika menggunakan form
@@ -779,9 +738,11 @@
 
             // document.cookie = "roomsData=" + JSON.stringify(roomsData) + "; path=/";
                 var availability = response.availability
-                var kamar = availability.length;
-                var harga = availability[0].harga
-                var jenis_kamar = availability[0].jenis_kamar
+                var kamar = availability.count;
+                var harga = 500000
+                var jenis_kamar = 'Standard'
+                console.log('jumlah kamar',availability.count);
+                // console.log('kamar yang tersedia',availability.available_kamar[0]['id_kamar']);
 
                 setCookie('availability', JSON.stringify(availability), 1);
                 setCookie('availability1', JSON.stringify(availability), 1);
@@ -792,12 +753,10 @@
 
                 var checkinCookie = getCookie('checkin');
                 var checkoutCookie = getCookie('checkout');
-                // var check_in = checkinCookie;
-                // var check_out = JSON.parse(checkoutCookie);
                 let checkin = moment(checkinCookie);
                 let checkout = moment(checkoutCookie);
                 let nights = checkout.diff(checkin, 'days');
-                let price = parseInt(kamar) * parseInt(harga) * parseInt(nights)
+                let price = parseInt(roomsi) * parseInt(harga) * parseInt(nights)
                 console.log('malam', nights)
 
 
@@ -862,10 +821,7 @@
                         scrollTop: $("#availability-card-container").offset().top
                     }, 10);
                 }
-            },
-            error: function(xhr, status, error) {
-                console.error(xhr.responseText); // Tampilkan pesan error jika permintaan gagal
-            },
+            }
         });
 
         // Lakukan tindakan lebih lanjut seperti submit form atau AJAX request

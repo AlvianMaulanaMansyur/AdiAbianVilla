@@ -67,24 +67,6 @@
     border: none;
 }
 
-#default-carousel .relative {
-    display: flex;
-    transition: transform 0.5s ease-in-out;
-}
 
-.carousel-item {
-    width: 33.3333%; /* Adjust the width to show part of next/previous items */
-    transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out;
-}
-
-#default-carousel {
-    overflow: hidden;
-}
-
-#default-carousel .carousel-item img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
     </style>
 </head>

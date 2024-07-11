@@ -551,7 +551,7 @@ input::-ms-input-placeholder {
 .menu-scroll {
     padding-top: 0px;
     padding-bottom: 0px;
-    position: fixed;
+    position: absolute;
     top: 0; 
     left: 0; 
     right: 0; 
@@ -567,7 +567,7 @@ input::-ms-input-placeholder {
 }
 .main_menu_bg{
     margin-top: 0px;
-    background-color: transparent;
+    background-color: #e74c3c;
 }
 .main_menu_bg .navbar-default {
     background-color: transparent; 
