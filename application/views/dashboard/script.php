@@ -1,4 +1,5 @@
     <script src="<?= base_url('assets/vendors/js/vendor.bundle.base.js'); ?>"></script>
+    
     <script src="<?= base_url('assets/vendors/bootstrap-datepicker/bootstrap-datepicker.min.js'); ?>"></script>
     <!-- endinject -->
     <!-- Plugin js for this page -->
@@ -26,4 +27,41 @@
     <!-- our own -->
     <script src="<?php echo base_url('assets/js/ketersediaan.js') ?>"></script>
     <script src="<?php echo base_url('assets/js/guestData.js') ?>"></script>
+
+    <script src="<?php echo base_url('assets/js/myScript.js') ?>"></script>
+    <script src="<?php echo base_url('assets/js/sweetalert2.all.js') ?>"></script>
+
+
+<script>
+    //sweetAlert
+    //insert and update
+    const alert = $(".flash-data").data("flashdata");
+    if (alert) {
+        Swal.fire({
+            title: '<?= $this->session->userdata('tittle'); ?>',
+            text: alert,
+            icon: '<?= $this->session->userdata('icon'); ?>',
+            confirmButtonColor: "#07378e",
+        });
+    }
+    //delete
+    $('.hapus').on('click', function(e) {
+        e.preventDefault();
+        const href = $(this).attr('href');
+        Swal.fire({
+            title: "Apakah anda yakin?",
+            text: "data akan dihapus",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#3085d6",
+            cancelButtonColor: "#d33",
+            cancelButtonText: "Batal",
+            confirmButtonText: "Ya, Hapus!"
+        }).then((result) => {
+            if (result.isConfirmed) {
+                document.location.href = href;
+            }
+        });
+    });
+</script>
     <!-- End custom js for this page-->

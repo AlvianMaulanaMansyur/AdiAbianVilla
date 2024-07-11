@@ -33,7 +33,8 @@ class Authadmin extends CI_Controller
         if ($admin) {
             $data_admin = array(
                 'username' => $username,
-                'logged_in' => TRUE
+                'logged_in' => TRUE,
+                'id_admin' => 'id_admin',
             );
 
             $this->session->set_userdata($data_admin);
