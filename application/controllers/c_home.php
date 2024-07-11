@@ -37,4 +37,10 @@ class c_home extends CI_Controller {
        redirect('auth/login');
         
     }
+
+    public function about()
+    {
+        $this->load->view('home/about');
+        
+    }
 }
