@@ -1,0 +1,73 @@
+.tourmaster-room-navigation-checkout-button{ margin-top: 0px; } 
+.tourmaster-room-invoice-logo{ width: 250px; margin-bottom: 35px; } 
+.tourmaster-room-single-header-title-wrap{ background-image: url(https://demo.goodlayers.com/hotale/resort/wp-content/uploads/sites/2/2022/01/resort-title-bg.jpg); } 
+.tourmaster-room-single-header-title-wrap{ padding-top: 240px; } 
+.tourmaster-room-single-header-title-wrap{ padding-bottom: 140px; } 
+body .tourmaster-room-single-header-title-wrap h1{ font-size: 76px; } 
+body .tourmaster-room-single-header-title-wrap h1{ font-style: normal; } 
+body .tourmaster-room-single-header-title-wrap h1{ text-transform: none; } 
+body .tourmaster-room-single-header-title-wrap h1{ text-align: center; } 
+body input[type="submit"].tourmaster-room-button{ color: #0c0c0c; border-color: #0c0c0c; }body input[type="submit"].tourmaster-room-button:hover{ color: #fff; background-color: #0c0c0c; }.tourmaster-room-search-form .tourmaster-room-search-submit.tourmaster-style-solid{ background: #0c0c0c; color: #fff; }.tourmaster-room-search-form .tourmaster-room-search-submit.tourmaster-style-border{ color: #0c0c0c; border-color: #0c0c0c; }.tourmaster-body .tourmaster-room-button, .tourmaster-body .tourmaster-room-button:hover, .tourmaster-body .tourmaster-room-button.tourmaster-now-loading{ background-color: #0c0c0c; color: #fff; } 
+.tourmaster-body .tourmaster-room-button.tourmaster-grey{ color: #141414; } 
+.tourmaster-body .tourmaster-room-button.tourmaster-grey{ background-color: #f2f2f2; } 
+.tourmaster-room-price-sidebar .tourmaster-room-button.tourmaster-blue, .tourmaster-room-payment-lb .goodlayers-payment-form button{ color: #ffffff; }#goodlayers-authorize-payment-form .goodlayers-payment-button.submit{ color: #ffffff; } 
+.tourmaster-room-price-sidebar .tourmaster-room-button.tourmaster-blue, .tourmaster-room-payment-lb .goodlayers-payment-form button{ background-color: #0654b0; }#goodlayers-authorize-payment-form .goodlayers-payment-button.submit{ background-color: #0654b0; } 
+.tourmaster-body .tourmaster-form-field.tourmaster-room input[type="text"], .tourmaster-body .tourmaster-form-field.tourmaster-room input[type="email"], .tourmaster-body .tourmaster-form-field.tourmaster-room input[type="password"], .tourmaster-body .tourmaster-form-field.tourmaster-room textarea, .tourmaster-body .tourmaster-form-field.tourmaster-room select, .tourmaster-body .tourmaster-form-field.tourmaster-room input[type="text"]:focus, .tourmaster-body .tourmaster-form-field.tourmaster-room input[type="email"]:focus, .tourmaster-body .tourmaster-form-field.tourmaster-room input[type="password"]:focus, .tourmaster-body .tourmaster-form-field.tourmaster-room textarea:focus{ color: #4b4b4b; } 
+.tourmaster-body .tourmaster-form-field.tourmaster-room input[type="text"], .tourmaster-body .tourmaster-form-field.tourmaster-room input[type="email"], .tourmaster-body .tourmaster-form-field.tourmaster-room input[type="password"], .tourmaster-body .tourmaster-form-field.tourmaster-room textarea, .tourmaster-body .tourmaster-form-field.tourmaster-room select, .tourmaster-body .tourmaster-form-field.tourmaster-room input[type="text"]:focus, .tourmaster-body .tourmaster-form-field.tourmaster-room input[type="email"]:focus, .tourmaster-body .tourmaster-form-field.tourmaster-room input[type="password"]:focus, .tourmaster-body .tourmaster-form-field.tourmaster-room textarea:focus{ background: #f5f5f5; } 
+.tourmaster-room-date-selection .tourmaster-custom-start-date, .tourmaster-room-date-selection .tourmaster-custom-end-date, .tourmaster-room-amount-selection .tourmaster-custom-amount-display,.tourmaster-custom-amount-selection-wrap, .tourmaster-custom-datepicker-wrap{ background-color: #ffffff; } 
+.tourmaster-room-booking-wrap .tourmaster-room-date-selection .tourmaster-custom-start-date, .tourmaster-room-booking-wrap .tourmaster-room-date-selection .tourmaster-custom-end-date, .tourmaster-room-booking-wrap .tourmaster-room-amount-selection .tourmaster-custom-amount-display{ background: #f5f5f5; } .tourmaster-template-room-search .tourmaster-room-date-selection .tourmaster-custom-start-date, .tourmaster-template-room-search .tourmaster-room-date-selection .tourmaster-custom-end-date, .tourmaster-template-room-search .tourmaster-room-amount-selection .tourmaster-custom-amount-display{ background: #f5f5f5; } 
+.tourmaster-room-date-selection .tourmaster-head, .tourmaster-custom-amount-display .tourmaster-head{ color: #8f8f8f; } 
+.tourmaster-room-date-selection .tourmaster-tail, .tourmaster-custom-amount-display .tourmaster-tail, .tourmaster-custom-datepicker-close{ color: #000000; }.tourmaster-custom-datepicker-calendar .ui-datepicker .ui-datepicker-title, .tourmaster-custom-datepicker-calendar .ui-datepicker .ui-datepicker-title select, .tourmaster-custom-datepicker-calendar .ui-datepicker-prev, .tourmaster-custom-datepicker-calendar .ui-datepicker-prev:hover, .tourmaster-custom-datepicker-calendar .ui-datepicker-next, .tourmaster-custom-datepicker-calendar .ui-datepicker-next:hover{ color: #000000; } .tourmaster-custom-datepicker-calendar .ui-datepicker table tr th{ color: #000000; } .tourmaster-body .tourmaster-custom-datepicker-calendar .ui-datepicker table tr td a, .tourmaster-body .tourmaster-custom-datepicker-calendar .ui-datepicker table tr td a:hover{ color: #000000; }.tourmaster-body .tourmaster-custom-datepicker-calendar .ui-datepicker table tr td.tourmaster-start a, .tourmaster-body .tourmaster-custom-datepicker-calendar .ui-datepicker table tr td.tourmaster-start span, .tourmaster-body .tourmaster-custom-datepicker-calendar .ui-datepicker table tr td.tourmaster-end a{ background: #000000; } .tourmaster-body .tourmaster-custom-datepicker-calendar .ui-datepicker table tr td.tourmaster-end span{ background: #000000; }.tourmaster-custom-amount-selection-item{ color: #000000; } 
+.tourmaster-custom-datepicker-title{ background-color: #f6f6f6; } 
+.tourmaster-custom-datepicker-title{ color: #767676; } 
+.tourmaster-body .tourmaster-custom-datepicker-calendar .ui-datepicker table tr td span{ color: #c4c4c4; } 
+.tourmaster-body .tourmaster-custom-datepicker-calendar .ui-datepicker table tr td.tourmaster-start:before, .tourmaster-body .tourmaster-custom-datepicker-calendar .ui-datepicker table tr td.tourmaster-interval:before, .tourmaster-body .tourmaster-custom-datepicker-calendar .ui-datepicker table tr td.tourmaster-end:before{ background-color: #f2f2f2; } 
+.single-room .tourmaster-single-review-head, .single-room .tourmaster-single-review-content .tourmaster-single-review-user-name{ color: #000000; } .single-room .tourmaster-single-review-head .tourmaster-room-rating i, .single-room .tourmaster-single-review-content .tourmaster-single-review-detail-rating i, .single-room .tourmaster-single-review-content .tourmaster-single-review-detail-date{ color: #000000; } 
+.tourmaster-room-navigation-checkout-wrap .tourmaster-room-navigation-checkout-button, .tourmaster-room-navigation-checkout-wrap .tourmaster-room-navigation-checkout-button:hover{ border-color: #ffffff; color: #ffffff; } 
+.tourmaster-room-navigation-checkout-wrap.tourmaster-active .tourmaster-room-navigation-checkout-button{ color: #1e1e1e; } 
+.tourmaster-room-navigation-checkout-wrap.tourmaster-active .tourmaster-room-navigation-checkout-button{ border-color: #ffffff; background: #ffffff; } 
+.tourmaster-room-navigation-checkout-button .tourmaster-count{ background: #dedede; } 
+.tourmaster-room-navigation-checkout-button .tourmaster-count{ color: #000; } 
+.tourmaster-room-cart-items{ background-color: #ffffff; } 
+.tourmaster-room-cart-items li, .tourmaster-room-cart-items .tourmaster-checkout-button{ color: #191919; } 
+.tourmaster-room-cart-items .tourmaster-checkout-button{ border-color: #d2d2d2; }.tourmaster-room-cart-items li i.tourmaster-remove{ color: #d2d2d2; } 
+.tourmaster-room-booking-bar-title{ color: #bebebe; } 
+.tourmaster-room-booking-bar-title .tourmaster-active{ color: #000000; border-color: #000000; } 
+.tourmaster-room-booking-bar-summary .tourmaster-room-price .tourmaster-head, .tourmaster-room-booking-bar-summary .tourmaster-price, .tourmaster-room-booking-bar-summary .tourmaster-price .tourmaster-tail.tourmaster-em, .tourmaster-room-booking-bar-summary .tourmaster-or{ color: #141414; } 
+.tourmaster-room-booking-bar-summary .tourmaster-room-price .tourmaster-tail, .tourmaster-room-booking-bar-summary .tourmaster-price .tourmaster-tail{ color: #a5a5a5; } 
+body .tourmaster-room-payment-step{ border-color: #e6e6e6; } 
+.tourmaster-room-payment-step .tourmaster-step .tourmaster-head{ color: #d0d0d0; } 
+.tourmaster-room-payment-step .tourmaster-step .tourmaster-bullet{ border-color: #dddddd; } 
+.tourmaster-room-payment-step .tourmaster-step.tourmaster-active .tourmaster-head{ color: #000000; } 
+.tourmaster-room-payment-step .tourmaster-step.tourmaster-active .tourmaster-bullet{ border-color: #5a5a5a; } 
+body .tourmaster-label-checkbox{ border-color: #c7c7c7; } 
+.tourmaster-label-checkbox span{ color: #4f4f4f; } 
+.tourmaster-room-price-summary-room-title{ color: #141414; }.tourmaster-room-price-summary-item .tourmaster-service, .tourmaster-room-price-summary-item .tourmaster-service-total{ color: #141414; }.tourmaster-room-single-price-breakdown .tourmaster-title, .tourmaster-room-single-price-breakdown .tourmaster-room-title, .tourmaster-room-single-price-breakdown .tourmaster-amount-title, .tourmaster-room-single-price-breakdown .tourmaster-room-total-price{ color: #141414; }.tourmaster-room-price-sidebar .tourmaster-price .tourmaster-head, .tourmaster-room-price-sidebar .tourmaster-price .tourmaster-tail.tourmaster-em{ color: #141414; }.tourmaster-room-price-sidebar .tourmaster-room-pay-type-item.tourmaster-active{ color: #141414; } 
+.tourmaster-room-price-summary-room-duration{ color: #9e9e9e; }.tourmaster-room-price-summary-item .tourmaster-service-total .tourmaster-tail,.tourmaster-room-price-summary-item .tourmaster-title .tourmaster-price{ color: #9e9e9e; }.tourmaster-room-single-price-breakdown{ color: #9e9e9e; } 
+.tourmaster-room-price-sidebar .tourmaster-room-pay-type-item, .tourmaster-room-price-sidebar .tourmaster-price .tourmaster-tail{ color: #a5a5a5; } 
+.tourmaster-room-payment-error, .tourmaster-room-booking-submit-error, .tourmaster-room-price-sidebar .tourmaster-error-message{ background-color: #f13232; color: #fff; } 
+.tourmaster-enquiry-form.tourmaster-room .tourmaster-enquiry-form-message.tourmaster-success{ background-color: #f1f8ff; } 
+.tourmaster-enquiry-form.tourmaster-room .tourmaster-enquiry-form-message.tourmaster-success{ border-color: #e1ebfe; } 
+.tourmaster-enquiry-form.tourmaster-room .tourmaster-enquiry-form-message.tourmaster-success{ color: #758ea8; } 
+.tourmaster-enquiry-form.tourmaster-room .tourmaster-enquiry-form-message.tourmaster-failed{ background-color: #fff1f1; } 
+.tourmaster-enquiry-form.tourmaster-room .tourmaster-enquiry-form-message.tourmaster-failed{ border-color: #fee1e1; } 
+.tourmaster-enquiry-form.tourmaster-room .tourmaster-enquiry-form-message.tourmaster-failed{ color: #a87575; } 
+.tourmaster-room-title-item .tourmaster-room-title-price .tourmaster-label, .tourmaster-room-title-item .tourmaster-room-title-price .tourmaster-price{ color: #0f0f0f; } 
+.tourmaster-room-title-item .tourmaster-room-title-price .tourmaster-price-discount{ color: #a6a6a6; } 
+.tourmaster-room-rating i{ color: #ffc100; } 
+.tourmaster-room-item .tourmaster-room-title a, .tourmaster-room-item .tourmaster-info-wrap i{ color: #000000; }.tourmaster-room-item .tourmaster-room-side-thumbnail .tourmaster-price-wrap.tourmaster-no-bg{ color: #000000 } 
+.tourmaster-room-item .tourmaster-info-wrap{ color: #848484; } 
+.tourmaster-room-item .tourmaster-location{ color: #000000; } 
+.tourmaster-room-grid4 .tourmaster-info-wrap i{ color: #33c390; } 
+.tourmaster-room-item .tourmaster-grid-frame .tourmaster-room-content-wrap{ background-color: #ffffff; } 
+.tourmaster-room-item .tourmaster-ribbon{ background-color: #e45154; } 
+.tourmaster-room-item .tourmaster-price-wrap.tourmaster-no-bg{ color: #949494; }.tourmaster-room-item .tourmaster-room-side-thumbnail .tourmaster-price-wrap.tourmaster-no-bg .tourmaster-tail{ color: #949494; } 
+.tourmaster-room-item .tourmaster-price-wrap.tourmaster-with-bg{ background-color: #000000; } 
+.tourmaster-room-item .tourmaster-price-wrap.tourmaster-with-bg{ color: #ffffff; } 
+.tourmaster-room-item .tourmaster-price-wrap.tourmaster-with-bg .tourmaster-price-discount{ color: #a6a6a6; } 
+.tourmaster-room-grid5 .tourmaster-thumbnail-category{ background: #fff; } 
+.tourmaster-room-grid5 .tourmaster-thumbnail-category a, .tourmaster-room-grid5 .tourmaster-thumbnail-category a:hover{ color: #888; } 
+.tourmaster-room-item a.tourmaster-read-more.tourmaster-type-text, .tourmaster-room-item a.tourmaster-read-more.tourmaster-type-text:hover{ color: #000000; } 
+.tourmaster-room-item a.tourmaster-read-more.tourmaster-type-button, .tourmaster-room-item a.tourmaster-read-more.tourmaster-type-button:hover{ background-color: #c4975e; } 
+.tourmaster-room-item a.tourmaster-read-more.tourmaster-type-button, .tourmaster-room-item a.tourmaster-read-more.tourmaster-type-button:hover{ color: #ffffff; } 
+.tourmaster-room-item .tourmaster-read-more.tourmaster-type-border-button{ border-color: #959595; color: #959595; } 
