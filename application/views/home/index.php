@@ -136,7 +136,7 @@
                                 </div>
                                 <div class="hotale-main-menu-right-wrap clearfix hotale-item-mglr hotale-navigation-top">
                                     <div class="tourmaster-room-navigation-checkout-wrap">
-                                        <a id="tourmaster-room-navigation-checkout-button" class="tourmaster-room-navigation-checkout-button" href="room-search.html" data-checkout-label="Check Out" data-label="Book Now">
+                                        <a id="tourmaster-room-navigation-checkout-button" class="tourmaster-room-navigation-checkout-button" href="<?php echo base_url('kamar') ?>" data-checkout-label="Check Out" data-label="Book Now">
                                             Book Now<span class="tourmaster-count">0</span>
                                         </a>
                                         <div class="tourmaster-room-cart-item-wrap">
