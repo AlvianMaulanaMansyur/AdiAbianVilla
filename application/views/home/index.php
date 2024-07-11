@@ -6,6 +6,7 @@
 
     <title>ADI ABIAN&#8211;VILLA</title>
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 
     <link rel="stylesheet"  href="<?php echo base_url('asset/js/plugins/goodlayers-core/plugins/fontawesome/font-awesome.css') ?>" type="text/css" media="all" />
     <link rel="stylesheet"  href="<?php echo base_url('asset/js/plugins/goodlayers-core/plugins/fa5/fa5.css')?>" type="text/css" media="all" />
@@ -21,6 +22,9 @@
     <link rel="stylesheet"  href="<?php echo base_url('asset/css/tourmaster-room-style-custom.css?1653843108&#038;ver=6.0.1')?>" type="text/css" media="all" />
     <link rel="stylesheet"  href="<?php echo base_url('asset/css/style-core.css')?>" type="text/css" media="all" />
     <link rel="stylesheet"  href="<?php echo base_url('asset/css/hotale-style-custom.css?1653801118&#038;ver=6.0.1')?>" type="text/css" media="all" />
+
+    <!-- icon website -->
+    <link rel="icon" href="<?= base_url('asset/images/adibian.png');?>">
 
     <link
         rel="stylesheet"
@@ -39,7 +43,7 @@
             <div class="hotale-mobile-header-container hotale-container clearfix">
                 <div class="hotale-logo hotale-item-pdlr">
                     <div class="hotale-logo-inner">
-                        <a class="hotale-fixed-nav-logo" href="index.html">
+                        <a class="hotale-fixed-nav-logo" href="#">
                         
                             <img
                                 src="<?php echo base_url('asset/images/logog.png')?>"
@@ -49,7 +53,7 @@
                                 title="logo-nx1"
                             />
                         </a>
-                        <a class="hotale-orig-logo" href="index.html">
+                        <a class="hotale-orig-logo" href="#">
                             <img src="<?php echo base_url('asset/images/logog.png')?>" alt="" width="294" height="74" title="logo-nx2" />
                         </a>
                     </div>
@@ -85,11 +89,9 @@
                     <div class="hotale-top-bar-background"></div>
                     <div class="hotale-top-bar-container hotale-container">
                         <div class="hotale-top-bar-container-inner clearfix">
-                            <div class="hotale-top-bar-left hotale-item-pdlr">
+                            <div class="hotale-top-bar-left hotale-item-pdlr flex">
                                 <div class="hotale-top-bar-left-text">
-                                    <i class="icon-phone" style="font-size: 15px; color: #ffffff; margin-right: 10px;"></i>+62-85-876-987
-                                    <i class="icon-envelope" style="font-size: 15px; color: #ffffff; margin-left: 25px; margin-right: 10px;"></i>
-                                    <a href="#">adiabian@gmail.com</a>
+                                    <a href="<?= base_url('tamu')?>" class="mt-4 mb-2 text-2xl" style="color: #ffffff;"><i class="fa-solid fa-user pr-2 text-2xl" style="color: #ffffff;"></i><?= $username;?></a>
                                 </div>
                             </div>
                             <div class="hotale-top-bar-right hotale-item-pdlr">
@@ -98,11 +100,15 @@
                                     data-redirect="index.html"
                                     data-ajax-url="#"
                                 >
-                                    <span class="tourmaster-user-top-bar-login" data-tmlb="login"><i class="icon_lock_alt"></i><span class="tourmaster-text">Login</span></span>
-                                    <div class="tourmaster-lightbox-content-wrap" data-tmlb-id="login">
-                                        <div class="tourmaster-lightbox-content">
+                                    <?php if (!empty($this->session->userdata('identity'))) : ?>
+                                        <div class="flex">
+                                            <a class="tourmaster-user-top-bar-login " href="<?= base_url('c_home/logout');?>">logout</a>
                                         </div>
-                                    </div>
+                                    <?php else : ?>
+                                        <a class="tourmaster-user-top-bar-login" href="<?= base_url('Auth/login')?>">Login</a>
+                                    <?php endif; ?>
+
+                                    <!-- <span class="tourmaster-user-top-bar-login"><i class="icon_lock_alt"></i><span class="tourmaster-text">Login</span></span> -->
                                 </div>
                             </div>
                         </div>
@@ -114,7 +120,7 @@
                         <div class="hotale-header-container-inner clearfix">
                             <div class="hotale-logo hotale-item-pdlr">
                                 <div class="hotale-logo-inner">
-                                    <a class="hotale-fixed-nav-logo" href="index.html">
+                                    <a class="hotale-fixed-nav-logo" href="#">
                                         <img
                                             src="<?php echo base_url('asset/images/logog.png')?>"
                                             alt=""
@@ -123,7 +129,7 @@
                                             title="logo-nx1"
                                         />
                                     </a>
-                                    <a class="hotale-orig-logo" href="index.html">
+                                    <a class="hotale-orig-logo" href="#">
                                         <img
                                             src="<?php echo base_url('asset/images/logog.png')?>"
                                             alt=""
@@ -196,7 +202,7 @@
                         <div class="gdlr-core-pbf-background-wrap" style="border-radius: 20px 20px 20px 20px; -moz-border-radius: 20px 20px 20px 20px; -webkit-border-radius: 20px 20px 20px 20px;">
                             <div
                                 class="gdlr-core-pbf-background gdlr-core-parallax gdlr-core-js"
-                                style="background-image: url('../asset/images/ab13.jpg'); background-size: cover; background-position: center;"
+                                style="background-image: url('asset/images/ab13.jpg'); background-size: cover; background-position: center;"
                                 data-parallax-speed="0"
                             ></div>
                         </div>
@@ -987,16 +993,6 @@
                             </div>
                             <div id="block-20" class="widget widget_block widget_media_image hotale-widget">
                                 <div class="wp-block-image">
-                                    <figure class="aligncenter is-resized">
-                                        <img
-                                            loading="lazy"
-                                            src="<?php echo base_url('asset/images/pisa.png')?>"
-                                            alt=""
-                                            class="wp-image-15005"
-                                            width="154"
-                                            height="26"
-                                        />
-                                    </figure>
                                 </div>
                             </div>
                         </div>
@@ -1011,7 +1007,7 @@
                                 <a href="contact.html" style="margin-right: 22px;">Contact</a>
                             </div>
                         </div>
-                        <div class="hotale-copyright-right hotale-item-pdlr">Copyright ©PBL 2024. Kelompok Pian.</div>
+                        <div class="hotale-copyright-right hotale-item-pdlr">Copyright ©PBL 2024. Adi Abian Villa.</div>
                     </div>
                 </div>
             </footer>
