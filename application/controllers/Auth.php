@@ -131,7 +131,7 @@ class Auth extends CI_Controller
         'email' => filter_var($identity, FILTER_VALIDATE_EMAIL) ? $identity : NULL,
         'username' => !filter_var($identity, FILTER_VALIDATE_EMAIL) ? $identity : NULL,
         'password' => password_hash($password, PASSWORD_DEFAULT),
-        'foto_profil' => 'assets/images/profile/default.jpg'
+        'foto_profil' => base_url('assets/images/profile/icon_user.jpg')
       ];
       $this->db->insert('tamu', $data);
 

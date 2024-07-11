@@ -60,6 +60,7 @@ class Tamu extends CI_Controller
         $id_tamu = $this->input->post('id_tamu');
 
         $this->form_validation->set_rules('username', 'Username', 'required');
+        $this->form_validation->set_rules('nama', 'Name', 'required');
         $this->form_validation->set_rules('no_telp', 'No Telp', 'required');
         $this->form_validation->set_rules('jenis_kelamin', 'Jenis Kelamin', 'required');
 
@@ -75,6 +76,7 @@ class Tamu extends CI_Controller
         } else {
             $data = [
                 'username' => $this->input->post('username'),
+                'nama' => $this->input->post('nama'),
                 'password' => password_hash($this->input->post('password'), PASSWORD_DEFAULT),
                 'no_telp' => $this->input->post('no_telp'),
 

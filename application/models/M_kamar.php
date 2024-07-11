@@ -12,6 +12,16 @@ class M_kamar extends CI_Model
         return $query->result_array();
     }
 
+    public function getKamar()
+    {
+        $this->db->select('id_kamar,no_kamar');
+        $this->db->from('kamar');
+        $query = $this->db->get();
+        return $query->result();
+    }
+
+    
+
   
     // public function ketersediaan($checkin, $checkout)
     // {
@@ -36,14 +46,7 @@ class M_kamar extends CI_Model
     //     return $query->result();
     // }
 
-    public function getKamar()
-    {
-        $this->db->select('kamar.id_kamar, detail_kamar.jenis_kamar');
-        $this->db->from('kamar');
-        $this->db->join('detail_kamar', 'kamar.id_detail_kamar = detail_kamar.id_detail_kamar', 'left');
-        $query = $this->db->get();
-        return $query->result();
-    }
+
     
     // public function ketersediaan($checkin, $checkout)
     // {
