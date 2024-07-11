@@ -7,47 +7,19 @@
                         <div class="hotale-top-bar-container-inner clearfix">
                             <div class="hotale-top-bar-left hotale-item-pdlr">
                                 <div class="hotale-top-bar-left-text">
-                                    <i class="icon-phone" style="font-size: 15px; color: #ffffff; margin-right: 10px;"></i>1-634-567-34
-                                    <i class="icon-envelope" style="font-size: 15px; color: #ffffff; margin-left: 25px; margin-right: 10px;"></i>
-                                    <a href="#">test@gmail.com</a>
+                                <a href="<?= base_url('tamu') ?>" class="mt-4 mb-2 text-2xl" style="color: #ffffff;"><i class="fa-solid fa-user pr-2 text-2xl" style="color: #ffffff;"></i><?= $username; ?></a>
                                 </div>
                             </div>
                             <div class="hotale-top-bar-right hotale-item-pdlr">
                                 <div class="tourmaster-user-top-bar tourmaster-guest tourmaster-style-2" data-redirect="index.html" data-ajax-url="#">
-                                    <span class="tourmaster-user-top-bar-login" data-tmlb="login"><i class="icon_lock_alt"></i><span class="tourmaster-text">Login</span></span>
-                                    <div class="tourmaster-lightbox-content-wrap" data-tmlb-id="login">
-                                        <div class="tourmaster-lightbox-head">
-                                            <h3 class="tourmaster-lightbox-title">Login</h3>
-                                            <i class="tourmaster-lightbox-close icon_close"></i>
+                                <?php if (!empty($this->session->userdata('identity'))) : ?>
+                                        <div class="flex">
+                                            <a class="tourmaster-user-top-bar-login " href="<?= base_url('c_home/logout');?>">logout</a>
                                         </div>
-                                        <div class="tourmaster-lightbox-content">
-                                            <form class="tourmaster-login-form tourmaster-form-field tourmaster-with-border" method="post" action="wp-login.php">
-                                                <div class="tourmaster-login-form-fields clearfix">
-                                                    <p class="tourmaster-login-user">
-                                                        <label>Username or E-Mail</label>
-                                                        <input type="text" name="log" />
-                                                    </p>
-                                                    <p class="tourmaster-login-pass">
-                                                        <label>Password</label>
-                                                        <input type="password" name="pwd" />
-                                                    </p>
-                                                </div>
+                                    <?php else : ?>
+                                        <a class="tourmaster-user-top-bar-login" href="<?= base_url('Auth/login')?>">Login</a>
+                                    <?php endif; ?>
 
-                                                <p class="tourmaster-login-submit">
-                                                    <input type="submit" name="wp-submit" class="tourmaster-button" value="Sign In!" />
-                                                </p>
-                                                <p class="tourmaster-login-lost-password">
-                                                    <a href="#">Forget Password?</a>
-                                                </p>
-
-                                            </form>
-
-                                            <div class="tourmaster-login-bottom">
-                                                <h3 class="tourmaster-login-bottom-title">Do not have an account?</h3>
-                                                <a class="tourmaster-login-bottom-link" href="register.html">Create an Account</a>
-                                            </div>
-                                        </div>
-                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -59,11 +31,11 @@
                         <div class="hotale-header-container-inner clearfix">
                             <div class="hotale-logo hotale-item-pdlr">
                                 <div class="hotale-logo-inner">
-                                    <a class="hotale-fixed-nav-logo" href="index.html">
-                                        <img src="<?php echo base_url('assets/kamar/upload/logo-nx1.png')?>" alt="" width="147" height="37" title="logo-nx1" />
+                                    <a class="hotale-fixed-nav-logo" href="<?php echo base_url('c_home') ?>">
+                                        <img src="<?php echo base_url('asset/images/logog.png') ?>" alt="" width="147" height="37" title="logo-nx1" />
                                     </a>
-                                    <a class="hotale-orig-logo" href="index.html">
-                                        <img src="<?php echo base_url('assets/kamar/upload/logo-nx1.png')?>" alt="" width="147" height="37" title="logo-nx1" />
+                                    <a class="hotale-orig-logo" href="<?php echo base_url('c_home') ?>">
+                                        <img src="<?php echo base_url('asset/images/logog.png') ?>" alt="" width="147" height="37" title="logo-nx1" />
                                     </a>
                                 </div>
                             </div>
@@ -71,159 +43,25 @@
                                 <div class="hotale-main-menu" id="hotale-main-menu">
                                     <ul id="menu-main-navigation-1" class="sf-menu">
                                         <li class="menu-item menu-item-home menu-item-has-children hotale-normal-menu">
-                                            <a href="index.html" class="sf-with-ul-pre">Home</a>
-                                            <ul class="sub-menu">
-                                                <li class="menu-item menu-item-home" data-size="60">
-                                                    <a href="index.html">Home &#8211; Resort 1</a>
-                                                </li>
-                                                <li class="menu-item" data-size="60">
-                                                    <a target="_blank" href="../resort2/index.html">Home &#8211; Resort 2</a>
-                                                </li>
-                                                <li class="menu-item" data-size="60">
-                                                    <a target="_blank" href="../hotel1/index.html">Home &#8211; Hotel 1</a>
-                                                </li>
-                                                <li class="menu-item" data-size="60">
-                                                    <a target="_blank" href="../hotel2/index.html">Home &#8211; Hotel 2</a>
-                                                </li>
-                                                <li class="menu-item" data-size="60">
-                                                    <a target="_blank" href="../apartment/index.html">Home &#8211; Apartment</a>
-                                                </li>
-                                                <li class="menu-item" data-size="60">
-                                                    <a target="_blank" href="../apartment2/index.html">Home &#8211; Apartment 2</a>
-                                                </li>
-                                            </ul>
+                                            <a href="<?php echo base_url('c_home') ?>" class="sf-with-ul-pre">Home</a>
                                         </li>
+
                                         <li class="menu-item menu-item-has-children hotale-normal-menu">
-                                            <a href="#" class="sf-with-ul-pre">Pages</a>
-                                            <ul class="sub-menu">
-                                                <li class="menu-item" data-size="60"><a href="about-us.html">About Us</a></li>
-                                                <li class="menu-item" data-size="60"><a href="about-us-2.html">About Us 2</a></li>
-                                                <li class="menu-item" data-size="60"><a href="about-us-3.html">About Us 3</a></li>
-                                                <li class="menu-item" data-size="60"><a href="our-team.html">Our Team</a></li>
-                                                <li class="menu-item" data-size="60"><a href="hotel-review.html">Hotel Review</a></li>
-                                                <li class="menu-item" data-size="60"><a href="faq.html">FAQ</a></li>
-                                                <li class="menu-item" data-size="60"><a href="gallery.html">Gallery</a></li>
-                                                <li class="menu-item" data-size="60"><a href="price-table.html">Price Table</a></li>
-                                                <li class="menu-item" data-size="60"><a href="maintenance.html">Maintenance</a></li>
-                                                <li class="menu-item" data-size="60"><a href="coming-soon.html">Coming Soon</a></li>
-                                                <li class="menu-item" data-size="60"><a href="404.html">404 Page</a></li>
-                                            </ul>
-                                        </li>
-                                        <li class="menu-item current-menu-item  menu-item-has-children hotale-normal-menu">
-                                            <a href="room-grid-style-1.html" class="sf-with-ul-pre">Rooms</a>
-                                            <ul class="sub-menu">
-                                                <li class="menu-item" data-size="60">
-                                                    <a href="room-grid-style-1.html">Room Grid Style 1</a>
-                                                </li>
-                                                <li class="menu-item" data-size="60">
-                                                    <a href="room-grid-style-2.html">Room Grid Style 2</a>
-                                                </li>
-                                                <li class="menu-item" data-size="60">
-                                                    <a href="room-grid-style-3.html">Room Grid Style 3</a>
-                                                </li>
-                                                <li class="menu-item" data-size="60">
-                                                    <a href="room-grid-style-4.html">Room Grid Style 4</a>
-                                                </li>
-                                                <li class="menu-item" data-size="60">
-                                                    <a href="room-modern-style.html">Room Modern Style</a>
-                                                </li>
-                                                <li class="menu-item" data-size="60">
-                                                    <a href="room-side-thumbnail.html">Room Side Thumbnail</a>
-                                                </li>
-                                            </ul>
+                                            <a href="<?php echo base_url('c_home/aboutus') ?>" class="sf-with-ul-pre">About Us</a>
                                         </li>
                                         <li class="menu-item hotale-normal-menu">
-                                            <a href="room-search.html">Reservation</a>
+                                            <a href="<?php echo base_url('c_home/facilities') ?>">Facilities</a>
                                         </li>
-                                        <li class="menu-item menu-item-has-children hotale-normal-menu">
-                                            <a href="blog-full-right-sidebar.html" class="sf-with-ul-pre">Blog</a>
-                                            <ul class="sub-menu">
-                                                <li class="menu-item menu-item-has-children" data-size="60">
-                                                    <a href="blog-3-columns-with-frame.html" class="sf-with-ul-pre">Blog Columns</a>
-                                                    <ul class="sub-menu">
-                                                        <li class="menu-item"><a href="blog-2-columns.html">Blog 2 Columns</a></li>
-                                                        <li class="menu-item">
-                                                            <a href="blog-2-columns-with-frame.html">Blog 2 Columns With Frame</a>
-                                                        </li>
-                                                        <li class="menu-item"><a href="blog-3-columns.html">Blog 3 Columns</a></li>
-                                                        <li class="menu-item">
-                                                            <a href="blog-3-columns-with-frame.html">Blog 3 Columns With Frame</a>
-                                                        </li>
-                                                        <li class="menu-item"><a href="blog-4-columns.html">Blog 4 Columns</a></li>
-                                                        <li class="menu-item">
-                                                            <a href="blog-4-columns-with-frame.html">Blog 4 Columns With Frame</a>
-                                                        </li>
-                                                    </ul>
-                                                </li>
-                                                <li class="menu-item menu-item-has-children" data-size="60">
-                                                    <a href="blog-full-right-sidebar.html" class="sf-with-ul-pre">Blog Full</a>
-                                                    <ul class="sub-menu">
-                                                        <li class="menu-item">
-                                                            <a href="blog-full-right-sidebar.html">Blog Full Right Sidebar</a>
-                                                        </li>
-                                                        <li class="menu-item">
-                                                            <a href="blog-full-right-sidebar-with-frame.html">Blog Full Right Sidebar With Frame</a>
-                                                        </li>
-                                                        <li class="menu-item">
-                                                            <a href="blog-full-left-sidebar.html">Blog Full Left Sidebar</a>
-                                                        </li>
-                                                        <li class="menu-item">
-                                                            <a href="blog-full-left-sidebar-with-frame.html">Blog Full Left Sidebar With Frame</a>
-                                                        </li>
-                                                        <li class="menu-item">
-                                                            <a href="blog-full-both-sidebar.html">Blog Full Both Sidebar</a>
-                                                        </li>
-                                                        <li class="menu-item">
-                                                            <a href="blog-full-both-sidebar-with-frame.html">Blog Full Both Sidebar With Frame</a>
-                                                        </li>
-                                                    </ul>
-                                                </li>
-                                                <li class="menu-item menu-item-has-children" data-size="60">
-                                                    <a href="blog-grid-3-columns.html" class="sf-with-ul-pre">Blog Grid</a>
-                                                    <ul class="sub-menu">
-                                                        <li class="menu-item">
-                                                            <a href="blog-grid-2-columns.html">Blog Grid 2 Columns</a>
-                                                        </li>
-                                                        <li class="menu-item">
-                                                            <a href="blog-grid-2-columns-no-space.html">Blog Grid 2 Columns No Space</a>
-                                                        </li>
-                                                        <li class="menu-item">
-                                                            <a href="blog-grid-3-columns.html">Blog Grid 3 Columns</a>
-                                                        </li>
-                                                        <li class="menu-item">
-                                                            <a href="blog-grid-3-columns-no-space.html">Blog Grid 3 Columns No Space</a>
-                                                        </li>
-                                                        <li class="menu-item">
-                                                            <a href="blog-grid-4-columns.html">Blog Grid 4 Columns</a>
-                                                        </li>
-                                                        <li class="menu-item">
-                                                            <a href="blog-grid-4-columns-no-space.html">Blog Grid 4 Columns No Space</a>
-                                                        </li>
-                                                    </ul>
-                                                </li>
-                                                <li class="menu-item" data-size="60"><a href="single-blog.html" class="sf-with-ul-pre">Single Posts</a></li>
-                                            </ul>
+                                        <li class="menu-item current-menu-item menu-item-has-children hotale-normal-menu">
+                                            <a href="<?php echo base_url('kamar') ?>" class="sf-with-ul-pre">Reservation</a>
+
                                         </li>
-                                        <li class="menu-ite hotale-normal-menu"><a href="contact.html" class="sf-with-ul-pre">Contact</a></li>
+                                        <li class="menu-ite hotale-normal-menu"><a href="<?php echo base_url('c_home/contact') ?>" class="sf-with-ul-pre">Contact</a></li>
                                     </ul>
                                     <div class="hotale-navigation-slide-bar hotale-navigation-slide-bar-style-2 hotale-left" data-size-offset="0" data-width="19px" id="hotale-navigation-slide-bar"></div>
                                 </div>
                                 <div class="hotale-main-menu-right-wrap clearfix hotale-item-mglr hotale-navigation-top">
-                                    <div class="tourmaster-currency-switcher">
-                                        <span class="tourmaster-head"><span>USD</span><i class="fa fa-sort-down"></i></span>
-                                        <div class="tourmaster-currency-switcher-inner">
-                                            <div class="tourmaster-currency-switcher-content">
-                                                <ul>
-                                                    <li><a href="#">EUR</a></li>
-                                                    <li><a href="#">CHF</a></li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </div>
                                     <div class="tourmaster-room-navigation-checkout-wrap">
-                                        <a id="tourmaster-room-navigation-checkout-button" class="tourmaster-room-navigation-checkout-button" href="room-search.html" data-checkout-label="Check Out" data-label="Book Now">
-                                            Book Now<span class="tourmaster-count">0</span>
-                                        </a>
                                         <div class="tourmaster-room-cart-item-wrap">
                                             <div class="tourmaster-room-cart-items">
                                                 <ul></ul>
@@ -262,7 +100,7 @@
                                                 <div class="gdlr-core-pbf-element">
                                                     <div class="gdlr-core-image-item gdlr-core-item-pdb gdlr-core-center-align gdlr-core-item-pdlr">
                                                         <div class="gdlr-core-image-item-wrap gdlr-core-media-image gdlr-core-image-item-style-round" style="border-width: 0px; border-radius: 20px; -moz-border-radius: 20px; -webkit-border-radius: 20px;">
-                                                            <img src="<?php echo base_url('assets/kamar/upload/christopher-jolly-GqbU78bdJFM-unsplash-1150x490.jpg')?>" alt="" width="1150" height="490" title="christopher-jolly-GqbU78bdJFM-unsplash" />
+                                                            <img src="<?php echo base_url('asset/images/ab3.jpg') ?>" alt="" width="1150" height="490" title="christopher-jolly-GqbU78bdJFM-unsplash" />
                                                         </div>
                                                     </div>
                                                 </div>
@@ -279,7 +117,7 @@
                                                         <div class="tourmaster-room-title-item-caption">Room Features</div>
                                                         <div class="tourmaster-room-title-price">
                                                             <div class="tourmaster-head">
-                                                                <span class="tourmaster-label">From</span><span class="tourmaster-price-discount">CHF 144.00</span><span class="tourmaster-price">CHF 100.80</span>
+                                                                <span class="tourmaster-label">From</span><span class="tourmaster-price"> <?php echo 'Rp' . number_format($harga, 0, ',', '.'); ?></span>
                                                             </div>
                                                             <div class="tourmaster-tail">per night</div>
                                                         </div>
@@ -836,52 +674,27 @@
                                                 <li class="gdlr-core-gallery-list gdlr-core-item-mglr" style="margin-left: 5px; margin-right: 5px;">
                                                     <div class="gdlr-core-media-image" style="height: 500px;">
                                                         <a class="gdlr-core-lightgallery gdlr-core-js" href="upload/shutterstock_1298236804.jpg" data-lightbox-group="gdlr-core-img-group-1">
-                                                            <img src="<?php echo base_url('assets/kamar/upload/shutterstock_1298236804.jpg')?>" alt="" width="2200" height="1467" title="shutterstock_1298236804" />
+                                                            <img src="<?php echo base_url('asset/images/ab2.jpg') ?>" alt="" width="2200" height="1467" title="shutterstock_1298236804" />
                                                         </a>
                                                     </div>
                                                 </li>
-                                                <li class="gdlr-core-gallery-list gdlr-core-item-mglr" style="margin-left: 5px; margin-right: 5px;">
-                                                    <div class="gdlr-core-media-image" style="height: 500px;">
-                                                        <a class="gdlr-core-lightgallery gdlr-core-js" href="upload/single-room-gallery-img.jpg" data-lightbox-group="gdlr-core-img-group-1">
-                                                            <img src="<?php echo base_url('assets/kamar/upload/single-room-gallery-img.jpg')?>" alt="" width="711" height="997" title="single-room-gallery-img" />
-                                                        </a>
-                                                    </div>
-                                                </li>
-                                                <li class="gdlr-core-gallery-list gdlr-core-item-mglr" style="margin-left: 5px; margin-right: 5px;">
-                                                    <div class="gdlr-core-media-image" style="height: 500px;">
-                                                        <a class="gdlr-core-lightgallery gdlr-core-js" href="upload/shutterstock_324822821.jpg" data-lightbox-group="gdlr-core-img-group-1">
-                                                            <img src="<?php echo base_url('assets/kamar/upload/shutterstock_324822821.jpg')?>" alt="" width="1800" height="1200" title="shutterstock_324822821" />
-                                                        </a>
-                                                    </div>
-                                                </li>
-                                                <li class="gdlr-core-gallery-list gdlr-core-item-mglr" style="margin-left: 5px; margin-right: 5px;">
-                                                    <div class="gdlr-core-media-image" style="height: 500px;">
-                                                        <a class="gdlr-core-lightgallery gdlr-core-js" href="upload/andrii-podilnyk-766487-unsplash-scaled.jpg" data-lightbox-group="gdlr-core-img-group-1">
-                                                            <img src="<?php echo base_url('assets/kamar/upload/andrii-podilnyk-766487-unsplash-scaled.jpg')?>" alt="" width="1984" height="2560" title="andrii-podilnyk-766487-unsplash" />
-                                                        </a>
-                                                    </div>
-                                                </li>
+
+                                                
                                                 <li class="gdlr-core-gallery-list gdlr-core-item-mglr" style="margin-left: 5px; margin-right: 5px;">
                                                     <div class="gdlr-core-media-image" style="height: 500px;">
                                                         <a class="gdlr-core-lightgallery gdlr-core-js" href="upload/shutterstock_1354405256.jpg" data-lightbox-group="gdlr-core-img-group-1">
-                                                            <img src="<?php echo base_url('assets/kamar/upload/shutterstock_1354405256.jpg')?>" alt="" width="2000" height="1334" title="shutterstock_1354405256" />
+                                                            <img src="<?php echo base_url('asset/images/ab11.jpg') ?>" alt="" width="2000" height="1334" title="shutterstock_1354405256" />
                                                         </a>
                                                     </div>
                                                 </li>
                                                 <li class="gdlr-core-gallery-list gdlr-core-item-mglr" style="margin-left: 5px; margin-right: 5px;">
                                                     <div class="gdlr-core-media-image" style="height: 500px;">
                                                         <a class="gdlr-core-lightgallery gdlr-core-js" href="upload/jen-p-541467-unsplash-scaled.jpg" data-lightbox-group="gdlr-core-img-group-1">
-                                                            <img src="<?php echo base_url('assets/kamar/upload/jen-p-541467-unsplash-scaled.jpg')?>" alt="" width="1920" height="2560" title="jen-p-541467-unsplash" />
+                                                            <img src="<?php echo base_url('asset/images/ab9.jpg') ?>" alt="" width="1920" height="2560" title="jen-p-541467-unsplash" />
                                                         </a>
                                                     </div>
                                                 </li>
-                                                <li class="gdlr-core-gallery-list gdlr-core-item-mglr" style="margin-left: 5px; margin-right: 5px;">
-                                                    <div class="gdlr-core-media-image" style="height: 500px;">
-                                                        <a class="gdlr-core-lightgallery gdlr-core-js" href="upload/christopher-jolly-GqbU78bdJFM-unsplash-1.jpg" data-lightbox-group="gdlr-core-img-group-1">
-                                                            <img src="<?php echo base_url('assets/kamar/upload/christopher-jolly-GqbU78bdJFM-unsplash-1.jpg')?>" alt="" width="2000" height="1333" title="christopher-jolly-GqbU78bdJFM-unsplash" />
-                                                        </a>
-                                                    </div>
-                                                </li>
+                                                
                                             </ul>
                                         </div>
                                         <div class="gdlr-core-sly-scroll">
@@ -908,7 +721,7 @@
                             </div>
                         </div>
                     </div>
-                   
+
                     <div class="text-2xl font-bold text-center mt-10 mb-4">Check Availability</div>
 
                     <div class="flex items-center justify-center pb-5">
@@ -924,7 +737,7 @@
                                                     <div class="text-sm font-bold m-3 ms-0 text-base">
                                                         Check-in
                                                     </div>
-                                                    <img src="<?php echo base_url('assets/foto/enter.png')?>" class="text-white w-10" alt="">
+                                                    <img src="<?php echo base_url('assets/foto/enter.png') ?>" class="text-white w-10" alt="">
                                                 </div>
 
                                                 <div id="data_checkin" data="<?php echo $kamar['checkin'] ?>"></div>
@@ -1063,18 +876,13 @@
                     </div>
                 </div>
             </div>
-
-           
-        </div>
-
-
-        <footer>
+            <footer>
                 <div class="hotale-footer-wrapper">
                     <div class="hotale-footer-container hotale-container clearfix">
                         <div class="hotale-footer-column hotale-item-pdlr hotale-column-15">
                             <div id="block-21" class="widget widget_block widget_media_image hotale-widget">
                                 <figure class="wp-block-image">
-                                    <img loading="lazy" width="110" height="27" src="<?php echo base_url('assets/kamar/upload/logo-resort.png')?>" alt="" class="wp-image-14995" />
+                                    <img loading="lazy" width="110" height="27" src="<?php echo base_url('asset/images/adibian.png') ?>" alt="" class="wp-image-14995" />
                                 </figure>
                             </div>
                             <div id="block-7" class="widget widget_block widget_text hotale-widget">
@@ -1083,9 +891,9 @@
                             <div id="block-8" class="widget widget_block hotale-widget">
                                 <p>
                                     <span class="gdlr-core-space-shortcode" style="margin-top: -10px;"></span><i class="fa fa-facebook" style="font-size: 16px; color: #ffffff; margin-left: 3px; margin-right: 17px;"></i>
-                                    <i class="fa5b fa-twitter" style="font-size: 16px; color: #ffffff; margin-left: 3px; margin-right: 17px;"></i>
-                                    <i class="fa5b fa-pinterest-p" style="font-size: 16px; color: #ffffff; margin-left: 3px; margin-right: 17px;"></i>
-                                    <i class="fa5b fa5-tiktok" style="font-size: 16px; color: #ffffff; margin-left: 3px; margin-right: 17px;"></i>
+                                    <i class="fa5b fa-instagram" style="font-size: 16px; color: #ffffff; margin-left: 3px; margin-right: 17px;"></i>
+                                    <i class="icon-envelope" style="font-size: 16px; color: #ffffff; margin-left: 3px; margin-right: 17px;"></i>
+                                    <i class="fa5b fa5-whatsapp" style="font-size: 16px; color: #ffffff; margin-left: 3px; margin-right: 17px;"></i>
                                 </p>
                             </div>
                             <div id="block-22" class="widget widget_block widget_text hotale-widget">
@@ -1094,15 +902,6 @@
                             <div id="block-25" class="widget widget_block hotale-widget">
                                 <div class="tourmaster-currency-switcher-shortcode clearfix">
                                     <div class="tourmaster-currency-switcher" style="background: #333333;">
-                                        <span class="tourmaster-head" style="color: #ffffff;"><span>USD</span><i class="fa fa-sort-down"></i></span>
-                                        <div class="tourmaster-currency-switcher-inner">
-                                            <div class="tourmaster-currency-switcher-content">
-                                                <ul>
-                                                    <li><a href="#">EUR</a></li>
-                                                    <li><a href="#">CHF</a></li>
-                                                </ul>
-                                            </div>
-                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -1112,23 +911,22 @@
                                 <h4>Contact</h4>
                             </div>
                             <div id="block-14" class="widget widget_block hotale-widget">
-                                <p><span style="color: #ffffff;">T</span>: 1-634-567-34</p>
+                                <p><span style="color: #ffffff;">Phone</span>: 62-858-756-364</p>
                                 <p><span class="gdlr-core-space-shortcode" style="margin-top: -10px;"></span></p>
-                                <p><span style="color: #ffffff;">E</span>: <a href="#">test@gmail.com</a></p>
+                                <p><span style="color: #ffffff;">E-mail</span>: <a href="#">adiabian@gmail.com</a></p>
                                 <p><span class="gdlr-core-space-shortcode" style="margin-top: -10px;"></span></p>
-                                <p><span style="color: #ffffff;">F</span>: 1-634-567-35</p>
                             </div>
                         </div>
                         <div class="hotale-footer-column hotale-item-pdlr hotale-column-15">
                             <div id="block-12" class="widget widget_block hotale-widget">
-                                <h4>Hotel Address</h4>
+                                <h4>Villa Address</h4>
                             </div>
                             <div id="block-15" class="widget widget_block hotale-widget">
                                 <p>
                                     <span style="color: #ffffff;">
-                                        Hotale Av.<br />
-                                        del Ejercito, 2, 1900<br />
-                                        Madrid, Spain
+                                        Adi Abian Villa.<br />
+                                        Pecatu, Uluwatu<br />
+                                        Kuta Selatan, Bali
                                     </span>
                                 </p>
                             </div>
@@ -1137,15 +935,12 @@
                             <div id="block-18" class="widget widget_block widget_media_image hotale-widget">
                                 <div class="wp-block-image">
                                     <figure class="aligncenter size-full">
-                                        <img loading="lazy" width="213" height="90" src="<?php echo base_url('assets/kamar/upload/footer-banner.png')?>" alt="" class="wp-image-15004" />
+                                        <img loading="lazy" width="213" height="90" src="<?php echo base_url('asset/images/puter.png') ?>" alt="" class="wp-image-15004" />
                                     </figure>
                                 </div>
                             </div>
                             <div id="block-20" class="widget widget_block widget_media_image hotale-widget">
                                 <div class="wp-block-image">
-                                    <figure class="aligncenter is-resized">
-                                        <img loading="lazy" src="<?php echo base_url('assets/kamar/upload/footer-cards.png')?>" alt="" class="wp-image-15005" width="154" height="26" />
-                                    </figure>
                                 </div>
                             </div>
                         </div>
@@ -1157,13 +952,12 @@
                             <div style="text-transform: uppercase; font-weight: 500; font-size: 13px; letter-spacing: 3px;">
                                 <a href="index.html" style="margin-right: 22px;">Home</a>
                                 <a href="about-us.html" style="margin-right: 22px;">About</a>
-                                <a href="about-us-2.html" style="margin-right: 22px;">Privacy Policy</a>
                                 <a href="contact.html" style="margin-right: 22px;">Contact</a>
                             </div>
                         </div>
-                        <div class="hotale-copyright-right hotale-item-pdlr">Copyright © GoodLayers. All Rights Reserved.</div>
+                        <div class="hotale-copyright-right hotale-item-pdlr">Copyright ©PBL 2024. Adi Abian Villa.</div>
                     </div>
                 </div>
             </footer>
-    </div>
+        </div>
     </div>

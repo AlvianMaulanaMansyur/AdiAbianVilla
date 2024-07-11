@@ -503,7 +503,7 @@ console.log('aahahhghghghghg')
                 $("#availability1").empty();
 
                 if (kamar >= roomsi) {
-                    $("#error-message").html(`<div class="text-green-500"><i class="fa-solid fa-circle-check"></i> There are ${kamar} rooms available. You can continue booking by clicking the reserve button </div>`);
+                    $("#error-message").html(`<div class="text-green-500"><i class="fa-solid fa-circle-check"></i> There are ${kamar} rooms available. You can continue booking by clicking the booking button </div>`);
 
                     const avak = `
                     <div class="flex flex-col items-center pb-10">

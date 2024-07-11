@@ -5,8 +5,6 @@ defined('BASEPATH') or exit('No direct script access allowed');
 
 class Dashboard extends CI_Controller
 {
-
-
     public function __construct()
     {
         parent::__construct();
@@ -14,8 +12,7 @@ class Dashboard extends CI_Controller
         $this->load->model('customer_model');
         $this->load->model('M_dashboard');
         $this->load->model('M_pemesanan');
-        $this->load->library('PDF');
-        
+        // $this->load->library('PDF');
         
         if (empty($this->session->userdata('username'))) {
             redirect('Authadmin/login');

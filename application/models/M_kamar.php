@@ -19,9 +19,6 @@ class M_kamar extends CI_Model
         $query = $this->db->get();
         return $query->result();
     }
-
-    
-
   
     // public function ketersediaan($checkin, $checkout)
     // {

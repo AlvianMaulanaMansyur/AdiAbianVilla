@@ -24,21 +24,23 @@ class Payment extends CI_Controller
         $username = $this->M_tamu->getTamuByEmailUsername($identity);
         $phoneNumber = $this->M_tamu->getTamuByEmailUsername($identity);
         $email = $this->M_tamu->getTamuByEmailUsername($identity);
-        
 
         $availability_cookie = get_cookie('availability1');
         $jumlahKamar_cookie = get_cookie('jumlah_kamar');
+
+        // var_dump($jumlahKamar_cookie);
+
 
         $encoded_availability = urlencode($availability_cookie);
         $encoded_jumlahKamar = urlencode($jumlahKamar_cookie);
         $paymentAmount      = $pemesanan[0]->jumlah_pembayaran;
         $email              = $email[0]['email']; // your customer email
 
-        var_dump($email);
+        // var_dump($email);
         $phoneNumber        = $phoneNumber[0]['no_telp']; // your customer phone number (optional)
         $productDetails     = "Standart Villa Rooms";
         $merchantOrderId    = $id_pemesanan[0]->id_pemesanan; // from merchant, unique  
-        $callbackUrl        = 'https://minnow-smashing-formally.ngrok-free.app/adiabianvilla/payment/callback?availability=' . $encoded_availability . '&jumlah_kamar=' . $encoded_jumlahKamar;
+        $callbackUrl        = 'https://proven-proud-tuna.ngrok-free.app/adiabianvilla/payment/callback?availability=' . $encoded_availability . '&jumlah_kamar=' . $encoded_jumlahKamar;
         $returnUrl          = 'http://localhost/adiabianvilla/payment/return'; // url for redirect
         $expiryPeriod       = 1440; // set the expired time in minutes
 
@@ -106,8 +108,8 @@ class Payment extends CI_Controller
             // }
             if (is_array($availability) && is_numeric($jumlahKamar)) {
                 for ($i = 0; $i < $jumlahKamar; $i++) {
-                    if (isset($availability[$i]['id_kamar'])) {
-                        $id = $availability[$i]['id_kamar'];
+                    if (isset($availability['available_kamar'][$i]['id_kamar'])) {
+                        $id = $availability['available_kamar'][$i]['id_kamar'];
                         $a = array(
                             'id_pemesanan' => $id_pemesanan,
                             'id_kamar' => $id,

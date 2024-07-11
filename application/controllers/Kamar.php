@@ -9,6 +9,7 @@ class Kamar extends CI_Controller
     {
         parent::__construct();
         $this->load->model('M_kamar');
+        $this->load->model('M_tamu');
 
         if($this->session->userdata('logged_in') == TRUE) {
             
@@ -23,6 +24,18 @@ class Kamar extends CI_Controller
     }
 
     public function index() {
+        $identity = $this->session->userdata('identity');
+
+        if (!empty($identity)){
+
+            $user = $this->M_tamu->getTamuByEmailUsername($identity);
+            $username = $user[0]['nama'];
+        
+        } else {
+            $username = 'Login First!';
+
+        }
+
         $harga_kamar = $this->M_kamar->getHargaKamar();
         $checkin = $this->input->cookie('checkin', TRUE);
         $checkout = $this->input->cookie('checkout', TRUE);
@@ -31,12 +44,14 @@ class Kamar extends CI_Controller
             'checkin' => $checkin ? $checkin : '',
             'checkout' => $checkout ? $checkout : ''
         );
+
         $data = [
             'title' => 'Calendar',
             'header' => 'partials/kamar/header',
             'navbar' => 'partials/kamar/navbar',
             'content' => 'kamar/detail_kamar',
             'script' => 'partials/kamar/script',
+            'username' => $username,
             'kamar' => $datacheck,
             'harga' => $harga_kamar[0]['harga'],
         ];
