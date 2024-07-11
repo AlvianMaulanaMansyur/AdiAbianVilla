@@ -90,25 +90,27 @@ class M_kamar extends CI_Model
     {
         $all_kamar = $this->getKamar();
         $unavailable_kamar = $this->detailKetersediaan($tanggal_check_in, $tanggal_check_out);
-        
+
         if (!empty($unavailable_kamar)) {
             $unavailable_kamar_ids = array_column($unavailable_kamar, 'id_kamar');
-            $available_kamar = array_filter($all_kamar, function($kamar) use ($unavailable_kamar_ids) {
+            $available_kamar = array_values(array_filter($all_kamar, function ($kamar) use ($unavailable_kamar_ids) {
                 return !in_array($kamar->id_kamar, $unavailable_kamar_ids);
-            });
+            }));
         } else {
             $available_kamar = $all_kamar;
         }
-        
+
         // Menghitung jumlah kamar yang tersedia
         $available_kamar_count = count($available_kamar);
-        
+
         // Mengembalikan data kamar yang tersedia dan jumlahnya
-        return [
+        $result = [
             'available_kamar' => $available_kamar,
             'count' => $available_kamar_count
         ];
-    }   
+
+        return $result;
+    }
 
     // public function gabungKetersediaan($checkin, $checkout)
     // {
