@@ -1,264 +1,4 @@
-<div class="ketersedian bg-gray-100">
-    <!-- Main modal -->
 
-
-    <nav class="bg-gray-800">
-        <div class="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
-            <div class="relative flex h-16 items-center justify-between">
-                <div class="absolute inset-y-0 left-0 flex items-center sm:hidden">
-                    <!-- Mobile menu button-->
-                    <button type="button" class="relative inline-flex items-center justify-center rounded-md p-2 text-gray-400 hover:bg-gray-700 hover:text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white" aria-controls="mobile-menu" aria-expanded="false">
-                        <span class="absolute -inset-0.5"></span>
-                        <span class="sr-only">Open main menu</span>
-                        <!--
-            Icon when menu is closed.
-
-            Menu open: "hidden", Menu closed: "block"
-          -->
-                        <svg class="block h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
-                        </svg>
-                        <!--
-            Icon when menu is open.
-
-            Menu open: "block", Menu closed: "hidden"
-          -->
-                        <svg class="hidden h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
-                        </svg>
-                    </button>
-                </div>
-                <div class="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start">
-                    <div class="flex flex-shrink-0 items-center">
-                        <img class="h-8 w-auto" src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=500" alt="Your Company">
-                    </div>
-                    <div class="hidden sm:ml-6 sm:block">
-                        <div class="flex space-x-4">
-                            <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
-                            <a href="#" class="bg-gray-900 text-white rounded-md px-3 py-2 text-sm font-medium" aria-current="page">Dashboard</a>
-                            <a href="#" class="text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium">Team</a>
-                            <a href="#" class="text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium">Projects</a>
-                            <a href="#" class="text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium">Calendar</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
-                    <button type="button" class="relative rounded-full bg-gray-800 p-1 text-gray-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800">
-                        <span class="absolute -inset-1.5"></span>
-                        <span class="sr-only">View notifications</span>
-                        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M14.857 17.082a23.848 23.848 0 005.454-1.31A8.967 8.967 0 0118 9.75v-.7V9A6 6 0 006 9v.75a8.967 8.967 0 01-2.312 6.022c1.733.64 3.56 1.085 5.455 1.31m5.714 0a24.255 24.255 0 01-5.714 0m5.714 0a3 3 0 11-5.714 0" />
-                        </svg>
-                    </button>
-
-                    <!-- Profile dropdown -->
-                    <div class="relative ml-3">
-                        <div>
-                            <button type="button" class="relative flex rounded-full bg-gray-800 text-sm focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800" id="user-menu-button" aria-expanded="false" aria-haspopup="true">
-                                <span class="absolute -inset-1.5"></span>
-                                <span class="sr-only">Open user menu</span>
-                                <img class="h-8 w-8 rounded-full" src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="">
-                            </button>
-                        </div>
-
-                        <!--
-            Dropdown menu, show/hide based on menu state.
-
-            Entering: "transition ease-out duration-100"
-              From: "transform opacity-0 scale-95"
-              To: "transform opacity-100 scale-100"
-            Leaving: "transition ease-in duration-75"
-              From: "transform opacity-100 scale-100"
-              To: "transform opacity-0 scale-95"
-          -->
-                    </div>
-                </div>
-            </div>
-        </div>
-
-    </nav>
-
-
-
-
-    <!-- Start Carousel -->
-
-    <!-- End Carousel -->
-   
-    <!-- <?php var_dump($kamar) ?> -->
-    <!-- <?php var_dump($harga) ?> -->
-
-    <div class="py-5 px-4 text-center w-full">
-    <div class="text-3xl font-bold text-center">Adi Abian Villa</div>
-
-    <div class="text-xl font-semibold text-center text-gray-500 mt-2">
-        <?php echo 'Rp' . number_format($harga, 0, ',', '.'); ?> / night
-    </div>
-    <div class="text-base pt-3 text-center flex justify-center">
-        <div class="w-full">
-            Welcome to Adi Abian Villa, where luxury meets tropical nature. This villa offers spacious open areas, an infinity pool, and serene tropical gardens. Equipped with modern amenities and elegant design, each bedroom provides a comfortable resting place. Enjoy an unforgettable vacation at Adi Abian Villa, where comfort and natural beauty blend perfectly.
-            <br><br>
-            Each room can accommodate up to 2 adults and 1 child. Children under 6 years old stay for free.
-        </div>
-    </div>
-</div>
-
-    <div class="text-2xl font-bold text-center mt-10 mb-4">Check Availability</div>
-
-    <div class="flex items-center justify-center pb-5">
-        <div class="flex items-center justify-center lg:w-5/6 md:w-full sm:w-full bg-white shadow rounded">
-            <div class="text-center">
-                <h1 id="result" class="mb-4"></h1>
-                <div class="relative">
-                    <div class="container">
-                        <div id="error-message"></div>
-                        <div class="input-container">
-                            <div>
-                                <div class="flex items-center">
-                                    <div class="text-sm font-bold m-3 ms-0 text-base">
-                                        Check-in
-                                    </div>
-                                    <img src="<?php echo base_url('assets/foto/enter.png') ?>" class="text-white w-10" alt="">
-                                </div>
-
-                                <div id="data_checkin" data="<?php echo $kamar['checkin'] ?>"></div>
-                                <div class="flex justify-center">
-                                    <input id="datepicker" class="appearance-none w-48 py-2 px-3 text-gray-900 bg-white border-none" type="text" placeholder="Select check-in" disabled>
-                                </div>
-                            </div>
-                            <div>
-                                <div class="flex items-center">
-                                    <div class="text-sm font-bold m-3 ms-0 text-base">
-                                        Check-out
-                                    </div>
-                                    <img src="<?php echo base_url('assets/foto/enter.png') ?>" class="text-white w-10 rotate-180" alt="">
-                                </div>
-
-                                <div id="data_checkout" data="<?php echo $kamar['checkout'] ?>"></div>
-                                <input id="datepicker2" class="appearance-none w-48 py-2 px-3 text-gray-900 bg-white border-none" type="text" placeholder="Select check-out"  disabled>
-                            </div>
-                            <div class="pt-4 flex gap-1">
-                                <div>
-                                    <button class="w-72 h-12 relative" onclick="toggleModal('modal')">
-                                        <div class="w-72 h-12 px-3.5 py-2.5 left-0 top-0 absolute bg-red-500 rounded border border-red-500 flex-col justify-center items-start inline-flex">
-                                            <div class="text-center text-white text-sm font-bold leading-7">Rooms</div>
-                                        </div>
-                                        <div class="w-24 h-12 left-[173.60px] top-0 absolute">
-                                            <img class="w-9 h-8 left-[51.12px] top-[7px] absolute" src="<?php echo base_url('assets/foto/people.png') ?>" />
-                                            <div id="total-persons" class="w-2 h-4 left-[25.40px] top-[11px] absolute text-black text-md font-bold text-white">2</div>
-                                        </div>
-                                        <div class="w-20 h-9 left-[91px] top-[1px] absolute">
-                                            <img class="w-10 h-9 left-[25.23px] top-0 absolute" src="<?php echo base_url('assets/foto/bed.png') ?>" />
-                                            <div id="total-rooms" class="w-2 h-4 left-0 top-[10px] absolute text-black text-md font-bold text-white">1</div>
-                                        </div>
-                                        <div class="w-0.5 h-11 bg-white left-[178px] top-0.5 absolute"></div>
-                                    </button>
-                                </div>
-
-
-
-                                <div id="modal" class="hidden absolute z-10 mt-3 w-96">
-                                    <div id="modal-container" class="w-96 h-72 left-0 top-12 bg-white shadow-lg rounded relative overflow-hidden">
-                                        <div id="room-container" class="p-4" style="max-height: calc(100% - 96px);">
-                                            <!-- <div class="text-lg font-bold mb-4">Room 1</div> -->
-                                            <!-- Adult Section -->
-                                            <div class="text-md font-bold">Manage Room Details</div>
-                                            <div class="flex flex-col mb-4 room-section">
-                                                <div class="border border-black h-px w-full mb-4"></div>
-                                                <div class="flex items-center mb-4">
-                                                    <img class="w-10 h-10 mr-4" src="<?php echo base_url('assets/foto/person.png') ?>" />
-                                                    <div class="text-black text-sm font-normal mr-auto">Adult</div>
-                                                    <div>
-                                                        <select name="dewasa" class="select-adult appearance-auto border-1 w-24 h-8 rounded">
-                                                            <option value="1">1</option>
-                                                            <option value="2" selected>2</option>
-                                                        </select>
-                                                    </div>
-                                                </div>
-                                                <div class="flex items-center mb-4">
-                                                    <img class="w-10 h-10 mr-4" src="<?php echo base_url('assets/foto/kid.png') ?>" />
-                                                    <div class="flex flex-col items-start mr-auto">
-                                                        <div class="text-black text-sm font-normal">Kid</div>
-                                                        <div class="text-gray-500 text-sm font-normal">Ages 6 and below</div>
-                                                    </div>
-                                                    <div>
-                                                        <select name="anak" class="select-kid appearance-auto border-1 w-24 h-8 rounded">
-                                                            <option value="0" selected>0</option>
-                                                            <option value="1">1</option>
-                                                            <option value="2">2</option>
-                                                        </select>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div id="buttons-container" class="p-4 flex justify-between">
-
-                                            <button id="add-room-button" class="w-36 h-10 bg-green-500 text-white mt-4 rounded"><span><i class="fa-solid fa-plus"></i></span>
-                                                Add Room
-                                            </button>
-                                            <button id="submit-button" class="w-36 h-10 bg-red-500 text-white mt-4 rounded bg-red-500">
-                                                Submit
-                                            </button>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div>
-                                    <button id="check" class="w-20 h-12 px-3.5 py-2.5 bg-red-500 text-white font-bold rounded border border-red-500 flex-col justify-center items-start inline-flex relative">Check</button>
-
-                                </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="flex justify-center">
-                    <section id="datepicker-section" class="pb-5"></section>
-                </div>
-            </div>
-
-
-        </div>
-
-
-    </div>
-
-</div>
-<div id="availability1"></div>
-
-</div>
-<!-- Modal Overlay and Content -->
-<div id="modal-success" class="hidden fixed inset-0 z-10" aria-labelledby="modal-title" role="dialog" aria-modal="true">
-    <!-- Background backdrop, show/hide based on modal state. -->
-    <div id="modal-backdrop" class="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity"></div>
-
-    <div class="fixed inset-0 z-10 w-screen overflow-y-auto">
-        <div class="flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0">
-            <!-- Modal panel, show/hide based on modal state. -->
-            <div class="relative transform overflow-hidden rounded-lg bg-white text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-lg">
-                <div class="bg-white px-4 pb-4 pt-5 sm:p-6 sm:pb-4">
-                    <div class="sm:flex sm:items-start">
-                        <div class="mx-auto flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-full bg-red-100 sm:mx-0 sm:h-10 sm:w-10">
-                            <svg class="h-6 w-6 text-red-600" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v3.75m-9.303 3.376c-.866 1.5.217 3.374 1.948 3.374h14.71c1.73 0 2.813-1.874 1.948-3.374L13.949 3.378c-.866-1.5-3.032-1.5-3.898 0L2.697 16.126zM12 15.75h.007v.008H12v-.008z" />
-                            </svg>
-                        </div>
-                        <div class="mt-3 text-center sm:ml-4 sm:mt-0 sm:text-left">
-                            <h3 class="text-base font-semibold leading-6 text-gray-900" id="modal-title">Deactivate account</h3>
-                            <div class="mt-2">
-                                <p class="text-sm text-gray-500">Are you sure you want to deactivate your account? All of your data will be permanently removed. This action cannot be undone.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="bg-gray-50 px-4 py-3 sm:flex sm:flex-row-reverse sm:px-6">
-                    <button type="button" id="deactivate-button" class="inline-flex w-full justify-center rounded-md bg-red-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-red-500 sm:ml-3 sm:w-auto">Deactivate</button>
-                    <button type="button" id="cancel-button" class="mt-3 inline-flex w-full justify-center rounded-md bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50 sm:mt-0 sm:w-auto">Cancel</button>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-
-<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-<script>
     // const modal = document.getElementById('modal-success');
     // const openModalButton = document.getElementById('open-modal');
     // const cancelButton = document.getElementById('cancel-button');
@@ -609,7 +349,7 @@ console.log('aahahhghghghghg')
                 const avak = `
                 <div class="flex flex-col items-center pb-10">
         <div class="border h-px lg:w-5/6 md:w-full sm:w-full mt-3"></div>
-        <div class="text-2xl font-bold text-center lg:w-5/6 md:w-full sm:w-full mt-5">Select Rooms</div>
+        <div class="text-2xl font-bold text-center lg:w-5/6 md:w-full sm:w-full mt-5">Details</div>
 
         <div class="bg-white shadow-md rounded-lg mb-4 lg:w-5/6 md:w-full sm:w-full p-5">
             <div id="availability-card-container" class="bg-white mb-4"></div>
@@ -641,9 +381,9 @@ console.log('aahahhghghghghg')
                     window.location.href = base_url + 'pemesanan';
                 });
 
-                $('html, body').animate({
-                    scrollTop: $("#availability-card-container").offset().top
-                }, 1000);
+                // $('html, body').animate({
+                //     scrollTop: $("#availability-card-container").offset().top
+                // }, 1000);
             }
         }
     };
@@ -738,7 +478,7 @@ console.log('aahahhghghghghg')
                 var availability = response.availability
                 var kamar = availability.count;
                 var harga = 500000
-                var jenis_kamar = 'Standard'
+                var jenis_kamar = 'Deluxe'
                 console.log('jumlah kamar',availability.count);
                 // console.log('kamar yang tersedia',availability.available_kamar[0]['id_kamar']);
 
@@ -768,7 +508,7 @@ console.log('aahahhghghghghg')
                     const avak = `
                     <div class="flex flex-col items-center pb-10">
         <div class="border h-px lg:w-5/6 md:w-full sm:w-full mt-3"></div>
-        <div class="text-2xl font-bold text-center mb-4 mt-5">Select Rooms</div>
+        <div class="text-2xl font-bold text-center mb-4 mt-5">Details</div>
 
         <div class="bg-white shadow-md rounded-lg mb-4 lg:w-5/6 md:w-full sm:w-full p-5">
             <div id="availability-card-container" class="bg-white mb-4"></div>
@@ -916,4 +656,3 @@ console.log('aahahhghghghghg')
             }
         });
     });
-</script>

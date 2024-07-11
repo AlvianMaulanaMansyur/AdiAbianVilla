@@ -132,8 +132,6 @@ class Dashboard extends CI_Controller
         echo json_encode($response);
     }
 
-
-
     public function editKamar()
     {
         $this->form_validation->set_rules('id_kamar', 'ID Kamar', 'required');
@@ -227,6 +225,98 @@ class Dashboard extends CI_Controller
         redirect('Dashboard/guestData');
     }
 
+    public function monthlyReport()
+    {
+        $selectedMonth = $this->input->get('month');
+        if ($selectedMonth) {
+            $selectedYear = $this->input->get('year');
+
+            $monthYear = "$selectedYear-$selectedMonth";
+
+            // Simpan nilai bulan ke dalam session
+            $this->session->set_userdata('selected_month', $monthYear);
+            $formattedMonthYear = date("F Y", strtotime($this->session->userdata('selected_month')));
+        } else {
+            $monthYear = "";
+            $this->session->set_userdata('selected_month', $monthYear);
+            $monthYear = $this->session->userdata('selected_month');
+            $formattedMonthYear = "";
+        }
+
+        $monthly_orders = $this->M_dashboard->getMonthlyOrders($this->session->userdata('selected_month'));
+
+        $data = [
+            'title' => 'Guest Data',
+            'header' => 'dashboard/header',
+            'navbar' => 'dashboard/navbar',
+            'sidebar' => 'dashboard/sidebar',
+            // 'content' => 'dashboard/guestdata',
+            'footer' => 'dashboard/footer',
+            'script' => 'dashboard/script',
+            // 'guest' => $guest,
+            'monthly_orders' => $monthly_orders,
+            // 'active_tab' => 'monthlyReport',
+            'selected_month' => $formattedMonthYear,
+        ];
+
+        if ($selectedMonth == '') {
+            $data['content'] = 'dashboard/monthly_report';
+        } else {
+            $data['content'] = 'dashboard/monthly_report_table';
+        }
+        $this->load->view('dashboard/main', $data);
+    }
+
+    public function exportExcel() {
+        // Fetch data
+        $monthly_orders = $this->M_dashboard->getMonthlyOrders($this->session->userdata('selected_month'));
+    
+        // Headers for CSV file download
+        header('Content-Type: text/csv');
+        header('Content-Disposition: attachment;filename="Monthly_Report.csv"');
+        header('Cache-Control: max-age=0');
+    
+        // Open file pointer to php://output
+        $fp = fopen('php://output', 'w');
+    
+        // Write headers to the file
+        fputcsv($fp, array('No', 'Guest', 'Booking ID', 'Booking Date', 'Check-in Date', 'Check-out Date', 'Adults', 'Kids', 'Payment Status', 'Payment Amount'));
+    
+        // Write data rows to the file
+        foreach ($monthly_orders as $order) {
+            // Format dates as needed
+            $booking_date = date('d-m-Y H:i:s', strtotime($order['tgl_pemesanan']));
+            $checkin_date = date('d-m-Y', strtotime($order['tgl_checkIn']));
+            $checkout_date = date('d-m-Y', strtotime($order['tgl_checkOut']));
+    
+            // Format payment amount as Rupiah
+            $payment_amount = "Rp " . number_format($order['jumlah_pembayaran'], 0, ',', '.');
+    
+            // Write row to CSV
+            $no = 1;
+            fputcsv($fp, array(
+                $no++,
+                $order['nama'],
+                $order['id_pemesanan'],
+                $booking_date,
+                $checkin_date,
+                $checkout_date,
+                $order['dewasa'],
+                $order['anak'],
+                $order['status'] == 1 ? 'Confirmed' : 'Pending',
+                $payment_amount
+            ));
+        }
+    
+        // Close file pointer
+        fclose($fp);
+    
+        // Exit script
+        exit;
+    }
+    
+    
+    
 }
 
 /* End of file Controllername.php */

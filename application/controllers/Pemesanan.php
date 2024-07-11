@@ -35,15 +35,16 @@ class Pemesanan extends CI_Controller
         $harga_kamar = $this->M_kamar->getHargaKamar();
         $data = [
             'title' => 'Tamu',
-            'header' => 'partials/header',
+            'header' => 'partials/kamar/header',
+            'navbar' => 'partials/kamar/navbar',
+            'script' => 'partials/kamar/script',
             'content' => 'pemesanan/pemesanan',
-            'script' => 'partials/script',
             'pemesanan' => $pemesanan,
             'kamar' => $kamar,
             'tamu' => $tamu[0],
             'harga' => $harga_kamar[0]['harga'],
         ];
-        $this->load->view('partials/main', $data);
+        $this->load->view('partials/kamar/main', $data);
         // var_dump($tamu);
     }
     public function createPemesanan()

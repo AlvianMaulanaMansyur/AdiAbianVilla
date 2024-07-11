@@ -36,6 +36,7 @@
     grid-template-columns: auto;
     grid-gap: 1px;
     margin: 20px;
+    color: white;
 }
 
 .lightpick--2-columns .lightpick__months {
@@ -95,6 +96,12 @@
 }
 
 .lightpick__month-title > .lightpick__select-months {
+    color: #fff;
+    font-size: 1em;
+    margin-right: 2em;
+}
+.lightpick__month-title > .lightpick__select-years {
+    color: #fff;
     font-size: 1em;
     margin-right: 2em;
 }

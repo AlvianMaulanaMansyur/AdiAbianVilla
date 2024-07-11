@@ -1001,7 +1001,7 @@
 	 bottom: 0px;
 	 left: 0px;
 	 background-color: #fff;
-	 background-image: url('../assets_home/images/preload.gif');
+	 background-image: url('../images/preload.gif');
 	 background-position: center;
 	 background-repeat: no-repeat;
  }
@@ -4599,7 +4599,7 @@
 	 filter: alpha(opacity=27);
 	 background-position: center;
 	 background-size: cover;
-	 background-image: url('../assets_home/images/404-background.jpg');
+	 background-image: url('../images/404-background.jpg');
  }
  
  .hotale-not-found-wrap .hotale-not-found-content {

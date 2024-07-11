@@ -22,8 +22,7 @@ class Kamar extends CI_Controller
         
     }
 
-    public function index()
-    {
+    public function index() {
         $harga_kamar = $this->M_kamar->getHargaKamar();
         $checkin = $this->input->cookie('checkin', TRUE);
         $checkout = $this->input->cookie('checkout', TRUE);
@@ -34,14 +33,36 @@ class Kamar extends CI_Controller
         );
         $data = [
             'title' => 'Calendar',
-            'header' => 'partials/header_kamar',
-            'content' => 'kamar/ketersediaan',
-            'script' => 'partials/script',
+            'header' => 'partials/kamar/header',
+            'navbar' => 'partials/kamar/navbar',
+            'content' => 'kamar/detail_kamar',
+            'script' => 'partials/kamar/script',
             'kamar' => $datacheck,
             'harga' => $harga_kamar[0]['harga'],
         ];
-        $this->load->view('partials/main', $data);
+        $this->load->view('partials/kamar/main', $data);
     }
+
+    // public function index()
+    // {
+    //     $harga_kamar = $this->M_kamar->getHargaKamar();
+    //     $checkin = $this->input->cookie('checkin', TRUE);
+    //     $checkout = $this->input->cookie('checkout', TRUE);
+
+    //     $datacheck = array(
+    //         'checkin' => $checkin ? $checkin : '',
+    //         'checkout' => $checkout ? $checkout : ''
+    //     );
+    //     $data = [
+    //         'title' => 'Calendar',
+    //         'header' => 'partials/header_kamar',
+    //         'content' => 'kamar/ketersediaan',
+    //         'script' => 'partials/script',
+    //         'kamar' => $datacheck,
+    //         'harga' => $harga_kamar[0]['harga'],
+    //     ];
+    //     $this->load->view('partials/main', $data);
+    // }
     public function ketersediaanKamar()
     {
         if ($this->input->is_ajax_request()) {
