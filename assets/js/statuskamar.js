@@ -29,7 +29,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 const dateRange = start.format('YYYY-MM-DD') + ' - ' + end.format('YYYY-MM-DD');
                 console.log('Selected date range: ' + dateRange);
                 $.ajax({
-                    url: base_url + 'kamar/ketersediaankamar',
+                    url: 'http://localhost/PBL2/adiabianvilla/kamar/ketersediaankamar',
                     method: "POST",
                     data: {
                         dateRange: dateRange,
@@ -46,12 +46,13 @@ document.addEventListener('DOMContentLoaded', function () {
                         var roomsTable = $('#rooms-table');
                         roomsTable.empty(); // Kosongkan tabel sebelum mengisinya kembali
 
-                        response.availability.forEach(function(room) {
+                        response.availability.available_kamar.forEach(function(room) {
                             var roomRow = '<tr>' +
                                 // '<td class="border border-gray-500 px-4 py-2">' + room.id_kamar + '</td>' +
                                 '<td class="border border-gray-500 px-4 py-2">' + room.no_kamar + '</td>' +
-                                '<td class="border border-gray-500 px-4 py-2">' + room.tgl_checkIn + '</td>' +
-                                '<td class="border border-gray-500 px-4 py-2">' + room.tgl_checkOut + '</td>' +
+                                '<td class="border border-gray-500 px-4 py-2">' + 'Available' + '</td>' +
+                                // '<td class="border border-gray-500 px-4 py-2">' + room.tgl_checkIn + '</td>' +
+                                // '<td class="border border-gray-500 px-4 py-2">' + room.tgl_checkOut + '</td>' +
                                 '</td>' +
                                 '</tr>';
                             roomsTable.append(roomRow);
@@ -59,7 +60,7 @@ document.addEventListener('DOMContentLoaded', function () {
                         });
                         
 
-                        availabilityElement.html(response.availability.length);
+                        availabilityElement.html(response.availability.count);
                     },
                     error: function(xhr, status, error) {
                         console.error(xhr.responseText); // Tampilkan pesan error jika permintaan gagal

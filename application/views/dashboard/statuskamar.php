@@ -4,7 +4,7 @@
         <!-- Cek Ketersediaan Kamar Section -->
         <div class="w-full lg:w-1/3 px-4 mb-4 flex items-stretch">
             <div class="bg-white rounded-lg p-8 shadow-lg flex-1 flex flex-col">
-                <h1 id="result" class="text-gray-800 text-center text-2xl mb-6">Cek Ketersediaan Kamar</h1>
+                <h1 id="result" class="text-gray-800 text-center text-2xl mb-6">Check Room Availability</h1>
                 <div class="mb-6">
                     <div class="flex justify-center mb-4">
                         <div class="flex flex-col">
@@ -23,18 +23,17 @@
 
                 <div class="mb-6">
                     <div class="flex justify-center items-center">
-                        <div class="mr-2 font-semibold text-gray-800">Ketersediaan kamar:</div>
-                        <div id="availability" class="text-lg text-gray-800"></div>
+                        <div class="mr-2 font-semibold text-gray-800">Room availability :</div>
+                        <div id="availability" class="text-lg text-black"></div>
                     </div>
                 </div>
 
-                <div class="overflow-x-auto mx-auto flex-1">
+                <div class="overflow-x-auto mx-auto flex-1 w-2/3"> <!-- Ubah w-full menjadi w-2/3 -->
                     <table class="table-auto table-fixed border-collapse border border-gray-500 w-full">
                         <thead>
-                            <tr class="bg-gray-200">
-                                <th class="border border-gray-500 px-4 py-2">No Kamar</th>
-                                <th class="border border-gray-500 px-4 py-2">Tanggal CheckIn</th>
-                                <th class="border border-gray-500 px-4 py-2">Tanggal CheckOut</th>
+                            <tr class="bg-gray-700">
+                                <th class="border border-gray-500 px-4 py-2 w-1/2 text-white">Room number</th> <!-- Atur lebar kolom -->
+                                <th class="border border-gray-500 px-4 py-2 w-1/2 text-white">Room status</th> <!-- Atur lebar kolom -->
                             </tr>
                         </thead>
                         <tbody id="rooms-table">
@@ -45,20 +44,21 @@
             </div>
         </div>
 
+
         <!-- Tambah Kamar Section -->
         <div class="w-full lg:w-2/3 px-4 mb-4 flex items-stretch">
             <div class="bg-white p-6 rounded-lg shadow-lg flex-1 flex flex-col">
                 <div class="flex flex-wrap justify-between items-center mb-6">
-                    <h2 class="text-2xl font-bold text-gray-800 mb-4 lg:mb-0">Tabel Kamar AdiAbianVilla</h2>
+                    <h2 class="text-2xl font-bold text-gray-800 mb-4 lg:mb-0">AdiAbianVilla Room Table</h2>
                     <div class="flex flex-wrap gap-2 justify-end w-full lg:w-auto">
                         <button class="bg-green-500 hover:bg-green-600 text-white px-4 py-2 rounded-lg text-sm flex items-center space-x-2 transition duration-300" onclick="openAddtipeModal()">
-                            <span>Tambah Tipe Kamar</span>
+                            <span>Add Room Type</span>
                             <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6"></path>
                             </svg>
                         </button>
                         <button class="bg-green-500 hover:bg-green-600 text-white px-4 py-2 rounded-lg text-sm flex items-center space-x-2 transition duration-300" onclick="openAddKamarModal()">
-                            <span>Tambah Kamar</span>
+                            <span>Add Room</span>
                             <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6"></path>
                             </svg>
@@ -70,10 +70,10 @@
                     <table class="table-auto border-collapse border border-gray-500 w-full">
                         <thead class="bg-gray-700 text-white">
                             <tr>
-                                <th class="py-3 px-2 border w-1/6">No Kamar</th>
-                                <th class="py-3 px-2 border w-1/6">Harga Kamar</th>
-                                <th class="py-3 px-2 border w-1/6">Tipe Kamar</th>
-                                <th class="py-3 px-2 border w-1/6">Deskripsi</th>
+                                <th class="py-3 px-2 border w-1/6">Room Number</th>
+                                <th class="py-3 px-2 border w-1/6">Room price</th>
+                                <th class="py-3 px-2 border w-1/6">Room type</th>
+                                <th class="py-3 px-2 border w-1/6">Description</th>
                                 <th class="py-3 px-2 border w-1/6 text-center">Action</th>
                             </tr>
                         </thead>
@@ -113,14 +113,14 @@
         <!-- Tabel Tipe Kamar Section -->
         <div class="w-full px-4 mb-4 flex items-stretch">
             <div class="bg-white p-6 rounded-lg shadow-lg flex-1 flex flex-col">
-                <h2 class="text-2xl font-bold text-gray-800 mb-4">Tabel Tipe Kamar</h2>
+                <h2 class="text-2xl font-bold text-gray-800 mb-4">Room Type Table</h2>
                 <div class="overflow-x-auto flex-1">
                     <table class="table-auto border-collapse border border-gray-500 w-full">
                         <thead class="bg-gray-700 text-white">
                             <tr>
-                                <th class="py-3 px-2 border">Tipe Kamar</th>
-                                <th class="py-3 px-2 border">Harga</th>
-                                <th class="py-3 px-2 border">Deskripsi</th>
+                                <th class="py-3 px-2 border">Room type</th>
+                                <th class="py-3 px-2 border">Price</th>
+                                <th class="py-3 px-2 border">Description</th>
                                 <th class="py-3 px-1 border text-center w-24">Action</th>
                             </tr>
                         </thead>
@@ -159,14 +159,14 @@
         <!-- Add Kamar Modal -->
         <div id="addKamarModal" class="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 hidden">
             <div class="bg-white p-6 rounded-lg shadow-lg w-1/3">
-                <h2 class="text-xl font-bold mb-4">Tambah Kamar Baru</h2>
+                <h2 class="text-xl font-bold mb-4">Add New Room</h2>
                 <form id="addKamarForm">
                     <div class="mb-4">
-                        <label for="no_kamar" class="block text-gray-700 font-semibold">No Kamar</label>
+                        <label for="no_kamar" class="block text-gray-700 font-semibold">Room number</label>
                         <input type="text" id="no_kamar" name="no_kamar" class="w-full px-4 py-2 border rounded-lg">
                     </div>
                     <div class="mb-4">
-                        <label for="jenis_kamar" class="block text-gray-700 font-semibold">Tipe Kamar</label>
+                        <label for="jenis_kamar" class="block text-gray-700 font-semibold">Room type</label>
                         <select id="jenis_kamar" name="jenis_kamar" class="w-full px-4 py-2 border rounded-lg">
                             <option value="Standard">Standard</option>
                             <option value="Deluxe">Deluxe</option>
@@ -183,18 +183,18 @@
         <!-- Add tipe kamar Modal -->
         <div id="addtipeModal" class="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 hidden">
             <div class="bg-white p-6 rounded-lg shadow-lg w-1/3">
-                <h2 class="text-xl font-bold mb-4">Tambah Tipe Kamar</h2>
+                <h2 class="text-xl font-bold mb-4">Add Room Type</h2>
                 <form id="addtipeForm">
                     <div class="mb-4">
-                        <label for="harga" class="block text-gray-700 font-semibold">Harga Kamar</label>
+                        <label for="harga" class="block text-gray-700 font-semibold">Room price</label>
                         <input type="text" id="harga" name="harga" class="w-full px-4 py-2 border rounded-lg">
                     </div>
                     <div class="mb-4">
-                        <label for="jenis_kamar" class="block text-gray-700 font-semibold">jenis Kamar</label>
+                        <label for="jenis_kamar" class="block text-gray-700 font-semibold">type of room</label>
                         <input type="text" id="jenis_add" name="jenis_kamar" class="w-full px-4 py-2 border rounded-lg">
                     </div>
                     <div class="mb-4">
-                        <label for="deskripsi" class="block text-gray-700 font-semibold">deskripsi Kamar</label>
+                        <label for="deskripsi" class="block text-gray-700 font-semibold">Room description</label>
                         <input type="text" id="deskripsi" name="deskripsi" class="w-full px-4 py-2 border rounded-lg">
                     </div>
                     <div class="flex justify-end">
@@ -208,15 +208,15 @@
         <!-- Edit Kamar Modal -->
         <div id="editKamarModal" class="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 hidden">
             <div class="bg-white p-6 rounded-lg shadow-lg w-1/3">
-                <h2 class="text-xl font-bold mb-4">Edit Kamar</h2>
+                <h2 class="text-xl font-bold mb-4">Edit Room</h2>
                 <form id="editKamarForm">
                     <input type="hidden" id="edit_id_kamar" name="id_kamar">
                     <div class="mb-4">
-                        <label for="edit_no_kamar" class="block text-gray-700 font-semibold">No Kamar</label>
+                        <label for="edit_no_kamar" class="block text-gray-700 font-semibold">Room number</label>
                         <input type="text" id="edit_no_kamar" name="no_kamar" class="w-full px-4 py-2 border rounded-lg">
                     </div>
                     <div class="mb-4">
-                        <label for="edit_tipe_kamar" class="block text-gray-700 font-semibold">Tipe Kamar</label>
+                        <label for="edit_tipe_kamar" class="block text-gray-700 font-semibold">Room type</label>
                         <select id="edit_tipe_kamar" name="tipe_kamar" class="w-full px-4 py-2 border rounded-lg">
                             <option value="Standard">Standard</option>
                             <option value="Deluxe">Deluxe</option>
@@ -233,19 +233,19 @@
         <!-- Modal Edit Tipe Kamar -->
         <div id="edittipeModal" class="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 hidden">
             <div class="bg-white p-6 rounded-lg shadow-lg w-1/3">
-                <h2 class="text-xl font-bold mb-4">Edit Kamar</h2>
+                <h2 class="text-xl font-bold mb-4">Edit room</h2>
                 <form id="edittipeForm">
                     <input type="hidden" id="edit_id_detail_kamar" name="id_detail_kamar">
                     <div class="mb-4">
-                        <label for="edit_jenis_kamar" class="block text-gray-700 font-semibold">Tipe Kamar</label>
+                        <label for="edit_jenis_kamar" class="block text-gray-700 font-semibold">Room type</label>
                         <input type="text" id="edit_jenis_kamar" name="jenis_kamar" class="w-full px-4 py-2 border rounded-lg">
                     </div>
                     <div class="mb-4">
-                        <label for="edit_harga" class="block text-gray-700 font-semibold">Harga</label>
+                        <label for="edit_harga" class="block text-gray-700 font-semibold">Price</label>
                         <input type="text" id="edit_harga" name="harga" class="w-full px-4 py-2 border rounded-lg">
                     </div>
                     <div class="mb-4">
-                        <label for="edit_deskripsi" class="block text-gray-700 font-semibold">Deskripsi</label>
+                        <label for="edit_deskripsi" class="block text-gray-700 font-semibold">Description</label>
                         <input type="text" id="edit_deskripsi" name="deskripsi" class="w-full px-4 py-2 border rounded-lg">
                     </div>
                     <div class="flex justify-end">

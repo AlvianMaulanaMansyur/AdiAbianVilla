@@ -8,14 +8,14 @@ document.addEventListener('DOMContentLoaded', function () {
         // Tambahkan data harga untuk tanggal lainnya sesuai kebutuhan
       };
     var numberOfMonths = window.innerWidth <= 768 ? 1 : 2;
-    var checkin = document.getElementById('data_checkin');
-    var checkinValue = checkin.getAttribute('data');
-    var checkout = document.getElementById('data_checkout');
-    var checkoutValue = checkout.getAttribute('data');
-    var format1 = moment(checkinValue).format('ddd D MMMM YYYY');
-    var format2 = moment(checkoutValue).format('ddd D MMMM YYYY');
-    console.log(format1)
-    console.log(checkinValue);
+    // var checkin = document.getElementById('data_checkin');
+    // var checkinValue = checkin.getAttribute('data');
+    // var checkout = document.getElementById('data_checkout');
+    // var checkoutValue = checkout.getAttribute('data');
+    // var format1 = moment(checkinValue).format('ddd D MMMM YYYY');
+    // var format2 = moment(checkoutValue).format('ddd D MMMM YYYY');
+    // console.log(format1)
+    // console.log(checkinValue);
     var picker = new Lightpick({
         field: document.getElementById('datepicker'),
         secondField: document.getElementById('datepicker2'),
@@ -56,18 +56,6 @@ document.addEventListener('DOMContentLoaded', function () {
                         roomsTable.empty(); // Kosongkan tabel sebelum mengisinya kembali
             
                         response.availability.forEach(function(room) {
-                            var checkin = room.tgl_checkIn;
-                            var checkout = room.tgl_checkOut;
-                            console.log();
-            
-                            if (checkin === null || checkin === undefined) {
-                                checkin = "-";
-                            }
-            
-                            if (checkout === null || checkout === undefined) {
-                                checkout = "-";
-                            }
-            
                             var roomRow = '<tr>' +
                                 // '<td class="border border-gray-500 px-4 py-2">' + room.id_kamar + '</td>' +
                                 '<td class="border border-gray-500 px-4 py-2">' + room.no_kamar + '</td>' +

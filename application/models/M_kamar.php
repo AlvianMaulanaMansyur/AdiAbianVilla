@@ -11,41 +11,60 @@ class M_kamar extends CI_Model
         $query = $this->db->get();
         return $query->result_array();
     }
-    public function ketersediaan($checkin, $checkout)
-    {
-        $this->db->select('kamar.id_kamar, kamar.no_kamar, pemesanan.tgl_checkIn, pemesanan.tgl_checkOut, detail_kamar.harga, detail_kamar.jenis_kamar');
-        $this->db->from('kamar');
-        $this->db->join('kamar_has_pemesanan', 'kamar.id_kamar = kamar_has_pemesanan.id_kamar', 'left');
-        $this->db->join('pemesanan', 'kamar_has_pemesanan.id_pemesanan = pemesanan.id_pemesanan', 'left');
-        $this->db->join('detail_kamar', 'kamar.id_detail_kamar = detail_kamar.id_detail_kamar', 'left');
-        $this->db->where('pemesanan.id_pemesanan IS NULL');
-        $this->db->or_group_start();
-        $this->db->where('pemesanan.tgl_checkOut <=', $checkin);
-        $this->db->or_where('pemesanan.tgl_checkIn >=', $checkout);
-        $this->db->group_end();
-        $this->db->group_by('kamar.id_kamar');
 
+    public function getKamar()
+    {
+        $this->db->select('id_kamar,no_kamar');
+        $this->db->from('kamar');
         $query = $this->db->get();
         return $query->result();
     }
+
     public function detailKetersediaan($tanggal_check_in, $tanggal_check_out)
     {
-        $this->db->select('kamar.id_kamar, pemesanan.tgl_checkIn, pemesanan.tgl_checkOut');
+        $this->db->select('kamar.id_kamar,kamar.no_kamar');
         $this->db->from('kamar');
         $this->db->join('kamar_has_pemesanan', 'kamar.id_kamar = kamar_has_pemesanan.id_kamar');
         $this->db->join('pemesanan', 'kamar_has_pemesanan.id_pemesanan = pemesanan.id_pemesanan');
-        // $this->db->where('pemesanan.id_pemesanan IS NULL');
-        $this->db->or_where('pemesanan.tgl_checkIn BETWEEN "' . $tanggal_check_in . '" AND "' . $tanggal_check_out . '"');
+
+        $this->db->where('pemesanan.id_pemesanan IS NOT NULL');
+        $this->db->group_start();
+        $this->db->where('pemesanan.tgl_checkIn BETWEEN "' . $tanggal_check_in . '" AND "' . $tanggal_check_out . '"');
         $this->db->or_where('pemesanan.tgl_checkOut BETWEEN "' . $tanggal_check_in . '" AND "' . $tanggal_check_out . '"');
+        $this->db->or_where('"' . $tanggal_check_in . '" BETWEEN pemesanan.tgl_checkIn AND pemesanan.tgl_checkOut');
+        $this->db->or_where('"' . $tanggal_check_out . '" BETWEEN pemesanan.tgl_checkIn AND pemesanan.tgl_checkOut');
+        $this->db->group_end();
 
-        $this->db->group_by('kamar.id_kamar');
         $query = $this->db->get();
-
         if ($query->num_rows() > 0) {
             return $query->result();
         } else {
-            return FALSE;
+            return array();
         }
+    }
+
+    public function ketersediaan($tanggal_check_in, $tanggal_check_out)
+    {
+        $all_kamar = $this->getKamar();
+        $unavailable_kamar = $this->detailKetersediaan($tanggal_check_in, $tanggal_check_out);
+
+        if (!empty($unavailable_kamar)) {
+            $unavailable_kamar_ids = array_column($unavailable_kamar, 'id_kamar');
+            $available_kamar = array_filter($all_kamar, function ($kamar) use ($unavailable_kamar_ids) {
+                return !in_array($kamar->id_kamar, $unavailable_kamar_ids);
+            });
+        } else {
+            $available_kamar = $all_kamar;
+        }
+
+        // Menghitung jumlah kamar yang tersedia
+        $available_kamar_count = count($available_kamar);
+
+        // Mengembalikan data kamar yang tersedia dan jumlahnya
+        return [
+            'available_kamar' => $available_kamar,
+            'count' => $available_kamar_count
+        ];
     }
 
     public function gabungKetersediaan($checkin, $checkout)
