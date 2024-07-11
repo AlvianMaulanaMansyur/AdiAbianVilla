@@ -9,9 +9,17 @@ class Kamar extends CI_Controller
     {
         parent::__construct();
         $this->load->model('M_kamar');
-        if ($this->session->userdata('identity') == null) {
+
+        if($this->session->userdata('logged_in') == TRUE) {
+            
+        } elseif ($this->session->userdata('identity') == null) {
             redirect('auth/login');
         }
+    }
+
+    public function easepick() {
+        $this->load->view('kamar/easepick', FALSE);
+        
     }
 
     public function index()
@@ -61,8 +69,8 @@ class Kamar extends CI_Controller
             $this->input->set_cookie($cookie_checkout);
 
             $ketersediaan = $this->M_kamar->ketersediaan($checkin, $checkout);
-            $detail_ketersediaan = $this->M_kamar->detailKetersediaan($checkin, $checkout);
-            $real_ketersediaan = $this->M_kamar->gabungKetersediaan($checkin, $checkout);
+            // $detail_ketersediaan = $this->M_kamar->detailKetersediaan($checkin, $checkout);
+            // $real_ketersediaan = $this->M_kamar->gabungKetersediaan($checkin, $checkout);
 
             $this->session->set_userdata('availability', $ketersediaan);
 
@@ -73,8 +81,8 @@ class Kamar extends CI_Controller
                 'message' => 'Data ketersediaan kamar berhasil diambil',
                 'dateRange' => $dateRange,
                 'availability' => $ketersediaan,
-                'detail' => $detail_ketersediaan,
-                'real' => $real_ketersediaan,
+                // 'detail' => $detail_ketersediaan,
+                // 'real' => $real_ketersediaan,
             );
 
             echo json_encode($response);

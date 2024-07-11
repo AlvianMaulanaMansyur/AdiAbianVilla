@@ -14,7 +14,9 @@ class Dashboard extends CI_Controller
         $this->load->model('customer_model');
         $this->load->model('M_dashboard');
         $this->load->model('M_pemesanan');
-
+        $this->load->library('PDF');
+        
+        
         if (empty($this->session->userdata('username'))) {
             redirect('Authadmin/login');
         }
@@ -50,8 +52,6 @@ class Dashboard extends CI_Controller
         ];
         $this->load->view('dashboard/main', $data);
     }
-
-
 
     public function addKamar()
     {
@@ -117,7 +117,6 @@ class Dashboard extends CI_Controller
         echo json_encode(['status' => $update]);
     }
 
-
     public function deleteTipeKamar()
     {
         $id_detail_kamar = $this->input->post('id_detail_kamar');
@@ -129,8 +128,6 @@ class Dashboard extends CI_Controller
         }
         echo json_encode($response);
     }
-
-
 
     public function editKamar()
     {
@@ -192,7 +189,6 @@ class Dashboard extends CI_Controller
 
     public function guestdata()
     {
-
         $guest = $this->customer_model->get_data_tamu();
         $data = [
             'title' => 'Guest Data',
@@ -204,7 +200,6 @@ class Dashboard extends CI_Controller
             'script' => 'dashboard/script',
             'guest' => $guest,
         ];
-
         $this->load->view('dashboard/main', $data);
     }
 
@@ -219,11 +214,10 @@ class Dashboard extends CI_Controller
             'negara' => $this->input->post('nationality')
         ];
         $this->customer_model->update_guest($id_tamu, $data);
-
-        // Set flash data untuk notifikasi
         $this->session->set_flashdata('success', 'Data berhasil diperbarui!');
         redirect('Dashboard/guestData');
     }
+
 }
 
 /* End of file Controllername.php */
