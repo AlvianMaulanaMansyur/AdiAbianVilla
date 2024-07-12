@@ -28,6 +28,18 @@ class Pemesanan extends CI_Controller
 
     public function index()
     {
+
+        $identity = $this->session->userdata('identity');
+
+        if (!empty($identity)){
+
+            $user = $this->M_tamu->getTamuByEmailUsername($identity);
+            $username = $user[0]['nama'];
+        
+        } else {
+            $username = 'Login First!';
+
+        }
         $email = $this->session->userdata('identity');
         $tamu = $this->M_tamu->getTamuByEmailUsername($email);
         $pemesanan = $this->M_pemesanan->getPemesanan();
@@ -35,15 +47,17 @@ class Pemesanan extends CI_Controller
         $harga_kamar = $this->M_kamar->getHargaKamar();
         $data = [
             'title' => 'Tamu',
-            'header' => 'partials/header',
+            'header' => 'partials/kamar/header',
+            'navbar' => 'partials/kamar/navbar',
+            'script' => 'partials/kamar/script',
             'content' => 'pemesanan/pemesanan',
-            'script' => 'partials/script',
             'pemesanan' => $pemesanan,
+            'username' => $username,
             'kamar' => $kamar,
             'tamu' => $tamu[0],
             'harga' => $harga_kamar[0]['harga'],
         ];
-        $this->load->view('partials/main', $data);
+        $this->load->view('partials/kamar/main', $data);
         // var_dump($tamu);
     }
     public function createPemesanan()

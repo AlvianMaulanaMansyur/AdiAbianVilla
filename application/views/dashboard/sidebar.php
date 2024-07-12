@@ -19,7 +19,7 @@
             </a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="#">
+            <a class="nav-link" href="<?= base_url('dashboard/monthlyreport');?>">
                 <i class="menu-icon fa-solid fa-sack-dollar"></i>
                 <span class="menu-title">Monthly Report</span>
             </a>

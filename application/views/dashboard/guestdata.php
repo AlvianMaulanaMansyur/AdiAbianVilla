@@ -8,6 +8,7 @@
           <th>Profile Photo</th>
           <th>Username</th>
           <th>Email</th>
+          <th>Nama</th>
           <th>Phone Number</th>
           <th>Gender</th>
           <th>Nationality</th>
@@ -28,6 +29,7 @@
               <td class="hidden"><?= $key['id_tamu']?></td>
               <td><?= $key['username']; ?></td>
               <td><?= $key['email']; ?></td>
+              <td><?= $key['nama'];?></td>
               <td><?= $key['no_telp']; ?></td>
               <td><?= $key['jenis_kelamin']; ?></td>
               <td><?= $key['negara']; ?></td>
