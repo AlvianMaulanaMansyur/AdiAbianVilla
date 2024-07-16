@@ -29,7 +29,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 const dateRange = start.format('YYYY-MM-DD') + ' - ' + end.format('YYYY-MM-DD');
                 console.log('Selected date range: ' + dateRange);
                 $.ajax({
-                    url: 'http://localhost/PBL2/adiabianvilla/kamar/ketersediaankamar',
+                    url: base_url + 'kamar/ketersediaankamar',
                     method: "POST",
                     data: {
                         dateRange: dateRange,
@@ -41,6 +41,7 @@ document.addEventListener('DOMContentLoaded', function () {
                         console.log(response.real); // Tampilkan respons dari server pada konsol
                         console.log(response.tampil); // Tampilkan respons dari server pada konsol
                         
+                        // console.log(availability);
                         // Menggunakan nilai dari respons untuk memperbarui tabel
                         var availabilityElement = $('#availability');
                         var roomsTable = $('#rooms-table');

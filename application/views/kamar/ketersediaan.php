@@ -297,8 +297,6 @@
         const buttonsContainer = document.getElementById('buttons-container');
         const submitButton = document.getElementById('submit-button');
 
-
-
         function updateCounts() {
             let adults = 0;
             let kids = 0;
