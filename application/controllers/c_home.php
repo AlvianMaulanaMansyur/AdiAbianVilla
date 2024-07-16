@@ -9,7 +9,6 @@ class c_home extends CI_Controller {
         parent::__construct();
         $this->load->model('M_tamu');
     }
-    
 
 	public function index()
     {

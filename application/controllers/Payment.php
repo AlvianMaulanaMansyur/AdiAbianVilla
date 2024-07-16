@@ -137,7 +137,6 @@ class Payment extends CI_Controller
         }
     }
 
-
     public function callback()
     {
         $apiKey = '431a431d29417fbe41e2b813fc4c6478';
@@ -189,6 +188,7 @@ class Payment extends CI_Controller
     public function return()
     {
         echo ('Pembayaran anda kami proses');
+        redirect('c_home');
     }
 }
 

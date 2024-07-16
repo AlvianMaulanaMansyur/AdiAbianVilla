@@ -97,7 +97,6 @@ class Auth extends CI_Controller
     }
 }
 
-
   public function createPass()
   {
     $this->form_validation->set_rules('identity', 'Username or Email', 'trim|required', array(

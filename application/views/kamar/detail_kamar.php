@@ -50,13 +50,13 @@
                                             <a href="<?php echo base_url('c_home/aboutus') ?>" class="sf-with-ul-pre">About Us</a>
                                         </li>
                                         <li class="menu-item hotale-normal-menu">
-                                            <a href="<?php echo base_url('c_home/facilities') ?>">Facilities</a>
+                                            <a href="<?php echo base_url('c_home#villa_facilites') ?>">Facilities</a>
                                         </li>
                                         <li class="menu-item current-menu-item menu-item-has-children hotale-normal-menu">
                                             <a href="<?php echo base_url('kamar') ?>" class="sf-with-ul-pre">Reservation</a>
 
                                         </li>
-                                        <li class="menu-ite hotale-normal-menu"><a href="<?php echo base_url('c_home/contact') ?>" class="sf-with-ul-pre">Contact</a></li>
+                                        <li class="menu-ite hotale-normal-menu"><a href="<?php echo base_url('c_home#villa_contact') ?>" class="sf-with-ul-pre">Contact</a></li>
                                     </ul>
                                     <div class="hotale-navigation-slide-bar hotale-navigation-slide-bar-style-2 hotale-left" data-size-offset="0" data-width="19px" id="hotale-navigation-slide-bar"></div>
                                 </div>
@@ -961,3 +961,4 @@
             </footer>
         </div>
     </div>
+    

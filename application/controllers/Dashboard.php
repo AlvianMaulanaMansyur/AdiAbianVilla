@@ -2,7 +2,8 @@
 
 
 defined('BASEPATH') or exit('No direct script access allowed');
-
+use PhpOffice\PhpSpreadsheet\Spreadsheet;
+use PhpOffice\PhpSpreadsheet\Writer\Xlsx;
 class Dashboard extends CI_Controller
 {
     public function __construct()
@@ -258,54 +259,62 @@ class Dashboard extends CI_Controller
     }
 
     public function exportExcel() {
-        // Fetch data
+        // Ambil data bulanan dari model
         $monthly_orders = $this->M_dashboard->getMonthlyOrders($this->session->userdata('selected_month'));
-    
-        // Headers for CSV file download
-        header('Content-Type: text/csv');
-        header('Content-Disposition: attachment;filename="Monthly_Report.csv"');
-        header('Cache-Control: max-age=0');
-    
-        // Open file pointer to php://output
-        $fp = fopen('php://output', 'w');
-    
-        // Write headers to the file
-        fputcsv($fp, array('No', 'Guest', 'Booking ID', 'Booking Date', 'Check-in Date', 'Check-out Date', 'Adults', 'Kids', 'Payment Status', 'Payment Amount'));
-    
-        // Write data rows to the file
+
+        // Buat objek Spreadsheet
+        $spreadsheet = new Spreadsheet();
+
+        // Buat sheet aktif
+        $sheet = $spreadsheet->getActiveSheet();
+
+        // Menulis header
+        $sheet->setCellValue('A1', 'No');
+        $sheet->setCellValue('B1', 'Guest');
+        $sheet->setCellValue('C1', 'Booking ID');
+        $sheet->setCellValue('D1', 'Booking Date');
+        $sheet->setCellValue('E1', 'Check-in Date');
+        $sheet->setCellValue('F1', 'Check-out Date');
+        $sheet->setCellValue('G1', 'Numbers of Room');
+        $sheet->setCellValue('H1', 'Adults');
+        $sheet->setCellValue('I1', 'Kids');
+        $sheet->setCellValue('J1', 'Payment Status');
+        $sheet->setCellValue('K1', 'Payment Amount');
+
+        // Menulis data dari $monthly_orders
+        $row = 2;
         foreach ($monthly_orders as $order) {
-            // Format dates as needed
-            $booking_date = date('d-m-Y H:i:s', strtotime($order['tgl_pemesanan']));
-            $checkin_date = date('d-m-Y', strtotime($order['tgl_checkIn']));
-            $checkout_date = date('d-m-Y', strtotime($order['tgl_checkOut']));
-    
-            // Format payment amount as Rupiah
-            $payment_amount = "Rp " . number_format($order['jumlah_pembayaran'], 0, ',', '.');
-    
-            // Write row to CSV
-            $no = 1;
-            fputcsv($fp, array(
-                $no++,
-                $order['nama'],
-                $order['id_pemesanan'],
-                $booking_date,
-                $checkin_date,
-                $checkout_date,
-                $order['dewasa'],
-                $order['anak'],
-                $order['status'] == 1 ? 'Confirmed' : 'Pending',
-                $payment_amount
-            ));
+            $sheet->setCellValue('A' . $row, $row - 1);
+            $sheet->setCellValue('B' . $row, $order['nama']);
+            $sheet->setCellValue('C' . $row, $order['id_pemesanan']);
+            $sheet->setCellValue('D' . $row, $order['tgl_pemesanan']);
+            $sheet->setCellValue('E' . $row, $order['tgl_checkIn']);
+            $sheet->setCellValue('F' . $row, $order['tgl_checkOut']);
+            $sheet->setCellValue('G' . $row, $order['jumlah_kamar']);
+            $sheet->setCellValue('H' . $row, $order['dewasa']);
+            $sheet->setCellValue('I' . $row, $order['anak']);
+            $sheet->setCellValue('J' . $row, $order['status'] == 1 ? 'Confirmed' : 'Pending');
+            $sheet->setCellValue('K' . $row, 'Rp ' . number_format($order['jumlah_pembayaran'], 0, ',', '.'));
+            $row++;
         }
-    
-        // Close file pointer
-        fclose($fp);
-    
-        // Exit script
+
+        // Membuat objek Writer untuk Excel (Xlsx)
+        $writer = new Xlsx($spreadsheet);
+
+        // Nama file Excel yang akan diunduh
+        $filename = 'Monthly_Report.xlsx';
+
+        // Setup header untuk file Excel
+        header('Content-Type: application/vnd.openxmlformats-officedocument.spreadsheetml.sheet');
+        header('Content-Disposition: attachment;filename="' . $filename . '"');
+        header('Cache-Control: max-age=0');
+
+        // Simpan file Excel ke output
+        $writer->save('php://output');
+
+        // Exit untuk menghentikan eksekusi script
         exit;
     }
-    
-    
     
 }
 

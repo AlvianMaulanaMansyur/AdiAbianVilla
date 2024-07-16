@@ -47,16 +47,16 @@
                   </li>
 
                   <li class="menu-item menu-item-has-children hotale-normal-menu">
-                    <a href="<?php echo base_url('c_home/aboutus') ?>" class="sf-with-ul-pre">About Us</a>
+                    <a href="<?php echo base_url('c_home/about') ?>" class="sf-with-ul-pre">About Us</a>
                   </li>
                   <li class="menu-item hotale-normal-menu">
-                    <a href="<?php echo base_url('c_home/facilities') ?>">Facilities</a>
+                    <a href="<?php echo base_url('c_home#villa_facilities') ?>">Facilities</a>
                   </li>
                   <li class="menu-item current-menu-item menu-item-has-children hotale-normal-menu">
                     <a href="<?php echo base_url('kamar') ?>" class="sf-with-ul-pre">Reservation</a>
 
                   </li>
-                  <li class="menu-ite hotale-normal-menu"><a href="<?php echo base_url('c_home/contact') ?>" class="sf-with-ul-pre">Contact</a></li>
+                  <li class="menu-ite hotale-normal-menu"><a href="<?php echo base_url('c_home#villa_contact') ?>" class="sf-with-ul-pre">Contact</a></li>
                 </ul>
                 <div class="hotale-navigation-slide-bar hotale-navigation-slide-bar-style-2 hotale-left" data-size-offset="0" data-width="19px" id="hotale-navigation-slide-bar"></div>
               </div>
@@ -189,6 +189,7 @@
               <div class="text-black text-base font-bold leading-7">Total price</div>
               <div id="total_price" class="text-black text-md font-bold leading-7"></div>
             </div>
+            <span class="error text-red-600" id="data-empty"></span>
             <button id="submit-details" class="w-full md:w-52 h-10 bg-red-500 text-white mt-4 mb-5 rounded">
               Continue To Payment
             </button>
@@ -374,10 +375,10 @@
     }
 
     // Validate nationality
-    if (negara == 'Pilih Negara') {
-      isValid = false;
-      $('#negara-error').text('Nationality is required.');
-    }
+    // if (!negara) {
+    //   isValid = false;
+    //   $('#negara-error').text('Nationality is required.');
+    // }
 
     // Validate gender
     if (!jenisKelamin) {
@@ -426,6 +427,31 @@
             function deleteCookie(name) {
               document.cookie = name + '=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;';
             }
+
+            // Fungsi untuk mengambil nilai cookie berdasarkan namanya
+            function getCookie(name) {
+              let nameEQ = name + "=";
+              let ca = document.cookie.split(';');
+              for (let i = 0; i < ca.length; i++) {
+                let c = ca[i];
+                while (c.charAt(0) === ' ') c = c.substring(1, c.length);
+                if (c.indexOf(nameEQ) === 0) return c.substring(nameEQ.length, c.length);
+              }
+              return null;
+            }
+
+            // Mengambil nilai cookie 'availability'
+            let availability = getCookie('availability');
+
+            if (availability !== null) {
+              // Menyimpan nilai cookie 'availability' ke cookie baru 'availability1'
+              document.cookie = "availability1=" + availability + "; path=/; max-age=" + (3 * 60 * 60 ); // Cookie valid selama 30 hari
+              console.log("Cookie 'availability1' telah diset dengan nilai: " + availability);
+            } else {
+              console.log("Cookie 'availability' tidak ditemukan.");
+            }
+            const cookies = document.cookie.split(";");
+            console.log(cookies);
             deleteCookie('roomsData');
             deleteCookie('availability');
             deleteCookie('kamar');
@@ -438,6 +464,8 @@
           console.error("Error:", error);
         }
       });
+    } else {
+      $('#data-empty').text('Please fill your details');
     }
 
   });

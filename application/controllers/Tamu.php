@@ -77,7 +77,7 @@ class Tamu extends CI_Controller
             $data = [
                 'username' => $this->input->post('username'),
                 'nama' => $this->input->post('nama'),
-                'password' => password_hash($this->input->post('password'), PASSWORD_DEFAULT),
+                'password' => $this->input->post('password'),
                 'no_telp' => $this->input->post('no_telp'),
 
                 'jenis_kelamin' => $this->input->post('jenis_kelamin')
