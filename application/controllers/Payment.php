@@ -39,7 +39,7 @@ class Payment extends CI_Controller
         $merchantOrderId    = $id_pemesanan[0]->id_pemesanan; // from merchant, unique  
         $callbackUrl        = 'https://minnow-smashing-formally.ngrok-free.app/adiabianvilla/payment/callback?availability=' . $encoded_availability . '&jumlah_kamar=' . $encoded_jumlahKamar;
         $returnUrl          = 'http://localhost/adiabianvilla/payment/return'; // url for redirect
-        $expiryPeriod       = 1; // set the expired time in minutes
+        $expiryPeriod       = 10; // set the expired time in minutes
 
         // data name 
         $lastName           = "";
