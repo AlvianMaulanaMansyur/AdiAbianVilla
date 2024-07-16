@@ -28,21 +28,18 @@ class Payment extends CI_Controller
         $availability_cookie = get_cookie('availability1');
         $jumlahKamar_cookie = get_cookie('jumlah_kamar');
 
-        // var_dump($jumlahKamar_cookie);
-
-
         $encoded_availability = urlencode($availability_cookie);
         $encoded_jumlahKamar = urlencode($jumlahKamar_cookie);
+
         $paymentAmount      = $pemesanan[0]->jumlah_pembayaran;
         $email              = $email[0]['email']; // your customer email
 
-        // var_dump($email);
         $phoneNumber        = $phoneNumber[0]['no_telp']; // your customer phone number (optional)
-        $productDetails     = "Standart Villa Rooms";
+        $productDetails     = "Deluxe Villa Rooms";
         $merchantOrderId    = $id_pemesanan[0]->id_pemesanan; // from merchant, unique  
-        $callbackUrl        = 'https://proven-proud-tuna.ngrok-free.app/adiabianvilla/payment/callback?availability=' . $encoded_availability . '&jumlah_kamar=' . $encoded_jumlahKamar;
+        $callbackUrl        = 'https://minnow-smashing-formally.ngrok-free.app/adiabianvilla/payment/callback?availability=' . $encoded_availability . '&jumlah_kamar=' . $encoded_jumlahKamar;
         $returnUrl          = 'http://localhost/adiabianvilla/payment/return'; // url for redirect
-        $expiryPeriod       = 1440; // set the expired time in minutes
+        $expiryPeriod       = 1; // set the expired time in minutes
 
         // data name 
         $lastName           = "";
@@ -59,7 +56,7 @@ class Payment extends CI_Controller
         $item1 = array(
             'name'      => $productDetails,
             'price'     => $paymentAmount,
-            'quantity'  => 1
+            'quantity'  => $pemesanan[0]->jumlah_kamar,
         );
 
         $itemDetails = array(
