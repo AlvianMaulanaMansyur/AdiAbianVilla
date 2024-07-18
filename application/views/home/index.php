@@ -108,7 +108,7 @@
                                     <a class="hotale-fixed-nav-logo" href="<?php echo base_url('c_home') ?>">
                                         <img src="<?php echo base_url('asset/images/logog.png') ?>" alt="" width="147" height="37" title="logo-nx1" />
                                     </a>
-                                    <a class="hotale-orig-logo" href="<?php echo base_url('c_home') ?>">
+                                    <a class="hotale-orig-logo" href="<?php echo base_url('home') ?>">
                                         <img src="<?php echo base_url('asset/images/logog.png') ?>" alt="" width="147" height="37" title="logo-nx1" />
                                     </a>
                                 </div>
@@ -117,26 +117,25 @@
                                 <div class="hotale-main-menu" id="hotale-main-menu">
                                     <ul id="menu-main-navigation-1" class="sf-menu">
                                         <li class="menu-item current-menu-item menu-item-home menu-item-has-children hotale-normal-menu">
-                                            <a href="<?php echo base_url('c_home') ?>" class="sf-with-ul-pre">Home</a>
+                                            <a href="<?php echo base_url('home') ?>" class="sf-with-ul-pre">Home</a>
                                         </li>
-
                                         <li class="menu-item menu-item-has-children hotale-normal-menu">
-                                            <a href="<?php echo base_url('c_home/about') ?>" class="sf-with-ul-pre">About Us</a>
+                                            <a href="<?php echo base_url('about') ?>" class="sf-with-ul-pre">About Us</a>
                                         </li>
                                         <li class="menu-item hotale-normal-menu">
-                                            <a href="<?php echo base_url('c_home#villa_facilites') ?>">Facilities</a>
+                                            <a href="<?php echo base_url('home#villa_facilites') ?>">Facilities</a>
                                         </li>
                                         <li class="menu-item menu-item-has-children hotale-normal-menu">
-                                            <a href="<?php echo base_url('kamar') ?>" class="sf-with-ul-pre">Reservation</a>
+                                            <a href="<?php echo base_url('room') ?>" class="sf-with-ul-pre">Reservation</a>
 
                                         </li>
-                                        <li class="menu-ite hotale-normal-menu"><a href="<?php echo base_url('c_home#villa_contact') ?>" class="sf-with-ul-pre">Contact</a></li>
+                                        <li class="menu-item hotale-normal-menu"><a href="<?php echo base_url('home#villa_contact') ?>" class="sf-with-ul-pre">Contact</a></li>
                                     </ul>
                                     <div class="hotale-navigation-slide-bar hotale-navigation-slide-bar-style-2 hotale-left" data-size-offset="0" data-width="19px" id="hotale-navigation-slide-bar"></div>
                                 </div>
                                 <div class="hotale-main-menu-right-wrap clearfix hotale-item-mglr hotale-navigation-top">
                                     <div class="tourmaster-room-navigation-checkout-wrap">
-                                        <a id="tourmaster-room-navigation-checkout-button" class="tourmaster-room-navigation-checkout-button" href="<?php echo base_url('kamar') ?>" data-checkout-label="Check Out" data-label="Book Now">
+                                        <a id="tourmaster-room-navigation-checkout-button" class="tourmaster-room-navigation-checkout-button" href="<?php echo base_url('room') ?>" data-checkout-label="Check Out" data-label="Book Now">
                                             Book Now<span class="tourmaster-count">0</span>
                                         </a>
                                         <div class="tourmaster-room-cart-item-wrap">

@@ -21,14 +21,16 @@ class Dashboard extends CI_Controller
     }
     public function main()
     {
+        $pemesanan = $this->M_pemesanan->getPemesanan();
         $data = [
             'title' => 'Adi Abian Villa Dashboard',
             'header' => 'dashboard/header',
             'navbar' => 'dashboard/navbar',
             'sidebar' => 'dashboard/sidebar',
-            'content' => 'dashboard/test',
+            'content' => 'dashboard/daftar_pemesanan',
             'footer' => 'dashboard/footer',
-            'script' => 'dashboard/script'
+            'script' => 'dashboard/script',
+            'pemesanan' => $pemesanan
         ];
         $this->load->view('dashboard/main', $data);
     }

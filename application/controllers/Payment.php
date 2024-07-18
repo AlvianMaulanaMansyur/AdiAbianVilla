@@ -17,6 +17,7 @@ class Payment extends CI_Controller
     {
         $duitkuConfig = new \Duitku\Config("431a431d29417fbe41e2b813fc4c6478", "DS19433");
         $duitkuConfig->setSandboxMode(true);
+
         $identity = $this->session->userdata('identity');
         $id_tamu = $this->M_tamu->getIdTamuByEmailUsername($identity);
         $id_pemesanan = $this->M_pemesanan->getPemesananByIdTamu($id_tamu[0]['id_tamu']);
@@ -31,6 +32,7 @@ class Payment extends CI_Controller
         $encoded_availability = urlencode($availability_cookie);
         $encoded_jumlahKamar = urlencode($jumlahKamar_cookie);
 
+        $datetime           = date('Y-m-d H:i:s');  
         $paymentAmount      = $pemesanan[0]->jumlah_pembayaran;
         $email              = $email[0]['email']; // your customer email
 
@@ -39,7 +41,7 @@ class Payment extends CI_Controller
         $merchantOrderId    = $id_pemesanan[0]->id_pemesanan; // from merchant, unique  
         $callbackUrl        = 'https://minnow-smashing-formally.ngrok-free.app/adiabianvilla/payment/callback?availability=' . $encoded_availability . '&jumlah_kamar=' . $encoded_jumlahKamar;
         $returnUrl          = 'http://localhost/adiabianvilla/payment/return'; // url for redirect
-        $expiryPeriod       = 10; // set the expired time in minutes
+        $expiryPeriod       = 1; // set the expired time in minutes
 
         // data name 
         $lastName           = "";

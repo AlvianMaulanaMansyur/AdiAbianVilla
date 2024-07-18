@@ -53,10 +53,11 @@
                     <a href="<?php echo base_url('c_home#villa_facilities') ?>">Facilities</a>
                   </li>
                   <li class="menu-item current-menu-item menu-item-has-children hotale-normal-menu">
-                    <a href="<?php echo base_url('kamar') ?>" class="sf-with-ul-pre">Reservation</a>
+                    <a href="<?php echo base_url('room') ?>" class="sf-with-ul-pre">Reservation</a>
 
                   </li>
                   <li class="menu-ite hotale-normal-menu"><a href="<?php echo base_url('c_home#villa_contact') ?>" class="sf-with-ul-pre">Contact</a></li>
+                  <li class="menu-ite hotale-normal-menu"><a href="<?php echo base_url('') ?>" class="sf-with-ul-pre"><i class="fa-solid fa-user"></i></a></li>
                 </ul>
                 <div class="hotale-navigation-slide-bar hotale-navigation-slide-bar-style-2 hotale-left" data-size-offset="0" data-width="19px" id="hotale-navigation-slide-bar"></div>
               </div>
@@ -80,14 +81,11 @@
       <!-- header -->
     </div>
 
-
-
-
     <div class="hotale-page-wrapper" id="hotale-page-wrapper">
       <div class="tourmaster-room-single-header-title-wrap" style="border-radius: 20px 20px 20px 20px; -moz-border-radius: 20px 20px 20px 20px; -webkit-border-radius: 20px 20px 20px 20px;">
         <div class="tourmaster-room-single-header-background-overlay"></div>
         <div class="tourmaster-container">
-          <h1 class="tourmaster-item-pdlr">Booking Details</h1>
+          <h1 class="tourmaster-item-pdlr">Order Details</h1>
         </div>
       </div>
     </div>
@@ -100,7 +98,7 @@
           </div>
           <form id="reservation-form" action="<?php echo base_url('pemesanan/createpemesanan') ?>" method="post">
             <fieldset disabled>
-              <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
                 <div>
                   <label for="username">Full Name</label>
                   <input id="username" name="username" class="h-12 w-full px-3.5 py-2.5 bg-white rounded border border-black" placeholder="ex: John Wick" value="<?php echo $tamu['nama'] ?>">
@@ -126,6 +124,9 @@
                   <input id="jenis_kelamin" name="jenis_kelamin" class="h-12 w-full px-3.5 py-2.5 bg-white rounded border border-black" placeholder="ex: Male/Female" value="<?php echo $tamu['jenis_kelamin'] ?>">
                   <span class="error text-red-600" id="jenis_kelamin-error"></span>
                 </div>
+                <div class="pt-4 flex justify-end">
+                  <button class="h-10 w-20 bg-yellow-500 rounded flex justify-center items-center gap-2"><i class="fa-solid fa-pencil" style="color: white;"></i><a class="text-white" href="<?php echo base_url('tamu') ?>">Edit</a></button>
+                </div>
               </div>
             </fieldset>
             <input type="hidden" id="adults" name="dewasa" value="<?php echo $kamar['adults']; ?>">
@@ -136,7 +137,7 @@
           </form>
         </div>
 
-        <div class="w-full flex flex-col md:flex-row gap-1">
+        <div class="w-full flex flex-col md:flex-row gap-8">
           <div class="lg:w-full md:w-3/12 h-auto mt-10 p-6 bg-white shadow rounded">
             <div class="text-black text-xl font-bold leading-7 mb-6">
               Booking Details
@@ -190,9 +191,12 @@
               <div id="total_price" class="text-black text-md font-bold leading-7"></div>
             </div>
             <span class="error text-red-600" id="data-empty"></span>
-            <button id="submit-details" class="w-full md:w-52 h-10 bg-red-500 text-white mt-4 mb-5 rounded">
-              Continue To Payment
+            <div class="flex justify-end">
+            <button id="submit-details" class="w-full md:w-52 h-10 bg-red-500 text-white mt-4 mb-5 rounded flex justify-center items-center gap-2">
+            <i class="fa-solid fa-money-check-dollar"></i>
+              <span>Continue To Payment</span>
             </button>
+            </div>
           </div>
         </div>
       </div>

@@ -1,3 +1,4 @@
+
 function toggleModal(modalId) {
 	const modal = document.getElementById(modalId);
 	if (modal.classList.contains("hidden")) {
@@ -13,6 +14,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
 	const modalContainer = document.getElementById("modal-container");
 	const buttonsContainer = document.getElementById("buttons-container");
 	const submitButton = document.getElementById("submit-button");
+	const base_url = 'http://localhost/adiabianvilla';
 
 	function updateCounts() {
 		let adults = 0;
@@ -112,7 +114,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
                     <div class="border border-black h-px w-full mb-4"></div>
 
                     <div class="flex items-center mb-4">
-                        <img class="w-10 h-10 mr-4" src="<?php echo base_url('assets/foto/person.png') ?>" />
+                        <img class="w-10 h-10 mr-4" src="${base_url}/assets/foto/person.png" />
                         <div class="text-black text-sm font-normal mr-auto">Adult</div>
                         <div>
                             <select name="dewasa" class="select-adult appearance-auto border-1 w-24 h-8 rounded">
@@ -122,7 +124,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
                         </div>
                     </div>
                     <div class="flex items-center mb-4">
-                        <img class="w-10 h-10 mr-4" src="<?php echo base_url('assets/foto/kid.png') ?>" />
+                        <img class="w-10 h-10 mr-4" src="${base_url}/assets/foto/kid.png" />
                         <div class="flex flex-col items-start mr-auto">
                             <div class="text-black text-sm font-normal">Kid</div>
                             <div class="text-gray-500 text-sm font-normal">Ages 6 and below</div>
@@ -173,7 +175,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
             <div class="flex flex-col room-section">
                 <div class="border border-black h-px w-full mb-4"></div>
                 <div class="flex items-center mb-4">
-                    <img class="w-10 h-10 mr-4" src="<?php echo base_url('assets/foto/person.png') ?>" />
+                    <img class="w-10 h-10 mr-4" src="${base_url}/assets/foto/person.png" />
                     <div class="text-black text-sm font-normal mr-auto">Adult</div>
                     <div>
                         <select name="dewasa" class="select-adult appearance-auto border-1 w-24 h-8 rounded">
@@ -183,7 +185,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
                     </div>
                 </div>
                 <div class="flex items-center mb-4">
-                    <img class="w-10 h-10 mr-4" src="<?php echo base_url('assets/foto/kid.png') ?>" />
+                    <img class="w-10 h-10 mr-4" src="${base_url}/assets/foto/kid.png" />
                     <div class="flex flex-col items-start mr-auto">
                         <div class="text-black text-sm font-normal">Kid</div>
                         <div class="text-gray-500 text-sm font-normal">Ages 6 and below</div>
@@ -539,7 +541,7 @@ $("#check").click(function (event) {
 				$("#availability1").append(avak);
 				$("#reserve").click(function (event) {
 					console.log("halo");
-					window.location.href = base_url + "pemesanan";
+					window.location.href = base_url + "order";
 				});
 
 				$("html, body").animate(
