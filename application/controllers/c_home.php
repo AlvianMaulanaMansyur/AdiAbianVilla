@@ -43,4 +43,10 @@ class c_home extends CI_Controller {
         $this->load->view('home/about');
         
     }
+
+    public function contact()
+    {
+        $this->load->view('home/contact');
+
+    }
 }
