@@ -108,7 +108,7 @@
                                     <a class="hotale-fixed-nav-logo" href="<?php echo base_url('c_home') ?>">
                                         <img src="<?php echo base_url('asset/images/logog.png') ?>" alt="" width="147" height="37" title="logo-nx1" />
                                     </a>
-                                    <a class="hotale-orig-logo" href="<?php echo base_url('c_home') ?>">
+                                    <a class="hotale-orig-logo" href="<?php echo base_url('home') ?>">
                                         <img src="<?php echo base_url('asset/images/logog.png') ?>" alt="" width="147" height="37" title="logo-nx1" />
                                     </a>
                                 </div>
@@ -117,26 +117,25 @@
                                 <div class="hotale-main-menu" id="hotale-main-menu">
                                     <ul id="menu-main-navigation-1" class="sf-menu">
                                         <li class="menu-item current-menu-item menu-item-home menu-item-has-children hotale-normal-menu">
-                                            <a href="<?php echo base_url('c_home') ?>" class="sf-with-ul-pre">Home</a>
+                                            <a href="<?php echo base_url('home') ?>" class="sf-with-ul-pre">Home</a>
                                         </li>
-
                                         <li class="menu-item menu-item-has-children hotale-normal-menu">
-                                            <a href="<?php echo base_url('c_home/aboutus') ?>" class="sf-with-ul-pre">About Us</a>
+                                            <a href="<?php echo base_url('about') ?>" class="sf-with-ul-pre">About Us</a>
                                         </li>
                                         <li class="menu-item hotale-normal-menu">
-                                            <a href="<?php echo base_url('c_home/facilities') ?>">Facilities</a>
+                                            <a href="<?php echo base_url('home#villa_facilites') ?>">Facilities</a>
                                         </li>
                                         <li class="menu-item menu-item-has-children hotale-normal-menu">
-                                            <a href="<?php echo base_url('kamar') ?>" class="sf-with-ul-pre">Reservation</a>
+                                            <a href="<?php echo base_url('room') ?>" class="sf-with-ul-pre">Reservation</a>
 
                                         </li>
-                                        <li class="menu-ite hotale-normal-menu"><a href="<?php echo base_url('c_home/contact') ?>" class="sf-with-ul-pre">Contact</a></li>
+                                        <li class="menu-item hotale-normal-menu"><a href="<?php echo base_url('home#villa_contact') ?>" class="sf-with-ul-pre">Contact</a></li>
                                     </ul>
                                     <div class="hotale-navigation-slide-bar hotale-navigation-slide-bar-style-2 hotale-left" data-size-offset="0" data-width="19px" id="hotale-navigation-slide-bar"></div>
                                 </div>
                                 <div class="hotale-main-menu-right-wrap clearfix hotale-item-mglr hotale-navigation-top">
                                     <div class="tourmaster-room-navigation-checkout-wrap">
-                                        <a id="tourmaster-room-navigation-checkout-button" class="tourmaster-room-navigation-checkout-button" href="<?php echo base_url('kamar') ?>" data-checkout-label="Check Out" data-label="Book Now">
+                                        <a id="tourmaster-room-navigation-checkout-button" class="tourmaster-room-navigation-checkout-button" href="<?php echo base_url('room') ?>" data-checkout-label="Check Out" data-label="Book Now">
                                             Book Now<span class="tourmaster-count">0</span>
                                         </a>
                                         <div class="tourmaster-room-cart-item-wrap">
@@ -316,7 +315,7 @@
                                         <div class="gdlr-core-title-item gdlr-core-item-pdb clearfix gdlr-core-center-align gdlr-core-title-item-caption-top gdlr-core-item-pdlr" id="gdlr-core-title-item-3">
                                             <div class="gdlr-core-title-item-title-wrap">
                                                 <h3 class="gdlr-core-title-item-title gdlr-core-skin-title hotale-additional-font class-test" style="font-size: 80px; font-weight: 400; letter-spacing: 0px; text-transform: none; color: #000000;">
-                                                    Villa Facilities.<span class="gdlr-core-title-item-title-divider gdlr-core-skin-divider"></span>
+                                                    Villa Facilities.<span class="gdlr-core-title-item-title-divider gdlr-core-skin-divider" id="villa_facilites"></span>
                                                 </h3>
                                             </div>
                                         </div>
@@ -345,7 +344,7 @@
                                     <div class="gdlr-core-pbf-element">
                                         <div class="gdlr-core-image-item gdlr-core-item-pdb gdlr-core-center-align gdlr-core-item-pdlr">
                                             <div class="gdlr-core-image-item-wrap gdlr-core-media-image gdlr-core-image-item-style-rectangle" style="border-width: 0px; max-width: 65px;">
-                                                <img src="<?php echo base_url('assets_home/upload/Group-40.png') ?>" alt="" width="130" height="110" title="Group 40" />
+                                                <img src="<?php echo base_url('asset/upload/Group-40.png') ?>" alt="" width="130" height="110" title="Group 40" />
                                             </div>
                                         </div>
                                     </div>
@@ -625,7 +624,7 @@
                                                     <div class="gdlr-core-title-item gdlr-core-item-pdb clearfix gdlr-core-center-align gdlr-core-title-item-caption-bottom gdlr-core-item-pdlr" style="padding-bottom: 45px;" id="gdlr-core-title-item-7">
                                                         <div class="gdlr-core-title-item-title-wrap">
                                                             <h3 class="gdlr-core-title-item-title gdlr-core-skin-title hotale-additional-font class-test" style="font-size: 80px; font-weight: 400; text-transform: none; color: #000000;">
-                                                                Message Us<span class="gdlr-core-title-item-title-divider gdlr-core-skin-divider"></span>
+                                                                Message Us<span class="gdlr-core-title-item-title-divider gdlr-core-skin-divider" id="villa_contact"></span>
                                                             </h3>
                                                         </div>
                                                         <span class="gdlr-core-title-item-caption gdlr-core-info-font gdlr-core-skin-caption" style="font-size: 18px; font-style: normal; letter-spacing: 0px; color: #898989; margin-top: 15px;">
@@ -817,6 +816,7 @@
                 </footer>
             </div>
         </div>
+        </div>
 
         <script>
             function sendToWhatsApp(form) {
@@ -840,8 +840,8 @@
             }
         </script>
 
-        <script type="text/javascript" src="<?php echo base_url('assets_home/js/jquery.min.js?ver=3.6.0') ?>" id="jquery-core-js"></script>
-        <script type="text/javascript" src="<?php echo base_url('assets_home/js/jquery-migrate.min.js?ver=3.3.2') ?>" id="jquery-migrate-js"></script>
+        <script type="text/javascript" src="<?php echo base_url('asset/js/jquery.min.js?ver=3.6.0') ?>" id="jquery-core-js"></script>
+        <script type="text/javascript" src="<?php echo base_url('asset/js/jquery-migrate.min.js?ver=3.3.2') ?>" id="jquery-migrate-js"></script>
         <script type="text/javascript" id="snazzymaps-js-js-extra">
             /* <![CDATA[ */
             var SnazzyDataForSnazzyMaps = [];

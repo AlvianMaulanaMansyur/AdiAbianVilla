@@ -9,7 +9,6 @@ class c_home extends CI_Controller {
         parent::__construct();
         $this->load->model('M_tamu');
     }
-    
 
 	public function index()
     {
@@ -41,6 +40,10 @@ class c_home extends CI_Controller {
     public function about()
     {
         $this->load->view('home/about');
-        
+    }
+
+    public function error_page()
+    {
+        $this->load->view('error_page');
     }
 }

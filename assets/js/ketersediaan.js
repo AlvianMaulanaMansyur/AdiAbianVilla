@@ -47,25 +47,19 @@ document.addEventListener("DOMContentLoaded", function () {
 
 			if (start && end) {
 
-				if (start > end) {
-					return;
-				}
-
 				var card = document.getElementById("availability-card-container");
-				// var error_msg = document.getElementById('error_msg');
-				// console.log('hafadfadfa : ',error_msg)
 				if (card) {
 					card.innerHTML = "";
 				}
-				function deleteCookie(name) {
-					document.cookie =
-						name + "=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
-				}
-				deleteCookie("roomsData");
-				deleteCookie("availability");
-				deleteCookie("kamar");
-				deleteCookie("harga");
-				deleteCookie("jenis_kamar");
+				// function deleteCookie(name) {
+				// 	document.cookie =
+				// 		name + "=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+				// }
+				// deleteCookie("roomsData");
+				// deleteCookie("availability");
+				// deleteCookie("kamar");
+				// deleteCookie("harga");
+				// deleteCookie("jenis_kamar");
 				// $("#availability-card-container").empty();
 				$("#availability1").empty();
 				const dateRange =
@@ -79,6 +73,9 @@ document.addEventListener("DOMContentLoaded", function () {
 					},
 					dataType: "json",
 					success: function (response) {
+						console.log('afajjadlfjal')
+	const cookies = document.cookie.split(";");
+	console.log(cookies);
 						console.log(response.availability); // Tampilkan respons dari server pada konsol
 						// console.log(response.detail); // Tampilkan respons dari server pada konsol
 						// console.log(response.real); // Tampilkan respons dari server pada konsol
@@ -86,28 +83,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
 						// Menggunakan nilai dari respons untuk memperbarui tabel
 						var availabilityElement = $("#availability");
-						var roomsTable = $("#rooms-table");
-						roomsTable.empty(); // Kosongkan tabel sebelum mengisinya kembali
-
-						response.availability.forEach(function (room) {
-							var roomRow =
-								"<tr>" +
-								// '<td class="border border-gray-500 px-4 py-2">' + room.id_kamar + '</td>' +
-								'<td class="border border-gray-500 px-4 py-2">' +
-								room.no_kamar +
-								"</td>" +
-								'<td class="border border-gray-500 px-4 py-2">' +
-								room.tgl_checkIn +
-								"</td>" +
-								'<td class="border border-gray-500 px-4 py-2">' +
-								room.tgl_checkOut +
-								"</td>" +
-								"</td>" +
-								"</tr>";
-							roomsTable.append(roomRow);
-							console.log(room);
-						});
-
 						availabilityElement.html(response.availability.length);
 					},
 					error: function (xhr, status, error) {
