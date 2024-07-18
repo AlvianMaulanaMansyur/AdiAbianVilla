@@ -46,11 +46,11 @@ class Kamar extends CI_Controller
         );
 
         $data = [
-            'title' => 'Calendar',
+            'title' => 'Room',
             'header' => 'partials/kamar/header',
             'navbar' => 'partials/kamar/navbar',
             'content' => 'kamar/detail_kamar',
-            'script' => 'partials/kamar/script',
+            'script' => 'partials/kamar/script_detail_kamar',
             'username' => $username,
             'kamar' => $datacheck,
             'harga' => $harga_kamar[0]['harga'],

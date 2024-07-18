@@ -2,7 +2,8 @@
 
 
 defined('BASEPATH') or exit('No direct script access allowed');
-
+use PhpOffice\PhpSpreadsheet\Spreadsheet;
+use PhpOffice\PhpSpreadsheet\Writer\Xlsx;
 class Dashboard extends CI_Controller
 {
     public function __construct()
@@ -12,7 +13,9 @@ class Dashboard extends CI_Controller
         $this->load->model('customer_model');
         $this->load->model('M_dashboard');
         $this->load->model('M_pemesanan');
-        // $this->load->library('PDF');
+        $this->load->model('mFasilitas/m_fasilitas');
+        
+
         
         if (empty($this->session->userdata('username'))) {
             redirect('Authadmin/login');
@@ -20,14 +23,16 @@ class Dashboard extends CI_Controller
     }
     public function main()
     {
+        $pemesanan = $this->M_pemesanan->getPemesanan();
         $data = [
             'title' => 'Adi Abian Villa Dashboard',
             'header' => 'dashboard/header',
             'navbar' => 'dashboard/navbar',
             'sidebar' => 'dashboard/sidebar',
-            'content' => 'dashboard/test',
+            'content' => 'dashboard/daftar_pemesanan',
             'footer' => 'dashboard/footer',
-            'script' => 'dashboard/script'
+            'script' => 'dashboard/script',
+            'pemesanan' => $pemesanan
         ];
         $this->load->view('dashboard/main', $data);
     }
@@ -214,6 +219,88 @@ class Dashboard extends CI_Controller
         $this->session->set_flashdata('success', 'Data berhasil diperbarui!');
         redirect('Dashboard/guestData');
     }
+    
+    public function fasilitas()
+    {
+        $fasilitas = $this->m_fasilitas->getAllData();
+        $data = [
+            'title' => 'Fasilitas',
+            'header' => 'dashboard/header',
+            'navbar' => 'dashboard/navbar',
+            'sidebar' => 'dashboard/sidebar',
+            'content' => 'dashboard/fasilitas/fasilitas',
+            'footer' => 'dashboard/footer',
+            'script' => 'dashboard/script',
+            'fasilitas' => $fasilitas,
+        ];
+        $this->load->view('dashboard/main', $data);
+    }
+    public function insert_fasilitas()
+    {
+        $fasilitas = $this->db->get_where('fasilitas', array('id_fasilitas' => $this->input->post('id_fasilitas')))->num_rows();
+        $nama_fasilitas = $this->db->get_where('fasilitas', array('nama_fasilitas' => $this->input->post('nama_fasilitas')))->num_rows();
+                $image = $this->uploadImage();
+                $this->M_dashboard->insertFasilitas($image);
+                redirect('dashboard/tambah_fasilitas/');
+    }
+    public function edit_fasilitas()
+    {
+        $id_fasilitas = $this->input->post('id_fasilitas');
+        $data = [
+            'gambar' => $this->input->post('image'),
+            'nama_fasilitas' => $this->input->post('nama_fasilitas'),
+        ];
+        $this->M_dashboard->edit_fasilitas_kamar($id_fasilitas, 0);
+        redirect('Dashboard/fasilitas');
+    }
+    public function delete_fasilitas()
+    {
+        $this->db->where('id_fasilitas', $id_fasilitas);
+        $result = $this->db->delete('fasilitas');
+        return $result;
+    }
+    public function tambah_fasilitas()
+    {
+        // $guest = $this->M_dashboard-->get_fasilitas();
+        $data = [
+            'title' => 'Fasilitas',
+            'header' => 'dashboard/header',
+            'navbar' => 'dashboard/navbar',
+            'sidebar' => 'dashboard/sidebar',
+            'content' => 'dashboard/fasilitas/tambah_fasilitas',
+            'footer' => 'dashboard/footer',
+            'script' => 'dashboard/script',
+            // 'guest' => $guest,
+        ];
+
+        $this->load->view('dashboard/main', $data);
+    }
+    public function uploadImage()
+    {
+        $config['upload_path']          = './assets/admin/img/admin/';
+        $config['allowed_types']        = 'gif|jpg|png|jpeg';
+        $new_name = '(' . time() . ')' . $this->input->post('nip');
+        $config['encrypt_name'] = FALSE;
+        $config['file_name'] = $new_name;
+        $config['max_size']  = '2000';
+        $config['overwrite']  = TRUE;
+        $this->load->library('upload', $config);
+
+        if (!$this->upload->do_upload('foto')) {
+            $error = $this->upload->display_errors('', '');
+            $sess = array(
+                'tittle' => 'Gagal',
+                'icon' => 'error'
+            );
+            $this->session->set_userdata($sess);
+            $this->session->set_flashdata('flash', $error);
+            redirect('c_admin/dataAdmin/c_dataAdmin/tambahAdmin');
+        } else {
+            $imageData = $this->upload->data();
+            // insert into database
+            return $imageData['file_name'];
+        }
+    }
 
     public function monthlyReport()
     {
@@ -258,54 +345,62 @@ class Dashboard extends CI_Controller
     }
 
     public function exportExcel() {
-        // Fetch data
+        // Ambil data bulanan dari model
         $monthly_orders = $this->M_dashboard->getMonthlyOrders($this->session->userdata('selected_month'));
-    
-        // Headers for CSV file download
-        header('Content-Type: text/csv');
-        header('Content-Disposition: attachment;filename="Monthly_Report.csv"');
-        header('Cache-Control: max-age=0');
-    
-        // Open file pointer to php://output
-        $fp = fopen('php://output', 'w');
-    
-        // Write headers to the file
-        fputcsv($fp, array('No', 'Guest', 'Booking ID', 'Booking Date', 'Check-in Date', 'Check-out Date', 'Adults', 'Kids', 'Payment Status', 'Payment Amount'));
-    
-        // Write data rows to the file
+
+        // Buat objek Spreadsheet
+        $spreadsheet = new Spreadsheet();
+
+        // Buat sheet aktif
+        $sheet = $spreadsheet->getActiveSheet();
+
+        // Menulis header
+        $sheet->setCellValue('A1', 'No');
+        $sheet->setCellValue('B1', 'Guest');
+        $sheet->setCellValue('C1', 'Booking ID');
+        $sheet->setCellValue('D1', 'Booking Date');
+        $sheet->setCellValue('E1', 'Check-in Date');
+        $sheet->setCellValue('F1', 'Check-out Date');
+        $sheet->setCellValue('G1', 'Numbers of Room');
+        $sheet->setCellValue('H1', 'Adults');
+        $sheet->setCellValue('I1', 'Kids');
+        $sheet->setCellValue('J1', 'Payment Status');
+        $sheet->setCellValue('K1', 'Payment Amount');
+
+        // Menulis data dari $monthly_orders
+        $row = 2;
         foreach ($monthly_orders as $order) {
-            // Format dates as needed
-            $booking_date = date('d-m-Y H:i:s', strtotime($order['tgl_pemesanan']));
-            $checkin_date = date('d-m-Y', strtotime($order['tgl_checkIn']));
-            $checkout_date = date('d-m-Y', strtotime($order['tgl_checkOut']));
-    
-            // Format payment amount as Rupiah
-            $payment_amount = "Rp " . number_format($order['jumlah_pembayaran'], 0, ',', '.');
-    
-            // Write row to CSV
-            $no = 1;
-            fputcsv($fp, array(
-                $no++,
-                $order['nama'],
-                $order['id_pemesanan'],
-                $booking_date,
-                $checkin_date,
-                $checkout_date,
-                $order['dewasa'],
-                $order['anak'],
-                $order['status'] == 1 ? 'Confirmed' : 'Pending',
-                $payment_amount
-            ));
+            $sheet->setCellValue('A' . $row, $row - 1);
+            $sheet->setCellValue('B' . $row, $order['nama']);
+            $sheet->setCellValue('C' . $row, $order['id_pemesanan']);
+            $sheet->setCellValue('D' . $row, $order['tgl_pemesanan']);
+            $sheet->setCellValue('E' . $row, $order['tgl_checkIn']);
+            $sheet->setCellValue('F' . $row, $order['tgl_checkOut']);
+            $sheet->setCellValue('G' . $row, $order['jumlah_kamar']);
+            $sheet->setCellValue('H' . $row, $order['dewasa']);
+            $sheet->setCellValue('I' . $row, $order['anak']);
+            $sheet->setCellValue('J' . $row, $order['status'] == 1 ? 'Confirmed' : 'Pending');
+            $sheet->setCellValue('K' . $row, 'Rp ' . number_format($order['jumlah_pembayaran'], 0, ',', '.'));
+            $row++;
         }
-    
-        // Close file pointer
-        fclose($fp);
-    
-        // Exit script
+
+        // Membuat objek Writer untuk Excel (Xlsx)
+        $writer = new Xlsx($spreadsheet);
+
+        // Nama file Excel yang akan diunduh
+        $filename = 'Monthly_Report.xlsx';
+
+        // Setup header untuk file Excel
+        header('Content-Type: application/vnd.openxmlformats-officedocument.spreadsheetml.sheet');
+        header('Content-Disposition: attachment;filename="' . $filename . '"');
+        header('Cache-Control: max-age=0');
+
+        // Simpan file Excel ke output
+        $writer->save('php://output');
+
+        // Exit untuk menghentikan eksekusi script
         exit;
     }
-    
-    
     
 }
 

@@ -63,6 +63,7 @@ class Tamu extends CI_Controller
         $this->form_validation->set_rules('nama', 'Name', 'required');
         $this->form_validation->set_rules('no_telp', 'No Telp', 'required');
         $this->form_validation->set_rules('jenis_kelamin', 'Jenis Kelamin', 'required');
+        $this->form_validation->set_rules('negara', 'negara', 'required');
 
         if ($this->form_validation->run() == FALSE) {
             $data = [
@@ -77,10 +78,10 @@ class Tamu extends CI_Controller
             $data = [
                 'username' => $this->input->post('username'),
                 'nama' => $this->input->post('nama'),
-                'password' => password_hash($this->input->post('password'), PASSWORD_DEFAULT),
+                'password' => $this->input->post('password'),
                 'no_telp' => $this->input->post('no_telp'),
-
-                'jenis_kelamin' => $this->input->post('jenis_kelamin')
+                'jenis_kelamin' => $this->input->post('jenis_kelamin'),
+                'negara' => $this->input->post('negara')
             ];
 
             // Upload foto profil

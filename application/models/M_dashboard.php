@@ -112,6 +112,16 @@ class M_dashboard extends CI_Model
             return [];
         }
     }
+    public function getIdAdmin($username)
+    {
+        
+        $this->db->select('id_admin');
+        $this->db->from('admin');
+        $this->db->where('username', $username);
+        $query = $this->db->get();
+
+        return $query->result_array();
+    }
 }
    
 

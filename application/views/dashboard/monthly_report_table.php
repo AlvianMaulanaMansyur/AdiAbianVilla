@@ -3,28 +3,28 @@
     <div class="card mb-4">
         <div class="card-body">
             <div class="d-sm-flex align-items-center justify-content-between mb-4">
-                <h1 class="h3 mb-0 text-gray-800 ">Laporan Bulanan</h1>
+                <h1 class="h3 mb-0 text-gray-800 ">Monthly Report</h1>
             </div>
             <div>
                 <form method="get" action="<?php echo base_url('dashboard/monthlyReport') ?>">
                     <div class="row">
                         <div class="col-4">
-                            <select class="form-select" name="month" id="month" required>
-                                <option value="" selected>Pilih Bulan</option>
+                            <select class="form-select text-black" name="month" id="month" required>
+                                <!-- <option class="text-black" value="" selected>Select Month</option> -->
                                 <?php
                                 for ($i = 1; $i <= 12; $i++) {
                                     $monthValue = sprintf("%02d", $i);
                                     $monthLabel = date("F", strtotime("2023-$monthValue-01"));
                                     $selected = ($monthValue == $this->input->get('month')) ? 'selected' : '';
-                                    echo "<option value='$monthValue' $selected>$monthLabel</option>";
+                                    echo "<option class='text-black' value='$monthValue' $selected>$monthLabel</option>";
                                 }
                                 ?>
                             </select>
                         </div>
 
                         <div class="col-4">
-                            <select class="form-control" name="year" id="year" required>
-                                <option value="" selected>Pilih Tahun</option>
+                            <select class="form-control text-black" name="year" id="year" required>
+                                <!-- <option value="" selected></option> -->
                                 <?php
                                 $currentYear = date("Y");
                                 for ($i = $currentYear; $i >= ($currentYear - 5); $i--) {
@@ -45,10 +45,10 @@
 
             <div id="monthlyReportContainer" class="pt-4">
 
-                <h2><?php echo $selected_month ?></h2>
+                <h2 class="font-semibold text-lg pb-2"><?php echo $selected_month ?></h2>
                 <div class="table-responsive">
                     <?php if (empty($monthly_orders)) : ?>
-                        <p>Tidak ada pesanan yang selesai.</p>
+                        <p class="text-sm">No orders have been completed.</p>
                     <?php else : ?>
                         <table class="table">
                             <thead class="">
@@ -120,7 +120,7 @@
                                             <?php endif ?>
                                         </td>
                                         <?php $jumlah_pembayaran = "Rp." . number_format($order['jumlah_pembayaran'], 0, ',', '.'); ?>
-                                        <td><?php echo $jumlah_pembayaran; ?></td>
+                                        <td><div class="text-sm"><?php echo $jumlah_pembayaran; ?></div></td>
                                         <?php $total += $order['jumlah_pembayaran']; ?>
 
                                         <?php $total_pembayaran = "Rp." . number_format($total, 0, ',', '.'); ?>
@@ -128,9 +128,9 @@
                                         <!-- <td class="format"><?php echo $sub ?></td> -->
                                     </tr>
                                 <?php endforeach; ?>
-                                <tr>
-                                    <td colspan="5" align="right"><strong class="h6">Total :</strong></td>
-                                    <td class="format"><strong><?php echo $total_pembayaran; ?></strong></td>
+                                <tr class="">
+                                    <td><strong class="h6 text-base font-bold">TOTAL :</strong></td>
+                                    <td class="format"><strong class="text-base"><?php echo $total_pembayaran; ?></strong></td>
                                 </tr>
                             </tbody>
 

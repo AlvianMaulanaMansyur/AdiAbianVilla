@@ -12,7 +12,8 @@
 	},
 	"require": {
 		"php": ">=5.3.7",
-		"duitkupg/duitku-php": "dev-master"
+		"duitkupg/duitku-php": "dev-master",
+		"phpoffice/phpspreadsheet": "1.15.0"
 	},
 	"suggest": {
 		"paragonie/random_compat": "Provides better randomness in PHP 5.x"

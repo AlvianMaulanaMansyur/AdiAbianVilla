@@ -43,13 +43,13 @@ class Pemesanan extends CI_Controller
         $email = $this->session->userdata('identity');
         $tamu = $this->M_tamu->getTamuByEmailUsername($email);
         $pemesanan = $this->M_pemesanan->getPemesanan();
-        $kamar = $this->M_pemesanan->getSessionValues();
+        $kamar = $this->M_pemesanan->getCookieValues();
         $harga_kamar = $this->M_kamar->getHargaKamar();
         $data = [
-            'title' => 'Tamu',
+            'title' => 'Order',
             'header' => 'partials/kamar/header',
             'navbar' => 'partials/kamar/navbar',
-            'script' => 'partials/kamar/script',
+            'script' => 'partials/kamar/script_pemesanan',
             'content' => 'pemesanan/pemesanan',
             'pemesanan' => $pemesanan,
             'username' => $username,
@@ -58,11 +58,11 @@ class Pemesanan extends CI_Controller
             'harga' => $harga_kamar[0]['harga'],
         ];
         $this->load->view('partials/kamar/main', $data);
-        // var_dump($tamu);
     }
     public function createPemesanan()
     {
-        $dataCookie = $this->M_pemesanan->getSessionValues();
+        $id_pemesanan = time();
+        $dataCookie = $this->M_pemesanan->getCookieValues();
         $checkin = $dataCookie['checkin'];
         $checkout = $dataCookie['checkout'];
         $dewasa = $dataCookie['adults'];
@@ -73,6 +73,7 @@ class Pemesanan extends CI_Controller
         $tamu = $this->M_tamu->getIdTamuByEmailUsername($email);
         $jumlah_pembayaran = $this->input->post('jumlah_pembayaran');
         $dataPemesanan = array(
+            'id_pemesanan' => $id_pemesanan,
             'tgl_pemesanan' => $current_time,
             'tgl_checkIn' => $checkin,
             'tgl_checkOut' => $checkout,
@@ -82,7 +83,6 @@ class Pemesanan extends CI_Controller
             'status' => 0,
             'jumlah_pembayaran' => $jumlah_pembayaran,
             'id_tamu' => $tamu[0]['id_tamu'],
-            'id_admin' => 1,
         );
 
         $cek_pemesanan = $this->M_pemesanan->savePemesanan($dataPemesanan);
