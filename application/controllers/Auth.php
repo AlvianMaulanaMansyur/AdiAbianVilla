@@ -12,12 +12,14 @@ class Auth extends CI_Controller
     $this->load->model('customer_model');
   }
 
-  
+
+
   public function Login()
   {
     $this->form_validation->set_rules('identity', 'Username or Email', 'trim|required|min_length[8]', array(
-      'min_length' => 'must be at least 8 characters!'
+      'min_length' => 'must be at least 8 characters!',
     ));
+
 
     if ($this->form_validation->run() == FALSE) {
       # code...
@@ -52,15 +54,21 @@ class Auth extends CI_Controller
 
   public function verify_password() {
     $this->form_validation->set_rules('identity', 'Username or Email', 'trim|required');
-    $this->form_validation->set_rules('password', 'Password', 'trim|required');
-
+    $this->form_validation->set_rules('password', 'Password', 'trim|required|min_length[8]', array(
+      'required' => 'Password cannot empty!',
+      'min_length' => 'Password at least 8 characters!',
+    ));
+ 
     if ($this->form_validation->run() == FALSE) {
         $data = [
             'title' => 'Login',
             'header' => 'partials/header',
+            'identity' => $this->input->post('identity'),
             'content' => 'partials/loginRegister/formPass',
+            'identity' => $this->input->post('identity'),
             'script' => 'partials/script',
-            'error' => 'Incorrect Identity or Password'
+
+            'error_message' => 'Incorrect Identity or Password'
         ];
         $this->load->view('partials/main', $data);
     } else {
@@ -82,7 +90,7 @@ class Auth extends CI_Controller
                 'identity' => $this->input->post('identity'),
                 'content' => 'partials/loginRegister/formPass',
                 'script' => 'partials/script',
-                'error' => 'Incorrect Identity or Password'
+                'error_message' => 'Incorrect Identity or Password'
             ];
             $this->load->view('partials/main', $data);
         }
@@ -123,7 +131,7 @@ class Auth extends CI_Controller
         'email' => filter_var($identity, FILTER_VALIDATE_EMAIL) ? $identity : NULL,
         'username' => !filter_var($identity, FILTER_VALIDATE_EMAIL) ? $identity : NULL,
         'password' => password_hash($password, PASSWORD_DEFAULT),
-        'foto_profil' => 'assets/images/profile/default.jpg'
+        'foto_profil' => base_url('assets/images/profile/icon_user.jpg')
       ];
       $this->db->insert('tamu', $data);
 
@@ -246,3 +254,4 @@ class Auth extends CI_Controller
 
 
 /* End of file Controllername.php */
+

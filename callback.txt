@@ -1,0 +1,834 @@
+* Bad Parameter *
+
+* Bad Parameter *
+
+* Bad Parameter *
+
+* Bad Parameter *
+
+* Bad Parameter *
+
+* Bad Parameter *
+
+Array
+(
+    [merchantCode] => DS19433
+    [amount] => 1110000
+    [merchantOrderId] => 9
+    [productDetail] => Test Payment
+    [additionalParam] => 
+    [resultCode] => 00
+    [signature] => 7b0a27ffc8137837aeeb8465b0740a48
+    [paymentCode] => BC
+    [merchantUserId] => 
+    [reference] => DS1943324KSLRI25FLVQ2N8B
+    [spUserHash] => 
+    [settlementDate] => 2024-06-28
+    [publisherOrderId] => BC24QGUNJPODJO3TDS4
+    [sourceAccount] => 
+)
+Array
+(
+    [merchantCode] => DS19433
+    [amount] => 1110000
+    [merchantOrderId] => 11
+    [productDetail] => Test Payment
+    [additionalParam] => 
+    [resultCode] => 00
+    [signature] => 0d1d22b5ec9c79bdf60b807f02e22cc3
+    [paymentCode] => BC
+    [merchantUserId] => 
+    [reference] => DS1943324BZNIXDGHO3YME2Q
+    [spUserHash] => 
+    [settlementDate] => 2024-06-28
+    [publisherOrderId] => BC243F26MU5LSE2NL7N
+    [sourceAccount] => 
+)
+Array
+(
+    [merchantCode] => DS19433
+    [amount] => 1110000
+    [merchantOrderId] => 12
+    [productDetail] => Test Payment
+    [additionalParam] => 
+    [resultCode] => 00
+    [signature] => 9bdbfcbdf2ea2f078307e27548a75e0b
+    [paymentCode] => BC
+    [merchantUserId] => 
+    [reference] => DS19433246RN1HADX0MSWSEI
+    [spUserHash] => 
+    [settlementDate] => 2024-06-28
+    [publisherOrderId] => BC241TIGUWJ2SU4SY6G
+    [sourceAccount] => 
+)
+Array
+(
+    [merchantCode] => DS19433
+    [amount] => 555000
+    [merchantOrderId] => 13
+    [productDetail] => Test Payment
+    [additionalParam] => 
+    [resultCode] => 00
+    [signature] => e373bf5b4270c58e23a3525462790fe0
+    [paymentCode] => BC
+    [merchantUserId] => 
+    [reference] => DS1943324LYP1O2FMDO1W62H
+    [spUserHash] => 
+    [settlementDate] => 2024-06-28
+    [publisherOrderId] => BC2426P0NWEOU553BH3
+    [sourceAccount] => 
+)
+Array
+(
+    [merchantCode] => DS19433
+    [amount] => 555000
+    [merchantOrderId] => 17
+    [productDetail] => Test Payment
+    [additionalParam] => 
+    [resultCode] => 00
+    [signature] => af87462a58b00ff8e9d06bd042ecf731
+    [paymentCode] => BC
+    [merchantUserId] => 
+    [reference] => DS1943324B552J25PA4GVEJS
+    [spUserHash] => 
+    [settlementDate] => 2024-06-28
+    [publisherOrderId] => BC244SN8AUEGE6QSITQ
+    [sourceAccount] => 
+)
+* Bad Parameter *
+
+* Bad Parameter *
+
+* Bad Parameter *
+
+* Bad Parameter *
+
+* Bad Parameter *
+
+* Bad Parameter *
+
+* Bad Parameter *
+
+* Bad Parameter *
+
+* Bad Parameter *
+
+* Bad Parameter *
+
+Array
+(
+    [merchantCode] => DS19433
+    [amount] => 555000
+    [merchantOrderId] => 18
+    [productDetail] => Test Payment
+    [additionalParam] => 
+    [resultCode] => 00
+    [signature] => 4d935d7d61f581e316b1439b1ea263ef
+    [paymentCode] => BC
+    [merchantUserId] => 
+    [reference] => DS1943324OXZ2BT84CP0QNCI
+    [spUserHash] => 
+    [settlementDate] => 2024-06-28
+    [publisherOrderId] => BC245RGTDB6VE8FHRH8
+    [sourceAccount] => 
+)
+* Bad Parameter *
+
+Array
+(
+    [merchantCode] => DS19433
+    [amount] => 555000
+    [merchantOrderId] => 19
+    [productDetail] => Test Payment
+    [additionalParam] => 
+    [resultCode] => 00
+    [signature] => 68ccf4893acfc6cba5d3787567904342
+    [paymentCode] => BC
+    [merchantUserId] => 
+    [reference] => DS1943324L511OW3TPI7BC80
+    [spUserHash] => 
+    [settlementDate] => 2024-06-28
+    [publisherOrderId] => BC24CHJ8BMW5UJINS7Y
+    [sourceAccount] => 
+)
+* Bad Parameter *
+
+Array
+(
+    [merchantCode] => DS19433
+    [amount] => 555000
+    [merchantOrderId] => 20
+    [productDetail] => Test Payment
+    [additionalParam] => 
+    [resultCode] => 00
+    [signature] => 418ab9600b69c9bb5705bf688f94f9aa
+    [paymentCode] => BC
+    [merchantUserId] => 
+    [reference] => DS1943324YR3JE7NE0OKEEPA
+    [spUserHash] => 
+    [settlementDate] => 2024-06-28
+    [publisherOrderId] => BC24P6EBI8JLVKFGWQ6
+    [sourceAccount] => 
+)
+* Bad Parameter *
+
+* Bad Parameter *
+
+Array
+(
+    [merchantCode] => DS19433
+    [amount] => 555000
+    [merchantOrderId] => 21
+    [productDetail] => Test Payment
+    [additionalParam] => 
+    [resultCode] => 00
+    [signature] => ab0bed51406f5442e4208a2985525f93
+    [paymentCode] => BC
+    [merchantUserId] => 
+    [reference] => DS19433245SVUQVXGVVOGI26
+    [spUserHash] => 
+    [settlementDate] => 2024-06-28
+    [publisherOrderId] => BC24NEUFEB5ZK3EW5TB
+    [sourceAccount] => 
+)
+* Bad Parameter *
+
+Array
+(
+    [merchantCode] => DS19433
+    [amount] => 555000
+    [merchantOrderId] => 22
+    [productDetail] => Test Payment
+    [additionalParam] => 
+    [resultCode] => 00
+    [signature] => 6cdb2832c9c3fe1a857335e44d16cbf6
+    [paymentCode] => BC
+    [merchantUserId] => 
+    [reference] => DS1943324VSM2LIBT0D5YC7O
+    [spUserHash] => 
+    [settlementDate] => 2024-06-28
+    [publisherOrderId] => BC24FEH1TB8P55ND56R
+    [sourceAccount] => 
+)
+Array
+(
+    [merchantCode] => DS19433
+    [amount] => 555000
+    [merchantOrderId] => 23
+    [productDetail] => Test Payment
+    [additionalParam] => 
+    [resultCode] => 00
+    [signature] => 2db70b530dc4802b70562ddef1f3031c
+    [paymentCode] => BC
+    [merchantUserId] => 
+    [reference] => DS1943324Y8HDEB1UHHO365H
+    [spUserHash] => 
+    [settlementDate] => 2024-06-28
+    [publisherOrderId] => BC24EXTL3M5QFX7N0B2
+    [sourceAccount] => 
+)
+Array
+(
+    [merchantCode] => DS19433
+    [amount] => 555000
+    [merchantOrderId] => 24
+    [productDetail] => Test Payment
+    [additionalParam] => 
+    [resultCode] => 00
+    [signature] => a28636ebe23fbfefd17998d1a6be8acb
+    [paymentCode] => BC
+    [merchantUserId] => 
+    [reference] => DS19433245EFCDHMTK3EOQ1L
+    [spUserHash] => 
+    [settlementDate] => 2024-06-28
+    [publisherOrderId] => BC24TNXGFW65IHP56GU
+    [sourceAccount] => 
+)
+* Bad Parameter *
+
+Array
+(
+    [merchantCode] => DS19433
+    [amount] => 555000
+    [merchantOrderId] => 26
+    [productDetail] => Test Payment
+    [additionalParam] => 
+    [resultCode] => 00
+    [signature] => 5250e739692ea753735936873477b731
+    [paymentCode] => BC
+    [merchantUserId] => 
+    [reference] => DS1943324UB0F0LNAP3M6ESH
+    [spUserHash] => 
+    [settlementDate] => 2024-06-28
+    [publisherOrderId] => BC24ZRBFMR6RL6D8G0Z
+    [sourceAccount] => 
+)
+Array
+(
+    [merchantCode] => DS19433
+    [amount] => 555000
+    [merchantOrderId] => 27
+    [productDetail] => Test Payment
+    [additionalParam] => 
+    [resultCode] => 00
+    [signature] => 4ef01159523cc305e3320e5f6a3c477e
+    [paymentCode] => BC
+    [merchantUserId] => 
+    [reference] => DS1943324TB3YD2QHT6YCAWY
+    [spUserHash] => 
+    [settlementDate] => 2024-06-28
+    [publisherOrderId] => BC24MMKYC01EGZXFF64
+    [sourceAccount] => 
+)
+Array
+(
+    [merchantCode] => DS19433
+    [amount] => 555000
+    [merchantOrderId] => 25
+    [productDetail] => Test Payment
+    [additionalParam] => 
+    [resultCode] => 00
+    [signature] => e93dfb6b4e9e612f66bac803ada96e57
+    [paymentCode] => BC
+    [merchantUserId] => 
+    [reference] => DS1943324LRP27W54EURIQ0O
+    [spUserHash] => 
+    [settlementDate] => 2024-06-28
+    [publisherOrderId] => BC24XM8WEHOZHYQOVBQ
+    [sourceAccount] => 
+)
+Array
+(
+    [merchantCode] => DS19433
+    [amount] => 555000
+    [merchantOrderId] => 29
+    [productDetail] => Test Payment
+    [additionalParam] => 
+    [resultCode] => 00
+    [signature] => 1f9cc1dcb5af2ad8a8cc6f7433d0f624
+    [paymentCode] => BC
+    [merchantUserId] => 
+    [reference] => DS194332413KYKW6825ABZH6
+    [spUserHash] => 
+    [settlementDate] => 2024-06-28
+    [publisherOrderId] => BC24X1BJFBQ5P8GKM7S
+    [sourceAccount] => 
+)
+* Bad Parameter *
+
+Array
+(
+    [merchantCode] => DS19433
+    [amount] => 555000
+    [merchantOrderId] => 36
+    [productDetail] => Test Payment
+    [additionalParam] => 
+    [resultCode] => 00
+    [signature] => 61bdc1645dce0ed32bb8b7618b05c277
+    [paymentCode] => BC
+    [merchantUserId] => 
+    [reference] => DS1943324EOHY8KKOUZTFXDJ
+    [spUserHash] => 
+    [settlementDate] => 2024-06-29
+    [publisherOrderId] => BC248824O4RI31634YS
+    [sourceAccount] => 
+)
+Array
+(
+    [merchantCode] => DS19433
+    [amount] => 555000
+    [merchantOrderId] => 35
+    [productDetail] => Test Payment
+    [additionalParam] => 
+    [resultCode] => 00
+    [signature] => 568b3397231c29da70ac7a1d166da16a
+    [paymentCode] => BC
+    [merchantUserId] => 
+    [reference] => DS19433245EK4RHW4DL75VXP
+    [spUserHash] => 
+    [settlementDate] => 2024-06-29
+    [publisherOrderId] => BC24RG1KB36TH0U7EA4
+    [sourceAccount] => 
+)
+Array
+(
+    [merchantCode] => DS19433
+    [amount] => 555000
+    [merchantOrderId] => 38
+    [productDetail] => Test Payment
+    [additionalParam] => 
+    [resultCode] => 00
+    [signature] => 01b3433c7022079261af1d94b20bd65f
+    [paymentCode] => BC
+    [merchantUserId] => 
+    [reference] => DS19433241L4E5DC75TFU20W
+    [spUserHash] => 
+    [settlementDate] => 2024-06-29
+    [publisherOrderId] => BC24VH18JDNNIKWQCUP
+    [sourceAccount] => 
+)
+Array
+(
+    [merchantCode] => DS19433
+    [amount] => 555000
+    [merchantOrderId] => 39
+    [productDetail] => Test Payment
+    [additionalParam] => 
+    [resultCode] => 00
+    [signature] => dbf11d4b04c5bfadbba67074b9a9c461
+    [paymentCode] => BC
+    [merchantUserId] => 
+    [reference] => DS1943324EMBYEEJ5DW0GNGL
+    [spUserHash] => 
+    [settlementDate] => 2024-06-29
+    [publisherOrderId] => BC24DFZGNG3PWNG3ZMG
+    [sourceAccount] => 
+)
+Array
+(
+    [merchantCode] => DS19433
+    [amount] => 1055000
+    [merchantOrderId] => 40
+    [productDetail] => Test Payment
+    [additionalParam] => 
+    [resultCode] => 00
+    [signature] => b486741cda744c0933a2b31ff96d108b
+    [paymentCode] => BC
+    [merchantUserId] => 
+    [reference] => DS1943324YPS1Z4MJ38E8IH7
+    [spUserHash] => 
+    [settlementDate] => 2024-06-29
+    [publisherOrderId] => BC248PLKSUUGM7EUQDG
+    [sourceAccount] => 
+)
+Array
+(
+    [merchantCode] => DS19433
+    [amount] => 1055000
+    [merchantOrderId] => 41
+    [productDetail] => Test Payment
+    [additionalParam] => 
+    [resultCode] => 00
+    [signature] => 03b90b703ee2f623d995f4116093f8e4
+    [paymentCode] => BC
+    [merchantUserId] => 
+    [reference] => DS1943324X56F3XK3HKC637Y
+    [spUserHash] => 
+    [settlementDate] => 2024-06-29
+    [publisherOrderId] => BC24MWE3LG7BS7LCDDD
+    [sourceAccount] => 
+)
+Array
+(
+    [merchantCode] => DS19433
+    [amount] => 1055000
+    [merchantOrderId] => 42
+    [productDetail] => Test Payment
+    [additionalParam] => 
+    [resultCode] => 00
+    [signature] => 3d950999487cf75798803aa532bc5e79
+    [paymentCode] => BC
+    [merchantUserId] => 
+    [reference] => DS1943324DFEXEI7O7OSQPL5
+    [spUserHash] => 
+    [settlementDate] => 2024-06-29
+    [publisherOrderId] => BC2431C6TWNTY4YEN4T
+    [sourceAccount] => 
+)
+Array
+(
+    [merchantCode] => DS19433
+    [amount] => 1055000
+    [merchantOrderId] => 43
+    [productDetail] => Test Payment
+    [additionalParam] => 
+    [resultCode] => 00
+    [signature] => 70fba68dab74e4f2e1fa8bc81f04c3c0
+    [paymentCode] => BC
+    [merchantUserId] => 
+    [reference] => DS1943324FEFY1EVK2NWPUW8
+    [spUserHash] => 
+    [settlementDate] => 2024-06-29
+    [publisherOrderId] => BC243M1BYX56YMWRF4M
+    [sourceAccount] => 
+)
+Array
+(
+    [merchantCode] => DS19433
+    [amount] => 1055000
+    [merchantOrderId] => 44
+    [productDetail] => Test Payment
+    [additionalParam] => 
+    [resultCode] => 00
+    [signature] => 9928fc3a3bf6a074aa6ed172505f713f
+    [paymentCode] => BC
+    [merchantUserId] => 
+    [reference] => DS1943324FBI5KN0N4ZKT883
+    [spUserHash] => 
+    [settlementDate] => 2024-06-29
+    [publisherOrderId] => BC2436OI3HIEIL4KN6Z
+    [sourceAccount] => 
+)
+Array
+(
+    [merchantCode] => DS19433
+    [amount] => 1055000
+    [merchantOrderId] => 45
+    [productDetail] => Test Payment
+    [additionalParam] => 
+    [resultCode] => 00
+    [signature] => cf611f30be84dddcf7b1013638b9a3f9
+    [paymentCode] => BC
+    [merchantUserId] => 
+    [reference] => DS1943324VXFMQQ8YZ2MG8X5
+    [spUserHash] => 
+    [settlementDate] => 2024-06-29
+    [publisherOrderId] => BC24QY4DODLKULFMPI3
+    [sourceAccount] => 
+)
+Array
+(
+    [merchantCode] => DS19433
+    [amount] => 1055000
+    [merchantOrderId] => 46
+    [productDetail] => Test Payment
+    [additionalParam] => 
+    [resultCode] => 00
+    [signature] => 8505724b9692963827add2c868ef5a38
+    [paymentCode] => BC
+    [merchantUserId] => 
+    [reference] => DS19433242EN5KW61I4A3UQG
+    [spUserHash] => 
+    [settlementDate] => 2024-06-29
+    [publisherOrderId] => BC24C8U7K408VN6EYL8
+    [sourceAccount] => 
+)
+Array
+(
+    [merchantCode] => DS19433
+    [amount] => 1055000
+    [merchantOrderId] => 47
+    [productDetail] => Test Payment
+    [additionalParam] => 
+    [resultCode] => 00
+    [signature] => 12ef0f0d7228c71440d61175629ea18d
+    [paymentCode] => BC
+    [merchantUserId] => 
+    [reference] => DS1943324TWNCHPV82ZJNLJV
+    [spUserHash] => 
+    [settlementDate] => 2024-06-29
+    [publisherOrderId] => BC24ILECYCWS76QXVRU
+    [sourceAccount] => 
+)
+Array
+(
+    [merchantCode] => DS19433
+    [amount] => 1055000
+    [merchantOrderId] => 48
+    [productDetail] => Test Payment
+    [additionalParam] => 
+    [resultCode] => 00
+    [signature] => a35d1d6e3b7618452c304ecf47aea1db
+    [paymentCode] => BC
+    [merchantUserId] => 
+    [reference] => DS194332453DE1YGAJ3N36CH
+    [spUserHash] => 
+    [settlementDate] => 2024-06-29
+    [publisherOrderId] => BC24XLH3JXBT00JTUMM
+    [sourceAccount] => 
+)
+Array
+(
+    [merchantCode] => DS19433
+    [amount] => 1055000
+    [merchantOrderId] => 49
+    [productDetail] => Test Payment
+    [additionalParam] => 
+    [resultCode] => 00
+    [signature] => 8162d0ea019de9a9fd6ad35138c8dfd5
+    [paymentCode] => BC
+    [merchantUserId] => 
+    [reference] => DS19433244PESZCV1EP4ZFFU
+    [spUserHash] => 
+    [settlementDate] => 2024-06-29
+    [publisherOrderId] => BC241WCLD5U2XP0YC2B
+    [sourceAccount] => 
+)
+Array
+(
+    [merchantCode] => DS19433
+    [amount] => 1055000
+    [merchantOrderId] => 50
+    [productDetail] => Test Payment
+    [additionalParam] => 
+    [resultCode] => 00
+    [signature] => 7b58a623a69284f98bc3d859d249408c
+    [paymentCode] => BC
+    [merchantUserId] => 
+    [reference] => DS1943324TT03T5GS0AVYZ81
+    [spUserHash] => 
+    [settlementDate] => 2024-06-29
+    [publisherOrderId] => BC24V3N8MBW2N6JK28N
+    [sourceAccount] => 
+)
+Array
+(
+    [merchantCode] => DS19433
+    [amount] => 1055000
+    [merchantOrderId] => 51
+    [productDetail] => Test Payment
+    [additionalParam] => 
+    [resultCode] => 00
+    [signature] => ddcc030e35f513373769b77929b128ca
+    [paymentCode] => BC
+    [merchantUserId] => 
+    [reference] => DS1943324XAYRH1L01ZUOI2M
+    [spUserHash] => 
+    [settlementDate] => 2024-06-29
+    [publisherOrderId] => BC24CO8X00GSD1C5VBL
+    [sourceAccount] => 
+)
+Array
+(
+    [merchantCode] => DS19433
+    [amount] => 1055000
+    [merchantOrderId] => 52
+    [productDetail] => Test Payment
+    [additionalParam] => 
+    [resultCode] => 00
+    [signature] => bfc541d249af865f2bf66e8933b8a3a1
+    [paymentCode] => BC
+    [merchantUserId] => 
+    [reference] => DS1943324MPBE4UGISAUA871
+    [spUserHash] => 
+    [settlementDate] => 2024-06-29
+    [publisherOrderId] => BC24YX16XGTF1QZL4MP
+    [sourceAccount] => 
+)
+Array
+(
+    [merchantCode] => DS19433
+    [amount] => 1055000
+    [merchantOrderId] => 53
+    [productDetail] => Test Payment
+    [additionalParam] => 
+    [resultCode] => 00
+    [signature] => d0ad0ca50fe3d15951c7cb770fd94e3e
+    [paymentCode] => BC
+    [merchantUserId] => 
+    [reference] => DS1943324VR0FDBISF1WC8T5
+    [spUserHash] => 
+    [settlementDate] => 2024-06-29
+    [publisherOrderId] => BC24PA6M71RO7FGV1BQ
+    [sourceAccount] => 
+)
+Array
+(
+    [merchantCode] => DS19433
+    [amount] => 1555000
+    [merchantOrderId] => 54
+    [productDetail] => Test Payment
+    [additionalParam] => 
+    [resultCode] => 00
+    [signature] => 9ad341122b3c10a3f5650ab450a32d64
+    [paymentCode] => BC
+    [merchantUserId] => 
+    [reference] => DS1943324F5P7JN4QHRBN7ND
+    [spUserHash] => 
+    [settlementDate] => 2024-06-29
+    [publisherOrderId] => BC24UV8LUP54NR6DLC2
+    [sourceAccount] => 
+)
+Array
+(
+    [merchantCode] => DS19433
+    [amount] => 1110000
+    [merchantOrderId] => 56
+    [productDetail] => Test Payment
+    [additionalParam] => 
+    [resultCode] => 00
+    [signature] => 7f114fcd388d43a1cefefe69dbe18d93
+    [paymentCode] => BC
+    [merchantUserId] => 
+    [reference] => DS1943324TVQ1VINHYLFMN7L
+    [spUserHash] => 
+    [settlementDate] => 2024-06-30
+    [publisherOrderId] => BC242O0M3BZKYFH8VRI
+    [amount] => 555000
+    [merchantOrderId] => 4
+    [productDetail] => Standart Villa Rooms
+    [additionalParam] => 
+    [resultCode] => 00
+    [signature] => 9f4a7291e355db3b2496d9b43f033a2c
+    [paymentCode] => BC
+    [merchantUserId] => 
+    [reference] => DS1943324EUYLGGSO5JNG1QO
+    [spUserHash] => 
+    [settlementDate] => 2024-06-29
+    [publisherOrderId] => BC248L4883QG4GSHQBA
+    [sourceAccount] => 
+)
+Array
+(
+    [merchantCode] => DS19433
+    [amount] => 555000
+    [merchantOrderId] => 57
+    [productDetail] => Test Payment
+    [additionalParam] => 
+    [resultCode] => 00
+    [signature] => ecabeae49689ddd1d7c1c4247da90331
+    [paymentCode] => BC
+    [merchantUserId] => 
+    [reference] => DS1943324NE5KYUWZ8HCUT16
+    [spUserHash] => 
+    [settlementDate] => 2024-07-03
+    [publisherOrderId] => BC24BBYWNWIJY6KDS37
+    [sourceAccount] => 
+)
+Array
+(
+    [merchantCode] => DS19433
+    [amount] => 555000
+    [merchantOrderId] => 58
+    [productDetail] => Test Payment
+    [additionalParam] => 
+    [resultCode] => 00
+    [signature] => 98eb03817a4035fb8204fdc33338636e
+    [paymentCode] => BC
+    [merchantUserId] => 
+    [reference] => DS1943324VYXNWEZVTXA7DE1
+    [spUserHash] => 
+    [settlementDate] => 2024-07-03
+    [publisherOrderId] => BC24QNZW87EEUX1GMC8
+    [merchantOrderId] => 5
+    [productDetail] => Standart Villa Rooms
+    [additionalParam] => 
+    [resultCode] => 00
+    [signature] => 4ab7b735f4cce9f28ba192c001d9fd74
+    [paymentCode] => BC
+    [merchantUserId] => 
+    [reference] => DS1943324UW8J4MC0O0T5T4F
+    [spUserHash] => 
+    [settlementDate] => 2024-06-29
+    [publisherOrderId] => BC24C5NL7LAFL66SRZB
+    [sourceAccount] => 
+)
+Array
+(
+    [merchantCode] => DS19433
+    [amount] => 1055000
+    [merchantOrderId] => 63
+    [productDetail] => Standart Villa Rooms
+    [additionalParam] => 
+    [resultCode] => 00
+    [signature] => 1416a922e545cbea1a25e7b000467998
+    [paymentCode] => BC
+    [merchantUserId] => 
+    [reference] => DS1943324YEHVJOY4LVN2NY4
+    [spUserHash] => 
+    [settlementDate] => 2024-07-14
+    [publisherOrderId] => BC24PIUS8CIZFTG7N31
+    [sourceAccount] => 
+)
+Array
+(
+    [merchantCode] => DS19433
+    [amount] => 1055000
+    [merchantOrderId] => 65
+    [productDetail] => Standart Villa Rooms
+    [additionalParam] => 
+    [resultCode] => 00
+    [signature] => 0ab4e6eca84b8c14aec921206608d529
+    [paymentCode] => BC
+    [merchantUserId] => 
+    [reference] => DS194332406VDXUO76VBKU4A
+    [spUserHash] => 
+    [settlementDate] => 2024-07-14
+    [publisherOrderId] => BC24Y7VGJE17FYAKSOC
+    [sourceAccount] => 
+)
+Array
+(
+    [merchantCode] => DS19433
+    [amount] => 1110000
+    [merchantOrderId] => 66
+    [productDetail] => Standart Villa Rooms
+    [additionalParam] => 
+    [resultCode] => 00
+    [signature] => 31bb388c1897a17878fe8f9e188a024e
+    [paymentCode] => BC
+    [merchantUserId] => 
+    [reference] => DS1943324V5D3YVR1QUERW7T
+    [spUserHash] => 
+    [settlementDate] => 2024-07-14
+    [publisherOrderId] => BC24PYCGMCX2NA6IOV5
+    [sourceAccount] => 
+)
+Array
+(
+    [merchantCode] => DS19433
+    [amount] => 1110000
+    [merchantOrderId] => 67
+    [productDetail] => Standart Villa Rooms
+    [additionalParam] => 
+    [resultCode] => 00
+    [signature] => f356a536fad5c830a500d096f819552a
+    [paymentCode] => BC
+    [merchantUserId] => 
+    [reference] => DS1943324UXLHRSBCNGM8DJ5
+    [spUserHash] => 
+    [settlementDate] => 2024-07-14
+    [publisherOrderId] => BC24G1YL2RBDXPKF7EA
+    [sourceAccount] => 
+)
+Array
+(
+    [merchantCode] => DS19433
+    [amount] => 555000
+    [merchantOrderId] => 68
+    [productDetail] => Standart Villa Rooms
+    [additionalParam] => 
+    [resultCode] => 00
+    [signature] => 4413aa3b0287093caeee854eb73c969b
+    [paymentCode] => BC
+    [merchantUserId] => 
+    [reference] => DS19433247SCOI2082Q3UR83
+    [spUserHash] => 
+    [settlementDate] => 2024-07-14
+    [publisherOrderId] => BC24I3RJC84U0JOSRJV
+    [sourceAccount] => 
+)
+Array
+(
+    [merchantCode] => DS19433
+    [amount] => 555000
+    [merchantOrderId] => 69
+    [productDetail] => Standart Villa Rooms
+    [additionalParam] => 
+    [resultCode] => 00
+    [signature] => 59adb7b8a8f6864b5709eae35f7ca9e2
+    [paymentCode] => BC
+    [merchantUserId] => 
+    [reference] => DS1943324VFHOEMZQ4XSA8KI
+    [spUserHash] => 
+    [settlementDate] => 2024-07-14
+    [publisherOrderId] => BC24OWNDOHNFD5ZDR0J
+    [sourceAccount] => 
+)
+Array
+(
+    [merchantCode] => DS19433
+    [amount] => 555000
+    [merchantOrderId] => 72
+    [productDetail] => Standart Villa Rooms
+    [additionalParam] => 
+    [resultCode] => 00
+    [signature] => 8627a07c3921790f76f0caf232979476
+    [paymentCode] => BC
+    [merchantUserId] => 
+    [reference] => DS1943324HAPUTKPWVWZ3Y3D
+    [spUserHash] => 
+    [settlementDate] => 2024-07-14
+    [publisherOrderId] => BC248TWKLEFW06DHSMD
+    [sourceAccount] => 
+)

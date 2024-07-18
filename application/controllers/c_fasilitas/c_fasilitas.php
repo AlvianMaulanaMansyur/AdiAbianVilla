@@ -21,7 +21,6 @@ class c_fasilitas extends CI_Controller
         
         // $tampilData = $this->m_fasilitas->getAllData();
         $fasilitas = $this->m_fasilitas->getData();
-        $kategori = $this->m_fasilitas->getAllKategori();
         $data = [
             'title' => 'Fasilitas',
             'header' => 'dashboard/header',
@@ -31,7 +30,6 @@ class c_fasilitas extends CI_Controller
             'footer' => 'dashboard/footer',
             'script' => 'dashboard/script',
             'fasilitas' => $fasilitas,
-            'kategori' => $kategori,
         ];
         $this->load->view('dashboard/main', $data);
     }
@@ -119,11 +117,6 @@ class c_fasilitas extends CI_Controller
             $this->ubahValid($idFasilitas);
         }
     }
-    public function dataKategori()
-    {
-        echo json_encode($this->m_fasilitas->getKategori($this->input->post('id')));
-    }
-
     public function ubahValid($idFasilitas)
     {
         $this->prosesEdit($idFasilitas);

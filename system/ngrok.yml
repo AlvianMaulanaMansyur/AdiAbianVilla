@@ -1,0 +1,9 @@
+version: "2"
+authtoken: 2iI0GIDVmK8DCsv86jghd72b5mk_7qVR1BLCVvdW46FSvXAgH
+tunnels:
+  http:
+    proto: http
+    addr: 80
+  https:
+    proto: http
+    addr: 443

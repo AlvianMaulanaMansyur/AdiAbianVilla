@@ -1,5 +1,5 @@
 <body>
-  <div class="m-10 ">
+  <div class="m-10">
     <table class="table">
       <!-- head -->
       <thead>
@@ -8,6 +8,7 @@
           <th>Profile Photo</th>
           <th>Username</th>
           <th>Email</th>
+          <th>Nama</th>
           <th>Phone Number</th>
           <th>Gender</th>
           <th>Nationality</th>
@@ -21,13 +22,14 @@
             <tr>
               <td><?= $no++; ?></td>
               <td>
-                  <div class="flex justify-center w-10  h-10">
-                    <img src="<?= base_url($key['foto_profil']); ?>" alt="Profile Picture" />
+                  <div class="flex justify-center w-34  h-10 ">
+                    <img src="<?= base_url('assets/foto/'.$key['foto_profil']); ?>" alt="Profile Picture" />
                   </div>
               </td>
               <td class="hidden"><?= $key['id_tamu']?></td>
               <td><?= $key['username']; ?></td>
               <td><?= $key['email']; ?></td>
+              <td><?= $key['nama'];?></td>
               <td><?= $key['no_telp']; ?></td>
               <td><?= $key['jenis_kelamin']; ?></td>
               <td><?= $key['negara']; ?></td>

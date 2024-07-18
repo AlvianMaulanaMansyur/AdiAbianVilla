@@ -1,70 +1,69 @@
 Daftar Pemesanan
-<!-- <button class="inline-flex items-center justify-center p-1 me-3 text-sm font-medium h-6 w-6 text-gray-500 bg-white border border-gray-300 rounded-full focus:outline-none hover:bg-gray-100 focus:ring-4 focus:ring-gray-200 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:bg-gray-700 dark:hover:border-gray-600 dark:focus:ring-gray-700" type="button">
-    <span class="sr-only">Quantity button</span>
-    <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 2">
-        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 1h16" />
-    </svg>
-</button>
-<div>
-    <input type="number" id="first_product" class="bg-gray-50 w-14 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block px-2.5 py-1 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="1" required />
-</div>
-<button class="inline-flex items-center justify-center h-6 w-6 p-1 ms-3 text-sm font-medium text-gray-500 bg-white border border-gray-300 rounded-full focus:outline-none hover:bg-gray-100 focus:ring-4 focus:ring-gray-200 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:bg-gray-700 dark:hover:border-gray-600 dark:focus:ring-gray-700" type="button">
-    <span class="sr-only">Quantity button</span>
-    <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 18">
-        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 1v16M1 9h16" />
-    </svg>
-</button> -->
 <div class="relative overflow-x-auto">
 
-    <table class="w-full text-md text-left rtl:text-right text-gray-500 dark:text-gray-400">
-        <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
-            <tr class="text-center">
+    <table class="table table-auto bg-black w-full">
+        <thead class="bg-black">
+            <tr class="text-center bg-black">
                 <th>ID</th>
-                <th>Tanggal Pemesanan</th>
-                <th>Tanggal Checkin</th>
-                <th>Tanggal Checkout</th>
-                <th>Jumlah Kamar</th>
-                <th>Dewasa</th>
-                <th>Anak</th>
-                <th>Tamu</th>
-                <th>Action</th>
+                <th>Booking Date</th>
+                <th>Check-in Date</th>
+                <th>Check-out Date</th>
+                <th>Status</th>
+                <th>Number of Rooms</th>
+                <th>Adults</th>
+                <th>Children</th>
             </tr>
         </thead>
         <tbody class="text-center">
             <?php foreach ($pemesanan as $p) : ?>
                 <tr class="text-center">
-                    <td><?php echo $p->id_pemesanan; ?></td>
+                    <td>
+                        <div class="text-sm"><?php echo $p->id_pemesanan; ?></div>
+                    </td>
 
                     <td>
-                        <?php echo $p->tgl_pemesanan; ?>
+                        <?php
+                        $date = new DateTime($p->tgl_pemesanan);
+                        $timestamp = $date->getTimestamp();
+                        $formatted_date = strftime("%e %B %Y %H:%M:%S", $timestamp);
+                        ?>
+                        <div class="text-sm"><?php echo $formatted_date; ?></div>
+                    </td>
+                    <td>
+                        <?php
+                        $date = new DateTime($p->tgl_checkIn);
+                        $timestamp = $date->getTimestamp();
+                        $formatted_date = strftime("%e %B %Y", $timestamp);
+                        ?>
+                        <div class="text-sm"><?php echo $formatted_date; ?></div>
 
                     </td>
                     <td>
-                        <?php echo $p->tgl_checkIn; ?>
+                        <?php
+                        $date = new DateTime($p->tgl_checkOut);
+                        $timestamp = $date->getTimestamp();
+                        $formatted_date = strftime("%e %B %Y", $timestamp);
+                        ?>
+                        <div class="text-sm"><?php echo $formatted_date; ?></div>
 
                     </td>
                     <td>
-                        <?php echo $p->tgl_checkOut; ?>
-
+                        <?php $status_data = $p->status; ?>
+                        <?php if ($status_data == 0) : ?>
+                            <div class="bg-red-500 text-white p-2"><?php echo "Pending"; ?></div>
+                        <?php elseif ($status_data == 1) : ?>
+                            <div class="bg-green-500 text-white p-2"><?php echo "Confirmed"; ?></div>
+                        <?php endif ?>
                     </td>
                     <td>
-                        <?php echo $p->jumlah_kamar; ?>
-
+                        <div class="text-sm"><?php echo $p->jumlah_kamar; ?></div>
                     </td>
                     <td>
-                        <?php echo $p->dewasa; ?>
-
+                        <div class="text-sm"><?php echo $p->dewasa; ?></div>
                     </td>
                     <td>
-                        <?php echo $p->anak; ?>
-
+                        <div class="text-sm"><?php echo $p->anak; ?></div>
                     </td>
-                    <td>
-                        <?php echo $p->id_tamu; ?>
-                    </td>
-                    <td><a href="<?php echo base_url('pemesanan/editpemesanan/'.$p->id_pemesanan) ?>">Edit</a>
-                       <a href="<?php echo base_url('pemesanan/deletepemesanan/'.$p->id_pemesanan) ?>">Hapus</a></td>
-
                 </tr>
 
             <?php endforeach; ?>

@@ -25,7 +25,11 @@
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
     <!-- our own -->
-    <script src="<?php echo base_url('assets/js/ketersediaan.js') ?>"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
+    <script src="<?php echo base_url('lightpick/lightpick.js') ?>"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="<?php echo base_url('assets/js/statuskamar.js') ?>"></script>
     <script src="<?php echo base_url('assets/js/guestData.js') ?>"></script>
 
     <script src="<?php echo base_url('assets/js/myScript.js') ?>"></script>
@@ -61,6 +65,48 @@
             if (result.isConfirmed) {
                 document.location.href = href;
             }
+        });
+    });
+</script>
+
+<script>
+    document.querySelector('.modalFasilitasTambah').addEventListener('click', function() {
+        document.getElementById('modalTitle').innerText = 'Tambah Fasilitas';
+        // Clear any previous form data or reset the form if needed
+        document.getElementById('id').value = '';
+        document.getElementById('fasilitas').value = '';
+        document.getElementById('image').src = '';
+        document.getElementById('imageFasilitas').value = '';
+    });
+
+    document.querySelectorAll('.modalFasilitasUbah').forEach(button => {
+        button.addEventListener('click', function() {
+            document.getElementById('modalTitle').innerText = 'Edit Data Fasilitas';
+            // Load the data into the form if needed
+            var fasilitasId = this.getAttribute('data-id');
+
+            // Set form values based on retrieved data
+            document.getElementById('id').value = fasilitasId;
+            // Optionally, load other fields like nama fasilitas and image
+            var namaFasilitas = ''; // Get nama fasilitas from the row data
+            var imageUrl = ''; // Get image URL from the row data
+
+            document.getElementById('fasilitas').value = namaFasilitas;
+            document.getElementById('image').src = imageUrl;
+        });
+    });
+
+    // Add event listeners to close modal when 'Batal' button is clicked
+    document.querySelectorAll('[data-modal-hide="modalFasilitas"]').forEach(button => {
+        button.addEventListener('click', function() {
+            const modal = document.getElementById('modalFasilitas');
+            modal.classList.add('hidden');
+            modal.classList.remove('block');
+            // Optionally, reset form fields
+            document.getElementById('id').value = '';
+            document.getElementById('fasilitas').value = '';
+            document.getElementById('image').src = '';
+            document.getElementById('imageFasilitas').value = '';
         });
     });
 </script>

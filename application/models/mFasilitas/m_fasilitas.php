@@ -13,31 +13,26 @@ class m_fasilitas extends CI_Model
         $this->db->select('*');
         $this->db->from('fasilitas');
         $this->db->join('admin', 'admin.id_admin = fasilitas.id_admin');
-        $this->db->join('kategori', 'kategori.id_kategori = fasilitas.id_kategori');
         $result = $this->db->get();
-        return $result;
-    }
-    public function getAllKategori()
-    {
-        $result = $this->db->get('kategori');
         return $result;
     }
     public function getFasilitasById($idFasilitas)
     {
         $this->db->select('*');
         $this->db->from('fasilitas');
-        $this->db->join('kategori', 'kategori.id_kategori = fasilitas.id_kategori');
         $this->db->where('fasilitas.id_fasilitas', $idFasilitas);
         $result = $this->db->get()->result();
         return $result[0];
     }
     public function insertFasilitas($data_foto)
     {
+            $this->load->model('M_dashboard');
+            $username = $this->session->userdata('username');
+            $id_admin = $this->M_dashboard->getIdAdmin($username);
             $insert = array(
                 'nama_fasilitas' => $this->input->post('nama_fasilitas'),
                 'image' => 'assets/images/fasilitas/' . $data_foto,
-                'id_kategori' => $this->input->post('kategori'),
-                'id_admin' => '1'
+                'id_admin' => $id_admin[0]['id_admin']
             );
 
             $result = $this->db->insert('fasilitas', $insert);
@@ -45,10 +40,12 @@ class m_fasilitas extends CI_Model
         }
     public function editFasilitas()
     {
+            $this->load->model('M_dashboard');
+            $username = $this->session->userdata('username');
+            $id_admin = $this->M_dashboard->getIdAdmin($username);
             $edit = array(
                 'nama_fasilitas' => $this->input->post('nama_fasilitas'),
-                'id_kategori' => $this->input->post('kategori'),
-                'id_admin' => '1',
+                'id_admin' => $id_admin[0]['id_admin']
             );
 
             $this->db->where('id_fasilitas', $this->input->post('id'));
@@ -62,22 +59,12 @@ class m_fasilitas extends CI_Model
         $edit = array(
             'nama_fasilitas' => $this->input->post('nama_fasilitas'),
             'image' => 'assets/images/fasilitas/' . $data_foto,
-            'id_kategori' => $this->input->post('kategori'),
             'id_admin' => '1',
         );
 
         $this->db->where('id_fasilitas', $this->input->post('id'));
         $result = $this->db->update('fasilitas', $edit);
         return $result;
-    }
-    public function getKategori($id_kategori)
-    {
-        $this->db->select('*');
-        $this->db->from('fasilitas');
-        $this->db->join('kategori', 'kategori.id_kategori= fasilitas.id_kategori');
-        $this->db->where('fasilitas.id_kategori', $id_kategori);
-        $result = $this->db->get();
-        return $result->result();
     }
     public function deleteFasilitas($idFasilitas)
     {
