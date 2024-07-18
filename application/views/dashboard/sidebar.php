@@ -29,5 +29,11 @@
                 <span class="menu-title">Monthly Report</span>
             </a>
         </li>
+        <li class="nav-item">
+            <a class="nav-link" href="<?= base_url('c_fasilitas/c_fasilitas/')?>">
+                <i class="menu-icon mdi mdi-bed"></i>
+                <span class="menu-title">Fasilitas</span>
+            </a>
+        </li>
     </ul>
 </nav>
