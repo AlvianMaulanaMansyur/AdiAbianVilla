@@ -14,9 +14,7 @@ class Dashboard extends CI_Controller
         $this->load->model('M_dashboard');
         $this->load->model('M_pemesanan');
         $this->load->model('mFasilitas/m_fasilitas');
-        
-
-        
+        $this->load->model('mFasilitas/m_fasilitas');
         if (empty($this->session->userdata('username'))) {
             redirect('Authadmin/login');
         }
@@ -220,61 +218,6 @@ class Dashboard extends CI_Controller
         redirect('Dashboard/guestData');
     }
     
-    public function fasilitas()
-    {
-        $fasilitas = $this->m_fasilitas->getAllData();
-        $data = [
-            'title' => 'Fasilitas',
-            'header' => 'dashboard/header',
-            'navbar' => 'dashboard/navbar',
-            'sidebar' => 'dashboard/sidebar',
-            'content' => 'dashboard/fasilitas/fasilitas',
-            'footer' => 'dashboard/footer',
-            'script' => 'dashboard/script',
-            'fasilitas' => $fasilitas,
-        ];
-        $this->load->view('dashboard/main', $data);
-    }
-    public function insert_fasilitas()
-    {
-        $fasilitas = $this->db->get_where('fasilitas', array('id_fasilitas' => $this->input->post('id_fasilitas')))->num_rows();
-        $nama_fasilitas = $this->db->get_where('fasilitas', array('nama_fasilitas' => $this->input->post('nama_fasilitas')))->num_rows();
-                $image = $this->uploadImage();
-                $this->M_dashboard->insertFasilitas($image);
-                redirect('dashboard/tambah_fasilitas/');
-    }
-    public function edit_fasilitas()
-    {
-        $id_fasilitas = $this->input->post('id_fasilitas');
-        $data = [
-            'gambar' => $this->input->post('image'),
-            'nama_fasilitas' => $this->input->post('nama_fasilitas'),
-        ];
-        $this->M_dashboard->edit_fasilitas_kamar($id_fasilitas, 0);
-        redirect('Dashboard/fasilitas');
-    }
-    public function delete_fasilitas()
-    {
-        $this->db->where('id_fasilitas', $id_fasilitas);
-        $result = $this->db->delete('fasilitas');
-        return $result;
-    }
-    public function tambah_fasilitas()
-    {
-        // $guest = $this->M_dashboard-->get_fasilitas();
-        $data = [
-            'title' => 'Fasilitas',
-            'header' => 'dashboard/header',
-            'navbar' => 'dashboard/navbar',
-            'sidebar' => 'dashboard/sidebar',
-            'content' => 'dashboard/fasilitas/tambah_fasilitas',
-            'footer' => 'dashboard/footer',
-            'script' => 'dashboard/script',
-            // 'guest' => $guest,
-        ];
-
-        $this->load->view('dashboard/main', $data);
-    }
     public function uploadImage()
     {
         $config['upload_path']          = './assets/admin/img/admin/';

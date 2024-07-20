@@ -126,7 +126,7 @@
                                             <a href="<?php echo base_url('home#villa_facilites') ?>">Facilities</a>
                                         </li>
                                         <li class="menu-item menu-item-has-children hotale-normal-menu">
-                                            <a href="<?php echo base_url('room') ?>" class="sf-with-ul-pre">Reservation</a>
+                                            <a href="<?php echo base_url('pesanan') ?>" class="sf-with-ul-pre">Reservation</a>
 
                                         </li>
                                         <li class="menu-item hotale-normal-menu"><a href="<?php echo base_url('home#villa_contact') ?>" class="sf-with-ul-pre">Contact</a></li>
