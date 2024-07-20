@@ -13,22 +13,24 @@ class Dashboard extends CI_Controller
         $this->load->model('customer_model');
         $this->load->model('M_dashboard');
         $this->load->model('M_pemesanan');
-        // $this->load->library('PDF');
-        
+        $this->load->model('mFasilitas/m_fasilitas');
+        $this->load->model('mFasilitas/m_fasilitas');
         if (empty($this->session->userdata('username'))) {
             redirect('Authadmin/login');
         }
     }
     public function main()
     {
+        $pemesanan = $this->M_pemesanan->getPemesanan();
         $data = [
             'title' => 'Adi Abian Villa Dashboard',
             'header' => 'dashboard/header',
             'navbar' => 'dashboard/navbar',
             'sidebar' => 'dashboard/sidebar',
-            'content' => 'dashboard/test',
+            'content' => 'dashboard/daftar_pemesanan',
             'footer' => 'dashboard/footer',
-            'script' => 'dashboard/script'
+            'script' => 'dashboard/script',
+            'pemesanan' => $pemesanan
         ];
         $this->load->view('dashboard/main', $data);
     }
@@ -214,6 +216,33 @@ class Dashboard extends CI_Controller
         $this->customer_model->update_guest($id_tamu, $data);
         $this->session->set_flashdata('success', 'Data berhasil diperbarui!');
         redirect('Dashboard/guestData');
+    }
+    
+    public function uploadImage()
+    {
+        $config['upload_path']          = './assets/admin/img/admin/';
+        $config['allowed_types']        = 'gif|jpg|png|jpeg';
+        $new_name = '(' . time() . ')' . $this->input->post('nip');
+        $config['encrypt_name'] = FALSE;
+        $config['file_name'] = $new_name;
+        $config['max_size']  = '2000';
+        $config['overwrite']  = TRUE;
+        $this->load->library('upload', $config);
+
+        if (!$this->upload->do_upload('foto')) {
+            $error = $this->upload->display_errors('', '');
+            $sess = array(
+                'tittle' => 'Gagal',
+                'icon' => 'error'
+            );
+            $this->session->set_userdata($sess);
+            $this->session->set_flashdata('flash', $error);
+            redirect('c_admin/dataAdmin/c_dataAdmin/tambahAdmin');
+        } else {
+            $imageData = $this->upload->data();
+            // insert into database
+            return $imageData['file_name'];
+        }
     }
 
     public function monthlyReport()

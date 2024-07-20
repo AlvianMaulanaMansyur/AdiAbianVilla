@@ -31,10 +31,10 @@
                         <div class="hotale-header-container-inner clearfix">
                             <div class="hotale-logo hotale-item-pdlr">
                                 <div class="hotale-logo-inner">
-                                    <a class="hotale-fixed-nav-logo" href="<?php echo base_url('c_home') ?>">
+                                    <a class="hotale-fixed-nav-logo" href="<?php echo base_url('home') ?>">
                                         <img src="<?php echo base_url('asset/images/logog.png') ?>" alt="" width="147" height="37" title="logo-nx1" />
                                     </a>
-                                    <a class="hotale-orig-logo" href="<?php echo base_url('c_home') ?>">
+                                    <a class="hotale-orig-logo" href="<?php echo base_url('home') ?>">
                                         <img src="<?php echo base_url('asset/images/logog.png') ?>" alt="" width="147" height="37" title="logo-nx1" />
                                     </a>
                                 </div>
@@ -43,20 +43,20 @@
                                 <div class="hotale-main-menu" id="hotale-main-menu">
                                     <ul id="menu-main-navigation-1" class="sf-menu">
                                         <li class="menu-item menu-item-home menu-item-has-children hotale-normal-menu">
-                                            <a href="<?php echo base_url('c_home') ?>" class="sf-with-ul-pre">Home</a>
+                                            <a href="<?php echo base_url('home') ?>" class="sf-with-ul-pre">Home</a>
                                         </li>
 
                                         <li class="menu-item menu-item-has-children hotale-normal-menu">
-                                            <a href="<?php echo base_url('c_home/aboutus') ?>" class="sf-with-ul-pre">About Us</a>
+                                            <a href="<?php echo base_url('about') ?>" class="sf-with-ul-pre">About Us</a>
                                         </li>
                                         <li class="menu-item hotale-normal-menu">
-                                            <a href="<?php echo base_url('c_home#villa_facilites') ?>">Facilities</a>
+                                            <a href="<?php echo base_url('home#villa_facilites') ?>">Facilities</a>
                                         </li>
                                         <li class="menu-item current-menu-item menu-item-has-children hotale-normal-menu">
-                                            <a href="<?php echo base_url('kamar') ?>" class="sf-with-ul-pre">Reservation</a>
+                                            <a href="<?php echo base_url('room') ?>" class="sf-with-ul-pre">Reservation</a>
 
                                         </li>
-                                        <li class="menu-ite hotale-normal-menu"><a href="<?php echo base_url('c_home#villa_contact') ?>" class="sf-with-ul-pre">Contact</a></li>
+                                        <li class="menu-ite hotale-normal-menu"><a href="<?php echo base_url('contact') ?>" class="sf-with-ul-pre">Contact</a></li>
                                     </ul>
                                     <div class="hotale-navigation-slide-bar hotale-navigation-slide-bar-style-2 hotale-left" data-size-offset="0" data-width="19px" id="hotale-navigation-slide-bar"></div>
                                 </div>
@@ -130,7 +130,9 @@
                                                 </div>
                                             </div>
                                         </div>
+                                        
                                     </div>
+                                    
                                     <div class="gdlr-core-pbf-column gdlr-core-column-20 gdlr-core-column-first" id="gdlr-core-column-2">
                                         <div class="gdlr-core-pbf-column-content-margin gdlr-core-js">
                                             <div class="gdlr-core-pbf-background-wrap"></div>
@@ -222,12 +224,133 @@
                                             </div>
                                         </div>
                                     </div>
+                                    
                                     <div class="gdlr-core-pbf-column gdlr-core-column-20">
                                         <div class="gdlr-core-pbf-column-content-margin gdlr-core-js">
                                             <div class="gdlr-core-pbf-column-content clearfix gdlr-core-js"></div>
                                         </div>
                                     </div>
+                                    
                                     <div class="gdlr-core-pbf-column gdlr-core-column-60 gdlr-core-column-first" id="gdlr-core-column-6">
+                                    <div class="text-2xl font-bold text-center mt-10 mb-4">Check Availability</div>
+
+<div class="flex items-center justify-center pb-5">
+    <div class="flex items-center justify-center lg:w-5/6 md:w-full sm:w-full bg-white shadow rounded">
+        <div class="text-center">
+            <h1 id="result" class="mb-4"></h1>
+            <div class="relative">
+                <div class="container">
+                    <div id="error-message"></div>
+                    <div class="input-container">
+                        <div>
+                            <div class="flex items-center">
+                                <div class="text-sm font-bold m-3 ms-0 text-base">
+                                    Check-in
+                                </div>
+                                <img src="<?php echo base_url('assets/foto/enter.png') ?>" class="text-white w-10" alt="">
+                            </div>
+
+                            <div id="data_checkin" data="<?php echo $kamar['checkin'] ?>"></div>
+                            <div class="flex justify-center">
+                                <input id="datepicker" class="appearance-none w-48 py-2 px-3 text-gray-900 bg-white border-none" type="text" placeholder="Select check-in" disabled>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex items-center">
+                                <div class="text-sm font-bold m-3 ms-0 text-base">
+                                    Check-out
+                                </div>
+                                <img src="<?php echo base_url('assets/foto/enter.png') ?>" class="text-white w-10 rotate-180" alt="">
+                            </div>
+
+                            <div id="data_checkout" data="<?php echo $kamar['checkout'] ?>"></div>
+                            <input id="datepicker2" class="appearance-none w-48 py-2 px-3 text-gray-900 bg-white border-none" type="text" placeholder="Select check-out" disabled>
+                        </div>
+                        <div class="pt-4 flex gap-1">
+                            <div>
+                                <button class="w-72 h-12 relative" onclick="toggleModal('modal')">
+                                    <div class="w-72 h-12 px-3.5 py-2.5 left-0 top-0 absolute bg-red-500 rounded border border-red-500 flex-col justify-center items-start inline-flex">
+                                        <div class="text-center text-white text-sm font-bold leading-7">Rooms</div>
+                                    </div>
+                                    <div class="w-24 h-12 left-[173.60px] top-0 absolute">
+                                        <img class="w-9 h-8 left-[51.12px] top-[7px] absolute" src="<?php echo base_url('assets/foto/people.png') ?>" />
+                                        <div id="total-persons" class="w-2 h-4 left-[25.40px] top-[11px] absolute text-black text-md font-bold text-white">2</div>
+                                    </div>
+                                    <div class="w-20 h-9 left-[91px] top-[1px] absolute">
+                                        <img class="w-10 h-9 left-[25.23px] top-0 absolute" src="<?php echo base_url('assets/foto/bed.png') ?>" />
+                                        <div id="total-rooms" class="w-2 h-4 left-0 top-[10px] absolute text-black text-md font-bold text-white">1</div>
+                                    </div>
+                                    <div class="w-0.5 h-11 bg-white left-[178px] top-0.5 absolute"></div>
+                                </button>
+                            </div>
+
+
+
+                            <div id="modal" class="hidden absolute z-10 mt-3 w-96">
+                                <div id="modal-container" class="w-96 h-72 left-0 top-12 bg-white shadow-lg rounded relative overflow-hidden">
+                                    <div id="room-container" class="p-4" style="max-height: calc(100% - 96px);">
+                                        <!-- <div class="text-lg font-bold mb-4">Room 1</div> -->
+                                        <!-- Adult Section -->
+                                        <div class="text-md font-bold">Manage Room Details</div>
+                                        <div class="flex flex-col mb-4 room-section">
+                                            <div class="border border-black h-px w-full mb-4"></div>
+                                            <div class="flex items-center mb-4">
+                                                <img class="w-10 h-10 mr-4" src="<?php echo base_url('assets/foto/person.png') ?>" />
+                                                <div class="text-black text-sm font-normal mr-auto">Adult</div>
+                                                <div>
+                                                    <select name="dewasa" class="select-adult appearance-auto border-1 w-24 h-8 rounded">
+                                                        <option value="1">1</option>
+                                                        <option value="2" selected>2</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="flex items-center mb-4">
+                                                <img class="w-10 h-10 mr-4" src="<?php echo base_url('assets/foto/kid.png') ?>" />
+                                                <div class="flex flex-col items-start mr-auto">
+                                                    <div class="text-black text-sm font-normal">Kid</div>
+                                                    <div class="text-gray-500 text-sm font-normal">Ages 6 and below</div>
+                                                </div>
+                                                <div>
+                                                    <select name="anak" class="select-kid appearance-auto border-1 w-24 h-8 rounded">
+                                                        <option value="0" selected>0</option>
+                                                        <option value="1">1</option>
+                                                        <option value="2">2</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div id="buttons-container" class="p-4 flex justify-between">
+
+                                        <button id="add-room-button" class="w-36 h-10 bg-green-500 text-white mt-4 rounded"><span><i class="fa-solid fa-plus"></i></span>
+                                            Add Room
+                                        </button>
+                                        <button id="submit-button" class="w-36 h-10 bg-red-500 text-white mt-4 rounded bg-red-500">
+                                            Submit
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div>
+                                <button id="check" class="w-20 h-12 px-3.5 py-2.5 bg-red-500 text-white font-bold rounded border border-red-500 flex-col justify-center items-start inline-flex relative">Check</button>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="flex justify-center">
+                    <section id="datepicker-section" class="pb-5"></section>
+                </div>
+            </div>
+
+
+        </div>
+
+
+    </div>
+
+</div>
+<div id="availability1"></div>
                                         <div class="gdlr-core-pbf-column-content-margin gdlr-core-js" style="padding: 10px 0px 0px 0px;">
                                             <div class="gdlr-core-pbf-background-wrap"></div>
                                             <div class="gdlr-core-pbf-column-content clearfix gdlr-core-js">
@@ -722,125 +845,7 @@
                         </div>
                     </div>
 
-                    <div class="text-2xl font-bold text-center mt-10 mb-4">Check Availability</div>
-
-                    <div class="flex items-center justify-center pb-5">
-                        <div class="flex items-center justify-center lg:w-5/6 md:w-full sm:w-full bg-white shadow rounded">
-                            <div class="text-center">
-                                <h1 id="result" class="mb-4"></h1>
-                                <div class="relative">
-                                    <div class="container">
-                                        <div id="error-message"></div>
-                                        <div class="input-container">
-                                            <div>
-                                                <div class="flex items-center">
-                                                    <div class="text-sm font-bold m-3 ms-0 text-base">
-                                                        Check-in
-                                                    </div>
-                                                    <img src="<?php echo base_url('assets/foto/enter.png') ?>" class="text-white w-10" alt="">
-                                                </div>
-
-                                                <div id="data_checkin" data="<?php echo $kamar['checkin'] ?>"></div>
-                                                <div class="flex justify-center">
-                                                    <input id="datepicker" class="appearance-none w-48 py-2 px-3 text-gray-900 bg-white border-none" type="text" placeholder="Select check-in" disabled>
-                                                </div>
-                                            </div>
-                                            <div>
-                                                <div class="flex items-center">
-                                                    <div class="text-sm font-bold m-3 ms-0 text-base">
-                                                        Check-out
-                                                    </div>
-                                                    <img src="<?php echo base_url('assets/foto/enter.png') ?>" class="text-white w-10 rotate-180" alt="">
-                                                </div>
-
-                                                <div id="data_checkout" data="<?php echo $kamar['checkout'] ?>"></div>
-                                                <input id="datepicker2" class="appearance-none w-48 py-2 px-3 text-gray-900 bg-white border-none" type="text" placeholder="Select check-out" disabled>
-                                            </div>
-                                            <div class="pt-4 flex gap-1">
-                                                <div>
-                                                    <button class="w-72 h-12 relative" onclick="toggleModal('modal')">
-                                                        <div class="w-72 h-12 px-3.5 py-2.5 left-0 top-0 absolute bg-red-500 rounded border border-red-500 flex-col justify-center items-start inline-flex">
-                                                            <div class="text-center text-white text-sm font-bold leading-7">Rooms</div>
-                                                        </div>
-                                                        <div class="w-24 h-12 left-[173.60px] top-0 absolute">
-                                                            <img class="w-9 h-8 left-[51.12px] top-[7px] absolute" src="<?php echo base_url('assets/foto/people.png') ?>" />
-                                                            <div id="total-persons" class="w-2 h-4 left-[25.40px] top-[11px] absolute text-black text-md font-bold text-white">2</div>
-                                                        </div>
-                                                        <div class="w-20 h-9 left-[91px] top-[1px] absolute">
-                                                            <img class="w-10 h-9 left-[25.23px] top-0 absolute" src="<?php echo base_url('assets/foto/bed.png') ?>" />
-                                                            <div id="total-rooms" class="w-2 h-4 left-0 top-[10px] absolute text-black text-md font-bold text-white">1</div>
-                                                        </div>
-                                                        <div class="w-0.5 h-11 bg-white left-[178px] top-0.5 absolute"></div>
-                                                    </button>
-                                                </div>
-
-
-
-                                                <div id="modal" class="hidden absolute z-10 mt-3 w-96">
-                                                    <div id="modal-container" class="w-96 h-72 left-0 top-12 bg-white shadow-lg rounded relative overflow-hidden">
-                                                        <div id="room-container" class="p-4" style="max-height: calc(100% - 96px);">
-                                                            <!-- <div class="text-lg font-bold mb-4">Room 1</div> -->
-                                                            <!-- Adult Section -->
-                                                            <div class="text-md font-bold">Manage Room Details</div>
-                                                            <div class="flex flex-col mb-4 room-section">
-                                                                <div class="border border-black h-px w-full mb-4"></div>
-                                                                <div class="flex items-center mb-4">
-                                                                    <img class="w-10 h-10 mr-4" src="<?php echo base_url('assets/foto/person.png') ?>" />
-                                                                    <div class="text-black text-sm font-normal mr-auto">Adult</div>
-                                                                    <div>
-                                                                        <select name="dewasa" class="select-adult appearance-auto border-1 w-24 h-8 rounded">
-                                                                            <option value="1">1</option>
-                                                                            <option value="2" selected>2</option>
-                                                                        </select>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="flex items-center mb-4">
-                                                                    <img class="w-10 h-10 mr-4" src="<?php echo base_url('assets/foto/kid.png') ?>" />
-                                                                    <div class="flex flex-col items-start mr-auto">
-                                                                        <div class="text-black text-sm font-normal">Kid</div>
-                                                                        <div class="text-gray-500 text-sm font-normal">Ages 6 and below</div>
-                                                                    </div>
-                                                                    <div>
-                                                                        <select name="anak" class="select-kid appearance-auto border-1 w-24 h-8 rounded">
-                                                                            <option value="0" selected>0</option>
-                                                                            <option value="1">1</option>
-                                                                            <option value="2">2</option>
-                                                                        </select>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <div id="buttons-container" class="p-4 flex justify-between">
-
-                                                            <button id="add-room-button" class="w-36 h-10 bg-green-500 text-white mt-4 rounded"><span><i class="fa-solid fa-plus"></i></span>
-                                                                Add Room
-                                                            </button>
-                                                            <button id="submit-button" class="w-36 h-10 bg-red-500 text-white mt-4 rounded bg-red-500">
-                                                                Submit
-                                                            </button>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div>
-                                                    <button id="check" class="w-20 h-12 px-3.5 py-2.5 bg-red-500 text-white font-bold rounded border border-red-500 flex-col justify-center items-start inline-flex relative">Check</button>
-
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="flex justify-center">
-                                        <section id="datepicker-section" class="pb-5"></section>
-                                    </div>
-                                </div>
-
-
-                            </div>
-
-
-                        </div>
-
-                    </div>
-                    <div id="availability1"></div>
+                    
 
                 </div>
                 <!-- Modal Overlay and Content -->

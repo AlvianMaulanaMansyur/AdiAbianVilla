@@ -2,7 +2,9 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Hotale &#8211; Hotel HTML Template</title>
+    <title><?php echo $title ?></title>
+
+    <link rel="icon" href="<?= base_url('asset/images/adibian.png'); ?>">
 
     <!-- <script src="https://cdn.jsdelivr.net/npm/@easepick/bundle@1.2.1/dist/index.umd.min.js"></script> -->
 

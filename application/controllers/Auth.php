@@ -83,7 +83,7 @@ class Auth extends CI_Controller
           'logged_in' => TRUE
         );
         $this->session->set_userdata($user_data);
-        redirect('c_home');
+        redirect('home');
       } else {
         $data = [
           'title' => 'Login',
@@ -142,7 +142,7 @@ class Auth extends CI_Controller
       );
       $this->session->set_userdata($user_data);
 
-      redirect('c_home');
+      redirect('home');
     }
   }
 

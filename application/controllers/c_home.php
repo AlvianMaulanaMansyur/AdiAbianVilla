@@ -40,6 +40,28 @@ class c_home extends CI_Controller {
     public function about()
     {
         $this->load->view('home/about');
+    }
+
+    public function error_page()
+    {
+        $this->load->view('error_page');
+    }
+
+    public function contact()
+    {
+        $identity = $this->session->userdata('identity');
+
+        if (!empty($identity)){
+
+            $user = $this->M_tamu->getTamuByEmailUsername($identity);
+            $username = $user[0]['nama'];
         
+        } else {
+            $username = 'Login First!';
+        }
+        $data = array( 
+            'username' => $username
+            );
+        $this->load->view('home/contact', $data);
     }
 }

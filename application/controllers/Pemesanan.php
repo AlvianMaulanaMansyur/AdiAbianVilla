@@ -46,7 +46,7 @@ class Pemesanan extends CI_Controller
         $kamar = $this->M_pemesanan->getCookieValues();
         $harga_kamar = $this->M_kamar->getHargaKamar();
         $data = [
-            'title' => 'Tamu',
+            'title' => 'Order',
             'header' => 'partials/kamar/header',
             'navbar' => 'partials/kamar/navbar',
             'script' => 'partials/kamar/script_pemesanan',

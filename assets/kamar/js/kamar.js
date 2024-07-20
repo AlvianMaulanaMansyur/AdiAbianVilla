@@ -1,3 +1,4 @@
+
 function toggleModal(modalId) {
 	const modal = document.getElementById(modalId);
 	if (modal.classList.contains("hidden")) {
@@ -13,6 +14,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
 	const modalContainer = document.getElementById("modal-container");
 	const buttonsContainer = document.getElementById("buttons-container");
 	const submitButton = document.getElementById("submit-button");
+	const base_url = 'http://localhost/adiabianvilla';
 
 	function updateCounts() {
 		let adults = 0;
@@ -112,7 +114,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
                     <div class="border border-black h-px w-full mb-4"></div>
 
                     <div class="flex items-center mb-4">
-                        <img class="w-10 h-10 mr-4" src="<?php echo base_url('assets/foto/person.png') ?>" />
+                        <img class="w-10 h-10 mr-4" src="${base_url}/assets/foto/person.png" />
                         <div class="text-black text-sm font-normal mr-auto">Adult</div>
                         <div>
                             <select name="dewasa" class="select-adult appearance-auto border-1 w-24 h-8 rounded">
@@ -122,7 +124,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
                         </div>
                     </div>
                     <div class="flex items-center mb-4">
-                        <img class="w-10 h-10 mr-4" src="<?php echo base_url('assets/foto/kid.png') ?>" />
+                        <img class="w-10 h-10 mr-4" src="${base_url}/assets/foto/kid.png" />
                         <div class="flex flex-col items-start mr-auto">
                             <div class="text-black text-sm font-normal">Kid</div>
                             <div class="text-gray-500 text-sm font-normal">Ages 6 and below</div>
@@ -173,7 +175,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
             <div class="flex flex-col room-section">
                 <div class="border border-black h-px w-full mb-4"></div>
                 <div class="flex items-center mb-4">
-                    <img class="w-10 h-10 mr-4" src="<?php echo base_url('assets/foto/person.png') ?>" />
+                    <img class="w-10 h-10 mr-4" src="${base_url}/assets/foto/person.png" />
                     <div class="text-black text-sm font-normal mr-auto">Adult</div>
                     <div>
                         <select name="dewasa" class="select-adult appearance-auto border-1 w-24 h-8 rounded">
@@ -183,7 +185,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
                     </div>
                 </div>
                 <div class="flex items-center mb-4">
-                    <img class="w-10 h-10 mr-4" src="<?php echo base_url('assets/foto/kid.png') ?>" />
+                    <img class="w-10 h-10 mr-4" src="${base_url}/assets/foto/kid.png" />
                     <div class="flex flex-col items-start mr-auto">
                         <div class="text-black text-sm font-normal">Kid</div>
                         <div class="text-gray-500 text-sm font-normal">Ages 6 and below</div>
@@ -287,95 +289,95 @@ function formatRupiah(value) {
 	}).format(value);
 }
 
-window.onload = function () {
-	let adults = 0;
-	let kids = 0;
-	var roomsi = 0;
+// window.onload = function () {
+// 	let adults = 0;
+// 	let kids = 0;
+// 	var roomsi = 0;
 
-	// Muat data dari cookie jika tersedia
-	const cookies = document.cookie.split(";");
-	const roomsDataCookie = cookies.find((cookie) =>
-		cookie.trim().startsWith("roomsData=")
-	);
-	// console.log(roomsDataCookie.length)
-	if (roomsDataCookie) {
-		const roomsData = JSON.parse(roomsDataCookie.split("=")[1]);
-		roomsData.forEach((room) => {
-			adults += parseInt(room.adults);
-			kids += parseInt(room.kids);
-			roomsi++;
-			console.log("adfadfadfadfadfadfad = ", roomsi);
-		});
-	}
+// 	// Muat data dari cookie jika tersedia
+// 	const cookies = document.cookie.split(";");
+// 	const roomsDataCookie = cookies.find((cookie) =>
+// 		cookie.trim().startsWith("roomsData=")
+// 	);
+// 	// console.log(roomsDataCookie.length)
+// 	if (roomsDataCookie) {
+// 		const roomsData = JSON.parse(roomsDataCookie.split("=")[1]);
+// 		roomsData.forEach((room) => {
+// 			adults += parseInt(room.adults);
+// 			kids += parseInt(room.kids);
+// 			roomsi++;
+// 			console.log("adfadfadfadfadfadfad = ", roomsi);
+// 		});
+// 	}
 
-	// var availabilityCookie = getCookie('availability');
-	var availabilityCookie = getCookie("availability");
-	var kamarCookie = getCookie("kamar");
-	var hargaCookie = getCookie("harga");
-	var jenisKamarCookie = getCookie("jenis_kamar");
-	console.log(availabilityCookie);
-	if (availabilityCookie) {
-		var availability = JSON.parse(availabilityCookie);
-		var kamar = JSON.parse(kamarCookie);
-		var harga = JSON.parse(hargaCookie);
-		var jenis_kamar = JSON.parse(jenisKamarCookie);
+// 	// var availabilityCookie = getCookie('availability');
+// 	var availabilityCookie = getCookie("availability");
+// 	var kamarCookie = getCookie("kamar");
+// 	var hargaCookie = getCookie("harga");
+// 	var jenisKamarCookie = getCookie("jenis_kamar");
+// 	console.log(availabilityCookie);
+// 	if (availabilityCookie) {
+// 		var availability = JSON.parse(availabilityCookie);
+// 		var kamar = JSON.parse(kamarCookie);
+// 		var harga = JSON.parse(hargaCookie);
+// 		var jenis_kamar = JSON.parse(jenisKamarCookie);
 
-		// Lanjutkan dengan logika Anda menggunakan nilai dari cookie
-		var checkinCookie = getCookie("checkin");
-		var checkoutCookie = getCookie("checkout");
-		// var check_in = checkinCookie;
-		// var check_out = JSON.parse(checkoutCookie);
-		let checkin = moment(checkinCookie);
-		let checkout = moment(checkoutCookie);
-		let nights = checkout.diff(checkin, "days");
-		let price = parseInt(roomsi) * parseInt(harga) * parseInt(nights);
-		console.log("malam", nights);
-		console.log("price", kamar);
-		console.log("roomsi", roomsi);
+// 		// Lanjutkan dengan logika Anda menggunakan nilai dari cookie
+// 		var checkinCookie = getCookie("checkin");
+// 		var checkoutCookie = getCookie("checkout");
+// 		// var check_in = checkinCookie;
+// 		// var check_out = JSON.parse(checkoutCookie);
+// 		let checkin = moment(checkinCookie);
+// 		let checkout = moment(checkoutCookie);
+// 		let nights = checkout.diff(checkin, "days");
+// 		let price = parseInt(roomsi) * parseInt(harga) * parseInt(nights);
+// 		console.log("malam", nights);
+// 		console.log("price", kamar);
+// 		console.log("roomsi", roomsi);
 
-		$("#availability-card-container").empty();
-		$("#availability1").empty();
+// 		$("#availability-card-container").empty();
+// 		$("#availability1").empty();
 
-		if (kamar >= roomsi) {
-			// $("#error-message").html(`<div class="text-green-500"><i class="fa-solid fa-circle-check"></i> There are ${kamar} rooms available. You can continue booking by clicking the reserve button </div>`);
-			console.log("aahahhghghghghg");
-			const avak = `
-                <div class="flex flex-col items-center pb-10" id="details-container">
-        <div class="border h-px lg:w-5/6 md:w-full sm:w-full mt-3"></div>
-        <div class="text-2xl font-bold text-center lg:w-5/6 md:w-full sm:w-full mt-5" >Details</div>
+// 		if (kamar >= roomsi) {
+// 			// $("#error-message").html(`<div class="text-green-500"><i class="fa-solid fa-circle-check"></i> There are ${kamar} rooms available. You can continue booking by clicking the reserve button </div>`);
+// 			console.log("aahahhghghghghg");
+// 			const avak = `
+//                 <div class="flex flex-col items-center pb-10" id="details-container">
+//         <div class="border h-px lg:w-5/6 md:w-full sm:w-full mt-3"></div>
+//         <div class="text-2xl font-bold text-center lg:w-5/6 md:w-full sm:w-full mt-5" >Details</div>
 
-        <div class="bg-white shadow-md rounded-lg mb-4 lg:w-5/6 md:w-full sm:w-full p-5">
-            <div id="availability-card-container" class="bg-white mb-4"></div>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
-                <div>
-                    <div class="text-black font-bold text-lg mb-2">Available Rooms: ${kamar}</div>
-                    <div class="font-bold">Room Type: <span class="font-normal">${jenis_kamar}</span></div>
-                </div>
+//         <div class="bg-white shadow-md rounded-lg mb-4 lg:w-5/6 md:w-full sm:w-full p-5">
+//             <div id="availability-card-container" class="bg-white mb-4"></div>
+//             <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+//                 <div>
+//                     <div class="text-black font-bold text-lg mb-2">Available Rooms: ${kamar}</div>
+//                     <div class="font-bold">Room Type: <span class="font-normal">${jenis_kamar}</span></div>
+//                 </div>
 
-                <div>
-                    <div class="mb-2">Room Selected: <span class="font-bold">${roomsi}</span></div>
-                    <div class="mb-2">Nights: <span class="font-bold">${nights}</span></div>
-                    <div class="mb-2">${adults} Adults and ${kids} Kids</div>
-                </div>
+//                 <div>
+//                     <div class="mb-2">Room Selected: <span class="font-bold">${roomsi}</span></div>
+//                     <div class="mb-2">Nights: <span class="font-bold">${nights}</span></div>
+//                     <div class="mb-2">${adults} Adults and ${kids} Kids</div>
+//                 </div>
                 
-                <div>
-                    <div class="text-lg font-bold mb-2">Price: <span class="font-normal">${formatRupiah(price)}</span></div>
-                </div>
-            </div>
-            <div class="flex justify-end mt-4">
-                <button class="px-6 py-3 bg-red-500 text-white font-bold rounded-lg border border-red-500 hover:bg-red-600 transition duration-300" id="reserve">Booking</button>
-            </div>
-        </div>
-    </div>
-            `;
-			$("#availability1").append(avak);
-			$("#reserve").click(function (event) {
-				console.log("halo");
-				window.location.href = base_url + "pemesanan";
-			});
-		}
-	}
-};
+//                 <div>
+//                     <div class="text-lg font-bold mb-2">Price: <span class="font-normal">${formatRupiah(price)}</span></div>
+//                 </div>
+//             </div>
+//             <div class="flex justify-end mt-4">
+//                 <button class="px-6 py-3 bg-red-500 text-white font-bold rounded-lg border border-red-500 hover:bg-red-600 transition duration-300" id="reserve">Booking</button>
+//             </div>
+//         </div>
+//     </div>
+//             `;
+// 			$("#availability1").append(avak);
+// 			$("#reserve").click(function (event) {
+// 				console.log("halo");
+// 				window.location.href = base_url + "pemesanan";
+// 			});
+// 		}
+// 	}
+// };
 
 $("#check").click(function (event) {
 	// Mencegah form submit jika menggunakan form
@@ -539,7 +541,7 @@ $("#check").click(function (event) {
 				$("#availability1").append(avak);
 				$("#reserve").click(function (event) {
 					console.log("halo");
-					window.location.href = base_url + "pemesanan";
+					window.location.href = base_url + "order";
 				});
 
 				$("html, body").animate(

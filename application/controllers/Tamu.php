@@ -11,6 +11,9 @@ class Tamu extends CI_Controller
         $this->load->model('M_tamu');
         $this->load->helper('url', 'form');
         $this->load->library('form_validation');
+        if ($this->session->userdata('identity') == null) {
+            redirect('auth/login');
+        }
     }
 
     public function index()

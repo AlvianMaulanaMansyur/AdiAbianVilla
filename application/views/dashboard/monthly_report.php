@@ -3,28 +3,28 @@
     <div class="card mb-4">
         <div class="card-body">
             <div class="d-sm-flex align-items-center justify-content-between mb-4">
-                <h1 class="h3 mb-0 text-gray-800 ">Laporan Bulanan</h1>
+                <h1 class="h3 mb-0 text-gray-800 ">Monthly Report</h1>
             </div>
             <div>
                 <form method="get" action="<?php echo base_url('dashboard/monthlyReport') ?>">
                     <div class="row">
                         <div class="col-4">
-                            <select class="form-select" name="month" id="month" required>
-                                <option value="" selected>Pilih Bulan</option>
+                            <select class="form-select text-black" name="month" id="month" required>
+                                <option class="text-black" value="" selected>Select Month</option>
                                 <?php
                                 for ($i = 1; $i <= 12; $i++) {
                                     $monthValue = sprintf("%02d", $i);
                                     $monthLabel = date("F", strtotime("2023-$monthValue-01"));
                                     $selected = ($monthValue == $this->input->get('month')) ? 'selected' : '';
-                                    echo "<option value='$monthValue' $selected>$monthLabel</option>";
+                                    echo "<option class='text-black' value='$monthValue' $selected>$monthLabel</option>";
                                 }
                                 ?>
                             </select>
                         </div>
 
                         <div class="col-4">
-                            <select class="form-control" name="year" id="year" required>
-                                <option value="" selected>Pilih Tahun</option>
+                            <select class="form-control text-black" name="year" id="year" required>
+                                <option value="" selected>Select Year</option>
                                 <?php
                                 $currentYear = date("Y");
                                 for ($i = $currentYear; $i >= ($currentYear - 5); $i--) {
