@@ -187,7 +187,7 @@ class Payment extends CI_Controller
     public function return()
     {
         echo ('Pembayaran anda kami proses');
-        redirect('c_home');
+        redirect('home');
     }
 }
 

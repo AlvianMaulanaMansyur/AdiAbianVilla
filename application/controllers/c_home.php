@@ -49,7 +49,19 @@ class c_home extends CI_Controller {
 
     public function contact()
     {
-        $this->load->view('home/contact');
+        $identity = $this->session->userdata('identity');
 
+        if (!empty($identity)){
+
+            $user = $this->M_tamu->getTamuByEmailUsername($identity);
+            $username = $user[0]['nama'];
+        
+        } else {
+            $username = 'Login First!';
+        }
+        $data = array( 
+            'username' => $username
+            );
+        $this->load->view('home/contact', $data);
     }
 }

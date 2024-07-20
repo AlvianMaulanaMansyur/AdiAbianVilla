@@ -395,6 +395,7 @@
 
     function deleteKamar(id_kamar) {
         if (confirm('Apakah Anda yakin ingin menghapus kamar ini?')) {
+            console.log('delete')
             $.ajax({
                 url: '<?php echo site_url('Dashboard/deleteKamar'); ?>',
                 type: 'POST',
@@ -402,10 +403,16 @@
                     id_kamar: id_kamar
                 },
                 success: function(response) {
-                    var data = JSON.parse(response);
-                    if (data.status) {
+                    // var data = JSON.parse(response);
+                    if (response.status) {
                         location.reload();
                     } else {
+                        Swal.fire({
+                            icon: "error",
+                            title: "Oops...",
+                            text: "Something went wrong!",
+                            footer: '<a href="#">Why do I have this issue?</a>'
+                        });
                         alert("Error: " + data.message);
                     }
                 },

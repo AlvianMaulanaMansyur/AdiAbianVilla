@@ -56,8 +56,8 @@ $route['translate_uri_dashes'] = FALSE;
 $route['home'] = 'c_home';
 $route['room'] = 'kamar';
 $route['about'] = 'c_home/about';
+$route['contact'] = 'c_home/contact';
 $route['order'] = 'pemesanan';
-
 
 // Bagian user admin
 $route['dashboard/reservation'] = 'dashboard/daftarpemesanan';
