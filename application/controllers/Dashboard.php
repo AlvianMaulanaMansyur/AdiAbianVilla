@@ -2,8 +2,10 @@
 
 
 defined('BASEPATH') or exit('No direct script access allowed');
+
 use PhpOffice\PhpSpreadsheet\Spreadsheet;
 use PhpOffice\PhpSpreadsheet\Writer\Xlsx;
+
 class Dashboard extends CI_Controller
 {
     public function __construct()
@@ -171,6 +173,7 @@ class Dashboard extends CI_Controller
         echo json_encode($response);
     }
 
+
     public function daftarPemesanan()
     {
         $pemesanan = $this->M_pemesanan->getPemesanan();
@@ -217,7 +220,7 @@ class Dashboard extends CI_Controller
         $this->session->set_flashdata('success', 'Data berhasil diperbarui!');
         redirect('Dashboard/guestData');
     }
-    
+
     public function uploadImage()
     {
         $config['upload_path']          = './assets/admin/img/admin/';
@@ -287,7 +290,8 @@ class Dashboard extends CI_Controller
         $this->load->view('dashboard/main', $data);
     }
 
-    public function exportExcel() {
+    public function exportExcel()
+    {
         // Ambil data bulanan dari model
         $monthly_orders = $this->M_dashboard->getMonthlyOrders($this->session->userdata('selected_month'));
 
@@ -344,7 +348,6 @@ class Dashboard extends CI_Controller
         // Exit untuk menghentikan eksekusi script
         exit;
     }
-    
 }
 
 /* End of file Controllername.php */
