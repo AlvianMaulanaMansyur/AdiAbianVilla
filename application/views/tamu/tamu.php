@@ -40,7 +40,7 @@
                 </form>
                 <!-- Button Section -->
                 <div class="flex justify-between mt-10">
-                    <a href="<?php echo base_url('c_home') ?>" class="bg-gray-500 text-white px-6 py-3 rounded-lg hover:bg-gray-600 transition duration-300 transform hover:scale-105 shadow-md hover:shadow-lg">
+                    <a href="<?php echo base_url('home') ?>" class="bg-gray-500 text-white px-6 py-3 rounded-lg hover:bg-gray-600 transition duration-300 transform hover:scale-105 shadow-md hover:shadow-lg">
                         Back
                     </a>
                     <a href="<?php echo base_url('tamu/editProfile/') . $tamus['id_tamu'] ?>" class="bg-yellow-500 text-white px-6 py-3 rounded-lg hover:bg-yellow-600 transition duration-300 transform hover:scale-105 shadow-md hover:shadow-lg flex items-center">

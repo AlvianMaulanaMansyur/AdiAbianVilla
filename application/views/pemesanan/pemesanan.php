@@ -50,13 +50,13 @@
                     <a href="<?php echo base_url('c_home/about') ?>" class="sf-with-ul-pre">About Us</a>
                   </li>
                   <li class="menu-item hotale-normal-menu">
-                    <a href="<?php echo base_url('c_home#villa_facilities') ?>">Facilities</a>
+                    <a href="<?php echo base_url('home#villa_facilities') ?>">Facilities</a>
                   </li>
                   <li class="menu-item current-menu-item menu-item-has-children hotale-normal-menu">
                     <a href="<?php echo base_url('room') ?>" class="sf-with-ul-pre">Reservation</a>
 
                   </li>
-                  <li class="menu-ite hotale-normal-menu"><a href="<?php echo base_url('c_home#villa_contact') ?>" class="sf-with-ul-pre">Contact</a></li>
+                  <li class="menu-ite hotale-normal-menu"><a href="<?php echo base_url('home#villa_contact') ?>" class="sf-with-ul-pre">Contact</a></li>
                   <li class="menu-ite hotale-normal-menu"><a href="<?php echo base_url('') ?>" class="sf-with-ul-pre"><i class="fa-solid fa-user"></i></a></li>
                 </ul>
                 <div class="hotale-navigation-slide-bar hotale-navigation-slide-bar-style-2 hotale-left" data-size-offset="0" data-width="19px" id="hotale-navigation-slide-bar"></div>
@@ -125,7 +125,7 @@
                   <span class="error text-red-600" id="jenis_kelamin-error"></span>
                 </div>
                 <div class="pt-4 flex justify-end">
-                  <button class="h-10 w-20 bg-yellow-500 rounded flex justify-center items-center gap-2"><i class="fa-solid fa-pencil" style="color: white;"></i><a class="text-white" href="<?php echo base_url('tamu') ?>">Edit</a></button>
+                  <button class="h-10 w-20 bg-yellow-500 rounded flex justify-center items-center"><a class="text-white flex gap-2 justify-center items-center" href="<?php echo base_url('tamu') ?>"><i class="fa-solid fa-pencil" style="color: white;"></i><span>Edit</span></a></button>
                 </div>
               </div>
             </fieldset>

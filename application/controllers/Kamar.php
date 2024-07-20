@@ -46,7 +46,7 @@ class Kamar extends CI_Controller
         );
 
         $data = [
-            'title' => 'Calendar',
+            'title' => 'Room',
             'header' => 'partials/kamar/header',
             'navbar' => 'partials/kamar/navbar',
             'content' => 'kamar/detail_kamar',

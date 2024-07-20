@@ -86,7 +86,7 @@
                                     <td class="py-3 px-2 border"><?php echo $k['deskripsi']; ?></td>
                                     <td class="py-3 px-2 border text-center">
                                         <div class="flex justify-center space-x-2">
-                                            <button class="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded text-sm flex items-center space-x-2 transition duration-300" onclick="openEditKamarModal(<?php echo $k['id_kamar']; ?>, '<?php echo $k['no_kamar']; ?>', '<?php echo $k['jenis_kamar']; ?>')">
+                                            <button class="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded text-sm flex items-center space-x-2 transition duration-300" onclick="openEditKamarModal(<?php echo $k['id_kamar']; ?>, '<?php echo $k['no_kamar']; ?>','<?php echo $k['harga'] ?>', '<?php echo $k['jenis_kamar'] ?>')">
                                                 <span>Edit</span>
                                                 <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
@@ -154,8 +154,6 @@
             </div>
         </div>
 
-
-
         <!-- Add Kamar Modal -->
         <div id="addKamarModal" class="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 hidden">
             <div class="bg-white p-6 rounded-lg shadow-lg w-1/3">
@@ -168,9 +166,9 @@
                     <div class="mb-4">
                         <label for="jenis_kamar" class="block text-gray-700 font-semibold">Room type</label>
                         <select id="jenis_kamar" name="jenis_kamar" class="w-full px-4 py-2 border rounded-lg">
-                            <option value="Standard">Standard</option>
-                            <option value="Deluxe">Deluxe</option>
-                            <option value="Suite">Suite</option>
+                            <?php foreach ($tipekamar as $tk) : ?>
+                                <option value="<?php echo $tk['jenis_kamar'] ?>"><?php echo $tk['jenis_kamar'] ?></option>
+                            <?php endforeach ?>
                         </select>
                     </div>
                     <div class="flex justify-end">
@@ -218,9 +216,9 @@
                     <div class="mb-4">
                         <label for="edit_tipe_kamar" class="block text-gray-700 font-semibold">Room type</label>
                         <select id="edit_tipe_kamar" name="tipe_kamar" class="w-full px-4 py-2 border rounded-lg">
-                            <option value="Standard">Standard</option>
-                            <option value="Deluxe">Deluxe</option>
-                            <option value="Suite">Suite</option>
+                            <?php foreach ($tipekamar as $tk) : ?>
+                                <option value="<?php echo $tk['jenis_kamar'] ?>"><?php echo $tk['jenis_kamar'] ?></option>
+                            <?php endforeach ?>
                         </select>
                     </div>
                     <div class="flex justify-end">
@@ -282,6 +280,14 @@
         document.getElementById('edit_no_kamar').value = no_kamar;
         document.getElementById('edit_tipe_kamar').value = tipe_kamar;
         document.getElementById('editKamarModal').classList.remove('hidden');
+        let selectElement = document.getElementById('edit_tipe_kamar');
+        for (let i = 0; i < selectElement.options.length; i++) {
+            if (selectElement.options[i].value == tipe_kamar) {
+                selectElement.options[i].selected = true;
+                console.log(selectElement.options[i].selected);
+                break;
+            }
+        }
     }
 
     function closeEditKamarModal() {

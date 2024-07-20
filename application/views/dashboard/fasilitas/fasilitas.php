@@ -75,7 +75,7 @@
       </div>
       <!-- Modal body -->
       <div class="formAction p-4 md:p-5">
-        <form action="" class="user" method="post" enctype='multipart/form-data'>
+        <form action="<?php echo base_url('c_fasilitas/c_fasilitas/insert') ?>" class="user" method="post" enctype='multipart/form-data'>
             <input hidden class="form-control" type="text" id="id" name="id">
             <div class="mb-2">
                 <label for="fasilitas" class="form-label">Nama fasilitas</label>

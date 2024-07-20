@@ -46,4 +46,10 @@ class c_home extends CI_Controller {
     {
         $this->load->view('error_page');
     }
+
+    public function contact()
+    {
+        $this->load->view('home/contact');
+
+    }
 }

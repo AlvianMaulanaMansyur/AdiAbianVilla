@@ -8,8 +8,7 @@ class m_fasilitas extends CI_Model
         parent::__construct();
     }
     public function getData()
-    {
-        
+    {   
         $this->db->select('*');
         $this->db->from('fasilitas');
         $this->db->join('admin', 'admin.id_admin = fasilitas.id_admin');
@@ -37,7 +36,7 @@ class m_fasilitas extends CI_Model
 
             $result = $this->db->insert('fasilitas', $insert);
             return $result;
-        }
+    }
     public function editFasilitas()
     {
             $this->load->model('M_dashboard');
