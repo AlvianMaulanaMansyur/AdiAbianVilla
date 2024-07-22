@@ -183,5 +183,4 @@ class c_fasilitas extends CI_Controller
     
 }
 
-/* End of file Controllername.php */
  

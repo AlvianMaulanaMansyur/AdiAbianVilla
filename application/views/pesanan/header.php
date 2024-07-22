@@ -68,4 +68,34 @@
             border: none;
         }
     </style>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <style>
+        body {
+            padding: 20px;
+            background-color: #fff; /* Mengubah warna latar belakang menjadi putih */
+        }
+        .container {
+            max-width: 1000px; /* Mengatur lebar maksimum kontainer */
+            margin: auto;
+            padding: 20px; /* Menambahkan ruang di dalam kontainer */
+            background-color: #f9f9f9; /* Mengubah warna latar belakang kontainer */
+            border-radius: 10px; /* Menggunakan sudut border */
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* Menambahkan bayangan */
+            min-height: 80vh; /* Mengatur tinggi minimum kontainer */
+        }
+        .booking-table {
+            margin-top: 20px;
+            max-height: 60vh; /* Mengatur tinggi maksimum tabel */
+            overflow-y: auto; /* Menambahkan scroll vertikal jika konten melebihi tinggi maksimum */
+        }
+        .judul-pesanan {
+            font-size: 32px; /* Memperbesar ukuran font judul */
+            margin-bottom: 20px; /* Menambahkan ruang di bawah judul */
+            color: #333; /* Warna teks lebih gelap */
+        }
+        .nav-item {
+            margin-right: 10px; /* Memberikan jarak antara ikon-ikon */
+        }
+    </style>
 </head>
