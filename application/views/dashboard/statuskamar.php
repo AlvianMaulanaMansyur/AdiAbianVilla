@@ -81,7 +81,9 @@
                             <?php foreach ($kamar as $k) : ?>
                                 <tr class="border-b hover:bg-gray-100">
                                     <td class="py-3 px-2 border"><?php echo $k['no_kamar']; ?></td>
-                                    <td class="py-3 px-2 border"><?php echo $k['harga']; ?></td>
+                                    <td class="py-3 px-2 border">
+                                        <?php echo 'Rp ' . number_format($k['harga'], 0, ',', '.'); ?>
+                                    </td>
                                     <td class="py-3 px-2 border"><?php echo $k['jenis_kamar']; ?></td>
                                     <td class="py-3 px-2 border"><?php echo $k['deskripsi']; ?></td>
                                     <td class="py-3 px-2 border text-center">
@@ -128,7 +130,9 @@
                             <?php foreach ($tipekamar as $tipe) : ?>
                                 <tr class="border-b hover:bg-gray-100">
                                     <td class="py-3 px-2 border"><?php echo $tipe['jenis_kamar']; ?></td>
-                                    <td class="py-3 px-2 border"><?php echo $tipe['harga']; ?></td>
+                                    <td class="py-3 px-2 border">
+                                        <?php echo 'Rp ' . number_format($tipe['harga'], 0, ',', '.'); ?>
+                                    </td>
                                     <td class="py-3 px-2 border"><?php echo $tipe['deskripsi']; ?></td>
                                     <td class="py-3 px-1 border text-center">
                                         <div class="flex justify-center space-x-2">
@@ -322,17 +326,32 @@
             success: function(response) {
                 var data = JSON.parse(response);
                 if (data.status) {
-                    location.reload();
+                    Swal.fire({
+                        title: 'Berhasil!',
+                        text: 'Kamar berhasil ditambahkan.',
+                        icon: 'success',
+                        confirmButtonText: 'OK'
+                    }).then((result) => {
+                        if (result.isConfirmed) {
+                            location.reload();
+                        }
+                    });
                 } else {
                     console.log("Error: " + data.message);
                 }
             },
             error: function(xhr, status, error) {
-                alert("AJAX request failed: " + status + ", " + error + ". " + xhr.responseText);
+                Swal.fire({
+                    title: 'Error!',
+                    text: 'AJAX request failed: ' + status + ', ' + error + '. ' + xhr.responseText,
+                    icon: 'error',
+                    confirmButtonText: 'OK'
+                });
             }
         });
         closeAddKamarModal();
     });
+
 
     document.getElementById('addtipeForm').addEventListener('submit', function(event) {
         event.preventDefault();
@@ -351,17 +370,37 @@
             success: function(response) {
                 var data = JSON.parse(response);
                 if (data.status) {
-                    location.reload();
+                    Swal.fire({
+                        title: 'Berhasil!',
+                        text: 'Tipe kamar berhasil ditambahkan.',
+                        icon: 'success',
+                        confirmButtonText: 'OK'
+                    }).then((result) => {
+                        if (result.isConfirmed) {
+                            location.reload();
+                        }
+                    });
                 } else {
-                    alert("Error: " + data.message);
+                    Swal.fire({
+                        title: 'Error!',
+                        text: 'Gagal menambahkan tipe kamar: ' + data.message,
+                        icon: 'error',
+                        confirmButtonText: 'OK'
+                    });
                 }
             },
             error: function(xhr, status, error) {
-                alert("AJAX request failed: " + status + ", " + error + ". " + xhr.responseText);
+                Swal.fire({
+                    title: 'Error!',
+                    text: 'AJAX request failed: ' + status + ', ' + error + '. ' + xhr.responseText,
+                    icon: 'error',
+                    confirmButtonText: 'OK'
+                });
             }
         });
         closeAddtipeModal();
     });
+
 
     document.getElementById('editKamarForm').addEventListener('submit', function(event) {
         event.preventDefault();
@@ -376,45 +415,89 @@
                 id_kamar: id_kamar,
                 no_kamar: no_kamar,
                 jenis_kamar: jenis_kamar
-
             },
             success: function(response) {
                 var data = JSON.parse(response);
                 if (data.status) {
-                    location.reload();
+                    Swal.fire({
+                        title: 'Berhasil!',
+                        text: 'Data kamar berhasil diperbarui.',
+                        icon: 'success',
+                        confirmButtonText: 'OK'
+                    }).then((result) => {
+                        if (result.isConfirmed) {
+                            location.reload();
+                        }
+                    });
                 } else {
-                    alert("Error: " + data.message);
+                    Swal.fire({
+                        title: 'Error!',
+                        text: 'Gagal memperbarui data kamar: ' + data.message,
+                        icon: 'error',
+                        confirmButtonText: 'OK'
+                    });
                 }
             },
             error: function(xhr, status, error) {
-                alert("AJAX request failed: " + status + ", " + error + ". " + xhr.responseText);
+                Swal.fire({
+                    title: 'Error!',
+                    text: 'AJAX request failed: ' + status + ', ' + error + '. ' + xhr.responseText,
+                    icon: 'error',
+                    confirmButtonText: 'OK'
+                });
             }
         });
         closeEditKamarModal();
     });
 
+
     function deleteKamar(id_kamar) {
-        if (confirm('Apakah Anda yakin ingin menghapus kamar ini?')) {
-            $.ajax({
-                url: '<?php echo site_url('Dashboard/deleteKamar'); ?>',
-                type: 'POST',
-                data: {
-                    id_kamar: id_kamar
-                },
-                success: function(response) {
-                    var data = JSON.parse(response);
-                    if (data.status) {
-                        location.reload();
-                    } else {
-                        alert("Error: " + data.message);
+        Swal.fire({
+            title: 'Apakah Anda yakin?',
+            text: "Anda tidak akan bisa mengembalikan ini!",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Ya, hapus!'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                $.ajax({
+                    url: '<?php echo site_url('Dashboard/deleteKamar'); ?>',
+                    type: 'POST',
+                    data: {
+                        id_kamar: id_kamar
+                    },
+                    success: function(response) {
+                        var data = JSON.parse(response);
+                        if (data.status) {
+                            Swal.fire(
+                                'Terhapus!',
+                                'Kamar telah dihapus.',
+                                'success'
+                            ).then(() => {
+                                location.reload();
+                            });
+                        } else {
+                            Swal.fire(
+                                'Gagal!',
+                                'Error: ' + data.message,
+                                'error'
+                            );
+                        }
+                    },
+                    error: function(xhr, status, error) {
+                        Swal.fire(
+                            'Gagal!',
+                            'Maaf Kamar sudah terdaftar di Pesanan'
+                        );
                     }
-                },
-                error: function(xhr, status, error) {
-                    alert("AJAX request failed: " + status + ", " + error + ". " + xhr.responseText);
-                }
-            });
-        }
+                });
+            }
+        });
     }
+
+
     $(document).ready(function() {
         $('#edittipeForm').on('submit', function(event) {
             event.preventDefault();
@@ -436,40 +519,82 @@
                 },
                 success: function(response) {
                     if (response.status) {
-                        // Berhasil mengubah data, langsung reload halaman
-                        location.reload();
+                        Swal.fire({
+                            title: 'Berhasil!',
+                            text: 'Data tipe kamar berhasil diperbarui.',
+                            icon: 'success',
+                            confirmButtonText: 'OK'
+                        }).then((result) => {
+                            if (result.isConfirmed) {
+                                location.reload();
+                            }
+                        });
                     } else {
-                        // Gagal mengubah data, tampilkan pesan error jika perlu
-                        console.log('Gagal mengubah data kamar.');
+                        Swal.fire({
+                            title: 'Error!',
+                            text: 'Gagal memperbarui data tipe kamar: ' + response.message,
+                            icon: 'error',
+                            confirmButtonText: 'OK'
+                        });
                     }
                 },
                 error: function(xhr, status, error) {
-                    console.error('Terjadi kesalahan: ' + error);
+                    Swal.fire({
+                        title: 'Error!',
+                        text: 'Terjadi kesalahan: ' + status + ', ' + error + '. ' + xhr.responseText,
+                        icon: 'error',
+                        confirmButtonText: 'OK'
+                    });
                 }
             });
         });
     });
 
+
     function deleteTipe(id_detail_kamar) {
-        if (confirm('Apakah Anda yakin ingin menghapus tipe kamar ini?')) {
-            $.ajax({
-                url: "<?php echo base_url('dashboard/deleteTipeKamar'); ?>",
-                type: "POST",
-                data: {
-                    id_detail_kamar: id_detail_kamar
-                },
-                success: function(response) {
-                    var data = JSON.parse(response);
-                    if (data.status) {
-                        location.reload();
-                    } else {
-                        alert("Error: " + data.message);
+        Swal.fire({
+            title: 'Apakah Anda yakin?',
+            text: "Anda tidak akan bisa mengembalikan ini!",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Ya, hapus!'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                $.ajax({
+                    url: "<?php echo base_url('dashboard/deleteTipeKamar'); ?>",
+                    type: "POST",
+                    data: {
+                        id_detail_kamar: id_detail_kamar
+                    },
+                    success: function(response) {
+                        var data = JSON.parse(response);
+                        if (data.status) {
+                            Swal.fire(
+                                'Terhapus!',
+                                'Tipe kamar telah dihapus.',
+                                'success'
+                            ).then(() => {
+                                location.reload();
+                            });
+                        } else {
+                            Swal.fire(
+                                'Gagal!',
+                                'Error: ' + data.message,
+                                'error'
+                            );
+                        }
+                    },
+                    error: function(xhr, status, error) {
+                        Swal.fire(
+                            'Gagal!',
+                            'AJAX request failed: ' + status + ", " + error + ". " + xhr.responseText,
+                            'error'
+                        );
                     }
-                },
-                error: function(xhr, status, error) {
-                    alert("AJAX request failed: " + status + ", " + error + ". " + xhr.responseText);
-                }
-            });
-        }
+                });
+            }
+        });
     }
 </script>
