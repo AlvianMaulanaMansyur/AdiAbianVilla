@@ -19,7 +19,6 @@
                 <?php else : ?>
                   <a class="tourmaster-user-top-bar-login" href="<?= base_url('Auth/login') ?>">Login</a>
                 <?php endif; ?>
-
               </div>
             </div>
           </div>
@@ -52,9 +51,8 @@
                   <li class="menu-item hotale-normal-menu">
                     <a href="<?php echo base_url('home#villa_facilities') ?>">Facilities</a>
                   </li>
-                  <li class="menu-item current-menu-item menu-item-has-children hotale-normal-menu">
-                    <a href="<?php echo base_url('room') ?>" class="sf-with-ul-pre">Reservation</a>
-
+                  <li class="menu-item menu-item-has-children hotale-normal-menu">
+                    <a href="<?php echo base_url('pesanan') ?>" class="sf-with-ul-pre">Reservation</a>
                   </li>
                   <li class="menu-ite hotale-normal-menu"><a href="<?php echo base_url('contact') ?>" class="sf-with-ul-pre">Contact</a></li>
                   <!-- <li class="menu-ite hotale-normal-menu"><a href="<?php echo base_url('') ?>" class="sf-with-ul-pre"><i class="fa-solid fa-user"></i></a></li> -->

@@ -55,34 +55,6 @@ class Dashboard extends CI_Controller
         $this->load->view('dashboard/main', $data);
     }
 
-    public function addKamar()
-    {
-        $this->form_validation->set_rules('no_kamar', 'No Kamar', 'required');
-        $this->form_validation->set_rules('jenis_kamar', 'Tipe Kamar', 'required');
-
-        if ($this->form_validation->run() == FALSE) {
-            $response = ['status' => false, 'message' => validation_errors()];
-            echo json_encode($response);
-        } else {
-            $no_kamar = $this->input->post('no_kamar');
-            $jenis_kamar = $this->input->post('jenis_kamar');
-            $id_detail_kamar = $this->M_dashboard->getIddetailkamar($jenis_kamar);
-            // var_dump($id_detail_kamar);
-            $data = [
-                'no_kamar' => $no_kamar,
-                'id_detail_kamar' => $id_detail_kamar[0]['id_detail_kamar'],
-                'id_admin' => 1
-            ];
-            $insert = $this->M_dashboard->insertKamar($data);
-            if ($insert) {
-                $response = ['status' => true, 'message' => 'Kamar berhasil ditambahkan'];
-            } else {
-                $response = ['status' => false, 'message' => 'Gagal menambahkan kamar'];
-            }
-            echo json_encode($response);
-        }
-    }
-
     public function addtipekamar()
     {
         $this->form_validation->set_rules('harga', 'Harga Kamar', 'required');
@@ -131,6 +103,34 @@ class Dashboard extends CI_Controller
         echo json_encode($response);
     }
 
+
+    public function addKamar()
+    {
+        $this->form_validation->set_rules('no_kamar', 'No Kamar', 'required');
+        $this->form_validation->set_rules('jenis_kamar', 'Tipe Kamar', 'required');
+
+        if ($this->form_validation->run() == FALSE) {
+            $response = ['status' => false, 'message' => validation_errors()];
+            echo json_encode($response);
+        } else {
+            $no_kamar = $this->input->post('no_kamar');
+            $jenis_kamar = $this->input->post('jenis_kamar');
+            $id_detail_kamar = $this->M_dashboard->getIddetailkamar($jenis_kamar);
+            // var_dump($id_detail_kamar);
+            $data = [
+                'no_kamar' => $no_kamar,
+                'id_detail_kamar' => $id_detail_kamar[0]['id_detail_kamar'],
+                'id_admin' => 1
+            ];
+            $insert = $this->M_dashboard->insertKamar($data);
+            if ($insert) {
+                $response = ['status' => true, 'message' => 'Kamar berhasil ditambahkan'];
+            } else {
+                $response = ['status' => false, 'message' => 'Gagal menambahkan kamar'];
+            }
+            echo json_encode($response);
+        }
+    }
     public function editKamar()
     {
         $this->form_validation->set_rules('id_kamar', 'ID Kamar', 'required');
@@ -172,7 +172,6 @@ class Dashboard extends CI_Controller
         }
         echo json_encode($response);
     }
-
 
     public function daftarPemesanan()
     {

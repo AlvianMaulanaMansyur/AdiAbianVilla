@@ -18,10 +18,10 @@ class Kamar extends CI_Controller
         }
     }
 
-    public function easepick() {
-        $this->load->view('kamar/easepick', FALSE);
+    // public function easepick() {
+    //     $this->load->view('kamar/easepick', FALSE);
         
-    }
+    // }
 
     public function index() {
         $identity = $this->session->userdata('identity');
@@ -58,26 +58,6 @@ class Kamar extends CI_Controller
         $this->load->view('partials/kamar/main', $data);
     }
 
-    // public function index()
-    // {
-    //     $harga_kamar = $this->M_kamar->getHargaKamar();
-    //     $checkin = $this->input->cookie('checkin', TRUE);
-    //     $checkout = $this->input->cookie('checkout', TRUE);
-
-    //     $datacheck = array(
-    //         'checkin' => $checkin ? $checkin : '',
-    //         'checkout' => $checkout ? $checkout : ''
-    //     );
-    //     $data = [
-    //         'title' => 'Calendar',
-    //         'header' => 'partials/header_kamar',
-    //         'content' => 'kamar/ketersediaan',
-    //         'script' => 'partials/script',
-    //         'kamar' => $datacheck,
-    //         'harga' => $harga_kamar[0]['harga'],
-    //     ];
-    //     $this->load->view('partials/main', $data);
-    // }
     public function ketersediaanKamar()
     {
         if ($this->input->is_ajax_request()) {
@@ -125,11 +105,6 @@ class Kamar extends CI_Controller
         } else {
             show_error('Forbidden', 403);
         }
-    }
-
-    public function logout()
-    {
-        session_destroy();
     }
 }
 
