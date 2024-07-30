@@ -8,6 +8,11 @@ class Pesanan extends CI_Controller {
         parent::__construct();
         $this->load->model('M_pesanan');
         $this->load->model('M_tamu');
+        if($this->session->userdata('logged_in') == TRUE) {
+            
+        } elseif ($this->session->userdata('identity') == null) {
+            redirect('auth/login');
+        }
     }
 
     public function index()

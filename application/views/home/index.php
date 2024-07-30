@@ -337,6 +337,8 @@
                                 </div>
                             </div>
                         </div>
+                        <div class="flex justify-center w-full">
+                        <?php foreach ($fasilitas as $key) : ?>
                         <div class="gdlr-core-pbf-column gdlr-core-column-12 gdlr-core-column-first" id="gdlr-core-column-9">
                             <div class="gdlr-core-pbf-column-content-margin gdlr-core-js" style="padding: 70px 0px 0px 0px;">
                                 <div class="gdlr-core-pbf-background-wrap"></div>
@@ -344,7 +346,7 @@
                                     <div class="gdlr-core-pbf-element">
                                         <div class="gdlr-core-image-item gdlr-core-item-pdb gdlr-core-center-align gdlr-core-item-pdlr">
                                             <div class="gdlr-core-image-item-wrap gdlr-core-media-image gdlr-core-image-item-style-rectangle" style="border-width: 0px; max-width: 65px;">
-                                                <img src="<?php echo base_url('asset/upload/Group-40.png') ?>" alt="" width="130" height="110" title="Group 40" />
+                                                <img src="<?php echo base_url($key['image']) ?>" alt="" width="130" height="110" title="Group 40" />
                                             </div>
                                         </div>
                                     </div>
@@ -352,7 +354,7 @@
                                         <div class="gdlr-core-title-item gdlr-core-item-pdb clearfix gdlr-core-center-align gdlr-core-title-item-caption-top gdlr-core-item-pdlr" style="padding-bottom: 0px;">
                                             <div class="gdlr-core-title-item-title-wrap">
                                                 <h3 class="gdlr-core-title-item-title gdlr-core-skin-title class-test" style="font-size: 20px; font-weight: 500; letter-spacing: 0px; text-transform: none; color: #000000;">
-                                                    Parking<span class="gdlr-core-title-item-title-divider gdlr-core-skin-divider"></span>
+                                                    <?php echo $key['nama_fasilitas'] ?><span class="gdlr-core-title-item-title-divider gdlr-core-skin-divider"></span>
                                                 </h3>
                                             </div>
                                         </div>
@@ -360,89 +362,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="gdlr-core-pbf-column gdlr-core-column-12" id="gdlr-core-column-10">
-                            <div class="gdlr-core-pbf-column-content-margin gdlr-core-js" style="padding: 70px 0px 0px 0px;">
-                                <div class="gdlr-core-pbf-background-wrap"></div>
-                                <div class="gdlr-core-pbf-column-content clearfix gdlr-core-js" data-gdlr-animation="fadeInDown" data-gdlr-animation-duration="600ms" data-gdlr-animation-offset="0.8">
-                                    <div class="gdlr-core-pbf-element">
-                                        <div class="gdlr-core-icon-item gdlr-core-item-pdlr gdlr-core-item-pdb gdlr-core-center-align">
-                                            <i class="gdlr-core-icon-item-icon gdlr-icon-dish" style="color: #212121; font-size: 62px; min-width: 62px; min-height: 62px;"></i>
-                                        </div>
-                                    </div>
-                                    <div class="gdlr-core-pbf-element">
-                                        <div class="gdlr-core-title-item gdlr-core-item-pdb clearfix gdlr-core-center-align gdlr-core-title-item-caption-top gdlr-core-item-pdlr" style="padding-bottom: 0px;">
-                                            <div class="gdlr-core-title-item-title-wrap">
-                                                <h3 class="gdlr-core-title-item-title gdlr-core-skin-title class-test" style="font-size: 20px; font-weight: 500; letter-spacing: 0px; text-transform: none; color: #000000;">
-                                                    Kitchen<span class="gdlr-core-title-item-title-divider gdlr-core-skin-divider"></span>
-                                                </h3>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="gdlr-core-pbf-column gdlr-core-column-12" id="gdlr-core-column-11">
-                            <div class="gdlr-core-pbf-column-content-margin gdlr-core-js" style="padding: 70px 0px 0px 0px;">
-                                <div class="gdlr-core-pbf-background-wrap"></div>
-                                <div class="gdlr-core-pbf-column-content clearfix gdlr-core-js" data-gdlr-animation="fadeInUp" data-gdlr-animation-duration="600ms" data-gdlr-animation-offset="0.8">
-                                    <div class="gdlr-core-pbf-element">
-                                        <div class="gdlr-core-icon-item gdlr-core-item-pdlr gdlr-core-item-pdb gdlr-core-center-align">
-                                            <i class="gdlr-core-icon-item-icon gdlr-icon-swimming-pool1" style="color: #212121; font-size: 62px; min-width: 62px; min-height: 62px;"></i>
-                                        </div>
-                                    </div>
-                                    <div class="gdlr-core-pbf-element">
-                                        <div class="gdlr-core-title-item gdlr-core-item-pdb clearfix gdlr-core-center-align gdlr-core-title-item-caption-top gdlr-core-item-pdlr" style="padding-bottom: 0px;">
-                                            <div class="gdlr-core-title-item-title-wrap">
-                                                <h3 class="gdlr-core-title-item-title gdlr-core-skin-title class-test" style="font-size: 20px; font-weight: 500; letter-spacing: 0px; text-transform: none; color: #000000;">
-                                                    Swimming Pool<span class="gdlr-core-title-item-title-divider gdlr-core-skin-divider"></span>
-                                                </h3>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="gdlr-core-pbf-column gdlr-core-column-12" id="gdlr-core-column-12">
-                            <div class="gdlr-core-pbf-column-content-margin gdlr-core-js" style="padding: 70px 0px 0px 0px;">
-                                <div class="gdlr-core-pbf-background-wrap"></div>
-                                <div class="gdlr-core-pbf-column-content clearfix gdlr-core-js" data-gdlr-animation="fadeInDown" data-gdlr-animation-duration="600ms" data-gdlr-animation-offset="0.8">
-                                    <div class="gdlr-core-pbf-element">
-                                        <div class="gdlr-core-icon-item gdlr-core-item-pdlr gdlr-core-item-pdb gdlr-core-center-align">
-                                            <i class="gdlr-core-icon-item-icon gdlr-icon-wifi-signal" style="color: #212121; font-size: 62px; min-width: 62px; min-height: 62px;"></i>
-                                        </div>
-                                    </div>
-                                    <div class="gdlr-core-pbf-element">
-                                        <div class="gdlr-core-title-item gdlr-core-item-pdb clearfix gdlr-core-center-align gdlr-core-title-item-caption-top gdlr-core-item-pdlr" style="padding-bottom: 0px;">
-                                            <div class="gdlr-core-title-item-title-wrap">
-                                                <h3 class="gdlr-core-title-item-title gdlr-core-skin-title class-test" style="font-size: 20px; font-weight: 500; letter-spacing: 0px; text-transform: none; color: #000000;">
-                                                    Free Wifi<span class="gdlr-core-title-item-title-divider gdlr-core-skin-divider"></span>
-                                                </h3>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="gdlr-core-pbf-column gdlr-core-column-12" id="gdlr-core-column-13">
-                            <div class="gdlr-core-pbf-column-content-margin gdlr-core-js" style="padding: 70px 0px 0px 0px;">
-                                <div class="gdlr-core-pbf-background-wrap"></div>
-                                <div class="gdlr-core-pbf-column-content clearfix gdlr-core-js" data-gdlr-animation="fadeInUp" data-gdlr-animation-duration="600ms" data-gdlr-animation-offset="0.8">
-                                    <div class="gdlr-core-pbf-element">
-                                        <div class="gdlr-core-icon-item gdlr-core-item-pdlr gdlr-core-item-pdb gdlr-core-center-align">
-                                            <i class="gdlr-core-icon-item-icon gdlr-icon-shower" style="color: #212121; font-size: 64px; min-width: 64px; min-height: 64px;"></i>
-                                        </div>
-                                    </div>
-                                    <div class="gdlr-core-pbf-element">
-                                        <div class="gdlr-core-title-item gdlr-core-item-pdb clearfix gdlr-core-center-align gdlr-core-title-item-caption-top gdlr-core-item-pdlr" style="padding-bottom: 0px;">
-                                            <div class="gdlr-core-title-item-title-wrap">
-                                                <h3 class="gdlr-core-title-item-title gdlr-core-skin-title class-test" style="font-size: 20px; font-weight: 500; letter-spacing: 0px; text-transform: none; color: #000000;">
-                                                    Shower<span class="gdlr-core-title-item-title-divider gdlr-core-skin-divider"></span>
-                                                </h3>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+                        <?php endforeach ?>
                         </div>
                         <div class="gdlr-core-pbf-wrapper" style="padding: 115px 0px 85px 0px;" id="gdlr-core-wrapper-6">
                             <div class="gdlr-core-pbf-background-wrap"></div>
@@ -732,88 +652,86 @@
                     </div>
                 </div>
                 <footer>
-                    <div class="hotale-footer-wrapper">
-                        <div class="hotale-footer-container hotale-container clearfix">
-                            <div class="hotale-footer-column hotale-item-pdlr hotale-column-15">
-                                <div id="block-21" class="widget widget_block widget_media_image hotale-widget">
-                                    <figure class="wp-block-image">
-                                        <img loading="lazy" width="110" height="27" src="<?php echo base_url('asset/images/adibian.png') ?>" alt="" class="wp-image-14995" />
-                                    </figure>
-                                </div>
-                                <div id="block-7" class="widget widget_block widget_text hotale-widget">
-                                    <p></p>
-                                </div>
-                                <div id="block-8" class="widget widget_block hotale-widget">
-                                    <p>
-                                        <span class="gdlr-core-space-shortcode" style="margin-top: -10px;"></span><i class="fa fa-facebook" style="font-size: 16px; color: #ffffff; margin-left: 3px; margin-right: 17px;"></i>
-                                        <i class="fa5b fa-instagram" style="font-size: 16px; color: #ffffff; margin-left: 3px; margin-right: 17px;"></i>
-                                        <i class="icon-envelope" style="font-size: 16px; color: #ffffff; margin-left: 3px; margin-right: 17px;"></i>
-                                        <i class="fa5b fa5-whatsapp" style="font-size: 16px; color: #ffffff; margin-left: 3px; margin-right: 17px;"></i>
-                                    </p>
-                                </div>
-                                <div id="block-22" class="widget widget_block widget_text hotale-widget">
-                                    <p></p>
-                                </div>
-                                <div id="block-25" class="widget widget_block hotale-widget">
-                                    <div class="tourmaster-currency-switcher-shortcode clearfix">
-                                        <div class="tourmaster-currency-switcher" style="background: #333333;">
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="hotale-footer-column hotale-item-pdlr hotale-column-15">
-                                <div id="block-10" class="widget widget_block hotale-widget">
-                                    <h4>Contact</h4>
-                                </div>
-                                <div id="block-14" class="widget widget_block hotale-widget">
-                                    <p><span style="color: #ffffff;">Phone</span>: 62-858-756-364</p>
-                                    <p><span class="gdlr-core-space-shortcode" style="margin-top: -10px;"></span></p>
-                                    <p><span style="color: #ffffff;">E-mail</span>: <a href="#">adiabian@gmail.com</a></p>
-                                    <p><span class="gdlr-core-space-shortcode" style="margin-top: -10px;"></span></p>
-                                </div>
-                            </div>
-                            <div class="hotale-footer-column hotale-item-pdlr hotale-column-15">
-                                <div id="block-12" class="widget widget_block hotale-widget">
-                                    <h4>Villa Address</h4>
-                                </div>
-                                <div id="block-15" class="widget widget_block hotale-widget">
-                                    <p>
-                                        <span style="color: #ffffff;">
-                                            Adi Abian Villa.<br />
-                                            Pecatu, Uluwatu<br />
-                                            Kuta Selatan, Bali
-                                        </span>
-                                    </p>
-                                </div>
-                            </div>
-                            <div class="hotale-footer-column hotale-item-pdlr hotale-column-15">
-                                <div id="block-18" class="widget widget_block widget_media_image hotale-widget">
-                                    <div class="wp-block-image">
-                                        <figure class="aligncenter size-full">
-                                            <img loading="lazy" width="213" height="90" src="<?php echo base_url('asset/images/puter.png') ?>" alt="" class="wp-image-15004" />
-                                        </figure>
-                                    </div>
-                                </div>
-                                <div id="block-20" class="widget widget_block widget_media_image hotale-widget">
-                                    <div class="wp-block-image">
-                                    </div>
-                                </div>
-                            </div>
+        <div class="hotale-footer-wrapper">
+            <div class="hotale-footer-container hotale-container clearfix">
+                <div class="hotale-footer-column hotale-item-pdlr hotale-column-15">
+                    <div id="block-21" class="widget widget_block widget_media_image hotale-widget">
+                        <figure class="wp-block-image">
+                            <img loading="lazy" width="110" height="27" src="<?php echo base_url('asset/images/adibian.png') ?>" alt="" class="wp-image-14995" />
+                        </figure>
+                    </div>
+                    <div id="block-7" class="widget widget_block widget_text hotale-widget">
+                        <p></p>
+                    </div>
+                    <!-- <div id="block-8" class="widget widget_block hotale-widget">
+                        <p>
+                            <span class="gdlr-core-space-shortcode" style="margin-top: -10px;"></span>
+                            <i class="fa fa-phone" style="font-size: 16px; color: #ffffff; margin-left: 3px; margin-right: 17px;"></i>
+                            <i class="fa fa-envelope-o" style="font-size: 16px; color: #ffffff; margin-left: 3px; margin-right: 17px;"></i>
+                            <i class="fa5b fa-instagram" style="font-size: 16px; color: #ffffff; margin-left: 3px; margin-right: 17px;"></i>
+                        </p>
+                    </div> -->
+                    <div id="block-22" class="widget widget_block widget_text hotale-widget">
+                        <p></p>
+                    </div>
+                </div>
+                <div class="hotale-footer-column hotale-item-pdlr hotale-column-15">
+                    <div id="block-10" class="widget widget_block hotale-widget">
+                        <h4>Contact</h4>
+                    </div>
+                    <div id="block-14" class="widget widget_block hotale-widget">
+                        <p><span style="color: #ffffff;">Telephone</span><a href="https://wa.me/6285739481215">: +62-816-470-0311</a></p>
+                        <p><span class="gdlr-core-space-shortcode" style="margin-top: -10px;"></span></p>
+                        <p><span style="color: #ffffff;">Email</span>: <a href="#">adiabian1@gmail.com</a></p>
+                        <p><span class="gdlr-core-space-shortcode" style="margin-top: -10px;"></span></p>
+                        <p><span style="color: #ffffff;">Instagram</span>: <a href="https://www.instagram.com/adiabianvi?igsh=dmZ2cTVnMmI2bGd4">@adiabianvi</a></p>
+                    </div>
+                </div>
+                <div class="hotale-footer-column hotale-item-pdlr hotale-column-15">
+                    <div id="block-12" class="widget widget_block hotale-widget">
+                        <h4>Villa Address</h4>
+                    </div>
+                    <div id="block-15" class="widget widget_block hotale-widget">
+                        <p>
+                            <span style="color: #ffffff;">
+                                Jl. Raya Uluwatu Pecatu<br />
+                                No.108, Pecatu, Kec. Kuta Sel.<br />
+                                Kabupaten Badung, Bali 80361.
+                            </span>
+                        </p>
+                    </div>
+                </div>
+                <div class="hotale-footer-column hotale-item-pdlr hotale-column-15">
+                    <div id="block-18" class="widget widget_block widget_media_image hotale-widget">
+                        <div class="wp-block-image">
+                            <figure class="aligncenter size-full">
+                                <img loading="lazy" width="213" height="90" src="<?php echo base_url('asset/images/puter.png') ?>" alt="" class="wp-image-15004" />
+                            </figure>
                         </div>
                     </div>
-                    <div class="hotale-copyright-wrapper">
-                        <div class="hotale-copyright-container hotale-container clearfix">
-                            <div class="hotale-copyright-left hotale-item-pdlr">
-                                <div style="text-transform: uppercase; font-weight: 500; font-size: 13px; letter-spacing: 3px;">
-                                    <a href="index.html" style="margin-right: 22px;">Home</a>
-                                    <a href="about-us.html" style="margin-right: 22px;">About</a>
-                                    <a href="contact.html" style="margin-right: 22px;">Contact</a>
-                                </div>
-                            </div>
-                            <div class="hotale-copyright-right hotale-item-pdlr">Copyright ©PBL 2024. Adi Abian Villa.</div>
+                    <div id="block-20" class="widget widget_block widget_media_image hotale-widget">
+                        <div class="wp-block-image">
+                            <figure class="aligncenter is-resized">
+                                <img loading="lazy" width="154" height="26" src="<?php echo base_url('asset/images/pisa.png') ?>" alt="" class="wp-image-15004" />
+                            </figure>
                         </div>
                     </div>
-                </footer>
+                </div>
+            </div>
+        </div>
+        <div class="hotale-copyright-wrapper">
+            <div class="hotale-copyright-container hotale-container clearfix">
+                <div class="hotale-copyright-left hotale-item-pdlr">
+                    <div style="text-transform: uppercase; font-weight: 500; font-size: 13px; letter-spacing: 3px;">
+                    <a href="<?php echo base_url('home') ?>" style="margin-right: 22px;">Home</a>
+            <a href="<?php echo base_url('about') ?>" style="margin-right: 22px;">About</a>
+            <a href="<?php echo base_url('contact') ?>" style="margin-right: 22px;">Contact</a>
+                    </div>
+                </div>
+                <div class="hotale-copyright-right hotale-item-pdlr">Copyright © Tim Vian. PBL 2024.</div>
+            </div>
+        </div>
+    </footer>
             </div>
         </div>
     </div>

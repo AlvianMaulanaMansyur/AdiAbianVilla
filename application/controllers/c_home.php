@@ -8,24 +8,26 @@ class c_home extends CI_Controller {
     {
         parent::__construct();
         $this->load->model('M_tamu');
+        $this->load->model('mFasilitas/m_fasilitas');
+        
     }
 
 	public function index()
     {
+
         $identity = $this->session->userdata('identity');
 
         if (!empty($identity)){
-
             $user = $this->M_tamu->getTamuByEmailUsername($identity);
-            // var_dump($user);
-            $data = array(
-            'username' => 'Welcome, '.$user[0]['nama']
-            );
+            $username = $user[0]['nama'];
         } else {
-            $data = array (
-                'username' => 'Please Login First!'
-            );
+            $username = 'Please Login First!';
         }
+        $fasilitas = $this->m_fasilitas->getAllFasilitas();
+        $data = array (
+            'username' => 'Welcome, '.$username,
+            'fasilitas' => $fasilitas,
+        );
         // var_dump($data);
         $this->load->view('home/index', $data);
     }
@@ -39,7 +41,26 @@ class c_home extends CI_Controller {
 
     public function about()
     {
-        $this->load->view('home/about');
+        $identity = $this->session->userdata('identity');
+
+        if (!empty($identity)){
+
+            $user = $this->M_tamu->getTamuByEmailUsername($identity);
+            $username = $user[0]['nama'];
+        
+        } else {
+            $username = 'Login First!';
+
+        }
+        $data = [
+            'title' => 'Order',
+            'header' => 'partials/kamar/header',
+            'navbar' => 'partials/kamar/navbar',
+            'script' => 'partials/kamar/script',
+            'content' => 'home/about',
+            'username' => $username
+        ];
+        $this->load->view('partials/kamar/main', $data); // Load view dan kirim data pesanan
     }
 
     public function error_page()

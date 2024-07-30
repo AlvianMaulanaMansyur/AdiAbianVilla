@@ -10,18 +10,14 @@ class Kamar extends CI_Controller
         parent::__construct();
         $this->load->model('M_kamar');
         $this->load->model('M_tamu');
+        $this->load->model('mFasilitas/m_fasilitas');
 
         if($this->session->userdata('logged_in') == TRUE) {
             
-        } elseif ($this->session->userdata('identity') == null) {
+    } elseif ($this->session->userdata('identity') == null) {
             redirect('auth/login');
         }
     }
-
-    // public function easepick() {
-    //     $this->load->view('kamar/easepick', FALSE);
-        
-    // }
 
     public function index() {
         $identity = $this->session->userdata('identity');
@@ -33,10 +29,10 @@ class Kamar extends CI_Controller
         
         } else {
             $username = 'Login First!';
-
         }
 
         $harga_kamar = $this->M_kamar->getHargaKamar();
+        $fasilitas = $this->m_fasilitas->getAllFasilitas();
         $checkin = $this->input->cookie('checkin', TRUE);
         $checkout = $this->input->cookie('checkout', TRUE);
 
@@ -54,6 +50,7 @@ class Kamar extends CI_Controller
             'username' => $username,
             'kamar' => $datacheck,
             'harga' => $harga_kamar[0]['harga'],
+            'fasilitas' => $fasilitas,
         ];
         $this->load->view('partials/kamar/main', $data);
     }

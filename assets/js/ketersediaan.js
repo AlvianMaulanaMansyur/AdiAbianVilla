@@ -1,16 +1,16 @@
 // import moment from 'moment';
 
 document.addEventListener("DOMContentLoaded", function () {
-    function saveDate(start, date) {
-        var strs = "";
-			var stre = "";
-			// // strs = start ? formatDate(start) : '';
-			// // stre = end ? formatDate(end) : '...';
-			strs = start ? start.format("ddd D MMMM YYYY") : "";
-			stre = end ? end.format("ddd D MMMM YYYY") : "...";
-			document.getElementById("datepicker").value = strs;
-			document.getElementById("datepicker2").value = stre;
-    }
+	function saveDate(start, date) {
+		var strs = "";
+		var stre = "";
+		// // strs = start ? formatDate(start) : '';
+		// // stre = end ? formatDate(end) : '...';
+		strs = start ? start.format("ddd D MMMM YYYY") : "";
+		stre = end ? end.format("ddd D MMMM YYYY") : "...";
+		document.getElementById("datepicker").value = strs;
+		document.getElementById("datepicker2").value = stre;
+	}
 	var prices = {
 		"2024-06-25": "Rp. 500.000",
 		"2024-06-26": "Rp. 600.000",
@@ -43,24 +43,13 @@ document.addEventListener("DOMContentLoaded", function () {
 			stre = end ? end.format("ddd D MMMM YYYY") : "";
 			document.getElementById("datepicker").value = strs;
 			document.getElementById("datepicker2").value = stre;
-            console.log(strs);
+			console.log(strs);
 
 			if (start && end) {
-
 				var card = document.getElementById("availability-card-container");
 				if (card) {
 					card.innerHTML = "";
 				}
-				// function deleteCookie(name) {
-				// 	document.cookie =
-				// 		name + "=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
-				// }
-				// deleteCookie("roomsData");
-				// deleteCookie("availability");
-				// deleteCookie("kamar");
-				// deleteCookie("harga");
-				// deleteCookie("jenis_kamar");
-				// $("#availability-card-container").empty();
 				$("#availability1").empty();
 				const dateRange =
 					start.format("YYYY-MM-DD") + " - " + end.format("YYYY-MM-DD");
@@ -73,14 +62,10 @@ document.addEventListener("DOMContentLoaded", function () {
 					},
 					dataType: "json",
 					success: function (response) {
-						console.log('afajjadlfjal')
-	const cookies = document.cookie.split(";");
-	console.log(cookies);
+						console.log("afajjadlfjal");
+						const cookies = document.cookie.split(";");
+						console.log(cookies);
 						console.log(response.availability); // Tampilkan respons dari server pada konsol
-						// console.log(response.detail); // Tampilkan respons dari server pada konsol
-						// console.log(response.real); // Tampilkan respons dari server pada konsol
-						// console.log(response.tampil); // Tampilkan respons dari server pada konsol
-
 						// Menggunakan nilai dari respons untuk memperbarui tabel
 						var availabilityElement = $("#availability");
 						availabilityElement.html(response.availability.length);

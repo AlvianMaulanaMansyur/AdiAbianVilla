@@ -15,6 +15,12 @@ class m_fasilitas extends CI_Model
         $result = $this->db->get();
         return $result;
     }
+
+    public function getAllFasilitas() {
+        $result = $this->db->get('fasilitas');      
+        return $result->result_array();  
+    }
+
     public function getFasilitasById($idFasilitas)
     {
         $this->db->select('*');

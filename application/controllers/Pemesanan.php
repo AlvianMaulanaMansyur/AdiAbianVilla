@@ -68,6 +68,7 @@ class Pemesanan extends CI_Controller
         $dewasa = $dataCookie['adults'];
         $anak = $dataCookie['kids'];
         $jumlah_kamar = $dataCookie['rooms'];
+        date_default_timezone_set('Asia/Makassar');
         $current_time = date_create()->format('Y-m-d H:i:s');
         $email = $this->session->userdata('identity');
         $tamu = $this->M_tamu->getIdTamuByEmailUsername($email);

@@ -1,4 +1,3 @@
-
 function toggleModal(modalId) {
 	const modal = document.getElementById(modalId);
 	if (modal.classList.contains("hidden")) {
@@ -14,7 +13,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
 	const modalContainer = document.getElementById("modal-container");
 	const buttonsContainer = document.getElementById("buttons-container");
 	const submitButton = document.getElementById("submit-button");
-	const base_url = 'http://localhost/adiabianvilla';
+	const base_url = "http://localhost/adiabianvilla";
 
 	function updateCounts() {
 		let adults = 0;
@@ -26,7 +25,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
 		const roomsDataCookie = cookies.find((cookie) =>
 			cookie.trim().startsWith("roomsData=")
 		);
-        console.log('rooms data cookie : ',roomsDataCookie);
+		console.log("rooms data cookie : ", roomsDataCookie);
 
 		// console.log(roomsDataCookie.length)
 		if (roomsDataCookie) {
@@ -38,7 +37,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
 
 				console.log("adfadfadfadfadfadfad");
 			});
-            console.log('wkwkwkwkwkwkwk');
+			console.log("wkwkwkwkwkwkwk");
 			console.log("dewasa = ", adults);
 			console.log("anak = ", kids);
 		} else {
@@ -54,8 +53,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
 				kids += kidCount;
 				rooms++;
 			});
-            console.log('akakakakakakakakak');
-
+			console.log("akakakakakakakakak");
 		}
 
 		var persons = adults + kids;
@@ -69,11 +67,13 @@ document.addEventListener("DOMContentLoaded", (event) => {
 	updateCounts();
 
 	function saveRoomsData() {
+		var roomError = false;
 		const roomsData = [];
 		const roomSections = roomContainer.getElementsByClassName("room-section");
 		Array.from(roomSections).forEach((roomSection, index) => {
 			const adultSelect = roomSection.querySelector(".select-adult");
 			const kidSelect = roomSection.querySelector(".select-kid");
+
 			roomsData.push({
 				room: index + 1,
 				adults: adultSelect.value,
@@ -81,6 +81,31 @@ document.addEventListener("DOMContentLoaded", (event) => {
 			});
 		});
 
+		Array.from(roomSections).forEach((roomSection) => {
+			const adultSelect = roomSection.querySelector(".select-adult");
+			const kidSelect = roomSection.querySelector(".select-kid");
+
+			const adults = parseInt(adultSelect.value);
+			const kids = parseInt(kidSelect.value);
+
+			if (adults + kids > 3) {
+				Swal.fire({
+					icon: "warning",
+					title: "Oops",
+					text: "Total number of adults and kids in one room should not exceed 3.",
+					confirmButtonColor: "#3085d6",
+					confirmButtonText: "OK",
+				});
+				roomError = true;
+				return; // Jangan lanjutkan eksekusi jika kondisinya terpenuhi
+			}
+		});
+
+
+		if (roomError) {
+			return;
+		}
+		
 		const date = new Date();
 		date.setTime(date.getTime() + 24 * 60 * 60 * 1000); // 1 hari
 		const expires = "; expires=" + date.toUTCString();
@@ -88,6 +113,8 @@ document.addEventListener("DOMContentLoaded", (event) => {
 		// Mengatur cookie dengan tanggal kedaluwarsa
 		document.cookie =
 			"roomsData=" + JSON.stringify(roomsData) + expires + "; path=/";
+		closeModal(); // Panggil fungsi penutupan modal di sini
+
 	}
 
 	// Function to load data from cookie
@@ -118,8 +145,12 @@ document.addEventListener("DOMContentLoaded", (event) => {
                         <div class="text-black text-sm font-normal mr-auto">Adult</div>
                         <div>
                             <select name="dewasa" class="select-adult appearance-auto border-1 w-24 h-8 rounded">
-                                <option value="1" ${room.adults == 1 ? "selected" : ""}>1</option>
-                                <option value="2" ${room.adults == 2 ? "selected" : ""}>2</option>
+                                <option value="1" ${
+																	room.adults == 1 ? "selected" : ""
+																}>1</option>
+                                <option value="2" ${
+																	room.adults == 2 ? "selected" : ""
+																}>2</option>
                             </select>
                         </div>
                     </div>
@@ -131,9 +162,15 @@ document.addEventListener("DOMContentLoaded", (event) => {
                         </div>
                         <div>
                             <select name="anak" class="select-kid appearance-auto border-1 w-24 h-8 rounded">
-                                <option value="0" ${room.kids == 0 ? "selected" : ""}>0</option>
-                                <option value="1" ${room.kids == 1 ? "selected" : ""}>1</option>
-                                <option value="2" ${room.kids == 2 ? "selected" : ""}>2</option>
+                                <option value="0" ${
+																	room.kids == 0 ? "selected" : ""
+																}>0</option>
+                                <option value="1" ${
+																	room.kids == 1 ? "selected" : ""
+																}>1</option>
+                                <option value="2" ${
+																	room.kids == 2 ? "selected" : ""
+																}>2</option>
                             </select>
                         </div>
                     </div>
@@ -224,7 +261,13 @@ document.addEventListener("DOMContentLoaded", (event) => {
 						addRoomButton.disabled = false;
 					}
 				} else {
-					alert("At least one room must be present.");
+					Swal.fire({
+						icon: "warning",
+						title: "Warning",
+						text: "At least one room must be present.",
+						confirmButtonColor: "#3085d6",
+						confirmButtonText: "OK",
+					});
 				}
 			});
 		});
@@ -236,7 +279,6 @@ document.addEventListener("DOMContentLoaded", (event) => {
 		$("#availability-card-container").empty();
 		$("#availability1").empty();
 		console.log("Rooms data saved to cookie.");
-		closeModal(); // Panggil fungsi penutupan modal di sini
 	});
 
 	// Load data when modal is opened
@@ -359,7 +401,7 @@ function formatRupiah(value) {
 //                     <div class="mb-2">Nights: <span class="font-bold">${nights}</span></div>
 //                     <div class="mb-2">${adults} Adults and ${kids} Kids</div>
 //                 </div>
-                
+
 //                 <div>
 //                     <div class="text-lg font-bold mb-2">Price: <span class="font-normal">${formatRupiah(price)}</span></div>
 //                 </div>
@@ -380,7 +422,43 @@ function formatRupiah(value) {
 // };
 
 $("#check").click(function (event) {
-	// Mencegah form submit jika menggunakan form
+	var hasError = false;
+
+	const cookiese = document.cookie.split(";");
+	console.log(cookiese);
+	const roomsDataCookiee = cookiese.find((cookie) =>
+		cookie.trim().startsWith("roomsData=")
+	);
+	console.log("rooms data cookie : ", roomsDataCookiee);
+
+	let totalAdults = 0;
+	let totalKids = 0;
+
+	if (roomsDataCookiee) {
+		const roomsData = JSON.parse(roomsDataCookiee.split("=")[1]);
+		roomsData.forEach((room) => {
+			totalAdults = parseInt(room.adults);
+			totalKids = parseInt(room.kids);
+
+			if (totalAdults + totalKids > 3) {
+				Swal.fire({
+					icon: "warning",
+					title: "Oops",
+					text: "Total number of adults and kids in one room should not exceed 3.",
+					confirmButtonColor: "#3085d6",
+					confirmButtonText: "OK",
+				});
+				hasError = true;
+				return; // Hentikan eksekusi fungsi
+			}
+		});
+	}
+
+	if (hasError) {
+		$("#error-message").text("");
+		return; // Hentikan eksekusi fungsi
+	}
+
 	event.preventDefault();
 
 	// Ambil nilai dari input datepicker
@@ -426,10 +504,12 @@ $("#check").click(function (event) {
 			console.log("adfadfadfadfadfadfad = ", roomsi);
 		});
 	} else {
-        console.log('alamakakakakakak');
+		console.log("alamakakakakakak");
 		const roomSections = document.getElementsByClassName("room-section");
 		Array.from(roomSections).forEach((roomSection) => {
-			const adultCount = parseInt(roomSection.querySelector(".select-adult").value);
+			const adultCount = parseInt(
+				roomSection.querySelector(".select-adult").value
+			);
 			const kidCount = parseInt(roomSection.querySelector(".select-kid").value);
 			adults += adultCount;
 			kids += kidCount;
@@ -447,41 +527,42 @@ $("#check").click(function (event) {
 		},
 		dataType: "json",
 		success: function (response) {
-        const cookies = document.cookie.split(";");
-	    const roomsDataCookie = cookies.find((cookie) =>
-		cookie.trim().startsWith("roomsData="));
-            if (!roomsDataCookie) {
-                const roomContainer = document.getElementById("room-container");
-                const roomsData = [];
-                const roomSections = roomContainer.getElementsByClassName("room-section");
-                Array.from(roomSections).forEach((roomSection, index) => {
-                    const adultSelect = roomSection.querySelector(".select-adult");
-                    const kidSelect = roomSection.querySelector(".select-kid");
-                    roomsData.push({
-                        room: index + 1,
-                        adults: adultSelect.value,
-                        kids: kidSelect.value,
-                    });
-                console.log('adultSelect : ',adultSelect.value);
-    
-                });
-                console.log("roomsData : ",roomsData)
-    
-    
-                // Mengatur tanggal kedaluwarsa (misalnya, 1 hari dari sekarang)
-                const date = new Date();
-                date.setTime(date.getTime() + 24 * 60 * 60 * 1000); // 1 hari
-                const expires = "; expires=" + date.toUTCString();
-    
-                // Mengatur cookie dengan tanggal kedaluwarsa
-                document.cookie = "roomsData=" + JSON.stringify(roomsData) + expires + "; path=/";
-            } 
-			
+			const cookies = document.cookie.split(";");
+			const roomsDataCookie = cookies.find((cookie) =>
+				cookie.trim().startsWith("roomsData=")
+			);
+			if (!roomsDataCookie) {
+				const roomContainer = document.getElementById("room-container");
+				const roomsData = [];
+				const roomSections =
+					roomContainer.getElementsByClassName("room-section");
+				Array.from(roomSections).forEach((roomSection, index) => {
+					const adultSelect = roomSection.querySelector(".select-adult");
+					const kidSelect = roomSection.querySelector(".select-kid");
+					roomsData.push({
+						room: index + 1,
+						adults: adultSelect.value,
+						kids: kidSelect.value,
+					});
+					console.log("adultSelect : ", adultSelect.value);
+				});
+				console.log("roomsData : ", roomsData);
+
+				// Mengatur tanggal kedaluwarsa (misalnya, 1 hari dari sekarang)
+				const date = new Date();
+				date.setTime(date.getTime() + 24 * 60 * 60 * 1000); // 1 hari
+				const expires = "; expires=" + date.toUTCString();
+
+				// Mengatur cookie dengan tanggal kedaluwarsa
+				document.cookie =
+					"roomsData=" + JSON.stringify(roomsData) + expires + "; path=/";
+			}
+
 			var availability = response.availability;
 			var kamar = availability.count;
 			var harga = 500000;
 			var jenis_kamar = "Deluxe";
-            console.log(cookies);
+			console.log(cookies);
 			console.log("jumlah kamar", availability.count);
 			setCookie("availability", JSON.stringify(availability), 1);
 			setCookie("availability1", JSON.stringify(availability), 1);

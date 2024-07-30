@@ -202,88 +202,86 @@
 
   </div>
   <footer>
-    <div class="hotale-footer-wrapper">
-      <div class="hotale-footer-container hotale-container clearfix">
-        <div class="hotale-footer-column hotale-item-pdlr hotale-column-15">
-          <div id="block-21" class="widget widget_block widget_media_image hotale-widget">
-            <figure class="wp-block-image">
-              <img loading="lazy" width="110" height="27" src="<?php echo base_url('asset/images/adibian.png') ?>" alt="" class="wp-image-14995" />
-            </figure>
-          </div>
-          <div id="block-7" class="widget widget_block widget_text hotale-widget">
-            <p></p>
-          </div>
-          <div id="block-8" class="widget widget_block hotale-widget">
-            <p>
-              <span class="gdlr-core-space-shortcode" style="margin-top: -10px;"></span><i class="fa fa-facebook" style="font-size: 16px; color: #ffffff; margin-left: 3px; margin-right: 17px;"></i>
-              <i class="fa5b fa-instagram" style="font-size: 16px; color: #ffffff; margin-left: 3px; margin-right: 17px;"></i>
-              <i class="icon-envelope" style="font-size: 16px; color: #ffffff; margin-left: 3px; margin-right: 17px;"></i>
-              <i class="fa5b fa5-whatsapp" style="font-size: 16px; color: #ffffff; margin-left: 3px; margin-right: 17px;"></i>
-            </p>
-          </div>
-          <div id="block-22" class="widget widget_block widget_text hotale-widget">
-            <p></p>
-          </div>
-          <div id="block-25" class="widget widget_block hotale-widget">
-            <div class="tourmaster-currency-switcher-shortcode clearfix">
-              <div class="tourmaster-currency-switcher" style="background: #333333;">
-              </div>
+        <div class="hotale-footer-wrapper">
+            <div class="hotale-footer-container hotale-container clearfix">
+                <div class="hotale-footer-column hotale-item-pdlr hotale-column-15">
+                    <div id="block-21" class="widget widget_block widget_media_image hotale-widget">
+                        <figure class="wp-block-image">
+                            <img loading="lazy" width="110" height="27" src="<?php echo base_url('asset/images/adibian.png') ?>" alt="" class="wp-image-14995" />
+                        </figure>
+                    </div>
+                    <div id="block-7" class="widget widget_block widget_text hotale-widget">
+                        <p></p>
+                    </div>
+                    <!-- <div id="block-8" class="widget widget_block hotale-widget">
+                        <p>
+                            <span class="gdlr-core-space-shortcode" style="margin-top: -10px;"></span>
+                            <i class="fa fa-phone" style="font-size: 16px; color: #ffffff; margin-left: 3px; margin-right: 17px;"></i>
+                            <i class="fa fa-envelope-o" style="font-size: 16px; color: #ffffff; margin-left: 3px; margin-right: 17px;"></i>
+                            <i class="fa5b fa-instagram" style="font-size: 16px; color: #ffffff; margin-left: 3px; margin-right: 17px;"></i>
+                        </p>
+                    </div> -->
+                    <div id="block-22" class="widget widget_block widget_text hotale-widget">
+                        <p></p>
+                    </div>
+                </div>
+                <div class="hotale-footer-column hotale-item-pdlr hotale-column-15">
+                    <div id="block-10" class="widget widget_block hotale-widget">
+                        <h4>Contact</h4>
+                    </div>
+                    <div id="block-14" class="widget widget_block hotale-widget">
+                        <p><span style="color: #ffffff;">Telephone</span><a href="https://wa.me/6285739481215">: +62-816-470-0311</a></p>
+                        <p><span class="gdlr-core-space-shortcode" style="margin-top: -10px;"></span></p>
+                        <p><span style="color: #ffffff;">Email</span>: <a href="#">adiabian1@gmail.com</a></p>
+                        <p><span class="gdlr-core-space-shortcode" style="margin-top: -10px;"></span></p>
+                        <p><span style="color: #ffffff;">Instagram</span>: <a href="https://www.instagram.com/adiabianvi?igsh=dmZ2cTVnMmI2bGd4">@adiabianvi</a></p>
+                    </div>
+                </div>
+                <div class="hotale-footer-column hotale-item-pdlr hotale-column-15">
+                    <div id="block-12" class="widget widget_block hotale-widget">
+                        <h4>Villa Address</h4>
+                    </div>
+                    <div id="block-15" class="widget widget_block hotale-widget">
+                        <p>
+                            <span style="color: #ffffff;">
+                                Jl. Raya Uluwatu Pecatu<br />
+                                No.108, Pecatu, Kec. Kuta Sel.<br />
+                                Kabupaten Badung, Bali 80361.
+                            </span>
+                        </p>
+                    </div>
+                </div>
+                <div class="hotale-footer-column hotale-item-pdlr hotale-column-15">
+                    <div id="block-18" class="widget widget_block widget_media_image hotale-widget">
+                        <div class="wp-block-image">
+                            <figure class="aligncenter size-full">
+                                <img loading="lazy" width="213" height="90" src="<?php echo base_url('asset/images/puter.png') ?>" alt="" class="wp-image-15004" />
+                            </figure>
+                        </div>
+                    </div>
+                    <div id="block-20" class="widget widget_block widget_media_image hotale-widget">
+                        <div class="wp-block-image">
+                            <figure class="aligncenter is-resized">
+                                <img loading="lazy" width="154" height="26" src="<?php echo base_url('asset/images/pisa.png') ?>" alt="" class="wp-image-15004" />
+                            </figure>
+                        </div>
+                    </div>
+                </div>
             </div>
-          </div>
         </div>
-        <div class="hotale-footer-column hotale-item-pdlr hotale-column-15">
-          <div id="block-10" class="widget widget_block hotale-widget">
-            <h4>Contact</h4>
-          </div>
-          <div id="block-14" class="widget widget_block hotale-widget">
-            <p><span style="color: #ffffff;">Phone</span>: 62-858-756-364</p>
-            <p><span class="gdlr-core-space-shortcode" style="margin-top: -10px;"></span></p>
-            <p><span style="color: #ffffff;">E-mail</span>: <a href="#">adiabian@gmail.com</a></p>
-            <p><span class="gdlr-core-space-shortcode" style="margin-top: -10px;"></span></p>
-          </div>
-        </div>
-        <div class="hotale-footer-column hotale-item-pdlr hotale-column-15">
-          <div id="block-12" class="widget widget_block hotale-widget">
-            <h4>Villa Address</h4>
-          </div>
-          <div id="block-15" class="widget widget_block hotale-widget">
-            <p>
-              <span style="color: #ffffff;">
-                Adi Abian Villa.<br />
-                Pecatu, Uluwatu<br />
-                Kuta Selatan, Bali
-              </span>
-            </p>
-          </div>
-        </div>
-        <div class="hotale-footer-column hotale-item-pdlr hotale-column-15">
-          <div id="block-18" class="widget widget_block widget_media_image hotale-widget">
-            <div class="wp-block-image">
-              <figure class="aligncenter size-full">
-                <img loading="lazy" width="213" height="90" src="<?php echo base_url('asset/images/puter.png') ?>" alt="" class="wp-image-15004" />
-              </figure>
+        <div class="hotale-copyright-wrapper">
+            <div class="hotale-copyright-container hotale-container clearfix">
+                <div class="hotale-copyright-left hotale-item-pdlr">
+                    <div style="text-transform: uppercase; font-weight: 500; font-size: 13px; letter-spacing: 3px;">
+                    <a href="<?php echo base_url('home') ?>" style="margin-right: 22px;">Home</a>
+            <a href="<?php echo base_url('about') ?>" style="margin-right: 22px;">About</a>
+            <a href="<?php echo base_url('contact') ?>" style="margin-right: 22px;">Contact</a>
+                    </div>
+                </div>
+                <div class="hotale-copyright-right hotale-item-pdlr">Copyright © Tim Vian. PBL 2024.</div>
             </div>
-          </div>
-          <div id="block-20" class="widget widget_block widget_media_image hotale-widget">
-            <div class="wp-block-image">
-            </div>
-          </div>
         </div>
-      </div>
-    </div>
-    <div class="hotale-copyright-wrapper">
-      <div class="hotale-copyright-container hotale-container clearfix">
-        <div class="hotale-copyright-left hotale-item-pdlr">
-          <div style="text-transform: uppercase; font-weight: 500; font-size: 13px; letter-spacing: 3px;">
-            <a href="index.html" style="margin-right: 22px;">Home</a>
-            <a href="about-us.html" style="margin-right: 22px;">About</a>
-            <a href="contact.html" style="margin-right: 22px;">Contact</a>
-          </div>
-        </div>
-        <div class="hotale-copyright-right hotale-item-pdlr">Copyright ©PBL 2024. Adi Abian Villa.</div>
-      </div>
-    </div>
-  </footer>
+    </footer>
 </div>
 </div>
 

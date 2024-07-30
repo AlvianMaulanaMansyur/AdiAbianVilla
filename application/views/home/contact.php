@@ -119,7 +119,7 @@
                                 </div>
                                 <div class="hotale-main-menu-right-wrap clearfix hotale-item-mglr hotale-navigation-top">
                                     <div class="tourmaster-room-navigation-checkout-wrap">
-                                        <a id="tourmaster-room-navigation-checkout-button" class="tourmaster-room-navigation-checkout-button" href="room-search.html" data-checkout-label="Check Out" data-label="Book Now">
+                                        <a id="tourmaster-room-navigation-checkout-button" class="tourmaster-room-navigation-checkout-button" href="<?php echo base_url('home') ?>" data-checkout-label="Check Out" data-label="Book Now">
                                             Book Now<span class="tourmaster-count">0</span>
                                         </a>
                                         <div class="tourmaster-room-cart-item-wrap">
@@ -220,7 +220,7 @@
                         </div>
                         <h3 class="text-xl mb-2" style="color: white;">Phone</h3>
                         <p class="text-white-400 mb-4">If you have any questions and need more information, you can reach us on WhatsApp.</p>
-                        <a href="tel:+628164700311" style="color: white; text-decoration: underline;">+62-816-470-0311</a>
+                        <a style="color:white;text-decoration: underline;" href="https://wa.me/6285739481215">+62-816-470-0311</a>
                     </div>
                 </div>
                 <!-- Email Section -->
@@ -302,22 +302,13 @@
             <div class="gdlr-core-pbf-wrapper-content gdlr-core-js">
                 <div class="gdlr-core-pbf-wrapper-container clearfix gdlr-core-container">
                     <div class="gdlr-core-pbf-element">
-                        <div class="gdlr-core-social-network-item gdlr-core-item-pdb gdlr-core-center-align gdlr-core-item-pdlr gdlr-direction-horizontal">
-                            <a href="/cdn-cgi/l/email-protection#5172" target="_blank" class="gdlr-core-social-network-icon" title="email" style="font-size: 20px; color: #1e1e1e; margin-right: 40px;">
-                                <i class="fa fa-envelope"></i>
-                            </a>
-                            <a href="#" target="_blank" class="gdlr-core-social-network-icon" title="phone" style="font-size: 20px; color: #1e1e1e; margin-right: 40px;"><i class="fa fa-phone"></i></a>
-                            <a href="#" target="_blank" class="gdlr-core-social-network-icon" title="instagram" style="font-size: 20px; color: #1e1e1e; margin-right: 40px;"><i class="fa fa-instagram"></i></a>
-                        </div>
+                       
                     </div>
                 </div>
             </div>
         </div>
     </div>
     </div>
-
-
-
     <footer>
         <div class="hotale-footer-wrapper">
             <div class="hotale-footer-container hotale-container clearfix">
@@ -330,14 +321,14 @@
                     <div id="block-7" class="widget widget_block widget_text hotale-widget">
                         <p></p>
                     </div>
-                    <div id="block-8" class="widget widget_block hotale-widget">
+                    <!-- <div id="block-8" class="widget widget_block hotale-widget">
                         <p>
                             <span class="gdlr-core-space-shortcode" style="margin-top: -10px;"></span>
                             <i class="fa fa-phone" style="font-size: 16px; color: #ffffff; margin-left: 3px; margin-right: 17px;"></i>
                             <i class="fa fa-envelope-o" style="font-size: 16px; color: #ffffff; margin-left: 3px; margin-right: 17px;"></i>
                             <i class="fa5b fa-instagram" style="font-size: 16px; color: #ffffff; margin-left: 3px; margin-right: 17px;"></i>
                         </p>
-                    </div>
+                    </div> -->
                     <div id="block-22" class="widget widget_block widget_text hotale-widget">
                         <p></p>
                     </div>
@@ -347,11 +338,11 @@
                         <h4>Contact</h4>
                     </div>
                     <div id="block-14" class="widget widget_block hotale-widget">
-                        <p><span style="color: #ffffff;">T</span>: +62-816-470-0311</p>
+                        <p><span style="color: #ffffff;">Telephone</span><a href="https://wa.me/6285739481215">: +62-816-470-0311</a></p>
                         <p><span class="gdlr-core-space-shortcode" style="margin-top: -10px;"></span></p>
-                        <p><span style="color: #ffffff;">E</span>: <a href="#">adiabian@gmail.com</a></p>
+                        <p><span style="color: #ffffff;">Email</span>: <a href="#">adiabian1@gmail.com</a></p>
                         <p><span class="gdlr-core-space-shortcode" style="margin-top: -10px;"></span></p>
-                        <p><span style="color: #ffffff;">I</span>: @adiabianvi</p>
+                        <p><span style="color: #ffffff;">Instagram</span>: <a href="https://www.instagram.com/adiabianvi?igsh=dmZ2cTVnMmI2bGd4">@adiabianvi</a></p>
                     </div>
                 </div>
                 <div class="hotale-footer-column hotale-item-pdlr hotale-column-15">
@@ -390,9 +381,9 @@
             <div class="hotale-copyright-container hotale-container clearfix">
                 <div class="hotale-copyright-left hotale-item-pdlr">
                     <div style="text-transform: uppercase; font-weight: 500; font-size: 13px; letter-spacing: 3px;">
-                        <a href="index.html" style="margin-right: 22px;">Home</a>
-                        <a href="about-us.html" style="margin-right: 22px;">About</a>
-                        <a href="contact.html" style="margin-right: 22px;">Contact</a>
+                    <a href="<?php echo base_url('home') ?>" style="margin-right: 22px;">Home</a>
+            <a href="<?php echo base_url('about') ?>" style="margin-right: 22px;">About</a>
+            <a href="<?php echo base_url('contact') ?>" style="margin-right: 22px;">Contact</a>
                     </div>
                 </div>
                 <div class="hotale-copyright-right hotale-item-pdlr">Copyright © Tim Vian. PBL 2024.</div>
